@@ -656,8 +656,8 @@
       <div class="feature-card">
         <div class="feature-icon">✉️</div>
         <div class="feature-body">
-          <h3>Invitation-Only Registrierung</h3>
-          <p>Keine öffentliche Registrierung. Sicherer Token-Link per E-Mail, gültig 7 Tage, einmalig verwendbar.</p>
+          <h3>Invitation & Referral-System</h3>
+          <p>Admin-Einladungen + Mitglieder-Referrals (max. 5 Einladungen pro Mitglied). Geworbene Mitglieder dürfen in Phase 1 nicht weiterwerben. Tracking wer wen geworben hat.</p>
         </div>
       </div>
       <div class="feature-card">
@@ -693,6 +693,13 @@
         <div style="flex:1;height:1px;background:var(--border)"></div>
         <span style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)">Phase 2 — nach MVP</span>
         <div style="flex:1;height:1px;background:var(--border)"></div>
+      </div>
+      <div class="feature-card" style="opacity:0.7">
+        <div class="feature-icon">🔗</div>
+        <div class="feature-body">
+          <h3>Unbegrenzte Referrals + Benefits</h3>
+          <p>Mitglieder können unbegrenzt weitere Mitglieder werben. Mehr Benefits bei höherer Werbeanzahl (z.B. 10 Einladungen = Upgrade).</p>
+        </div>
       </div>
       <div class="feature-card" style="opacity:0.7">
         <div class="feature-icon">📅</div>
@@ -776,7 +783,7 @@
       <h2 class="section-title">Produktfeed & Katalog</h2>
     </div>
     <div class="card" style="margin-bottom:24px">
-      <p style="font-size:13px;color:var(--muted)">Produkte werden feed-basiert eingebunden — kein eigener Produktkatalog. Fortuneglobe liefert zwei Feeds (GM + CYS), die go2flow zu einem einheitlichen Feed zusammenführt.</p>
+      <p style="font-size:13px;color:var(--muted)">Produkte werden feed-basiert eingebunden — kein eigener Produktkatalog. Fortuneglobe richtet intern einen <strong>PIM-Channel</strong> analog zum Pierre-Cardin-Webshop ein. Datenpflege erfolgt getrennt im GM- und CYS-PIM — ob diese zu einem Feed zusammengeführt werden, klärt @Tobias intern.</p>
     </div>
     <div class="card-grid" style="margin-bottom:24px">
       <div class="feature-card">
@@ -859,6 +866,8 @@
         <tr><td class="td-name">memberId</td><td class="td-type">CHAR(36)</td><td class="td-desc">UUID — Primary Identifier</td></tr>
         <tr><td class="td-name">accountId</td><td class="td-type">CHAR(36)</td><td class="td-desc">FK → accounts.accountId (bestehend)</td></tr>
         <tr><td class="td-name">companyId</td><td class="td-type">CHAR(36)</td><td class="td-desc">FK → inner_circle_companies.companyId</td></tr>
+        <tr><td class="td-name">referredBy</td><td class="td-type">CHAR(36) NULL</td><td class="td-desc">FK → inner_circle_members (wer hat dieses Mitglied geworben)</td></tr>
+        <tr><td class="td-name">referralCount</td><td class="td-type">TINYINT</td><td class="td-desc">Anzahl gesendeter Einladungen (max. 5 in Phase 1)</td></tr>
         <tr><td class="td-name">status</td><td class="td-type">VARCHAR(50)</td><td class="td-desc">active | suspended</td></tr>
         <tr><td class="td-name">joinedAt</td><td class="td-type">DATETIME</td><td class="td-desc">Zeitpunkt der Aktivierung</td></tr>
       </table>
@@ -875,7 +884,8 @@
         <tr><td class="td-name">token</td><td class="td-type">VARCHAR(64)</td><td class="td-desc">SHA256-Token, einmalig, unique</td></tr>
         <tr><td class="td-name">email</td><td class="td-type">VARCHAR(255)</td><td class="td-desc">E-Mail des Eingeladenen</td></tr>
         <tr><td class="td-name">companyId</td><td class="td-type">CHAR(36)</td><td class="td-desc">Vorausgefüllte Firma (optional)</td></tr>
-        <tr><td class="td-name">invitedBy</td><td class="td-type">CHAR(36)</td><td class="td-desc">FK → admins.adminId</td></tr>
+        <tr><td class="td-name">invitedByAdmin</td><td class="td-type">CHAR(36) NULL</td><td class="td-desc">FK → admins.adminId (Admin-Einladung)</td></tr>
+        <tr><td class="td-name">invitedByMember</td><td class="td-type">CHAR(36) NULL</td><td class="td-desc">FK → inner_circle_members.memberId (Mitglieds-Referral)</td></tr>
         <tr><td class="td-name">status</td><td class="td-type">VARCHAR(50)</td><td class="td-desc">pending | accepted | expired</td></tr>
         <tr><td class="td-name">expiresAt</td><td class="td-type">DATETIME</td><td class="td-desc">Token-Ablauf (7 Tage nach Versand)</td></tr>
       </table>
@@ -1003,6 +1013,23 @@
     <div class="section-header">
       <div class="section-num">9</div>
       <h2 class="section-title">4-Wochen-Plan</h2>
+    </div>
+    <!-- Projektkoordination Info Box -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px">
+      <div class="card" style="border-left:3px solid var(--accent)">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent2);margin-bottom:10px">Next Step — Technischer Workshop</div>
+        <p style="font-size:13px;margin-bottom:8px">Termin erst <strong>ab 14.04.2026</strong> möglich.</p>
+        <p style="font-size:12px;color:var(--muted)">Teilnehmer: Daniel, Maximilian, Tobias, (Nina)<br>Scope-Abstimmung go2flow ↔ Fortuneglobe</p>
+      </div>
+      <div class="card" style="border-left:3px solid var(--red)">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--red);margin-bottom:10px">Abwesenheiten</div>
+        <p style="font-size:13px"><strong>Hanh</strong>: 07.04. – 30.04.2026<br><span style="color:var(--muted);font-size:12px">Vertretung: Nina</span></p>
+        <p style="font-size:13px;margin-top:8px"><strong>Tobias</strong>: 30.03. – 10.04.2026</p>
+      </div>
+    </div>
+    <div class="card" style="margin-bottom:24px;border-left:3px solid var(--green)">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--green);margin-bottom:8px">Übergabe-Modell</div>
+      <p style="font-size:13px">go2flow entwickelt MVP bis zur <strong>visuell präsentierbaren Version</strong> — danach integriert <strong>Tobias (Fortuneglobe)</strong> den Code in die IceHawk-Infrastruktur. Logo + CI wird von Hanh vor dem Urlaub an Daniel gesendet.</p>
     </div>
     <div class="timeline">
       <div class="week">
