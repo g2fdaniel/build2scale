@@ -681,13 +681,91 @@
           <p>"Exklusiv. Nur für Mitglieder." — Login-Formular mit E-Mail + Passwort und Passwort-Vergessen-Flow.</p>
         </div>
       </div>
+      <!-- Phase 2 divider -->
+      <div style="grid-column:1/-1;display:flex;align-items:center;gap:16px;margin:8px 0 4px">
+        <div style="flex:1;height:1px;background:var(--border)"></div>
+        <span style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)">Phase 2 — nach MVP</span>
+        <div style="flex:1;height:1px;background:var(--border)"></div>
+      </div>
+      <div class="feature-card" style="opacity:0.7">
+        <div class="feature-icon">📅</div>
+        <div class="feature-body">
+          <h3>Wöchentliche Aktionen</h3>
+          <p>Zeitlich begrenzte Promotions auf Startseite, Kategorieseiten und per Newsletter — vollständig via Admin steuerbar.</p>
+        </div>
+      </div>
+      <div class="feature-card" style="opacity:0.7">
+        <div class="feature-icon">🎨</div>
+        <div class="feature-body">
+          <h3>Erweiterte Markenseiten</h3>
+          <p>Eigene CI/Slogan-Seiten pro Marke mit individuellem Look & Feel — vollständige Brand-Experience innerhalb des Clubs.</p>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- 3. DATENBANK -->
+  <!-- 3. DESIGN REFERENZ -->
   <div class="section">
     <div class="section-header">
       <div class="section-num">3</div>
+      <h2 class="section-title">Design Referenz — Splash & Login Page</h2>
+    </div>
+    <div class="card" style="margin-bottom:24px">
+      <p style="color:var(--muted);font-size:13px">Referenz: GMO Konzept-Dokument v2 — definiertes Layout für die Club-Einstiegsseite</p>
+    </div>
+    <!-- Visual Mockup -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:24px">
+      <!-- Left: lifestyle image -->
+      <div style="background:linear-gradient(135deg,#1a0a0a 0%,#2d1515 50%,#1a0a0a 100%);min-height:280px;display:flex;flex-direction:column;justify-content:flex-end;padding:32px;position:relative">
+        <div style="position:absolute;inset:0;background:rgba(0,0,0,0.45)"></div>
+        <div style="position:relative;z-index:1">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:8px">PIERRE CARDIN</div>
+          <div style="font-size:22px;font-weight:800;color:#fff;line-height:1.2">INNER CIRCLE<br>CLUB</div>
+          <div style="margin-top:16px;font-size:11px;color:rgba(255,255,255,0.4);border-top:1px solid rgba(255,255,255,0.15);padding-top:12px">Lifestyle-Imagery — linke Hälfte, volle Höhe</div>
+        </div>
+      </div>
+      <!-- Right: login box -->
+      <div style="background:var(--card);padding:40px 32px;display:flex;flex-direction:column;justify-content:center">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent2);margin-bottom:16px">EXKLUSIV UND NUR FÜR MITGLIEDER</div>
+        <h3 style="font-size:20px;font-weight:700;margin-bottom:8px">Willkommen zurück</h3>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:24px">Melden Sie sich an, um Ihre Club-Vorteile zu nutzen.</p>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:12px 16px;font-size:13px;color:var(--muted)">E-Mail-Adresse</div>
+          <div style="background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:12px 16px;font-size:13px;color:var(--muted)">Passwort</div>
+          <div style="background:var(--accent);border-radius:8px;padding:12px 16px;text-align:center;font-size:13px;font-weight:700;color:#fff;margin-top:4px">ANMELDEN</div>
+          <div style="text-align:center;font-size:12px;color:var(--muted)">Passwort vergessen?</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-grid" style="grid-template-columns:repeat(3,1fr)">
+      <div class="feature-card">
+        <div class="feature-icon">🖼️</div>
+        <div class="feature-body">
+          <h3>Layout: 50/50 Split</h3>
+          <p>Linke Hälfte: großes Lifestyle-Foto mit dunklem Overlay + Branding. Rechte Hälfte: Login-Box auf dunklem Hintergrund.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💬</div>
+        <div class="feature-body">
+          <h3>Claim: Exklusivität</h3>
+          <p>"EXKLUSIV UND NUR FÜR MITGLIEDER" — prominent oberhalb des Login-Formulars, Großbuchstaben, Akzentfarbe.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📱</div>
+        <div class="feature-body">
+          <h3>Mobile: gestapelt</h3>
+          <p>Auf kleinen Screens: Lifestyle-Bild oben (reduzierte Höhe), Login-Box unten. Gleiches Branding-Prinzip.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. DATENBANK -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">4</div>
       <h2 class="section-title">Neue Datenbanktabellen</h2>
     </div>
 
@@ -738,10 +816,10 @@
     </div>
   </div>
 
-  <!-- 4. DATEISTRUKTUR -->
+  <!-- 5. DATEISTRUKTUR -->
   <div class="section">
     <div class="section-header">
-      <div class="section-num">4</div>
+      <div class="section-num">5</div>
       <h2 class="section-title">Neue Dateistruktur</h2>
     </div>
     <div class="file-tree"><span class="dir">src/Application/Web/InnerCircle/</span>
@@ -783,10 +861,10 @@
     └── <span class="file-new">ClubMembershipService.php</span>                  <span class="comment">// Session-Check, Mitgliedschaft</span></div>
   </div>
 
-  <!-- 5. BESTEHENDE DATEIEN -->
+  <!-- 6. BESTEHENDE DATEIEN -->
   <div class="section">
     <div class="section-header">
-      <div class="section-num">5</div>
+      <div class="section-num">6</div>
       <h2 class="section-title">Bestehende Dateien — Änderungen</h2>
     </div>
     <div class="changes-table">
@@ -819,10 +897,10 @@
     </div>
   </div>
 
-  <!-- 6. INVITATION FLOW -->
+  <!-- 7. INVITATION FLOW -->
   <div class="section">
     <div class="section-header">
-      <div class="section-num">6</div>
+      <div class="section-num">7</div>
       <h2 class="section-title">Invitation Flow</h2>
     </div>
     <div class="flow">
@@ -854,10 +932,10 @@
     </div>
   </div>
 
-  <!-- 7. 4-WOCHEN-PLAN -->
+  <!-- 8. 4-WOCHEN-PLAN -->
   <div class="section">
     <div class="section-header">
-      <div class="section-num">7</div>
+      <div class="section-num">8</div>
       <h2 class="section-title">4-Wochen-Plan</h2>
     </div>
     <div class="timeline">
@@ -917,10 +995,10 @@
     </div>
   </div>
 
-  <!-- 8. OFFENE FRAGEN -->
+  <!-- 9. OFFENE FRAGEN -->
   <div class="section">
     <div class="section-header">
-      <div class="section-num">8</div>
+      <div class="section-num">9</div>
       <h2 class="section-title">Offene Fragen — vor Projektstart klären</h2>
     </div>
     <div class="questions">
@@ -969,10 +1047,10 @@
     </div>
   </div>
 
-  <!-- 9. IMPLEMENTIERUNGS-PROMPT -->
+  <!-- 10. IMPLEMENTIERUNGS-PROMPT -->
   <div class="section">
     <div class="section-header">
-      <div class="section-num">9</div>
+      <div class="section-num">10</div>
       <h2 class="section-title">Implementierungs-Prompt</h2>
     </div>
     <div class="card" style="margin-bottom:16px">
@@ -1049,11 +1127,13 @@ STARTE MIT:
 <div class="footer">
   <div>
     <strong>Inner Circle Club — MVP Blueprint</strong><br>
-    go2flow AG · daniel.hofmann@go2flow.ch · +49 89 215 33 49 10
+    Go 2 Flow GmbH · Ansprechpartner: Maximilian Kern (Geschäftsführer)<br>
+    daniel.hofmann@go2flow.ch · +49 89 215 33 49 10
   </div>
   <div style="text-align:right">
     Erstellt: 24. März 2026<br>
-    Angebot A260007 · gültig bis 09.04.2026
+    Angebot A260007 · gültig bis 09.04.2026<br>
+    <span style="color:var(--muted);font-size:11px">Zahlung: 100% Vorauszahlung · Zahlungsziel 30 Tage · Gewährleistung 3 Monate</span>
   </div>
 </div>
 
