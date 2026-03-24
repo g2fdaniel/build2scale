@@ -1088,10 +1088,68 @@
     </div>
   </div>
 
-  <!-- 10. ABGRENZUNGEN -->
+  <!-- 10. ENTWICKLUNGS-VORGEHEN -->
   <div class="section">
     <div class="section-header">
       <div class="section-num">10</div>
+      <h2 class="section-title">Entwicklungs-Vorgehen & Übergabe</h2>
+    </div>
+    <!-- 4-Step Flow -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-bottom:28px">
+      <div style="position:absolute;top:32px;left:12%;right:12%;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent),var(--green),var(--green));z-index:0;opacity:0.5"></div>
+      <div style="text-align:center;position:relative;z-index:1;padding:0 8px">
+        <div style="width:64px;height:64px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:26px">📥</div>
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent2);margin-bottom:6px">Schritt 1</div>
+        <div style="font-weight:700;font-size:14px;margin-bottom:8px">Repo aufsetzen</div>
+        <div style="font-size:12px;color:var(--muted)">Pierre Cardin Repo lokal bei go2flow einrichten. Docker-Umgebung starten. Basis für Entwicklung schaffen.</div>
+      </div>
+      <div style="text-align:center;position:relative;z-index:1;padding:0 8px">
+        <div style="width:64px;height:64px;border-radius:50%;background:var(--card2);border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:26px">⚙️</div>
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent2);margin-bottom:6px">Schritt 2</div>
+        <div style="font-weight:700;font-size:14px;margin-bottom:8px">MVP entwickeln</div>
+        <div style="font-size:12px;color:var(--muted)">Inner Circle Layer auf go2flow-Infrastruktur bauen. Vollständige Entwicklungs- und Testkontrolle.</div>
+      </div>
+      <div style="text-align:center;position:relative;z-index:1;padding:0 8px">
+        <div style="width:64px;height:64px;border-radius:50%;background:var(--card2);border:2px solid var(--green);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:26px">🎯</div>
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--green);margin-bottom:6px">Schritt 3</div>
+        <div style="font-weight:700;font-size:14px;margin-bottom:8px">Präsentieren</div>
+        <div style="font-size:12px;color:var(--muted)">Visuell lauffähiger MVP auf go2flow-Infrastruktur. Demo für Fortuneglobe & alle Stakeholder.</div>
+      </div>
+      <div style="text-align:center;position:relative;z-index:1;padding:0 8px">
+        <div style="width:64px;height:64px;border-radius:50%;background:var(--card2);border:2px solid var(--green);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:26px">🤝</div>
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--green);margin-bottom:6px">Schritt 4</div>
+        <div style="font-weight:700;font-size:14px;margin-bottom:8px">Code übergeben</div>
+        <div style="font-size:12px;color:var(--muted)">Code-Übergabe an Fortuneglobe. Tobias integriert in produktive IceHawk-Infrastruktur.</div>
+      </div>
+    </div>
+    <!-- Responsibility split -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <div class="card" style="border-left:3px solid var(--accent)">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent2);margin-bottom:12px">go2flow verantwortet</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:8px">
+          <li style="font-size:13px;display:flex;gap:10px"><span style="color:var(--green)">✓</span> Lokales Setup: Docker + Pierre Cardin Repo</li>
+          <li style="font-size:13px;display:flex;gap:10px"><span style="color:var(--green)">✓</span> Entwicklung des Inner Circle MVP</li>
+          <li style="font-size:13px;display:flex;gap:10px"><span style="color:var(--green)">✓</span> Hosting auf go2flow-Infrastruktur für Präsentation</li>
+          <li style="font-size:13px;display:flex;gap:10px"><span style="color:var(--green)">✓</span> Saubere Code-Übergabe an Fortuneglobe</li>
+          <li style="font-size:13px;display:flex;gap:10px"><span style="color:var(--green)">✓</span> Technische Unterstützung bei Integration</li>
+        </ul>
+      </div>
+      <div class="card" style="border-left:3px solid var(--border)">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:12px">Fortuneglobe verantwortet</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:8px">
+          <li style="font-size:13px;display:flex;gap:10px"><span style="color:var(--accent2)">→</span> Integration in produktive IceHawk-Infrastruktur (Tobias)</li>
+          <li style="font-size:13px;display:flex;gap:10px"><span style="color:var(--accent2)">→</span> Deployment & Betrieb in Produktion</li>
+          <li style="font-size:13px;display:flex;gap:10px"><span style="color:var(--accent2)">→</span> PIM-Channel aufsetzen + Produkt-Feed bereitstellen</li>
+          <li style="font-size:13px;display:flex;gap:10px"><span style="color:var(--accent2)">→</span> Logo & CI an go2flow liefern (Hanh, vor 07.04.)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 11. ABGRENZUNGEN -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">11</div>
       <h2 class="section-title">Abgrenzungen — nicht im MVP</h2>
     </div>
     <div class="card" style="margin-bottom:20px">
@@ -1112,10 +1170,10 @@
     </div>
   </div>
 
-  <!-- 11. OFFENE FRAGEN -->
+  <!-- 12. OFFENE FRAGEN -->
   <div class="section">
     <div class="section-header">
-      <div class="section-num">11</div>
+      <div class="section-num">12</div>
       <h2 class="section-title">Offene Fragen — vor Projektstart klären</h2>
     </div>
     <div class="questions">
@@ -1185,10 +1243,10 @@
     </div>
   </div>
 
-  <!-- 12. IMPLEMENTIERUNGS-PROMPT -->
+  <!-- 13. IMPLEMENTIERUNGS-PROMPT -->
   <div class="section">
     <div class="section-header">
-      <div class="section-num">12</div>
+      <div class="section-num">13</div>
       <h2 class="section-title">Implementierungs-Prompt</h2>
     </div>
     <div class="card" style="margin-bottom:16px">
