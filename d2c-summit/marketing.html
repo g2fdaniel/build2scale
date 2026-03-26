@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marketing & Kommunikation — D2C Summit Platform</title>
+<style>
+:root {
+  --dark: #0f1117; --darker: #080a0f; --card: #161b27; --card2: #1c2333;
+  --accent: #0d9488; --accent2: #2dd4bf; --gold: #f59e0b; --green: #10b981;
+  --red: #ef4444; --text: #e2e8f0; --muted: #64748b; --border: #1e2a3a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--darker); color: var(--text); line-height: 1.6; }
+.nav { background: rgba(8,10,15,0.95); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); }
+.nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; gap: 8px; height: 52px; }
+.nav-brand { text-decoration: none; display: flex; align-items: center; gap: 8px; margin-right: 12px; flex-shrink: 0; }
+.nav-brand-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent2); }
+.nav-brand-text { font-size: 13px; font-weight: 700; color: var(--text); }
+.nav-sep { color: var(--border); font-size: 18px; margin: 0 4px; }
+.nav-links { display: flex; align-items: center; gap: 2px; }
+.nav-link { text-decoration: none; padding: 6px 12px; border-radius: 8px; font-size: 13px; font-weight: 500; color: var(--muted); }
+.nav-link:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+.nav-link.active { color: var(--accent2); background: rgba(13,148,136,0.12); font-weight: 600; }
+.page-hdr { background: linear-gradient(135deg, #0f1117 0%, #0d2420 50%, #0f1117 100%); border-bottom: 1px solid var(--border); padding: 36px 40px 28px; }
+.page-hdr-inner { max-width: 1100px; margin: 0 auto; }
+.page-bc { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+.page-bc a { color: var(--muted); text-decoration: none; }
+.page-title { font-size: clamp(22px, 3vw, 34px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px; }
+.page-title span { color: var(--accent2); }
+.page-sub { color: var(--muted); font-size: 14px; }
+.container { max-width: 1100px; margin: 0 auto; padding: 48px 40px; }
+.section { margin-bottom: 56px; }
+.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+.section-num { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: rgba(13,148,136,0.15); border: 1px solid rgba(13,148,136,0.3); border-radius: 8px; font-size: 13px; font-weight: 700; color: var(--accent2); flex-shrink: 0; }
+.section-title { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.badge { display: inline-flex; align-items: center; padding: 2px 8px; border-radius: 100px; font-size: 11px; font-weight: 600; }
+.badge-teal { background: rgba(13,148,136,0.1); border: 1px solid rgba(13,148,136,0.3); color: var(--accent2); }
+.badge-gold { background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.3); color: var(--gold); }
+.badge-muted { background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--muted); }
+.badge-green { background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3); color: var(--green); }
+.badge-red { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); color: var(--red); }
+/* CAMPAIGN TIMELINE */
+.cal-timeline { display: flex; flex-direction: column; gap: 0; }
+.cal-phase { display: grid; grid-template-columns: 140px 1fr; gap: 0; position: relative; }
+.cal-phase + .cal-phase .cal-time { border-top: 1px solid var(--border); }
+.cal-phase + .cal-phase .cal-content { border-top: 1px solid var(--border); }
+.cal-time { padding: 16px 20px 16px 0; border-right: 2px solid var(--accent); }
+.cal-time-label { font-size: 12px; font-weight: 800; color: var(--accent2); text-transform: uppercase; letter-spacing: 0.06em; }
+.cal-time-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.cal-content { padding: 16px 0 16px 20px; }
+.cal-content-title { font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+.cal-channels { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+.ch-tag { font-size: 11px; font-weight: 600; padding: 2px 9px; border-radius: 100px; }
+.ch-li { background: rgba(13,148,136,0.1); border: 1px solid rgba(13,148,136,0.25); color: var(--accent2); }
+.ch-nl { background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.25); color: var(--gold); }
+.ch-ig { background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.2); color: #f87171; }
+.ch-pr { background: rgba(168,85,247,0.08); border: 1px solid rgba(168,85,247,0.2); color: #c084fc; }
+.cal-actions { list-style: none; }
+.cal-actions li { font-size: 13px; color: var(--muted); padding: 2px 0 2px 14px; position: relative; }
+.cal-actions li::before { content: '→'; position: absolute; left: 0; color: var(--accent2); font-size: 11px; }
+.cal-actions li strong { color: var(--text); }
+/* PILLARS */
+.pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+.pillar-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px; text-align: center; }
+.pillar-icon { font-size: 24px; margin-bottom: 10px; }
+.pillar-name { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+.pillar-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+.pillar-share { font-size: 18px; font-weight: 800; color: var(--accent2); margin-top: 8px; }
+/* CHANNEL CARDS */
+.channel-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; }
+.channel-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.channel-icon { font-size: 22px; width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.channel-name { font-size: 15px; font-weight: 700; }
+.channel-role { font-size: 12px; color: var(--muted); }
+.channel-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+.channel-list li { font-size: 13px; color: var(--muted); padding-left: 16px; position: relative; }
+.channel-list li::before { content: '·'; position: absolute; left: 4px; color: var(--accent2); font-weight: 700; }
+.channel-list li strong { color: var(--text); }
+/* TONALITÄT */
+.tone-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.tone-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; }
+.tone-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
+.tone-yes { color: var(--green); }
+.tone-no { color: var(--red); }
+.tone-list { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+.tone-list li { font-size: 13px; color: var(--muted); padding-left: 18px; position: relative; }
+.tone-list li::before { position: absolute; left: 0; font-size: 12px; }
+.tone-yes .tone-list li::before { content: '✓'; color: var(--green); }
+.tone-no .tone-list li::before { content: '✗'; color: var(--red); }
+/* AUDIENCE MSG */
+.audience-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.audience-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
+.audience-role { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--accent2); margin-bottom: 6px; }
+.audience-hook { font-size: 14px; font-weight: 700; margin-bottom: 8px; line-height: 1.3; }
+.audience-msg { font-size: 12px; color: var(--muted); line-height: 1.6; font-style: italic; }
+/* NL SEQUENCE */
+.nl-seq { display: flex; flex-direction: column; gap: 8px; }
+.nl-step { display: grid; grid-template-columns: 80px 1fr; gap: 16px; align-items: start; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+.nl-trigger { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gold); line-height: 1.3; }
+.nl-content-title { font-size: 13px; font-weight: 700; margin-bottom: 3px; }
+.nl-content-desc { font-size: 12px; color: var(--muted); }
+/* PRESS */
+.press-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
+.press-item { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+.press-icon { font-size: 18px; margin-bottom: 6px; }
+.press-name { font-size: 13px; font-weight: 600; margin-bottom: 3px; }
+.press-desc { font-size: 12px; color: var(--muted); line-height: 1.4; }
+/* FOOTER */
+.footer { border-top: 1px solid var(--border); padding: 24px 40px; display: flex; align-items: center; justify-content: space-between; color: var(--muted); font-size: 13px; }
+.footer strong { color: var(--text); }
+.footer-nav { display: flex; gap: 16px; }
+.footer-nav a { text-decoration: none; color: var(--muted); font-size: 13px; }
+.footer-nav a:hover { color: var(--accent2); }
+@media (max-width: 768px) {
+  .page-hdr, .container, .footer { padding-left: 20px; padding-right: 20px; }
+  .nav-inner { padding: 0 16px; }
+  .two-col, .tone-grid { grid-template-columns: 1fr; }
+  .cal-phase { grid-template-columns: 1fr; }
+  .cal-time { border-right: none; border-bottom: 1px solid var(--border); padding: 12px 0; }
+  .cal-content { padding: 12px 0; }
+}
+/* ===== Light Mode ===== */
+body.light { --darker: #f8fafc; --dark: #f1f5f9; --card: #ffffff; --card2: #f8fafc; --text: #0f172a; --muted: #64748b; --border: #e2e8f0; --accent2: #0f766e; --gold: #d97706; --green: #059669; --red: #dc2626; }
+body.light .nav { background: rgba(255,255,255,0.95); border-bottom-color: #e2e8f0; }
+body.light .page-hdr { background: linear-gradient(135deg, #f0fdf9 0%, #ccfbf1 50%, #f0fdf9 100%); border-bottom-color: #e2e8f0; }
+body.light .nav-link { color: #64748b; }
+body.light .nav-link:hover { color: #0f172a; background: rgba(0,0,0,0.05); }
+body.light .nav-link.active { color: #0f766e; background: rgba(13,148,136,0.1); }
+body.light .nav-sep { color: #cbd5e1; }
+body.light .nav-brand-text { color: #0f172a; }
+body.light .nav-brand-dot { background: #0f766e; }
+body.light .section-num { background: rgba(13,148,136,0.08); border-color: rgba(13,148,136,0.2); }
+body.light .footer { border-top-color: #e2e8f0; }
+body.light .cal-time { border-right-color: #0f766e; }
+.theme-toggle { margin-left: auto; background: none; border: 1px solid var(--border); border-radius: 8px; width: 32px; height: 32px; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: background 0.15s; flex-shrink: 0; line-height: 1; }
+.theme-toggle:hover { background: rgba(255,255,255,0.08); }
+body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
+</style>
+</head>
+<body>
+<script>if(localStorage.getItem('theme')==='light')document.body.classList.add('light');</script>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <div class="nav-brand-dot"></div>
+      <span class="nav-brand-text">D2C Summit</span>
+    </a>
+    <span class="nav-sep">|</span>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Übersicht</a>
+      <a href="konzept.html" class="nav-link">Konzept</a>
+      <a href="module.html" class="nav-link">Module</a>
+      <a href="phasen.html" class="nav-link">Phasen</a>
+      <a href="integrationen.html" class="nav-link">Integrationen</a>
+      <a href="marketing.html" class="nav-link active">Marketing</a>
+      <a href="offene-fragen.html" class="nav-link">Offene Fragen</a>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()" id="theme-toggle-btn">☀️</button>
+  </div>
+</nav>
+
+<div class="page-hdr">
+  <div class="page-hdr-inner">
+    <div class="page-bc"><a href="index.html">D2C Summit</a> / Marketing & Kommunikation</div>
+    <div class="page-title">Marketing &amp; <span>Kommunikation</span></div>
+    <div class="page-sub">Kommunikationskonzept, Campaign Calendar, Kanal-Strategie, LinkedIn-Plan, Newsletter und Presse</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 01 KOMMUNIKATIONSKONZEPT -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <h2 class="section-title">Kommunikationskonzept</h2>
+    </div>
+
+    <div class="tone-grid" style="margin-bottom:16px">
+      <div class="tone-card tone-yes">
+        <div class="tone-label">Tonalität — so kommunizieren wir</div>
+        <ul class="tone-list">
+          <li>Direkt, klar, auf den Punkt</li>
+          <li>Inspirierend ohne aufgeblasen zu sein</li>
+          <li>Fachlich kompetent, aber verständlich</li>
+          <li>Persönlich — wir, nicht "die Veranstalter"</li>
+          <li>Zahlen und konkrete Aussagen statt Floskeln</li>
+          <li>Leichte Energie, Vorfreude, Relevanz</li>
+        </ul>
+      </div>
+      <div class="tone-card tone-no">
+        <div class="tone-label">Das vermeiden wir</div>
+        <ul class="tone-list">
+          <li>"Einzigartiges Networking-Erlebnis"</li>
+          <li>Akademische Formulierungen</li>
+          <li>Superlative ohne Substanz</li>
+          <li>Zu viel Corporate-Sprache</li>
+          <li>Englische Buzzwords ohne Kontext</li>
+          <li>Lange Textwände ohne Struktur</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px">
+      <div class="card">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:10px">Sprache & Lokalisierung</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.7">
+          <strong style="color:var(--text)">Primär: Deutsch</strong> — Website, Newsletter, Social<br>
+          <strong style="color:var(--text)">Sekundär: Englisch</strong> — für internationale Speaker und Sponsoren<br>
+          <strong style="color:var(--text)">Event-Sprache:</strong> noch zu definieren (DE/EN/beides?)<br>
+          <span style="color:var(--accent2)">→ Offene Frage: Mehrsprachigkeit der Platform (MVP oder Post-MVP?)</span>
+        </div>
+      </div>
+      <div class="card">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:10px">Name & Branding-Regeln</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.7">
+          Immer: <strong style="color:var(--text)">D2C Summit</strong> (nicht "D2C-Summit")<br>
+          Hashtag: <strong style="color:var(--text)">#D2CSummit</strong><br>
+          Jahr immer dazu: <strong style="color:var(--text)">D2C Summit 2026</strong><br>
+          Abkürzung: nie "der Summit" allein ohne Kontext
+        </div>
+      </div>
+    </div>
+
+    <div class="audience-grid">
+      <div class="audience-card">
+        <div class="audience-role">Teilnehmer</div>
+        <div class="audience-hook">"Ein Tag, der dein D2C-Business verändert."</div>
+        <div class="audience-msg">"Lerne von den Besten, triff deine Community, geh mit konkreten Insights nach Hause."</div>
+      </div>
+      <div class="audience-card">
+        <div class="audience-role">Speaker</div>
+        <div class="audience-hook">"Dein Wissen. Deine Bühne. Deine Community."</div>
+        <div class="audience-msg">"Sprich zu 300+ D2C-Entscheider:innen, die genau dein Thema leben."</div>
+      </div>
+      <div class="audience-card">
+        <div class="audience-role">Sponsoren</div>
+        <div class="audience-hook">"300+ D2C-Entscheider. Ein Tag. Ihre volle Aufmerksamkeit."</div>
+        <div class="audience-msg">"Nicht Werbung — Präsenz. Wir bringen dich direkt in die Gespräche die zählen."</div>
+      </div>
+      <div class="audience-card">
+        <div class="audience-role">Presse</div>
+        <div class="audience-hook">"Der Puls des D2C-Commerce in der DACH-Region."</div>
+        <div class="audience-msg">"Zahlen, Trends, Stimmen — alles an einem Ort. Press Kit auf Anfrage."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 CAMPAIGN CALENDAR -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <h2 class="section-title">Campaign Calendar — T-24 bis Post-Event</h2>
+    </div>
+    <div class="card" style="padding:0;overflow:hidden">
+      <div class="cal-timeline">
+
+        <div class="cal-phase">
+          <div class="cal-time">
+            <div class="cal-time-label">T−24 Wo.</div>
+            <div class="cal-time-sub">6 Monate vor Event</div>
+          </div>
+          <div class="cal-content">
+            <div class="cal-content-title">Save the Date — Erster Impuls</div>
+            <div class="cal-channels">
+              <span class="ch-tag ch-li">LinkedIn</span>
+              <span class="ch-tag ch-nl">Newsletter</span>
+            </div>
+            <ul class="cal-actions">
+              <li><strong>Save the Date Mail</strong> an bestehende Kontakte + Attendees Vorjahr</li>
+              <li>LinkedIn: Announcement Post mit Datum, Location (KKL Luzern), kurzer Teaser</li>
+              <li>Website: "Coming Soon" Banner mit Datum + E-Mail-Eintragung</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cal-phase">
+          <div class="cal-time">
+            <div class="cal-time-label">T−20 Wo.</div>
+            <div class="cal-time-sub">5 Monate vor Event</div>
+          </div>
+          <div class="cal-content">
+            <div class="cal-content-title">Ticket Launch + Early Bird</div>
+            <div class="cal-channels">
+              <span class="ch-tag ch-li">LinkedIn</span>
+              <span class="ch-tag ch-nl">Newsletter</span>
+              <span class="ch-tag ch-pr">PR</span>
+            </div>
+            <ul class="cal-actions">
+              <li><strong>Ticket Launch Newsletter</strong> — Early Bird Preis + Countdown</li>
+              <li>LinkedIn: Ticket Launch Post ("Jetzt Early Bird sichern") + Pinned Post</li>
+              <li>Pressemitteilung an Medienpartner: Datum, Speaker-Teaser, Themen</li>
+              <li>Sponsor-Outreach startet parallel (Sponsor-Deck versenden)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cal-phase">
+          <div class="cal-time">
+            <div class="cal-time-label">T−16 Wo.</div>
+            <div class="cal-time-sub">4 Monate vor Event</div>
+          </div>
+          <div class="cal-content">
+            <div class="cal-content-title">Speaker-Ankündigungen + Sponsor-Reveals</div>
+            <div class="cal-channels">
+              <span class="ch-tag ch-li">LinkedIn</span>
+              <span class="ch-tag ch-nl">Newsletter</span>
+              <span class="ch-tag ch-ig">Instagram</span>
+            </div>
+            <ul class="cal-actions">
+              <li><strong>1–2 Speaker pro Woche</strong> auf LinkedIn ankündigen (Spotlight-Format)</li>
+              <li>Erste Sponsoren öffentlich nennen (Hauptsponsor zuerst)</li>
+              <li>Newsletter: "Diese Speaker kommen" — Mid-Month Feature</li>
+              <li>Instagram: Speaker-Cards mit Foto + 1 Satz (visuell, shareable)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cal-phase">
+          <div class="cal-time">
+            <div class="cal-time-label">T−12 Wo.</div>
+            <div class="cal-time-sub">3 Monate vor Event</div>
+          </div>
+          <div class="cal-content">
+            <div class="cal-content-title">Programm-Teaser + Early Bird Ende</div>
+            <div class="cal-channels">
+              <span class="ch-tag ch-li">LinkedIn</span>
+              <span class="ch-tag ch-nl">Newsletter</span>
+            </div>
+            <ul class="cal-actions">
+              <li>Newsletter: "Early Bird endet in X Tagen" — Scarcity aktivieren</li>
+              <li>Themen-Teaser: "Was dich erwartet" — 3–5 konkrete Themen</li>
+              <li>LinkedIn: "Warum D2C Summit 2026?" — Story-Post mit Zahlen</li>
+              <li>Early Bird Deadline-Push: 3 Tage vor Ende, 1 Tag vor Ende</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cal-phase">
+          <div class="cal-time">
+            <div class="cal-time-label">T−8 Wo.</div>
+            <div class="cal-time-sub">2 Monate vor Event</div>
+          </div>
+          <div class="cal-content">
+            <div class="cal-content-title">Vollständiges Programm + Session-Previews</div>
+            <div class="cal-channels">
+              <span class="ch-tag ch-li">LinkedIn</span>
+              <span class="ch-tag ch-nl">Newsletter</span>
+              <span class="ch-tag ch-pr">PR</span>
+            </div>
+            <ul class="cal-actions">
+              <li><strong>Programm-Release Newsletter</strong> — "Das vollständige Programm ist da"</li>
+              <li>LinkedIn: Session-Previews (1 Session pro Tag, 5 Tage lang)</li>
+              <li>Zweite Pressemitteilung: vollständiges Programm + alle Speaker</li>
+              <li>Attendees: My Summit Einladung — Masterclass-Buchung öffnet (Post-MVP)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cal-phase">
+          <div class="cal-time">
+            <div class="cal-time-label">T−4 Wo.</div>
+            <div class="cal-time-sub">1 Monat vor Event</div>
+          </div>
+          <div class="cal-content">
+            <div class="cal-content-title">Last Chance + Praktische Infos</div>
+            <div class="cal-channels">
+              <span class="ch-tag ch-li">LinkedIn</span>
+              <span class="ch-tag ch-nl">Newsletter</span>
+              <span class="ch-tag ch-ig">Instagram</span>
+            </div>
+            <ul class="cal-actions">
+              <li>"Noch X Tickets verfügbar" — Newsletter + LinkedIn mit echter Zahl</li>
+              <li>Praktische Infos: KKL Luzern, Anfahrt, Hotel-Empfehlungen</li>
+              <li>LinkedIn: Countdown-Posts ("Noch 28 Tage"), Testimonials vom Vorjahr</li>
+              <li>Instagram: Behind-the-Scenes Aufbau, Speaker-Portraits</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cal-phase">
+          <div class="cal-time">
+            <div class="cal-time-label">T−1 Wo.</div>
+            <div class="cal-time-sub">Final Push</div>
+          </div>
+          <div class="cal-content">
+            <div class="cal-content-title">Last-Minute + Attendee-Vorfreude</div>
+            <div class="cal-channels">
+              <span class="ch-tag ch-li">LinkedIn</span>
+              <span class="ch-tag ch-nl">Newsletter</span>
+            </div>
+            <ul class="cal-actions">
+              <li>Attendee-Mail: "Dein Ticket, dein QR-Code, dein Tagesplan" — alles auf einen Blick</li>
+              <li>LinkedIn: "Wer kommt auch?" — Community-Post, Kommentare einladen</li>
+              <li>Last-Chance-Ticket-Push (falls noch verfügbar)</li>
+              <li>Speaker-Posts: Speaker kündigen ihren eigenen Auftritt selbst an</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cal-phase" style="background:rgba(13,148,136,0.04)">
+          <div class="cal-time" style="border-right-color:var(--gold)">
+            <div class="cal-time-label" style="color:var(--gold)">Event Day</div>
+            <div class="cal-time-sub">Live Coverage</div>
+          </div>
+          <div class="cal-content">
+            <div class="cal-content-title">Live — Real-Time Coverage</div>
+            <div class="cal-channels">
+              <span class="ch-tag ch-li">LinkedIn</span>
+              <span class="ch-tag ch-ig">Instagram</span>
+            </div>
+            <ul class="cal-actions">
+              <li>Live-Posting: Key Quotes der Speaker (3–5 pro Session)</li>
+              <li>Instagram Stories: Behind-the-Scenes, Crowd, Energie</li>
+              <li>LinkedIn: "What's happening at #D2CSummit" — mehrteilig</li>
+              <li>Fotografen: definiertes Shot-List (Speaker, Networking, Venue, Crowd)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cal-phase">
+          <div class="cal-time">
+            <div class="cal-time-label">T+1–4 Wo.</div>
+            <div class="cal-time-sub">Post-Event</div>
+          </div>
+          <div class="cal-content">
+            <div class="cal-content-title">Recap + Community + Nächstes Jahr</div>
+            <div class="cal-channels">
+              <span class="ch-tag ch-li">LinkedIn</span>
+              <span class="ch-tag ch-nl">Newsletter</span>
+              <span class="ch-tag ch-ig">Instagram</span>
+            </div>
+            <ul class="cal-actions">
+              <li>Danke-Mail an alle Attendees (T+1) + Feedback-Survey + Fotos</li>
+              <li>Recap-Blog: Highlights, Key Learnings, Quotes — SEO-Wert</li>
+              <li>LinkedIn: Highlight-Posts, Top-Zitate, Foto-Serie (1 Woche lang)</li>
+              <li>Testimonials sammeln: 3–5 Attendees, 2–3 Speaker</li>
+              <li><strong>Save the Date 2027</strong> — Newsletter + LinkedIn (T+3 Wochen)</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 KANAL-STRATEGIE -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <h2 class="section-title">Kanal-Strategie</h2>
+    </div>
+    <div class="card-grid">
+
+      <div class="channel-card">
+        <div class="channel-header">
+          <div class="channel-icon" style="background:rgba(13,148,136,0.1)">🔵</div>
+          <div><div class="channel-name">LinkedIn</div><div class="channel-role">Primärkanal — Reichweite & Thought Leadership</div></div>
+        </div>
+        <ul class="channel-list">
+          <li><strong>Frequenz:</strong> 3×/Woche in Hot Phase, 1–2×/Woche in Ramp-Up</li>
+          <li><strong>Post-Typen:</strong> Speaker Spotlight / Themen-Teaser / Ticket-CTA / Quote-Cards / Countdown</li>
+          <li><strong>Wer postet:</strong> Org-Seite + Daniel persönlich (erhöhte Reichweite)</li>
+          <li>Speaker posten eigene Ankündigung (Template bereitstellen)</li>
+          <li>Sponsoren erwähnen + taggen bei Ankündigungen</li>
+          <li>Hashtags: #D2CSummit #D2C #ECommerce #DirectToConsumer</li>
+        </ul>
+      </div>
+
+      <div class="channel-card">
+        <div class="channel-header">
+          <div class="channel-icon" style="background:rgba(245,158,11,0.1)">📧</div>
+          <div><div class="channel-name">Newsletter</div><div class="channel-role">Konversionskanal — Tickets & Anmeldungen</div></div>
+        </div>
+        <ul class="channel-list">
+          <li><strong>Frequenz:</strong> 2×/Monat bis T-8 Wochen, dann wöchentlich</li>
+          <li><strong>Segmente:</strong> Alle Kontakte / Ticket-Käufer / Early Birds / Post-Event</li>
+          <li>Versand-Tool: Mailtrap (integriert in Platform)</li>
+          <li>Betreff-Strategie: Zahlen, Fragen, FOMO — kein "Newsletter #12"</li>
+          <li>Single CTA pro Mail — nicht 5 Links</li>
+          <li>Unsubscribe-Rate überwachen → Frequenz anpassen</li>
+        </ul>
+      </div>
+
+      <div class="channel-card">
+        <div class="channel-header">
+          <div class="channel-icon" style="background:rgba(239,68,68,0.08)">📸</div>
+          <div><div class="channel-name">Instagram</div><div class="channel-role">Visueller Kanal — Vorfreude & Community</div></div>
+        </div>
+        <ul class="channel-list">
+          <li><strong>Frequenz:</strong> 2×/Woche + Stories täglich in Event-Woche</li>
+          <li><strong>Content:</strong> Speaker-Cards, Behind-the-Scenes, Venue-Shots, Testimonials</li>
+          <li>Reels: 30-Sek Highlights vom Vorjahr / Speaker-Vorstellung</li>
+          <li>Stories: Live-Coverage am Eventtag</li>
+          <li>Kein direkter Ticketverkauf → Link in Bio → Website</li>
+        </ul>
+      </div>
+
+      <div class="channel-card">
+        <div class="channel-header">
+          <div class="channel-icon" style="background:rgba(168,85,247,0.08)">📰</div>
+          <div><div class="channel-name">PR & Medienpartner</div><div class="channel-role">Glaubwürdigkeit & externe Reichweite</div></div>
+        </div>
+        <ul class="channel-list">
+          <li>2 Pressemitteilungen: Ticket Launch + Vollständiges Programm</li>
+          <li>Medienpartner: Branchenmagazine, Podcasts, D2C-Communities</li>
+          <li>Akreditierung für Journalisten (Formular auf Website)</li>
+          <li>Press Kit: Logo-Pack, Bilder, Fakten, Speaker-Bio, Zitate</li>
+          <li>Exklusiv-Interview einem Leitmedium anbieten</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 04 LINKEDIN CONTENT PLAN -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <h2 class="section-title">LinkedIn Content Plan</h2>
+    </div>
+
+    <div style="margin-bottom:20px">
+      <div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--muted);margin-bottom:12px">Content Pillars & Verteilung</div>
+      <div class="pillar-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon">🎤</div>
+          <div class="pillar-name">Speaker Spotlights</div>
+          <div class="pillar-desc">Wer kommt, was bringen sie mit, warum solltest du zuhören</div>
+          <div class="pillar-share">30%</div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">💡</div>
+          <div class="pillar-name">Themen & Insights</div>
+          <div class="pillar-desc">D2C-Trends, Session-Previews, "Was du lernst"</div>
+          <div class="pillar-share">25%</div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">🎟️</div>
+          <div class="pillar-name">Ticket & CTA</div>
+          <div class="pillar-desc">Early Bird, Countdown, Last Chance — mit Dringlichkeit</div>
+          <div class="pillar-share">20%</div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">📸</div>
+          <div class="pillar-name">Behind the Scenes</div>
+          <div class="pillar-desc">Aufbau, Team, Venue, Vorbereitung — menschlich</div>
+          <div class="pillar-share">15%</div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">⭐</div>
+          <div class="pillar-name">Social Proof</div>
+          <div class="pillar-desc">Testimonials, Zitate Vorjahr, Zahlen & Fakten</div>
+          <div class="pillar-share">10%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--muted);margin-bottom:16px">Post-Formate & Templates</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px">
+        <div style="background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:16px">
+          <div style="font-size:12px;font-weight:700;color:var(--accent2);margin-bottom:8px">SPEAKER SPOTLIGHT</div>
+          <div style="font-size:13px;color:var(--muted);line-height:1.7;font-style:italic">
+            "🎤 [Name] kommt zum D2C Summit 2026.<br>
+            [Name] ist [Rolle] bei [Firma] und hat [Achievement].<br>
+            Am Summit spricht er/sie über:<br>
+            → [Thema 1]<br>
+            → [Thema 2]<br>
+            Ticket: [Link] #D2CSummit"
+          </div>
+        </div>
+        <div style="background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:16px">
+          <div style="font-size:12px;font-weight:700;color:var(--accent2);margin-bottom:8px">THEMEN-TEASER</div>
+          <div style="font-size:13px;color:var(--muted);line-height:1.7;font-style:italic">
+            "Was bewegt D2C-Brands 2026?<br>
+            Am Summit sprechen wir über:<br>
+            → [Trend 1] — was das für dich bedeutet<br>
+            → [Trend 2] — wie du davon profitierst<br>
+            → [Trend 3] — und wer das bereits umsetzt<br>
+            [Datum] · KKL Luzern · [Ticket-Link]"
+          </div>
+        </div>
+        <div style="background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:16px">
+          <div style="font-size:12px;font-weight:700;color:var(--accent2);margin-bottom:8px">COUNTDOWN / SCARCITY</div>
+          <div style="font-size:13px;color:var(--muted);line-height:1.7;font-style:italic">
+            "⏳ Noch [X] Tickets.<br>
+            Dann ist der D2C Summit 2026 ausverkauft.<br>
+            Letztes Jahr waren wir nach [X] Wochen voll.<br>
+            Wer dabei sein will:<br>
+            👉 [Link]<br>
+            #D2CSummit #D2C"
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 NEWSLETTER STRATEGIE -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <h2 class="section-title">Newsletter-Strategie</h2>
+    </div>
+
+    <div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--muted);margin-bottom:12px">Automatisierte Sequenz für Ticket-Käufer</div>
+    <div class="nl-seq" style="margin-bottom:24px">
+      <div class="nl-step">
+        <div class="nl-trigger">Sofort nach Kauf</div>
+        <div><div class="nl-content-title">Willkommen + Ticket-Bestätigung</div><div class="nl-content-desc">QR-Code, PDF-Anhang, nächste Schritte, My Summit Link</div></div>
+      </div>
+      <div class="nl-step">
+        <div class="nl-trigger">T−8 Wochen</div>
+        <div><div class="nl-content-title">Programm ist da</div><div class="nl-content-desc">Vollständiger Tagesplan, alle Speaker, Highlights hervorheben</div></div>
+      </div>
+      <div class="nl-step">
+        <div class="nl-trigger">T−4 Wochen</div>
+        <div><div class="nl-content-title">Dein Weg zum KKL</div><div class="nl-content-desc">Anreise, Parking, Hotel-Empfehlungen, Dress Code, Ablauf</div></div>
+      </div>
+      <div class="nl-step">
+        <div class="nl-trigger">T−1 Woche</div>
+        <div><div class="nl-content-title">Alles auf einen Blick</div><div class="nl-content-desc">QR-Code nochmals, Tagesplan, wichtigste Infos, Vorfreude wecken</div></div>
+      </div>
+      <div class="nl-step">
+        <div class="nl-trigger">T+1 Tag</div>
+        <div><div class="nl-content-title">Danke + Recap + Survey</div><div class="nl-content-desc">Danke für Teilnahme, Fotos, Feedback-Link (3 Fragen), nächstes Jahr ankündigen</div></div>
+      </div>
+    </div>
+
+    <div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--muted);margin-bottom:12px">Gezielte Updates an Teilnehmer-Gruppen</div>
+    <div class="card">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--accent2);margin-bottom:6px">Alle Attendees</div>
+          <div style="font-size:13px;color:var(--muted);line-height:1.6">Save the Date · Programm-Release · Praktische Infos · Danke-Mail</div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--gold);margin-bottom:6px">VIP / Platin-Tickets</div>
+          <div style="font-size:13px;color:var(--muted);line-height:1.6">Exklusive Infos · VIP-Bereich Zugang · Networking-Vorab</div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--accent2);margin-bottom:6px">Unternehmens-Tickets</div>
+          <div style="font-size:13px;color:var(--muted);line-height:1.6">"Euer Team kommt" · Team-Koordination · Firmenlogo auf Badge</div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--muted);margin-bottom:6px">Post-Event</div>
+          <div style="font-size:13px;color:var(--muted);line-height:1.6">Recap + Fotos · Feedback · Save the Date 2027 · Alumni-Status</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 06 PRESSE & SPONSOR-KOMMUNIKATION -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">06</div>
+      <h2 class="section-title">Presse, Media & Sponsor-Kommunikation</h2>
+    </div>
+
+    <div class="two-col" style="margin-bottom:16px">
+      <div>
+        <div style="font-size:13px;font-weight:700;margin-bottom:12px">Press Kit — Inhalt</div>
+        <div class="press-grid" style="grid-template-columns:1fr 1fr;gap:8px">
+          <div class="press-item">
+            <div class="press-icon">📁</div>
+            <div class="press-name">Logo-Pack</div>
+            <div class="press-desc">SVG + PNG in Weiss/Farbe/Dunkel</div>
+          </div>
+          <div class="press-item">
+            <div class="press-icon">📸</div>
+            <div class="press-name">Pressefotos</div>
+            <div class="press-desc">Venue, Speaker, Crowd (hochaufgelöst)</div>
+          </div>
+          <div class="press-item">
+            <div class="press-icon">📄</div>
+            <div class="press-name">Fact Sheet</div>
+            <div class="press-desc">Zahlen, Datum, Themen, Speaker-Liste</div>
+          </div>
+          <div class="press-item">
+            <div class="press-icon">✍️</div>
+            <div class="press-name">Pressemitteilungen</div>
+            <div class="press-desc">Launch + Programm (druckfertig)</div>
+          </div>
+          <div class="press-item">
+            <div class="press-icon">👤</div>
+            <div class="press-name">Speaker-Bios</div>
+            <div class="press-desc">Kurz + Lang, mit Foto</div>
+          </div>
+          <div class="press-item">
+            <div class="press-icon">💬</div>
+            <div class="press-name">Zitate</div>
+            <div class="press-desc">Von Organisatoren + Speaker</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:13px;font-weight:700;margin-bottom:12px">Sponsor-Kategorien & Sichtbarkeit</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.25);border-radius:10px;padding:12px 14px;display:flex;align-items:center;gap:12px">
+            <span style="font-size:16px">🥇</span>
+            <div><div style="font-size:13px;font-weight:700">Titel-Sponsor / Hauptpartner</div><div style="font-size:12px;color:var(--muted)">Name im Event-Titel · Stage-Branding · Keynote-Slot · max. 1</div></div>
+          </div>
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 14px;display:flex;align-items:center;gap:12px">
+            <span style="font-size:16px">⭐</span>
+            <div><div style="font-size:13px;font-weight:700">Premium-Partner</div><div style="font-size:12px;color:var(--muted)">Grosses Logo · Redner-Slot · Exhibition · max. 3</div></div>
+          </div>
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 14px;display:flex;align-items:center;gap:12px">
+            <span style="font-size:16px">🤝</span>
+            <div><div style="font-size:13px;font-weight:700">Kategorie-Partner</div><div style="font-size:12px;color:var(--muted)">Druck · Bekleidung · Catering · Community · International</div></div>
+          </div>
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 14px;display:flex;align-items:center;gap:12px">
+            <span style="font-size:16px">🌐</span>
+            <div><div style="font-size:13px;font-weight:700">Medienpartner</div><div style="font-size:12px;color:var(--muted)">Berichterstattung · Cross-Promotion · Akkreditierung</div></div>
+          </div>
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 14px;display:flex;align-items:center;gap:12px">
+            <span style="font-size:16px">🌱</span>
+            <div><div style="font-size:13px;font-weight:700">Community-Partner</div><div style="font-size:12px;color:var(--muted)">Verbände · Startups · Ecosystems — Sichtbarkeit gegen Reichweite</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="background:rgba(13,148,136,0.04);border-color:rgba(13,148,136,0.2)">
+      <div style="font-size:13px;color:var(--muted)"><strong style="color:var(--text)">Sponsor-Deck:</strong> Separates Dokument (PDF) mit vollständiger Paket-Übersicht, Reichweiten-Zahlen, ROI-Argumente und Buchungsprozess. Wird parallel zum Ticket Launch versandt. Sponsor-Kategorien und Leistungen sind im Admin der Platform konfigurierbar.</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <strong>D2C Summit — Marketing & Kommunikation</strong>
+  <div class="footer-nav">
+    <a href="integrationen.html">← Integrationen</a>
+    <a href="offene-fragen.html">Offene Fragen →</a>
+  </div>
+</div>
+
+<script>
+function toggleTheme(){
+  var l=document.body.classList.toggle('light');
+  localStorage.setItem('theme',l?'light':'dark');
+  var b=document.getElementById('theme-toggle-btn');
+  if(b)b.textContent=l?'🌙':'☀️';
+}
+document.addEventListener('DOMContentLoaded',function(){
+  var b=document.getElementById('theme-toggle-btn');
+  if(b&&document.body.classList.contains('light'))b.textContent='🌙';
+});
+</script>
+</body>
+</html>
