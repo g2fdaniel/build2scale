@@ -62,6 +62,26 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; back
   .nav-inner { padding: 0 16px; }
   .module-grid { grid-template-columns: 1fr; }
 }
+.badge-postmvp { background: rgba(100,116,139,0.08); border: 1px solid rgba(100,116,139,0.25); color: var(--muted); }
+.badge-mvp { background: rgba(13,148,136,0.1); border: 1px solid rgba(13,148,136,0.3); color: var(--accent2); }
+.module-num-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 3px; }
+.module-card.post-mvp { border-style: dashed; border-color: rgba(100,116,139,0.2); }
+.module-card.post-mvp .module-icon { background: rgba(100,116,139,0.07); border-color: rgba(100,116,139,0.15); }
+.module-card.post-mvp .module-num { color: var(--muted); }
+.deferred-feat { font-size: 12px !important; color: rgba(100,116,139,0.7) !important; font-style: italic; }
+.deferred-feat::before { content: none !important; }
+.deferred-feat::after { content: ' — Post-MVP'; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: rgba(100,116,139,0.5); }
+.module-features li.deferred-feat::before { content: '·'; color: rgba(100,116,139,0.3) !important; }
+.divider-postmvp { display: flex; align-items: center; gap: 16px; margin: 48px 0 36px; }
+.divider-postmvp-line { flex: 1; height: 1px; background: var(--border); }
+.divider-postmvp-label { font-size: 11px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); padding: 5px 16px; border: 1px solid var(--border); border-radius: 100px; white-space: nowrap; }
+.mvp-bar { display: flex; align-items: center; gap: 24px; background: rgba(13,148,136,0.06); border: 1px solid rgba(13,148,136,0.2); border-radius: 12px; padding: 14px 20px; margin-bottom: 40px; flex-wrap: wrap; }
+.mvp-bar-stat { display: flex; flex-direction: column; gap: 2px; }
+.mvp-bar-num { font-size: 22px; font-weight: 800; color: var(--accent2); line-height: 1; }
+.mvp-bar-label { font-size: 11px; color: var(--muted); font-weight: 500; }
+.mvp-bar-sep { width: 1px; height: 32px; background: var(--border); }
+.mvp-bar-note { font-size: 13px; color: var(--muted); margin-left: auto; }
+.new-tag { display: inline-flex; align-items: center; padding: 1px 7px; border-radius: 100px; font-size: 10px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; background: rgba(245,158,11,0.12); border: 1px solid rgba(245,158,11,0.3); color: var(--gold); margin-left: 6px; }
 /* ===== Light Mode ===== */
 body.light { --darker: #f8fafc; --dark: #f1f5f9; --card: #ffffff; --card2: #f8fafc; --text: #0f172a; --muted: #64748b; --border: #e2e8f0; --accent2: #0f766e; --gold: #d97706; --green: #059669; --red: #dc2626; }
 body.light .nav { background: rgba(255,255,255,0.95); border-bottom-color: #e2e8f0; }
@@ -111,13 +131,28 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
 
 <div class="page-hdr">
   <div class="page-hdr-inner">
-    <div class="page-bc"><a href="index.html">D2C Summit</a> / Module Phase I</div>
-    <div class="page-title">Module <span>Phase I</span></div>
-    <div class="page-sub">Alle 14 Module mit vollständigen Feature-Beschreibungen — was die Platform können muss</div>
+    <div class="page-bc"><a href="index.html">D2C Summit</a> / Module</div>
+    <div class="page-title">Module — <span>MVP vs. Post-MVP</span></div>
+    <div class="page-sub">Was in 12 Wochen gebaut wird — und was danach kommt. Grundlage für Scope, Planung und Aufwandsschätzung.</div>
   </div>
 </div>
 
 <div class="container">
+
+  <div class="mvp-bar">
+    <div class="mvp-bar-stat"><div class="mvp-bar-num">10</div><div class="mvp-bar-label">MVP-Module</div></div>
+    <div class="mvp-bar-sep"></div>
+    <div class="mvp-bar-stat"><div class="mvp-bar-num">6</div><div class="mvp-bar-label">Post-MVP Module</div></div>
+    <div class="mvp-bar-sep"></div>
+    <div class="mvp-bar-stat"><div class="mvp-bar-num">12</div><div class="mvp-bar-label">Wochen MVP</div></div>
+    <div class="mvp-bar-sep"></div>
+    <div class="mvp-bar-stat"><div class="mvp-bar-num" style="color:var(--gold)">1</div><div class="mvp-bar-label">Neues Modul</div></div>
+    <div class="mvp-bar-note">Einzelne Features innerhalb von MVP-Modulen werden markiert wenn sie verschoben sind.</div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       MVP — WOCHE 1–12
+  ═══════════════════════════════════════════ -->
 
   <div class="section">
     <div class="section-header">
@@ -130,17 +165,17 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
         <div class="module-header">
           <div class="module-icon">🔁</div>
           <div class="module-meta">
-            <div class="module-num">Modul 01</div>
+            <div class="module-num-row"><span class="module-num">Modul 01</span><span class="badge badge-mvp">MVP</span></div>
             <div class="module-name">Event Engine</div>
-            <div class="module-desc">Jährlich wiederkehrende Events verwalten — Single Source of Truth für alle Inhalte</div>
+            <div class="module-desc">Events anlegen und verwalten — Single Source of Truth für alle Inhalte</div>
           </div>
         </div>
         <ul class="module-features">
-          <li>Event erstellen: Name, Slug, Datum, Venue, Beschreibung, Status (draft/published/archived)</li>
-          <li><strong>Branding-Config pro Event:</strong> Primärfarbe, Logo, Hero-Image</li>
+          <li>Event erstellen: Name, Datum, Venue, Beschreibung, Status (draft/published/archived)</li>
+          <li><strong>Branding-Config:</strong> Logo, Primärfarbe, Hero-Image</li>
           <li>Stages / Räume definieren (Name, Kapazität, Reihenfolge)</li>
-          <li><strong>Event klonen</strong> — für Folgejahre als Ausgangspunkt</li>
-          <li>Vergangene Events archivieren, Statistiken bleiben erhalten</li>
+          <li>Vergangene Events archivieren, Daten bleiben erhalten</li>
+          <li class="deferred-feat">Event klonen für Folgejahre</li>
         </ul>
       </div>
 
@@ -148,7 +183,7 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
         <div class="module-header">
           <div class="module-icon">🗓️</div>
           <div class="module-meta">
-            <div class="module-num">Modul 02</div>
+            <div class="module-num-row"><span class="module-num">Modul 02</span><span class="badge badge-mvp">MVP</span></div>
             <div class="module-name">Programm-Manager</div>
             <div class="module-desc">Einmal erfassen → überall anzeigen (Website, My Summit, Admin)</div>
           </div>
@@ -157,9 +192,10 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
           <li>Session-Typen: Keynote / Masterclass / Panel / Break / Networking</li>
           <li>Session anlegen: Titel, Beschreibung, Typ, Stage, Start/End, Kapazität, buchbar</li>
           <li>Speaker einer Session zuweisen (mehrere möglich)</li>
-          <li>Session-Materialien hochladen (Präsentation, Ressourcen)</li>
-          <li><strong>Drag & Drop</strong> Programm-Reihenfolge im Admin</li>
+          <li>Programm-Reihenfolge manuell festlegen</li>
           <li>Parallele Sessions sichtbar im Tagesplan</li>
+          <li class="deferred-feat">Session-Materialien hochladen (Präsentationen)</li>
+          <li class="deferred-feat">Drag & Drop Reihenfolge im Admin</li>
         </ul>
       </div>
 
@@ -167,17 +203,18 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
         <div class="module-header">
           <div class="module-icon">🎤</div>
           <div class="module-meta">
-            <div class="module-num">Modul 03</div>
+            <div class="module-num-row"><span class="module-num">Modul 03</span><span class="badge badge-mvp">MVP</span></div>
             <div class="module-name">Speaker-Management</div>
-            <div class="module-desc">Speaker-Verwaltung im Admin + Self-Service über Speaker-Portal</div>
+            <div class="module-desc">Speaker-Verwaltung im Admin — Self-Service Portal kommt Post-MVP</div>
           </div>
         </div>
         <ul class="module-features">
-          <li>Speaker-Profil: Name, Titel, Firma, Bio, Foto, LinkedIn, Twitter, Website</li>
+          <li>Speaker-Profil: Name, Titel, Firma, Bio, Foto, LinkedIn, Website</li>
           <li>Speaker einem Event zuweisen, Sessions verknüpfen</li>
-          <li><strong>Speaker-Login:</strong> Eigenes Profil bearbeiten, Präsentationen hochladen</li>
-          <li>Eigenes Session-Feedback einsehen (nach dem Event)</li>
-          <li>Automatische Anzeige auf Public Website + My Summit</li>
+          <li>Automatische Anzeige auf Public Website</li>
+          <li class="deferred-feat">Speaker-Login: Profil selbst bearbeiten</li>
+          <li class="deferred-feat">Präsentationen selbst hochladen</li>
+          <li class="deferred-feat">Session-Feedback einsehen</li>
         </ul>
       </div>
 
@@ -187,64 +224,66 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
   <div class="section">
     <div class="section-header">
       <div class="section-num">B</div>
-      <h2 class="section-title">Ticketing & Mitgliederbereich</h2>
+      <h2 class="section-title">Unternehmen & Teilnehmer <span class="new-tag">Neu</span></h2>
     </div>
     <div class="module-grid">
 
       <div class="module-card">
         <div class="module-header">
+          <div class="module-icon">🏢</div>
+          <div class="module-meta">
+            <div class="module-num-row"><span class="module-num">Modul 04</span><span class="badge badge-mvp">MVP</span></div>
+            <div class="module-name">Unternehmens-Profile</div>
+            <div class="module-desc">Unternehmen als eigene Entität — Tickets zuordnen, Logo, Website-Sichtbarkeit steuern</div>
+          </div>
+        </div>
+        <ul class="module-features">
+          <li><strong>Unternehmen anlegen:</strong> Name, Logo (PNG/SVG), Website, Beschreibung, Branche</li>
+          <li>Typ: Sponsor (mit Paket: Platin/Gold/Silver/Bronze) oder Attendee-Unternehmen</li>
+          <li><strong>Sichtbarkeit auf Website:</strong> Sponsor-Seite / Partner-Bereich / unsichtbar</li>
+          <li>Mehrere Tickets einem Unternehmen zuordnen (z.B. 2 Tickets → Brand X)</li>
+          <li>Teilnehmer-Liste pro Unternehmen einsehbar im Admin</li>
+          <li>Öffentliches Profil: Firmenlogo nach Rang sortiert auf Sponsoren-Seite</li>
+          <li>Admin-Übersicht: Filter nach Typ, Event, Sichtbarkeit, Paket</li>
+        </ul>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-icon">👥</div>
+          <div class="module-meta">
+            <div class="module-num-row"><span class="module-num">Modul 05</span><span class="badge badge-mvp">MVP</span></div>
+            <div class="module-name">Teilnehmer-Verwaltung</div>
+            <div class="module-desc">Alle Attendees im Überblick — mit Unternehmens-Verknüpfung und Kommunikations-Status</div>
+          </div>
+        </div>
+        <ul class="module-features">
+          <li>Teilnehmer-Übersicht: Name, Firma, Ticket-Kategorie, Check-in-Status</li>
+          <li><strong>Unternehmens-Zuordnung:</strong> Teilnehmer ↔ Unternehmen verknüpfen</li>
+          <li>Filter: nach Unternehmen, Ticket-Kategorie, Check-in-Status</li>
+          <li><strong>Kommunikations-Status:</strong> Wer hat welche Mail erhalten / geöffnet</li>
+          <li>Teilnehmer-Export (CSV) für externe Tools</li>
+          <li>Manuelles Hinzufügen / Bearbeiten von Teilnehmer-Daten</li>
+        </ul>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
           <div class="module-icon">💳</div>
           <div class="module-meta">
-            <div class="module-num">Modul 04</div>
+            <div class="module-num-row"><span class="module-num">Modul 06</span><span class="badge badge-mvp">MVP</span></div>
             <div class="module-name">Ticket-System via Payrexx</div>
-            <div class="module-desc">Vollständiger Ticket-Kauf via Payrexx Whitelabel-Checkout</div>
+            <div class="module-desc">Vollständiger Ticket-Kauf via Payrexx — mit QR-Code und Bestätigungsmail</div>
           </div>
         </div>
         <ul class="module-features">
-          <li>Ticket-Kategorien pro Event: Name, Preis, Kapazität, Verkaufszeitraum</li>
-          <li>Persönliches Ticket: Vorname, Nachname, Firma, Funktion eingedruckt</li>
-          <li>Checkout: Kategorie → Daten → Payrexx → Bestätigung</li>
+          <li>Ticket-Kategorien: Name, Preis, Kapazität, Verkaufszeitraum</li>
+          <li>Checkout: Kategorie → Persönliche Daten → Payrexx → Bestätigung</li>
           <li><strong>QR-Code</strong> pro Ticket (unique, fälschungssicher)</li>
-          <li>Ticket-PDF generieren + per E-Mail senden</li>
-          <li>Order-Management: Bestellübersicht, Status, Rechnungsdownload</li>
-          <li>Stornierung + Rückerstattung (manuell via Admin)</li>
-        </ul>
-      </div>
-
-      <div class="module-card">
-        <div class="module-header">
-          <div class="module-icon">🎫</div>
-          <div class="module-meta">
-            <div class="module-num">Modul 04b</div>
-            <div class="module-name">Voucher-System</div>
-            <div class="module-desc">Rabatt-Codes und Freikarten — mit Direktlink-Funktion</div>
-          </div>
-        </div>
-        <ul class="module-features">
-          <li>Voucher-Typen: Prozent-Rabatt / Fixbetrag / 100% Gratis</li>
-          <li>Max. Einlösungen pro Code + Ablaufdatum definierbar</li>
-          <li>Beschränkung auf bestimmte Ticket-Kategorie (optional)</li>
-          <li><strong>Direktlink:</strong> <code style="font-size:11px;background:rgba(13,148,136,0.1);color:var(--accent2);padding:1px 5px;border-radius:3px">tickets?voucher=CODE</code> → vorausgefüllter Checkout</li>
-          <li>Voucher-Statistiken: wer hat wann eingelöst</li>
-        </ul>
-      </div>
-
-      <div class="module-card">
-        <div class="module-header">
-          <div class="module-icon">🏠</div>
-          <div class="module-meta">
-            <div class="module-num">Modul 05</div>
-            <div class="module-name">My Summit (Mitgliederbereich)</div>
-            <div class="module-desc">Persönlicher Bereich nach Ticketkauf — das Zuhause des Attendees</div>
-          </div>
-        </div>
-        <ul class="module-features">
-          <li><strong>Dashboard:</strong> Ticket, Tagesplan, offene Buchungen, neue Materialien</li>
-          <li><strong>Ticket-Ansicht:</strong> QR-Code, Daten, Kategorie, Rechnung-Download</li>
-          <li><strong>Programm & Buchung:</strong> Masterclasses mit Platz-Anzeige buchen/stornieren</li>
-          <li><strong>Warteliste:</strong> bei voller Session + automatische Benachrichtigung</li>
-          <li><strong>Materialien:</strong> Präsentationen der gebuchten/besuchten Sessions</li>
-          <li>Profil bearbeiten: Name, Firma, Funktion, LinkedIn</li>
+          <li>Ticket-PDF + Bestätigungsmail mit Anhang</li>
+          <li>Order-Management: Status, Rechnungsdownload</li>
+          <li>Stornierung + Rückerstattungs-Workflow (manuell via Admin)</li>
+          <li><strong>Voucher-System:</strong> %-Rabatt, Gratis-Tickets, Direktlink (<code style="font-size:11px;background:rgba(13,148,136,0.1);color:var(--accent2);padding:1px 5px;border-radius:3px">?voucher=CODE</code>)</li>
         </ul>
       </div>
 
@@ -254,7 +293,7 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
   <div class="section">
     <div class="section-header">
       <div class="section-num">C</div>
-      <h2 class="section-title">Rollen & Portale</h2>
+      <h2 class="section-title">Rollen, Admin & Portale</h2>
     </div>
     <div class="module-grid">
 
@@ -262,36 +301,57 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
         <div class="module-header">
           <div class="module-icon">🔐</div>
           <div class="module-meta">
-            <div class="module-num">Modul 06</div>
+            <div class="module-num-row"><span class="module-num">Modul 07</span><span class="badge badge-mvp">MVP</span></div>
             <div class="module-name">Rollen & Rechte</div>
-            <div class="module-desc">7 Rollen, per Event vergeben — granulare Zugangssteuerung</div>
+            <div class="module-desc">Vollständige Berechtigungs-Architektur von Tag 1 — pro Event vergeben</div>
           </div>
         </div>
         <ul class="module-features">
-          <li>super_admin / organizer / sponsor_manager / attendee</li>
-          <li>speaker / sponsor / checkin</li>
-          <li>Rollen sind pro Event vergeben (nicht global)</li>
-          <li>Rollenbasierter Zugriffsschutz auf allen Bereichen</li>
-          <li>Rollen-Verwaltung durch super_admin im Backend</li>
+          <li><strong>7 Rollen:</strong> super_admin / organizer / sponsor_manager / attendee / speaker / sponsor / checkin</li>
+          <li>Rollen sind pro Event vergeben (nicht global — gleiche Person, verschiedene Rollen)</li>
+          <li>Rollenbasierter Zugriffsschutz auf allen 4 Domains</li>
+          <li>Rollen-Vergabe durch super_admin im Backend</li>
+          <li>Erweiterbar: neue Rollen ohne Architektur-Änderung</li>
         </ul>
       </div>
 
       <div class="module-card">
         <div class="module-header">
-          <div class="module-icon">🏢</div>
+          <div class="module-icon">🪪</div>
           <div class="module-meta">
-            <div class="module-num">Modul 07</div>
-            <div class="module-name">Sponsor-Portal</div>
-            <div class="module-desc">Self-Service für Sponsoren + Verwaltung durch Admin</div>
+            <div class="module-num-row"><span class="module-num">Modul 08</span><span class="badge badge-mvp">MVP — Basis</span></div>
+            <div class="module-name">My Summit</div>
+            <div class="module-desc">Fundament des Teilnehmer-Portals — vollständiger Ausbau Post-MVP</div>
           </div>
         </div>
         <ul class="module-features">
-          <li>Sponsor-Pakete: Platin / Gold / Silver / Bronze / Partner</li>
-          <li>Leistungen pro Paket (JSON): Logo-Platz, Tickets, Redner-Slot, etc.</li>
-          <li><strong>Self-Service:</strong> Logo hochladen (PNG/SVG), Firmenprofil, Website-URL</li>
-          <li><strong>Materialien-Download:</strong> Toolkit, Design-Guidelines (vom Admin hinterlegt)</li>
-          <li>Statistiken: Logo-Impressions auf Website, Link-Klicks</li>
-          <li>Public Website: automatische Anzeige nach Paket-Rang (Platin oben)</li>
+          <li><strong>Login / Registrierung</strong> (verknüpft mit Ticketkauf)</li>
+          <li>Ticket anzeigen: QR-Code, Daten, Kategorie, Rechnung-Download</li>
+          <li>Persönliches Profil bearbeiten (Name, Firma, Funktion)</li>
+          <li>Programm-Übersicht (nur Lese-Ansicht im MVP)</li>
+          <li class="deferred-feat">Session-Buchung & Warteliste</li>
+          <li class="deferred-feat">Materialien & Präsentationen</li>
+          <li class="deferred-feat">Badge-Download, Social Share Cards, Zertifikat</li>
+        </ul>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-icon">⭐</div>
+          <div class="module-meta">
+            <div class="module-num-row"><span class="module-num">Modul 09</span><span class="badge badge-mvp">MVP</span></div>
+            <div class="module-name">Sponsor-Verwaltung</div>
+            <div class="module-desc">Sponsoren anlegen und auf Website steuern — über Unternehmens-Profil (Modul 04)</div>
+          </div>
+        </div>
+        <ul class="module-features">
+          <li>Sponsor-Pakete definieren: Platin / Gold / Silver / Bronze / Partner</li>
+          <li>Unternehmen als Sponsor markieren + Paket zuweisen</li>
+          <li>Logo-Upload direkt im Admin (kein Sponsor-Login nötig)</li>
+          <li><strong>Website-Anzeige:</strong> automatisch nach Paket-Rang sortiert</li>
+          <li>Sichtbarkeit pro Sponsor steuerbar (öffentlich / versteckt)</li>
+          <li class="deferred-feat">Sponsor Self-Service Portal (eigenes Login)</li>
+          <li class="deferred-feat">Logo-Impressions & Klick-Statistiken</li>
         </ul>
       </div>
 
@@ -301,7 +361,7 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
   <div class="section">
     <div class="section-header">
       <div class="section-num">D</div>
-      <h2 class="section-title">Marketing & Statistiken</h2>
+      <h2 class="section-title">Kommunikation & Statistiken</h2>
     </div>
     <div class="module-grid">
 
@@ -309,19 +369,19 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
         <div class="module-header">
           <div class="module-icon">📧</div>
           <div class="module-meta">
-            <div class="module-num">Modul 08</div>
-            <div class="module-name">Marketing Engine</div>
-            <div class="module-desc">Vollständiges E-Mail Marketing + automatisierte Sequenzen via Mailtrap</div>
+            <div class="module-num-row"><span class="module-num">Modul 10</span><span class="badge badge-mvp">MVP</span></div>
+            <div class="module-name">Kommunikations-Basis</div>
+            <div class="module-desc">Transaktionale Mails + gezielte Teilnehmer-Updates — via Mailtrap</div>
           </div>
         </div>
         <ul class="module-features">
-          <li><strong>Kontakt-Management:</strong> CSV-Import, Auto-Import aus Ticketkäufen, Tags, DSGVO</li>
-          <li>Kontaktlisten / Segments erstellen (z.B. "VIP", "2025-Attendee")</li>
-          <li><strong>Kampagnen:</strong> Name, Betreff, Template, Ziel-Liste, geplant/sofort</li>
-          <li>HTML-Template-Editor + Variablen (<code style="font-size:11px;background:rgba(13,148,136,0.1);color:var(--accent2);padding:1px 5px;border-radius:3px">&#123;&#123;first_name&#125;&#125;</code> etc.)</li>
-          <li><strong>Automatisierte Sequenzen:</strong> Ticket gekauft → Session gebucht → Pre-Event → Post-Event</li>
-          <li><strong>UTM-Tracking:</strong> Pro Kampagne, Shortlinks, Klick → Konversion</li>
-          <li>Versand-Statistiken: Sent / Opened / Clicked / Bounced</li>
+          <li><strong>Transaktionale Mails:</strong> Ticket-Bestätigung (mit PDF), Passwort-Reset, Systembenachrichtigungen</li>
+          <li><strong>Gezielte Updates:</strong> Admin kann Mails an Teilnehmer-Gruppen senden (z.B. "Masterclasses jetzt buchbar")</li>
+          <li>Empfänger-Filter: alle Attendees / nach Ticket-Kategorie / nach Unternehmen</li>
+          <li>E-Mail Templates im Admin pflegbar (Variablen: Name, Ticket, etc.)</li>
+          <li>Versand-Übersicht: wer hat was erhalten</li>
+          <li class="deferred-feat">Automatisierte Sequenzen (Trigger-basiert)</li>
+          <li class="deferred-feat">Kampagnen-Manager + UTM-Tracking</li>
         </ul>
       </div>
 
@@ -329,19 +389,19 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
         <div class="module-header">
           <div class="module-icon">📊</div>
           <div class="module-meta">
-            <div class="module-num">Modul 09</div>
-            <div class="module-name">Statistics Dashboard</div>
-            <div class="module-desc">Echtzeit-Übersicht für Organizer — vor, während und nach dem Event</div>
+            <div class="module-num-row"><span class="module-num">Modul 11</span><span class="badge badge-mvp">MVP — Basis</span></div>
+            <div class="module-name">Statistiken</div>
+            <div class="module-desc">Echtzeit-Überblick für den Organizer — Ticket-Sales und Check-in</div>
           </div>
         </div>
         <ul class="module-features">
-          <li><strong>Ticket-Verkäufe:</strong> gesamt + nach Kategorie (Zahl + Chart)</li>
-          <li>Umsatz gesamt, Voucher-Einlösungen</li>
-          <li>Registrierungen vs. Check-ins am Eventtag</li>
-          <li>Session-Auslastung (welche Masterclasses voll/leer)</li>
-          <li><strong>Marketing-Stats:</strong> Kampagnen-Performance, UTM-Conversions</li>
-          <li><strong>Post-Event:</strong> Check-in Rate, Session-Attendance, Feedback-Ratings</li>
-          <li>Vorjahresvergleich (wenn Event 2025 archiviert vorhanden)</li>
+          <li>Ticket-Verkäufe: Anzahl gesamt + nach Kategorie</li>
+          <li>Umsatz gesamt + Voucher-Einlösungen</li>
+          <li><strong>Check-in Rate</strong> am Eventtag (live)</li>
+          <li>Teilnehmer-Liste mit Unternehmens-Zuordnung</li>
+          <li class="deferred-feat">Session-Auslastung & Feedback-Ratings</li>
+          <li class="deferred-feat">Marketing-Stats & UTM-Conversions</li>
+          <li class="deferred-feat">Vorjahresvergleich</li>
         </ul>
       </div>
 
@@ -351,102 +411,167 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
   <div class="section">
     <div class="section-header">
       <div class="section-num">E</div>
-      <h2 class="section-title">Tools & Generierte Inhalte</h2>
+      <h2 class="section-title">Frontends & Event-Tools</h2>
     </div>
     <div class="module-grid">
 
       <div class="module-card">
         <div class="module-header">
-          <div class="module-icon">📱</div>
-          <div class="module-meta">
-            <div class="module-num">Modul 10</div>
-            <div class="module-name">Check-in Web-App</div>
-            <div class="module-desc">Mobiloptimierte QR-Scanner-App für das Einlass-Team am Eventtag</div>
-          </div>
-        </div>
-        <ul class="module-features">
-          <li>Zugang nur mit Rolle <code style="font-size:11px;background:rgba(13,148,136,0.1);color:var(--accent2);padding:1px 5px;border-radius:3px">checkin</code> — kein weiterer Zugang</li>
-          <li><strong>QR-Code Scanner</strong> via Browser-Kamera (kein App-Download nötig)</li>
-          <li>Ticket validieren: Name, Firma, Kategorie, gebuchte Masterclasses</li>
-          <li>Check-in bestätigen → Status wird sofort auf <code style="font-size:11px;background:rgba(13,148,136,0.1);color:var(--accent2);padding:1px 5px;border-radius:3px">checked_in</code> gesetzt</li>
-          <li>Fehlermeldung: ungültiger QR / bereits eingecheckt / storniert</li>
-          <li><strong>Offline-Fallback:</strong> lokaler Cache für Notfälle</li>
-          <li>Live-Stats: Einlass-Fortschritt für das Team</li>
-        </ul>
-      </div>
-
-      <div class="module-card">
-        <div class="module-header">
           <div class="module-icon">🌐</div>
           <div class="module-meta">
-            <div class="module-num">Modul 11</div>
+            <div class="module-num-row"><span class="module-num">Modul 12</span><span class="badge badge-mvp">MVP</span></div>
             <div class="module-name">Public Website</div>
-            <div class="module-desc">SSR-Website komplett aus dem Backend gespeist — kein CMS nötig</div>
+            <div class="module-desc">Vollständige öffentliche Eventseite — aus dem Backend gespeist, kein CMS nötig</div>
           </div>
         </div>
         <ul class="module-features">
-          <li><strong>/</strong> — Hero, Event-Info, Highlights, Early-Bird-Teaser, Sponsor-Logos</li>
+          <li><strong>/</strong> — Hero, Event-Info, Highlights, Sponsor-Logos</li>
           <li><strong>/programm</strong> — Tagesplan (Timeline + Filter nach Stage/Typ)</li>
-          <li><strong>/speaker</strong> — Speaker-Grid mit Detailseite</li>
-          <li><strong>/sponsoren</strong> — Logos nach Paket-Rang mit Link</li>
+          <li><strong>/speaker</strong> — Speaker-Grid mit Detailseiten</li>
+          <li><strong>/sponsoren</strong> — Unternehmen nach Paket-Rang + Logos</li>
           <li><strong>/tickets</strong> — Kategorien + Payrexx-Checkout + Voucher-Feld</li>
           <li><strong>/faq</strong> — pflegbar im Admin</li>
-          <li>SEO: SSR via Nuxt 4, Schema.org Event-Markup, OG-Tags</li>
+          <li>SEO: SSR, Schema.org Event-Markup, OG-Tags</li>
         </ul>
       </div>
 
       <div class="module-card">
         <div class="module-header">
-          <div class="module-icon">🃏</div>
+          <div class="module-icon">📱</div>
           <div class="module-meta">
-            <div class="module-num">Modul 12</div>
-            <div class="module-name">Social Share Cards</div>
-            <div class="module-desc">Auto-generierte Sharing-Bilder nach Ticketkauf</div>
+            <div class="module-num-row"><span class="module-num">Modul 13</span><span class="badge badge-mvp">MVP</span></div>
+            <div class="module-name">Check-in Web-App</div>
+            <div class="module-desc">Mobiloptimierter QR-Scanner für das Einlass-Team — kein App-Download nötig</div>
           </div>
         </div>
         <ul class="module-features">
-          <li>LinkedIn/OG-Format: 1200×630px</li>
-          <li>Instagram-Format: 1080×1080px</li>
-          <li>Inhalt: "Ich bin dabei! · D2C Summit [Jahr] · [Datum] · [Ort]"</li>
-          <li>Branding: Event-Logo, Primärfarbe, Name des Attendees</li>
-          <li>Downloadbar in My Summit</li>
-          <li>Beim Ticketkauf direkt angeboten ("Share on LinkedIn")</li>
+          <li>Zugang nur mit Rolle <code style="font-size:11px;background:rgba(13,148,136,0.1);color:var(--accent2);padding:1px 5px;border-radius:3px">checkin</code></li>
+          <li><strong>QR-Code Scanner</strong> via Browser-Kamera</li>
+          <li>Ticket validieren: Name, Firma, Kategorie</li>
+          <li>Fehlermeldung: ungültiger QR / bereits eingecheckt / storniert</li>
+          <li>Live-Einlass-Zähler für das Team</li>
+          <li class="deferred-feat">Offline-Fallback (lokaler Cache)</li>
         </ul>
       </div>
 
-      <div class="module-card">
+    </div>
+  </div>
+
+  <!-- POST-MVP DIVIDER -->
+  <div class="divider-postmvp">
+    <div class="divider-postmvp-line"></div>
+    <div class="divider-postmvp-label">↓ Post-MVP — Phase II nach Go-Live</div>
+    <div class="divider-postmvp-line"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num" style="background:rgba(100,116,139,0.08);border-color:rgba(100,116,139,0.2);color:var(--muted)">II</div>
+      <h2 class="section-title" style="color:var(--muted)">Post-MVP — Phase II</h2>
+    </div>
+    <div class="module-grid">
+
+      <div class="module-card post-mvp">
         <div class="module-header">
-          <div class="module-icon">🏷️</div>
+          <div class="module-icon">🪪</div>
           <div class="module-meta">
-            <div class="module-num">Modul 13</div>
-            <div class="module-name">Attendee Badge</div>
-            <div class="module-desc">Personalisiertes Event-Badge — für LinkedIn und Druck</div>
+            <div class="module-num-row"><span class="module-num">Modul 08+</span><span class="badge badge-postmvp">Post-MVP</span></div>
+            <div class="module-name">My Summit — Vollausbau</div>
+            <div class="module-desc">Alles was nach dem ersten Event gebraucht wird</div>
           </div>
         </div>
         <ul class="module-features">
-          <li>Design pro Ticket-Kategorie (VIP-Badge sieht anders aus)</li>
-          <li>Inhalt: Name, Firma, Funktion, Kategorie, QR-Code</li>
-          <li>PDF (A6, druckfertig) + PNG (LinkedIn-optimiert)</li>
-          <li>Badge-Vorlagen im Admin konfigurierbar (template_config JSON)</li>
-          <li>Badge auch vor Ort ausdruckbar (Admin-Funktion)</li>
+          <li>Masterclass-Buchung mit Platz-Anzeige + Warteliste</li>
+          <li>Automatische Benachrichtigung bei freiem Platz</li>
+          <li>Materialien & Präsentationen nach dem Event</li>
+          <li>Badge-Download (PDF + PNG)</li>
+          <li>Social Share Cards (LinkedIn + Instagram)</li>
+          <li>Certificate of Attendance (PDF)</li>
         </ul>
       </div>
 
-      <div class="module-card">
+      <div class="module-card post-mvp">
         <div class="module-header">
-          <div class="module-icon">📜</div>
+          <div class="module-icon">🎤</div>
           <div class="module-meta">
-            <div class="module-num">Modul 14</div>
-            <div class="module-name">Zertifikat & Feedback</div>
-            <div class="module-desc">Certificate of Attendance + Session-Bewertungen nach dem Event</div>
+            <div class="module-num-row"><span class="module-num">Modul 03+</span><span class="badge badge-postmvp">Post-MVP</span></div>
+            <div class="module-name">Speaker Self-Service Portal</div>
+            <div class="module-desc">Speaker können ihr Profil und Materialien selbst pflegen</div>
           </div>
         </div>
         <ul class="module-features">
-          <li><strong>Certificate of Attendance:</strong> PDF, nach Event in My Summit verfügbar</li>
-          <li>Session-Feedback via E-Mail-Trigger (Tag +1 nach Event)</li>
-          <li>Bewertung: 1–5 Sterne + optionaler Kommentar</li>
-          <li>Speaker sieht eigenes Feedback in Speaker-Portal</li>
-          <li>Admin sieht alles aggregiert in Statistics Dashboard</li>
+          <li>Speaker-Login (eigenes Portal unter my.d2c-summit.ch)</li>
+          <li>Profil selbst bearbeiten (Bio, Foto, Social Links)</li>
+          <li>Präsentationen hochladen</li>
+          <li>Session-Feedback einsehen (nach Event)</li>
+        </ul>
+      </div>
+
+      <div class="module-card post-mvp">
+        <div class="module-header">
+          <div class="module-icon">⭐</div>
+          <div class="module-meta">
+            <div class="module-num-row"><span class="module-num">Modul 09+</span><span class="badge badge-postmvp">Post-MVP</span></div>
+            <div class="module-name">Sponsor Self-Service Portal</div>
+            <div class="module-desc">Sponsoren pflegen ihr Profil selbst — inkl. Statistiken</div>
+          </div>
+        </div>
+        <ul class="module-features">
+          <li>Sponsor-Login (eigenes Portal unter my.d2c-summit.ch)</li>
+          <li>Logo selbst hochladen + Firmenprofil bearbeiten</li>
+          <li>Sponsor-Materialien downloaden (vom Admin hinterlegt)</li>
+          <li>Logo-Impressions & Klick-Statistiken einsehen</li>
+        </ul>
+      </div>
+
+      <div class="module-card post-mvp">
+        <div class="module-header">
+          <div class="module-icon">📧</div>
+          <div class="module-meta">
+            <div class="module-num-row"><span class="module-num">Modul 10+</span><span class="badge badge-postmvp">Post-MVP</span></div>
+            <div class="module-name">Marketing Engine</div>
+            <div class="module-desc">Vollständige Kampagnen + automatisierte Sequenzen via Mailtrap</div>
+          </div>
+        </div>
+        <ul class="module-features">
+          <li>Kontakt-Segmentierung (Tags, Listen, Attribute)</li>
+          <li>Kampagnen: planen, senden, Statistiken</li>
+          <li>Automatisierte Sequenzen (Ticket gekauft → Pre-Event → Post-Event)</li>
+          <li>UTM-Tracking + Klick → Konversion</li>
+          <li>Versand-Statistiken: Sent / Opened / Clicked / Bounced</li>
+        </ul>
+      </div>
+
+      <div class="module-card post-mvp">
+        <div class="module-header">
+          <div class="module-icon">📊</div>
+          <div class="module-meta">
+            <div class="module-num-row"><span class="module-num">Modul 11+</span><span class="badge badge-postmvp">Post-MVP</span></div>
+            <div class="module-name">Statistics Dashboard — Voll</div>
+            <div class="module-desc">Vollständige Analytics — Marketing, Sessions, Vorjahresvergleich</div>
+          </div>
+        </div>
+        <ul class="module-features">
+          <li>Session-Auslastung (welche Masterclasses voll/leer)</li>
+          <li>Session-Feedback aggregiert</li>
+          <li>Marketing-Stats: Kampagnen-Performance, UTM-Conversions</li>
+          <li>Vorjahresvergleich (ab Event 2)</li>
+        </ul>
+      </div>
+
+      <div class="module-card post-mvp">
+        <div class="module-header">
+          <div class="module-icon">🔁</div>
+          <div class="module-meta">
+            <div class="module-num-row"><span class="module-num">Modul 01+</span><span class="badge badge-postmvp">Post-MVP</span></div>
+            <div class="module-name">Event-Klon & Multi-Year</div>
+            <div class="module-desc">Für Folgejahre — Event klonen, Inhalte übernehmen, neu starten</div>
+          </div>
+        </div>
+        <ul class="module-features">
+          <li>Event klonen als Ausgangspunkt für nächstes Jahr</li>
+          <li>Vergangene Events archivieren (Statistiken bleiben)</li>
+          <li>Branding + Programm aus Vorjahr als Template</li>
         </ul>
       </div>
 
