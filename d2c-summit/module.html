@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module Phase I — D2C Summit Platform</title>
+<style>
+:root {
+  --dark: #0f1117; --darker: #080a0f; --card: #161b27; --card2: #1c2333;
+  --accent: #0d9488; --accent2: #2dd4bf; --gold: #f59e0b; --green: #10b981;
+  --red: #ef4444; --text: #e2e8f0; --muted: #64748b; --border: #1e2a3a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--darker); color: var(--text); line-height: 1.6; }
+.nav { background: rgba(8,10,15,0.95); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); }
+.nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; gap: 8px; height: 52px; }
+.nav-brand { text-decoration: none; display: flex; align-items: center; gap: 8px; margin-right: 12px; flex-shrink: 0; }
+.nav-brand-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent2); }
+.nav-brand-text { font-size: 13px; font-weight: 700; color: var(--text); }
+.nav-sep { color: var(--border); font-size: 18px; margin: 0 4px; }
+.nav-links { display: flex; align-items: center; gap: 2px; }
+.nav-link { text-decoration: none; padding: 6px 12px; border-radius: 8px; font-size: 13px; font-weight: 500; color: var(--muted); }
+.nav-link:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+.nav-link.active { color: var(--accent2); background: rgba(13,148,136,0.12); font-weight: 600; }
+.page-hdr { background: linear-gradient(135deg, #0f1117 0%, #0d2420 50%, #0f1117 100%); border-bottom: 1px solid var(--border); padding: 36px 40px 28px; }
+.page-hdr-inner { max-width: 1100px; margin: 0 auto; }
+.page-bc { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+.page-bc a { color: var(--muted); text-decoration: none; }
+.page-bc a:hover { color: var(--text); }
+.page-title { font-size: clamp(22px, 3vw, 34px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px; }
+.page-title span { color: var(--accent2); }
+.page-sub { color: var(--muted); font-size: 14px; }
+.container { max-width: 1100px; margin: 0 auto; padding: 48px 40px; }
+.section { margin-bottom: 56px; }
+.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+.section-num { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: rgba(13,148,136,0.15); border: 1px solid rgba(13,148,136,0.3); border-radius: 8px; font-size: 13px; font-weight: 700; color: var(--accent2); flex-shrink: 0; }
+.section-title { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; }
+.module-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px; }
+.module-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 22px 24px; }
+.module-header { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px; }
+.module-icon { font-size: 22px; width: 44px; height: 44px; background: rgba(13,148,136,0.1); border: 1px solid rgba(13,148,136,0.2); border-radius: 11px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.module-meta { flex: 1; }
+.module-num { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent2); margin-bottom: 3px; }
+.module-name { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+.module-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+.module-features { list-style: none; display: flex; flex-direction: column; gap: 5px; margin-top: 4px; }
+.module-features li { font-size: 13px; color: var(--muted); padding-left: 16px; position: relative; line-height: 1.4; }
+.module-features li::before { content: '·'; position: absolute; left: 4px; color: var(--accent2); font-weight: 700; }
+.module-features li strong { color: var(--text); font-weight: 600; }
+.group-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 16px; padding: 6px 12px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 8px; display: inline-block; }
+.badge { display: inline-flex; align-items: center; padding: 2px 8px; border-radius: 100px; font-size: 11px; font-weight: 600; }
+.badge-teal { background: rgba(13,148,136,0.1); border: 1px solid rgba(13,148,136,0.3); color: var(--accent2); }
+.badge-gold { background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.3); color: var(--gold); }
+.divider { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+.footer { border-top: 1px solid var(--border); padding: 24px 40px; display: flex; align-items: center; justify-content: space-between; color: var(--muted); font-size: 13px; }
+.footer strong { color: var(--text); }
+.footer-nav { display: flex; gap: 16px; }
+.footer-nav a { text-decoration: none; color: var(--muted); font-size: 13px; }
+.footer-nav a:hover { color: var(--accent2); }
+@media (max-width: 768px) {
+  .page-hdr, .container, .footer { padding-left: 20px; padding-right: 20px; }
+  .nav-inner { padding: 0 16px; }
+  .module-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <div class="nav-brand-dot"></div>
+      <span class="nav-brand-text">D2C Summit</span>
+    </a>
+    <span class="nav-sep">|</span>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Übersicht</a>
+      <a href="konzept.html" class="nav-link">Konzept</a>
+      <a href="module.html" class="nav-link active">Module</a>
+      <a href="phasen.html" class="nav-link">Phasen</a>
+      <a href="integrationen.html" class="nav-link">Integrationen</a>
+      <a href="offene-fragen.html" class="nav-link">Offene Fragen</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hdr">
+  <div class="page-hdr-inner">
+    <div class="page-bc"><a href="index.html">D2C Summit</a> / Module Phase I</div>
+    <div class="page-title">Module <span>Phase I</span></div>
+    <div class="page-sub">Alle 14 Module mit vollständigen Feature-Beschreibungen — was die Platform können muss</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">A</div>
+      <h2 class="section-title">Core Platform — Event, Programm & Speaker</h2>
+    </div>
+    <div class="module-grid">
+
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-icon">🔁</div>
+          <div class="module-meta">
+            <div class="module-num">Modul 01</div>
+            <div class="module-name">Event Engine</div>
+            <div class="module-desc">Jährlich wiederkehrende Events verwalten — Single Source of Truth für alle Inhalte</div>
+          </div>
+        </div>
+        <ul class="module-features">
+          <li>Event erstellen: Name, Slug, Datum, Venue, Beschreibung, Status (draft/published/archived)</li>
+          <li><strong>Branding-Config pro Event:</strong> Primärfarbe, Logo, Hero-Image</li>
+          <li>Stages / Räume definieren (Name, Kapazität, Reihenfolge)</li>
+          <li><strong>Event klonen</strong> — für Folgejahre als Ausgangspunkt</li>
+          <li>Vergangene Events archivieren, Statistiken bleiben erhalten</li>
+        </ul>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-icon">🗓️</div>
+          <div class="module-meta">
+            <div class="module-num">Modul 02</div>
+            <div class="module-name">Programm-Manager</div>
+            <div class="module-desc">Einmal erfassen → überall anzeigen (Website, My Summit, Admin)</div>
+          </div>
+        </div>
+        <ul class="module-features">
+          <li>Session-Typen: Keynote / Masterclass / Panel / Break / Networking</li>
+          <li>Session anlegen: Titel, Beschreibung, Typ, Stage, Start/End, Kapazität, buchbar</li>
+          <li>Speaker einer Session zuweisen (mehrere möglich)</li>
+          <li>Session-Materialien hochladen (Präsentation, Ressourcen)</li>
+          <li><strong>Drag & Drop</strong> Programm-Reihenfolge im Admin</li>
+          <li>Parallele Sessions sichtbar im Tagesplan</li>
+        </ul>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-icon">🎤</div>
+          <div class="module-meta">
+            <div class="module-num">Modul 03</div>
+            <div class="module-name">Speaker-Management</div>
+            <div class="module-desc">Speaker-Verwaltung im Admin + Self-Service über Speaker-Portal</div>
+          </div>
+        </div>
+        <ul class="module-features">
+          <li>Speaker-Profil: Name, Titel, Firma, Bio, Foto, LinkedIn, Twitter, Website</li>
+          <li>Speaker einem Event zuweisen, Sessions verknüpfen</li>
+          <li><strong>Speaker-Login:</strong> Eigenes Profil bearbeiten, Präsentationen hochladen</li>
+          <li>Eigenes Session-Feedback einsehen (nach dem Event)</li>
+          <li>Automatische Anzeige auf Public Website + My Summit</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">B</div>
+      <h2 class="section-title">Ticketing & Mitgliederbereich</h2>
+    </div>
+    <div class="module-grid">
+
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-icon">💳</div>
+          <div class="module-meta">
+            <div class="module-num">Modul 04</div>
+            <div class="module-name">Ticket-System via Payrexx</div>
+            <div class="module-desc">Vollständiger Ticket-Kauf via Payrexx Whitelabel-Checkout</div>
+          </div>
+        </div>
+        <ul class="module-features">
+          <li>Ticket-Kategorien pro Event: Name, Preis, Kapazität, Verkaufszeitraum</li>
+          <li>Persönliches Ticket: Vorname, Nachname, Firma, Funktion eingedruckt</li>
+          <li>Checkout: Kategorie → Daten → Payrexx → Bestätigung</li>
+          <li><strong>QR-Code</strong> pro Ticket (unique, fälschungssicher)</li>
+          <li>Ticket-PDF generieren + per E-Mail senden</li>
+          <li>Order-Management: Bestellübersicht, Status, Rechnungsdownload</li>
+          <li>Stornierung + Rückerstattung (manuell via Admin)</li>
+        </ul>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-icon">🎫</div>
+          <div class="module-meta">
+            <div class="module-num">Modul 04b</div>
+            <div class="module-name">Voucher-System</div>
+            <div class="module-desc">Rabatt-Codes und Freikarten — mit Direktlink-Funktion</div>
+          </div>
+        </div>
+        <ul class="module-features">
+          <li>Voucher-Typen: Prozent-Rabatt / Fixbetrag / 100% Gratis</li>
+          <li>Max. Einlösungen pro Code + Ablaufdatum definierbar</li>
+          <li>Beschränkung auf bestimmte Ticket-Kategorie (optional)</li>
+          <li><strong>Direktlink:</strong> <code style="font-size:11px;background:rgba(13,148,136,0.1);color:var(--accent2);padding:1px 5px;border-radius:3px">tickets?voucher=CODE</code> → vorausgefüllter Checkout</li>
+          <li>Voucher-Statistiken: wer hat wann eingelöst</li>
+        </ul>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-icon">🏠</div>
+          <div class="module-meta">
+            <div class="module-num">Modul 05</div>
+            <div class="module-name">My Summit (Mitgliederbereich)</div>
+            <div class="module-desc">Persönlicher Bereich nach Ticketkauf — das Zuhause des Attendees</div>
+          </div>
+        </div>
+        <ul class="module-features">
+          <li><strong>Dashboard:</strong> Ticket, Tagesplan, offene Buchungen, neue Materialien</li>
+          <li><strong>Ticket-Ansicht:</strong> QR-Code, Daten, Kategorie, Rechnung-Download</li>
+          <li><strong>Programm & Buchung:</strong> Masterclasses mit Platz-Anzeige buchen/stornieren</li>
+          <li><strong>Warteliste:</strong> bei voller Session + automatische Benachrichtigung</li>
+          <li><strong>Materialien:</strong> Präsentationen der gebuchten/besuchten Sessions</li>
+          <li>Profil bearbeiten: Name, Firma, Funktion, LinkedIn</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">C</div>
+      <h2 class="section-title">Rollen & Portale</h2>
+    </div>
+    <div class="module-grid">
+
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-icon">🔐</div>
+          <div class="module-meta">
+            <div class="module-num">Modul 06</div>
+            <div class="module-name">Rollen & Rechte</div>
+            <div class="module-desc">7 Rollen, per Event vergeben — granulare Zugangssteuerung</div>
+          </div>
+        </div>
+        <ul class="module-features">
+          <li>super_admin / organizer / sponsor_manager / attendee</li>
+          <li>speaker / sponsor / checkin</li>
+          <li>Rollen sind pro Event vergeben (nicht global)</li>
+          <li>Middleware-basierter API-Schutz in Laravel</li>
+          <li>Rollen-Verwaltung durch super_admin im Backend</li>
+        </ul>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-icon">🏢</div>
+          <div class="module-meta">
+            <div class="module-num">Modul 07</div>
+            <div class="module-name">Sponsor-Portal</div>
+            <div class="module-desc">Self-Service für Sponsoren + Verwaltung durch Admin</div>
+          </div>
+        </div>
+        <ul class="module-features">
+          <li>Sponsor-Pakete: Platin / Gold / Silver / Bronze / Partner</li>
+          <li>Leistungen pro Paket (JSON): Logo-Platz, Tickets, Redner-Slot, etc.</li>
+          <li><strong>Self-Service:</strong> Logo hochladen (PNG/SVG), Firmenprofil, Website-URL</li>
+          <li><strong>Materialien-Download:</strong> Toolkit, Design-Guidelines (vom Admin hinterlegt)</li>
+          <li>Statistiken: Logo-Impressions auf Website, Link-Klicks</li>
+          <li>Public Website: automatische Anzeige nach Paket-Rang (Platin oben)</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">D</div>
+      <h2 class="section-title">Marketing & Statistiken</h2>
+    </div>
+    <div class="module-grid">
+
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-icon">📧</div>
+          <div class="module-meta">
+            <div class="module-num">Modul 08</div>
+            <div class="module-name">Marketing Engine</div>
+            <div class="module-desc">Vollständiges E-Mail Marketing + automatisierte Sequenzen via Mailtrap</div>
+          </div>
+        </div>
+        <ul class="module-features">
+          <li><strong>Kontakt-Management:</strong> CSV-Import, Auto-Import aus Ticketkäufen, Tags, DSGVO</li>
+          <li>Kontaktlisten / Segments erstellen (z.B. "VIP", "2025-Attendee")</li>
+          <li><strong>Kampagnen:</strong> Name, Betreff, Template, Ziel-Liste, geplant/sofort</li>
+          <li>HTML-Template-Editor + Variablen (<code style="font-size:11px;background:rgba(13,148,136,0.1);color:var(--accent2);padding:1px 5px;border-radius:3px">&#123;&#123;first_name&#125;&#125;</code> etc.)</li>
+          <li><strong>Automatisierte Sequenzen:</strong> Ticket gekauft → Session gebucht → Pre-Event → Post-Event</li>
+          <li><strong>UTM-Tracking:</strong> Pro Kampagne, Shortlinks, Klick → Konversion</li>
+          <li>Versand-Statistiken: Sent / Opened / Clicked / Bounced</li>
+        </ul>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-icon">📊</div>
+          <div class="module-meta">
+            <div class="module-num">Modul 09</div>
+            <div class="module-name">Statistics Dashboard</div>
+            <div class="module-desc">Echtzeit-Übersicht für Organizer — vor, während und nach dem Event</div>
+          </div>
+        </div>
+        <ul class="module-features">
+          <li><strong>Ticket-Verkäufe:</strong> gesamt + nach Kategorie (Zahl + Chart)</li>
+          <li>Umsatz gesamt, Voucher-Einlösungen</li>
+          <li>Registrierungen vs. Check-ins am Eventtag</li>
+          <li>Session-Auslastung (welche Masterclasses voll/leer)</li>
+          <li><strong>Marketing-Stats:</strong> Kampagnen-Performance, UTM-Conversions</li>
+          <li><strong>Post-Event:</strong> Check-in Rate, Session-Attendance, Feedback-Ratings</li>
+          <li>Vorjahresvergleich (wenn Event 2025 archiviert vorhanden)</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">E</div>
+      <h2 class="section-title">Tools & Generierte Inhalte</h2>
+    </div>
+    <div class="module-grid">
+
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-icon">📱</div>
+          <div class="module-meta">
+            <div class="module-num">Modul 10</div>
+            <div class="module-name">Check-in Web-App</div>
+            <div class="module-desc">Mobiloptimierte QR-Scanner-App für das Einlass-Team am Eventtag</div>
+          </div>
+        </div>
+        <ul class="module-features">
+          <li>Zugang nur mit Rolle <code style="font-size:11px;background:rgba(13,148,136,0.1);color:var(--accent2);padding:1px 5px;border-radius:3px">checkin</code> — kein weiterer Zugang</li>
+          <li><strong>QR-Code Scanner</strong> via Browser-Kamera (kein App-Download nötig)</li>
+          <li>Ticket validieren: Name, Firma, Kategorie, gebuchte Masterclasses</li>
+          <li>Check-in bestätigen → Status wird sofort auf <code style="font-size:11px;background:rgba(13,148,136,0.1);color:var(--accent2);padding:1px 5px;border-radius:3px">checked_in</code> gesetzt</li>
+          <li>Fehlermeldung: ungültiger QR / bereits eingecheckt / storniert</li>
+          <li><strong>Offline-Fallback:</strong> lokaler Cache für Notfälle</li>
+          <li>Live-Stats: Einlass-Fortschritt für das Team</li>
+        </ul>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-icon">🌐</div>
+          <div class="module-meta">
+            <div class="module-num">Modul 11</div>
+            <div class="module-name">Public Website</div>
+            <div class="module-desc">SSR-Website komplett aus dem Backend gespeist — kein CMS nötig</div>
+          </div>
+        </div>
+        <ul class="module-features">
+          <li><strong>/</strong> — Hero, Event-Info, Highlights, Early-Bird-Teaser, Sponsor-Logos</li>
+          <li><strong>/programm</strong> — Tagesplan (Timeline + Filter nach Stage/Typ)</li>
+          <li><strong>/speaker</strong> — Speaker-Grid mit Detailseite</li>
+          <li><strong>/sponsoren</strong> — Logos nach Paket-Rang mit Link</li>
+          <li><strong>/tickets</strong> — Kategorien + Payrexx-Checkout + Voucher-Feld</li>
+          <li><strong>/faq</strong> — pflegbar im Admin</li>
+          <li>SEO: SSR via Nuxt 4, Schema.org Event-Markup, OG-Tags</li>
+        </ul>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-icon">🃏</div>
+          <div class="module-meta">
+            <div class="module-num">Modul 12</div>
+            <div class="module-name">Social Share Cards</div>
+            <div class="module-desc">Auto-generierte Sharing-Bilder nach Ticketkauf</div>
+          </div>
+        </div>
+        <ul class="module-features">
+          <li>LinkedIn/OG-Format: 1200×630px</li>
+          <li>Instagram-Format: 1080×1080px</li>
+          <li>Inhalt: "Ich bin dabei! · D2C Summit [Jahr] · [Datum] · [Ort]"</li>
+          <li>Branding: Event-Logo, Primärfarbe, Name des Attendees</li>
+          <li>Downloadbar in My Summit</li>
+          <li>Beim Ticketkauf direkt angeboten ("Share on LinkedIn")</li>
+        </ul>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-icon">🏷️</div>
+          <div class="module-meta">
+            <div class="module-num">Modul 13</div>
+            <div class="module-name">Attendee Badge</div>
+            <div class="module-desc">Personalisiertes Event-Badge — für LinkedIn und Druck</div>
+          </div>
+        </div>
+        <ul class="module-features">
+          <li>Design pro Ticket-Kategorie (VIP-Badge sieht anders aus)</li>
+          <li>Inhalt: Name, Firma, Funktion, Kategorie, QR-Code</li>
+          <li>PDF (A6, druckfertig) + PNG (LinkedIn-optimiert)</li>
+          <li>Badge-Vorlagen im Admin konfigurierbar (template_config JSON)</li>
+          <li>Badge auch vor Ort ausdruckbar (Admin-Funktion)</li>
+        </ul>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-icon">📜</div>
+          <div class="module-meta">
+            <div class="module-num">Modul 14</div>
+            <div class="module-name">Zertifikat & Feedback</div>
+            <div class="module-desc">Certificate of Attendance + Session-Bewertungen nach dem Event</div>
+          </div>
+        </div>
+        <ul class="module-features">
+          <li><strong>Certificate of Attendance:</strong> PDF, nach Event in My Summit verfügbar</li>
+          <li>Session-Feedback via E-Mail-Trigger (Tag +1 nach Event)</li>
+          <li>Bewertung: 1–5 Sterne + optionaler Kommentar</li>
+          <li>Speaker sieht eigenes Feedback in Speaker-Portal</li>
+          <li>Admin sieht alles aggregiert in Statistics Dashboard</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <strong>D2C Summit — Module Phase I</strong>
+  <div class="footer-nav">
+    <a href="konzept.html">← Konzept</a>
+    <a href="phasen.html">Phasen →</a>
+  </div>
+</div>
+
+</body>
+</html>

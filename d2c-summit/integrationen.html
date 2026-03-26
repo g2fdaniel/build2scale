@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Integrationen & Flows — D2C Summit Platform</title>
+<style>
+:root {
+  --dark: #0f1117; --darker: #080a0f; --card: #161b27; --card2: #1c2333;
+  --accent: #0d9488; --accent2: #2dd4bf; --gold: #f59e0b; --green: #10b981;
+  --red: #ef4444; --text: #e2e8f0; --muted: #64748b; --border: #1e2a3a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--darker); color: var(--text); line-height: 1.6; }
+.nav { background: rgba(8,10,15,0.95); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); }
+.nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; gap: 8px; height: 52px; }
+.nav-brand { text-decoration: none; display: flex; align-items: center; gap: 8px; margin-right: 12px; flex-shrink: 0; }
+.nav-brand-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent2); }
+.nav-brand-text { font-size: 13px; font-weight: 700; color: var(--text); }
+.nav-sep { color: var(--border); font-size: 18px; margin: 0 4px; }
+.nav-links { display: flex; align-items: center; gap: 2px; }
+.nav-link { text-decoration: none; padding: 6px 12px; border-radius: 8px; font-size: 13px; font-weight: 500; color: var(--muted); }
+.nav-link:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+.nav-link.active { color: var(--accent2); background: rgba(13,148,136,0.12); font-weight: 600; }
+.page-hdr { background: linear-gradient(135deg, #0f1117 0%, #0d2420 50%, #0f1117 100%); border-bottom: 1px solid var(--border); padding: 36px 40px 28px; }
+.page-hdr-inner { max-width: 1100px; margin: 0 auto; }
+.page-bc { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+.page-bc a { color: var(--muted); text-decoration: none; }
+.page-bc a:hover { color: var(--text); }
+.page-title { font-size: clamp(22px, 3vw, 34px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px; }
+.page-title span { color: var(--accent2); }
+.page-sub { color: var(--muted); font-size: 14px; }
+.container { max-width: 1100px; margin: 0 auto; padding: 48px 40px; }
+.section { margin-bottom: 56px; }
+.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+.section-num { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: rgba(13,148,136,0.15); border: 1px solid rgba(13,148,136,0.3); border-radius: 8px; font-size: 13px; font-weight: 700; color: var(--accent2); flex-shrink: 0; }
+.section-title { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+/* FLOW STEPS */
+.flow-steps { display: flex; flex-direction: column; }
+.flow-step { display: flex; gap: 16px; align-items: flex-start; }
+.flow-step-line { display: flex; flex-direction: column; align-items: center; width: 36px; flex-shrink: 0; }
+.flow-step-dot { width: 36px; height: 36px; border-radius: 50%; background: rgba(13,148,136,0.15); border: 2px solid rgba(13,148,136,0.4); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: var(--accent2); flex-shrink: 0; }
+.flow-step-connector { width: 2px; flex: 1; min-height: 16px; background: var(--border); margin: 4px 0; }
+.flow-step-body { padding-bottom: 20px; flex: 1; }
+.flow-step-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.flow-step-desc { font-size: 13px; color: var(--muted); }
+.flow-step-code { font-family: 'Monaco', 'Menlo', monospace; font-size: 11px; background: rgba(13,148,136,0.08); color: var(--accent2); padding: 2px 8px; border-radius: 4px; display: inline-block; margin-top: 4px; }
+/* TABLE */
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { text-align: left; padding: 10px 16px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); background: var(--card2); border-bottom: 1px solid var(--border); }
+td { padding: 10px 16px; border-bottom: 1px solid rgba(30,42,58,0.5); vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(255,255,255,0.02); }
+.table-wrap { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+code { font-family: 'Monaco', 'Menlo', monospace; font-size: 11px; background: rgba(13,148,136,0.08); color: var(--accent2); padding: 1px 6px; border-radius: 4px; }
+.badge { display: inline-flex; align-items: center; padding: 2px 8px; border-radius: 100px; font-size: 11px; font-weight: 600; }
+.badge-teal { background: rgba(13,148,136,0.1); border: 1px solid rgba(13,148,136,0.3); color: var(--accent2); }
+.badge-gold { background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.3); color: var(--gold); }
+.badge-green { background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3); color: var(--green); }
+.integration-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.integration-icon { font-size: 24px; width: 48px; height: 48px; background: rgba(13,148,136,0.1); border: 1px solid rgba(13,148,136,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.integration-title { font-size: 18px; font-weight: 700; }
+.integration-sub { font-size: 13px; color: var(--muted); }
+.list-plain { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.list-plain li { font-size: 13px; color: var(--muted); padding-left: 16px; position: relative; }
+.list-plain li::before { content: '·'; position: absolute; left: 4px; color: var(--accent2); font-weight: 700; }
+.list-plain li strong { color: var(--text); }
+.footer { border-top: 1px solid var(--border); padding: 24px 40px; display: flex; align-items: center; justify-content: space-between; color: var(--muted); font-size: 13px; }
+.footer strong { color: var(--text); }
+.footer-nav { display: flex; gap: 16px; }
+.footer-nav a { text-decoration: none; color: var(--muted); font-size: 13px; }
+.footer-nav a:hover { color: var(--accent2); }
+@media (max-width: 768px) {
+  .page-hdr, .container, .footer { padding-left: 20px; padding-right: 20px; }
+  .nav-inner { padding: 0 16px; }
+  .two-col { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <div class="nav-brand-dot"></div>
+      <span class="nav-brand-text">D2C Summit</span>
+    </a>
+    <span class="nav-sep">|</span>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Übersicht</a>
+      <a href="konzept.html" class="nav-link">Konzept</a>
+      <a href="module.html" class="nav-link">Module</a>
+      <a href="phasen.html" class="nav-link">Phasen</a>
+      <a href="integrationen.html" class="nav-link active">Integrationen</a>
+      <a href="offene-fragen.html" class="nav-link">Offene Fragen</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hdr">
+  <div class="page-hdr-inner">
+    <div class="page-bc"><a href="index.html">D2C Summit</a> / Integrationen & Flows</div>
+    <div class="page-title">Integrationen &amp; <span>Flows</span></div>
+    <div class="page-sub">Payrexx Checkout, Mailtrap Marketing & Transaktional, automatisierte E-Mail-Sequenzen</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- PAYREXX -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <h2 class="section-title">Payrexx — Ticket-Checkout</h2>
+    </div>
+
+    <div class="card">
+      <div class="integration-header">
+        <div class="integration-icon">💳</div>
+        <div>
+          <div class="integration-title">Payrexx Whitelabel</div>
+          <div class="integration-sub">Bestehende go2flow Integration — Checkout läuft auf Payrexx, Webhook informiert das Backend</div>
+        </div>
+      </div>
+
+      <div class="flow-steps">
+        <div class="flow-step">
+          <div class="flow-step-line">
+            <div class="flow-step-dot">1</div>
+            <div class="flow-step-connector"></div>
+          </div>
+          <div class="flow-step-body">
+            <div class="flow-step-title">User wählt Ticket-Kategorie</div>
+            <div class="flow-step-desc">Auf <code>d2c-summit.ch/tickets</code> — Kategorien mit Preisen und verfügbaren Plätzen. Optional: Voucher-Code eingeben (Preis wird live angepasst).</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-line">
+            <div class="flow-step-dot">2</div>
+            <div class="flow-step-connector"></div>
+          </div>
+          <div class="flow-step-body">
+            <div class="flow-step-title">Persönliche Daten eingeben</div>
+            <div class="flow-step-desc">Vorname, Nachname, Firma, Funktion — erscheinen später auf Ticket und Badge.</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-line">
+            <div class="flow-step-dot">3</div>
+            <div class="flow-step-connector"></div>
+          </div>
+          <div class="flow-step-body">
+            <div class="flow-step-title">CheckoutService erstellt Payrexx Gateway</div>
+            <div class="flow-step-desc">Laravel ruft Payrexx API auf: <code>CheckoutService::initiate()</code> → erstellt Gateway mit Betrag, Beschreibung und Redirect-URL.</div>
+            <div class="flow-step-code">POST Payrexx API → Gateway-URL zurück</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-line">
+            <div class="flow-step-dot">4</div>
+            <div class="flow-step-connector"></div>
+          </div>
+          <div class="flow-step-body">
+            <div class="flow-step-title">User zahlt auf Payrexx Whitelabel-Checkout</div>
+            <div class="flow-step-desc">User wird zu Payrexx weitergeleitet — Zahlung per Kreditkarte, TWINT, etc. Payrexx übernimmt die Zahlungsabwicklung vollständig.</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-line">
+            <div class="flow-step-dot">5</div>
+            <div class="flow-step-connector"></div>
+          </div>
+          <div class="flow-step-body">
+            <div class="flow-step-title">Payrexx sendet Webhook bei erfolgreicher Zahlung</div>
+            <div class="flow-step-desc"><code>PayrexxWebhook::handle()</code> empfängt die Bestätigung:</div>
+            <div style="margin-top:8px">
+              <ul class="list-plain">
+                <li>Order-Status → <code>paid</code></li>
+                <li>Ticket generieren (mit eindeutigem QR-Code)</li>
+                <li>Ticket-PDF erstellen (asynchron via Job)</li>
+                <li>Bestätigungs-E-Mail mit PDF-Anhang senden</li>
+                <li>Kontakt in Marketing-Engine aufnehmen</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-line">
+            <div class="flow-step-dot">6</div>
+          </div>
+          <div class="flow-step-body" style="padding-bottom:0">
+            <div class="flow-step-title">User landet auf Bestätigungsseite</div>
+            <div class="flow-step-desc">Redirect zurück zu <code>d2c-summit.ch/tickets/bestaetigung</code> — mit Social Share Card Angebot ("Share on LinkedIn").</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:12px">
+      <div style="font-weight:700;margin-bottom:10px">Voucher-Direktlink</div>
+      <div style="font-size:13px;color:var(--muted);margin-bottom:8px">Für Direkteinladungen (VIP, Partner, Gratis-Tickets) kann ein Direktlink generiert werden:</div>
+      <div style="background:#0d1117;border:1px solid var(--border);border-radius:8px;padding:12px 16px;font-family:'Monaco',monospace;font-size:12px;color:var(--accent2)">d2c-summit.ch/tickets?voucher=SUMMIT-VIP-2026</div>
+      <div style="font-size:13px;color:var(--muted);margin-top:8px">→ Nuxt lädt die Seite, validiert den Voucher via API, passt den Preis an und füllt den Code vor. Normaler Checkout-Flow ab hier.</div>
+    </div>
+  </div>
+
+  <!-- MAILTRAP TRANSAKTIONAL -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <h2 class="section-title">Mailtrap — Transaktionsmails</h2>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <div class="integration-header">
+          <div class="integration-icon">📬</div>
+          <div>
+            <div class="integration-title">Sending API</div>
+            <div class="integration-sub">Alle System-E-Mails über Mailtrap Sending API</div>
+          </div>
+        </div>
+        <ul class="list-plain">
+          <li><strong>Ticket-Bestätigung</strong> — mit Ticket-PDF als Anhang</li>
+          <li><strong>Session-Buchungsbestätigung</strong></li>
+          <li><strong>Wartelisten-Benachrichtigung</strong> (Platz frei)</li>
+          <li><strong>Passwort-Reset</strong></li>
+          <li>E-Mail-Verifikation bei Registrierung</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div style="font-weight:700;margin-bottom:12px;font-size:14px">Laravel Mail Config</div>
+        <div style="background:#0d1117;border:1px solid var(--border);border-radius:8px;padding:14px 16px;font-family:'Monaco',monospace;font-size:12px;color:#8b949e;line-height:1.8">
+          MAIL_MAILER=mailtrap<br>
+          MAILTRAP_API_TOKEN=xxx<br>
+          MAILTRAP_INBOX_ID=xxx<br>
+          <span style="color:#484f58"># INBOX_ID nur für Testing</span>
+        </div>
+        <div style="margin-top:12px;font-size:13px;color:var(--muted)">Mailtrap-Account ist bereits vorhanden (go2flow). API-Token muss eingetragen werden.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAILTRAP MARKETING -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <h2 class="section-title">Mailtrap — Marketing & Kampagnen</h2>
+    </div>
+
+    <div class="card">
+      <div class="integration-header">
+        <div class="integration-icon">📣</div>
+        <div>
+          <div class="integration-title">Email Marketing API</div>
+          <div class="integration-sub">Kampagnen werden über Mailtrap Marketing API abgewickelt — Kontakte synchronisiert, Kampagnen versendet, Stats zurückgeholt</div>
+        </div>
+      </div>
+      <div class="two-col" style="margin-top:0">
+        <div>
+          <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--muted);margin-bottom:10px">Was das Backend macht</div>
+          <ul class="list-plain">
+            <li>Kontakte an Mailtrap synchronisieren (<code>mailtrap_contact_id</code> speichern)</li>
+            <li>Kampagne via API versenden (<code>mailtrap_campaign_id</code> speichern)</li>
+            <li>Stats periodisch zurückholen (Laravel Scheduler)</li>
+            <li>Unsubscribes aus Mailtrap-Webhook übernehmen</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--muted);margin-bottom:10px">Mailtrap API Calls</div>
+          <div style="background:#0d1117;border:1px solid var(--border);border-radius:8px;padding:14px 16px;font-family:'Monaco',monospace;font-size:11px;color:#8b949e;line-height:2">
+            <span style="color:var(--accent2)">POST</span> /api/contacts     <span style="color:#484f58">→ sync</span><br>
+            <span style="color:var(--accent2)">POST</span> /api/send          <span style="color:#484f58">→ versenden</span><br>
+            <span style="color:var(--accent2)">GET</span>  /api/campaigns     <span style="color:#484f58">→ stats</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- E-MAIL AUTOMATIONEN -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <h2 class="section-title">Automatisierte E-Mail-Sequenzen</h2>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Trigger</th>
+            <th>E-Mail</th>
+            <th>Timing</th>
+            <th>Typ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>ticket_purchased</code></td>
+            <td>Bestätigung + Ticket-PDF als Anhang</td>
+            <td>Sofort</td>
+            <td><span class="badge badge-teal">Transaktional</span></td>
+          </tr>
+          <tr>
+            <td><code>session_booked</code></td>
+            <td>Masterclass-Buchungsbestätigung</td>
+            <td>Sofort</td>
+            <td><span class="badge badge-teal">Transaktional</span></td>
+          </tr>
+          <tr>
+            <td><code>waitlist_promoted</code></td>
+            <td>Platz frei — Einladung zur Buchung</td>
+            <td>Sofort</td>
+            <td><span class="badge badge-teal">Transaktional</span></td>
+          </tr>
+          <tr>
+            <td><code>pre_event_7d</code></td>
+            <td>"Dein Tagesplan" + praktische Infos</td>
+            <td>7 Tage vor Event</td>
+            <td><span class="badge badge-gold">Automation</span></td>
+          </tr>
+          <tr>
+            <td><code>pre_event_1d</code></td>
+            <td>Reminder + Programm-Highlights</td>
+            <td>1 Tag vor Event</td>
+            <td><span class="badge badge-gold">Automation</span></td>
+          </tr>
+          <tr>
+            <td><code>post_event_1d</code></td>
+            <td>Danke + "Präsentationen jetzt verfügbar"</td>
+            <td>Tag nach Event</td>
+            <td><span class="badge badge-gold">Automation</span></td>
+          </tr>
+          <tr>
+            <td><code>feedback_request</code></td>
+            <td>Bitte um Session-Bewertung</td>
+            <td>3 Tage nach Event</td>
+            <td><span class="badge badge-gold">Automation</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card" style="margin-top:12px">
+      <div style="font-size:13px;color:var(--muted)">Alle Sequenzen sind im Admin konfigurierbar — aktivierbar/deaktivierbar per Event. Die Trigger werden durch Laravel Events/Listeners ausgelöst und als Jobs in die Queue gestellt.</div>
+    </div>
+  </div>
+
+  <!-- QR CHECK-IN FLOW -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <h2 class="section-title">QR Check-in Flow</h2>
+    </div>
+    <div class="card">
+      <div class="integration-header">
+        <div class="integration-icon">📱</div>
+        <div>
+          <div class="integration-title">Check-in am Eventtag</div>
+          <div class="integration-sub">Kein App-Download — Browser-QR-Scanner, mobiloptimiert</div>
+        </div>
+      </div>
+      <div class="flow-steps">
+        <div class="flow-step">
+          <div class="flow-step-line"><div class="flow-step-dot">1</div><div class="flow-step-connector"></div></div>
+          <div class="flow-step-body">
+            <div class="flow-step-title">Check-in-Personal öffnet checkin.d2c-summit.ch</div>
+            <div class="flow-step-desc">Login mit Rolle <code>checkin</code> — sieht nur die Scanner-Oberfläche, nichts sonst</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-line"><div class="flow-step-dot">2</div><div class="flow-step-connector"></div></div>
+          <div class="flow-step-body">
+            <div class="flow-step-title">QR-Code des Attendees scannen</div>
+            <div class="flow-step-desc">Browser-Kamera wird aktiviert — QR-Code vom Ticket (PDF oder My Summit) scannen</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-line"><div class="flow-step-dot">3</div><div class="flow-step-connector"></div></div>
+          <div class="flow-step-body">
+            <div class="flow-step-title">Laravel validiert das Ticket</div>
+            <div class="flow-step-desc"><code>POST /api/v1/checkin/scan { qr_code }</code> → gibt Ticket-Infos zurück: Name, Firma, Kategorie, gebuchte Masterclasses</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-line"><div class="flow-step-dot">4</div><div class="flow-step-connector"></div></div>
+          <div class="flow-step-body">
+            <div class="flow-step-title">Check-in bestätigen</div>
+            <div class="flow-step-desc">Ticket-Status wird auf <code>checked_in</code> gesetzt, <code>checked_in_at</code> und <code>checked_in_by_user_id</code> werden gespeichert</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-line"><div class="flow-step-dot">✓</div></div>
+          <div class="flow-step-body" style="padding-bottom:0">
+            <div class="flow-step-title">Fehlerzustände abgefangen</div>
+            <div class="flow-step-desc">Ungültiger QR-Code / Ticket bereits eingecheckt / Ticket storniert → klare Fehlermeldung. Bei Offline: lokaler Cache als Fallback.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <strong>D2C Summit — Integrationen & Flows</strong>
+  <div class="footer-nav">
+    <a href="phasen.html">← Phasen</a>
+    <a href="offene-fragen.html">Offene Fragen →</a>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Konzept & Scope — D2C Summit Platform</title>
+<style>
+:root {
+  --dark: #0f1117; --darker: #080a0f; --card: #161b27; --card2: #1c2333;
+  --accent: #0d9488; --accent2: #2dd4bf; --gold: #f59e0b; --green: #10b981;
+  --red: #ef4444; --text: #e2e8f0; --muted: #64748b; --border: #1e2a3a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--darker); color: var(--text); line-height: 1.6; }
+.nav { background: rgba(8,10,15,0.95); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); }
+.nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; gap: 8px; height: 52px; }
+.nav-brand { text-decoration: none; display: flex; align-items: center; gap: 8px; margin-right: 12px; flex-shrink: 0; }
+.nav-brand-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent2); }
+.nav-brand-text { font-size: 13px; font-weight: 700; color: var(--text); }
+.nav-sep { color: var(--border); font-size: 18px; margin: 0 4px; }
+.nav-links { display: flex; align-items: center; gap: 2px; }
+.nav-link { text-decoration: none; padding: 6px 12px; border-radius: 8px; font-size: 13px; font-weight: 500; color: var(--muted); }
+.nav-link:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+.nav-link.active { color: var(--accent2); background: rgba(13,148,136,0.12); font-weight: 600; }
+.page-hdr { background: linear-gradient(135deg, #0f1117 0%, #0d2420 50%, #0f1117 100%); border-bottom: 1px solid var(--border); padding: 36px 40px 28px; }
+.page-hdr-inner { max-width: 1100px; margin: 0 auto; }
+.page-bc { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+.page-bc a { color: var(--muted); text-decoration: none; }
+.page-bc a:hover { color: var(--text); }
+.page-title { font-size: clamp(22px, 3vw, 34px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px; }
+.page-title span { color: var(--accent2); }
+.page-sub { color: var(--muted); font-size: 14px; }
+.container { max-width: 1100px; margin: 0 auto; padding: 48px 40px; }
+.section { margin-bottom: 56px; }
+.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+.section-num { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: rgba(13,148,136,0.15); border: 1px solid rgba(13,148,136,0.3); border-radius: 8px; font-size: 13px; font-weight: 700; color: var(--accent2); flex-shrink: 0; }
+.section-title { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+.card + .card { margin-top: 12px; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.vision-card { background: rgba(13,148,136,0.06); border: 1px solid rgba(13,148,136,0.25); border-radius: 14px; padding: 28px 32px; }
+.vision-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent2); margin-bottom: 12px; }
+.vision-text { font-size: 16px; color: var(--text); line-height: 1.7; }
+.scope-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.scope-item { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; padding: 8px 0; border-bottom: 1px solid rgba(30,42,58,0.5); }
+.scope-item:last-child { border-bottom: none; }
+.scope-icon { font-size: 14px; flex-shrink: 0; margin-top: 2px; }
+.scope-name { font-weight: 600; color: var(--text); }
+.scope-desc { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.badge { display: inline-flex; align-items: center; padding: 2px 8px; border-radius: 100px; font-size: 11px; font-weight: 600; }
+.badge-teal { background: rgba(13,148,136,0.1); border: 1px solid rgba(13,148,136,0.3); color: var(--accent2); }
+.badge-gold { background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.3); color: var(--gold); }
+.badge-muted { background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--muted); }
+.badge-green { background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3); color: var(--green); }
+.badge-red { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); color: var(--red); }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { text-align: left; padding: 10px 16px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); background: var(--card2); border-bottom: 1px solid var(--border); }
+td { padding: 10px 16px; border-bottom: 1px solid rgba(30,42,58,0.5); vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(255,255,255,0.02); }
+.table-wrap { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+td code { font-family: 'Monaco', 'Menlo', monospace; font-size: 11px; background: rgba(13,148,136,0.08); color: var(--accent2); padding: 1px 6px; border-radius: 4px; }
+.pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.pill { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); padding: 5px 12px; border-radius: 100px; font-size: 12px; color: var(--muted); }
+.pill.accent { background: rgba(13,148,136,0.1); border-color: rgba(13,148,136,0.25); color: var(--accent2); }
+.footer { border-top: 1px solid var(--border); padding: 24px 40px; display: flex; align-items: center; justify-content: space-between; color: var(--muted); font-size: 13px; }
+.footer strong { color: var(--text); }
+.footer-nav { display: flex; gap: 16px; }
+.footer-nav a { text-decoration: none; color: var(--muted); font-size: 13px; }
+.footer-nav a:hover { color: var(--accent2); }
+@media (max-width: 768px) {
+  .page-hdr, .container, .footer { padding-left: 20px; padding-right: 20px; }
+  .nav-inner { padding: 0 16px; }
+  .two-col { grid-template-columns: 1fr; }
+  .card-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <div class="nav-brand-dot"></div>
+      <span class="nav-brand-text">D2C Summit</span>
+    </a>
+    <span class="nav-sep">|</span>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Übersicht</a>
+      <a href="konzept.html" class="nav-link active">Konzept</a>
+      <a href="module.html" class="nav-link">Module</a>
+      <a href="phasen.html" class="nav-link">Phasen</a>
+      <a href="integrationen.html" class="nav-link">Integrationen</a>
+      <a href="offene-fragen.html" class="nav-link">Offene Fragen</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hdr">
+  <div class="page-hdr-inner">
+    <div class="page-bc"><a href="index.html">D2C Summit</a> / Konzept & Scope</div>
+    <div class="page-title">Konzept &amp; <span>Scope</span></div>
+    <div class="page-sub">Vision, was wir bauen (und was nicht), Portale, Rollen und Tech Stack</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <h2 class="section-title">Vision</h2>
+    </div>
+    <div class="vision-card">
+      <div class="vision-title">Projektziel</div>
+      <div class="vision-text">Eine vollständige, <strong>wiederverwendbare Event Management Platform</strong> für den D2C Summit — jährlich durchführbar, ohne jedes Mal von vorne zu beginnen. Ein einziges Laravel-Backend als <strong>Single Source of Truth</strong> für alle Frontends. Was einmal konfiguriert ist (Programm, Speaker, Tickets, Sponsoren), erscheint automatisch überall — auf der Public Website, im My Summit, in der Check-in App.</div>
+    </div>
+    <div class="card" style="margin-top:12px">
+      <div style="font-size:13px;color:var(--muted);line-height:1.7">
+        Das erste Event (2025) wurde bereits durchgeführt. Die neue Platform wird jetzt <strong>Greenfield gebaut</strong> — mit dem Ziel, jedes Jahr dasselbe System zu nutzen und nur die Inhalte zu aktualisieren. Kein Wegwerfprojekt, sondern ein dauerhaftes Werkzeug.
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <h2 class="section-title">In Scope — Phase I</h2>
+    </div>
+    <div class="card">
+      <ul class="scope-list">
+        <li class="scope-item">
+          <span class="scope-icon">🌐</span>
+          <div><div class="scope-name">Public Website</div><div class="scope-desc">Home, Programm, Speaker, Sponsoren, Tickets, FAQ — aus dem Backend gespeist, kein separates CMS</div></div>
+          <span class="badge badge-teal" style="margin-left:auto;flex-shrink:0">Phase I</span>
+        </li>
+        <li class="scope-item">
+          <span class="scope-icon">⚙️</span>
+          <div><div class="scope-name">Admin-Backend</div><div class="scope-desc">Event-Steuerung, Programm, Speaker, Ticketing, Marketing, Statistiken</div></div>
+          <span class="badge badge-teal" style="margin-left:auto;flex-shrink:0">Phase I</span>
+        </li>
+        <li class="scope-item">
+          <span class="scope-icon">🎟️</span>
+          <div><div class="scope-name">My Summit (Mitgliederbereich)</div><div class="scope-desc">Ticket, Tagesplan, Session-Buchung, Badge, Materialien, Zertifikat, Social Share Cards</div></div>
+          <span class="badge badge-teal" style="margin-left:auto;flex-shrink:0">Phase I</span>
+        </li>
+        <li class="scope-item">
+          <span class="scope-icon">🏢</span>
+          <div><div class="scope-name">Sponsor-Portal (Self-Service)</div><div class="scope-desc">Logo-Upload, Firmenprofil, Materialien-Download, Logo-Impressions-Statistik</div></div>
+          <span class="badge badge-teal" style="margin-left:auto;flex-shrink:0">Phase I</span>
+        </li>
+        <li class="scope-item">
+          <span class="scope-icon">🎤</span>
+          <div><div class="scope-name">Speaker-Portal (Self-Service)</div><div class="scope-desc">Profil bearbeiten, Präsentationen hochladen, eigenes Feedback einsehen</div></div>
+          <span class="badge badge-teal" style="margin-left:auto;flex-shrink:0">Phase I</span>
+        </li>
+        <li class="scope-item">
+          <span class="scope-icon">💳</span>
+          <div><div class="scope-name">Ticket-System via Payrexx</div><div class="scope-desc">Ticket-Kategorien, Checkout-Flow, QR-Code, Ticket-PDF, Voucher-System, Direktlinks</div></div>
+          <span class="badge badge-teal" style="margin-left:auto;flex-shrink:0">Phase I</span>
+        </li>
+        <li class="scope-item">
+          <span class="scope-icon">📧</span>
+          <div><div class="scope-name">Marketing Engine</div><div class="scope-desc">Kontakt-Import, Segmentierung, Kampagnen via Mailtrap, automatisierte Sequenzen, UTM-Tracking</div></div>
+          <span class="badge badge-teal" style="margin-left:auto;flex-shrink:0">Phase I</span>
+        </li>
+        <li class="scope-item">
+          <span class="scope-icon">📊</span>
+          <div><div class="scope-name">Statistics Dashboard</div><div class="scope-desc">Ticket-Verkäufe, Session-Auslastung, Marketing-Stats, Check-in Rate, Vorjahresvergleich</div></div>
+          <span class="badge badge-teal" style="margin-left:auto;flex-shrink:0">Phase I</span>
+        </li>
+        <li class="scope-item">
+          <span class="scope-icon">📱</span>
+          <div><div class="scope-name">Check-in Web-App</div><div class="scope-desc">QR-Scanner (Browser), Ticket-Validierung, Offline-Fallback, Live-Einlass-Statistiken</div></div>
+          <span class="badge badge-teal" style="margin-left:auto;flex-shrink:0">Phase I</span>
+        </li>
+        <li class="scope-item">
+          <span class="scope-icon">🃏</span>
+          <div><div class="scope-name">Social Share Cards</div><div class="scope-desc">Auto-generiert nach Ticketkauf — LinkedIn/OG (1200x630) + Instagram (1080x1080)</div></div>
+          <span class="badge badge-teal" style="margin-left:auto;flex-shrink:0">Phase I</span>
+        </li>
+        <li class="scope-item">
+          <span class="scope-icon">🏷️</span>
+          <div><div class="scope-name">Attendee Badge</div><div class="scope-desc">Personalisiertes Badge (PDF A6 + PNG) pro Ticket-Kategorie, mit QR-Code</div></div>
+          <span class="badge badge-teal" style="margin-left:auto;flex-shrink:0">Phase I</span>
+        </li>
+        <li class="scope-item">
+          <span class="scope-icon">📜</span>
+          <div><div class="scope-name">Attendance Certificate</div><div class="scope-desc">Certificate of Attendance nach dem Event, downloadbar als PDF in My Summit</div></div>
+          <span class="badge badge-teal" style="margin-left:auto;flex-shrink:0">Phase I</span>
+        </li>
+        <li class="scope-item">
+          <span class="scope-icon">⭐</span>
+          <div><div class="scope-name">Session-Feedback</div><div class="scope-desc">Bewertung besuchter Sessions (1–5 Sterne + Kommentar), aggregiert in Statistics</div></div>
+          <span class="badge badge-teal" style="margin-left:auto;flex-shrink:0">Phase I</span>
+        </li>
+        <li class="scope-item">
+          <span class="scope-icon">🔁</span>
+          <div><div class="scope-name">Event Engine (Multi-Year)</div><div class="scope-desc">Jährlich neues Event anlegen, vergangene Events archivieren, Event klonen als Ausgangspunkt</div></div>
+          <span class="badge badge-teal" style="margin-left:auto;flex-shrink:0">Phase I</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <h2 class="section-title">Out of Scope — Phase II</h2>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <div style="font-size:18px;margin-bottom:8px">📱</div>
+        <div style="font-weight:700;margin-bottom:4px">Native Mobile App</div>
+        <div style="font-size:13px;color:var(--muted)">iOS/Android App — Phase I läuft vollständig im Browser (PWA-fähig)</div>
+        <div style="margin-top:8px"><span class="badge badge-muted">Phase II</span></div>
+      </div>
+      <div class="card">
+        <div style="font-size:18px;margin-bottom:8px">🤝</div>
+        <div style="font-weight:700;margin-bottom:4px">Networking / QR-Kontaktaustausch</div>
+        <div style="font-size:13px;color:var(--muted)">Attendee-zu-Attendee Kontaktaustausch via QR vor Ort</div>
+        <div style="margin-top:8px"><span class="badge badge-muted">Phase II</span></div>
+      </div>
+      <div class="card">
+        <div style="font-size:18px;margin-bottom:8px">🎬</div>
+        <div style="font-weight:700;margin-bottom:4px">Post-Event Replay / Video</div>
+        <div style="font-size:13px;color:var(--muted)">Session-Aufzeichnungen, Video-Plattform, On-Demand-Zugang</div>
+        <div style="margin-top:8px"><span class="badge badge-muted">Phase II</span></div>
+      </div>
+      <div class="card">
+        <div style="font-size:18px;margin-bottom:8px">🗺️</div>
+        <div style="font-weight:700;margin-bottom:4px">3D Venue Map</div>
+        <div style="font-size:13px;color:var(--muted)">Interaktiver Veranstaltungsplan mit 3D-Ansicht</div>
+        <div style="margin-top:8px"><span class="badge badge-muted">Phase II</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <h2 class="section-title">Rollen & Zugang</h2>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Rolle</th>
+            <th>Zugang</th>
+            <th>Portal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>super_admin</code></td>
+            <td>Alles — Events anlegen, Rollen vergeben, Finanz-Admin</td>
+            <td>Admin Backend</td>
+          </tr>
+          <tr>
+            <td><code>organizer</code></td>
+            <td>Event-Inhalte, Programm, Speaker, Tickets (kein Finanz-Admin)</td>
+            <td>Admin Backend</td>
+          </tr>
+          <tr>
+            <td><code>sponsor_manager</code></td>
+            <td>Sponsor-Pakete definieren, Sponsoren zuweisen</td>
+            <td>Admin Backend</td>
+          </tr>
+          <tr>
+            <td><code>attendee</code></td>
+            <td>My Summit: Ticket, Sessions buchen, Badge, Materialien</td>
+            <td>My Summit</td>
+          </tr>
+          <tr>
+            <td><code>speaker</code></td>
+            <td>Eigenes Profil bearbeiten, Präsentationen hochladen, Feedback</td>
+            <td>Speaker-Portal</td>
+          </tr>
+          <tr>
+            <td><code>sponsor</code></td>
+            <td>Firmenprofil, Logo-Upload, Materialien-Download, Stats</td>
+            <td>Sponsor-Portal</td>
+          </tr>
+          <tr>
+            <td><code>checkin</code></td>
+            <td>Nur QR-Scanner und Einlass-Statistiken — kein sonstiger Zugang</td>
+            <td>Check-in App</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card" style="margin-top:12px">
+      <div style="font-size:13px;color:var(--muted)"><strong style="color:var(--text)">Wichtig:</strong> Rollen sind <strong style="color:var(--text)">per Event</strong> vergeben. Ein Nutzer kann in Event 2025 Organizer sein und in Event 2026 ebenfalls — oder verschiedene Rollen in verschiedenen Events haben.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <h2 class="section-title">Tech Stack</h2>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Schicht</th>
+            <th>Technologie</th>
+            <th>Begründung</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Backend API</td>
+            <td><code>Laravel (LTS)</code> + MySQL</td>
+            <td style="color:var(--muted)">go2flow Standard — robust für komplexe Datenmodelle</td>
+          </tr>
+          <tr>
+            <td>Frontend</td>
+            <td><code>Nuxt 4</code> / Vue 3</td>
+            <td style="color:var(--muted)">go2flow Standard — SSR für Public Website, SPA für Portale</td>
+          </tr>
+          <tr>
+            <td>Styling</td>
+            <td><code>Tailwind CSS</code> (latest)</td>
+            <td style="color:var(--muted)">go2flow Pflicht — kein SCSS / kein Custom CSS</td>
+          </tr>
+          <tr>
+            <td>State Management</td>
+            <td><code>Pinia</code></td>
+            <td style="color:var(--muted)">Vue 3 Standard</td>
+          </tr>
+          <tr>
+            <td>Auth</td>
+            <td><code>Laravel Sanctum</code></td>
+            <td style="color:var(--muted)">Token-basiert, einfach mit Nuxt integrierbar</td>
+          </tr>
+          <tr>
+            <td>E-Mail</td>
+            <td><code>Mailtrap API</code></td>
+            <td style="color:var(--muted)">Transaktional + Marketing — bestehender Account vorhanden</td>
+          </tr>
+          <tr>
+            <td>Zahlung</td>
+            <td><code>Payrexx Whitelabel</code></td>
+            <td style="color:var(--muted)">Bestehende go2flow Integration</td>
+          </tr>
+          <tr>
+            <td>File Storage</td>
+            <td><code>Laravel Storage</code> + S3</td>
+            <td style="color:var(--muted)">Logos, PDFs, Präsentationen</td>
+          </tr>
+          <tr>
+            <td>PDF-Generierung</td>
+            <td><code>Browsershot / DomPDF</code></td>
+            <td style="color:var(--muted)">Tickets, Badges, Zertifikate</td>
+          </tr>
+          <tr>
+            <td>Tests</td>
+            <td><code>Pest</code> (Laravel) + <code>Vitest</code> (Nuxt)</td>
+            <td style="color:var(--muted)">go2flow Standard</td>
+          </tr>
+          <tr>
+            <td>CI/CD</td>
+            <td><code>GitHub Actions</code></td>
+            <td style="color:var(--muted)">go2flow Standard</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <strong>D2C Summit — Konzept & Scope</strong>
+  <div class="footer-nav">
+    <a href="index.html">← Übersicht</a>
+    <a href="module.html">Module →</a>
+  </div>
+</div>
+
+</body>
+</html>

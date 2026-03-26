@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Umsetzungsplan — D2C Summit Platform</title>
+<style>
+:root {
+  --dark: #0f1117; --darker: #080a0f; --card: #161b27; --card2: #1c2333;
+  --accent: #0d9488; --accent2: #2dd4bf; --gold: #f59e0b; --green: #10b981;
+  --red: #ef4444; --text: #e2e8f0; --muted: #64748b; --border: #1e2a3a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--darker); color: var(--text); line-height: 1.6; }
+.nav { background: rgba(8,10,15,0.95); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); }
+.nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; gap: 8px; height: 52px; }
+.nav-brand { text-decoration: none; display: flex; align-items: center; gap: 8px; margin-right: 12px; flex-shrink: 0; }
+.nav-brand-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent2); }
+.nav-brand-text { font-size: 13px; font-weight: 700; color: var(--text); }
+.nav-sep { color: var(--border); font-size: 18px; margin: 0 4px; }
+.nav-links { display: flex; align-items: center; gap: 2px; }
+.nav-link { text-decoration: none; padding: 6px 12px; border-radius: 8px; font-size: 13px; font-weight: 500; color: var(--muted); }
+.nav-link:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+.nav-link.active { color: var(--accent2); background: rgba(13,148,136,0.12); font-weight: 600; }
+.page-hdr { background: linear-gradient(135deg, #0f1117 0%, #0d2420 50%, #0f1117 100%); border-bottom: 1px solid var(--border); padding: 36px 40px 28px; }
+.page-hdr-inner { max-width: 1100px; margin: 0 auto; }
+.page-bc { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+.page-bc a { color: var(--muted); text-decoration: none; }
+.page-bc a:hover { color: var(--text); }
+.page-title { font-size: clamp(22px, 3vw, 34px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px; }
+.page-title span { color: var(--accent2); }
+.page-sub { color: var(--muted); font-size: 14px; }
+.container { max-width: 1100px; margin: 0 auto; padding: 48px 40px; }
+.section { margin-bottom: 56px; }
+.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+.section-num { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: rgba(13,148,136,0.15); border: 1px solid rgba(13,148,136,0.3); border-radius: 8px; font-size: 13px; font-weight: 700; color: var(--accent2); flex-shrink: 0; }
+.section-title { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; }
+/* PHASE OVERVIEW */
+.phase-overview { display: grid; grid-template-columns: repeat(8, 1fr); gap: 8px; margin-bottom: 40px; }
+.phase-thumb { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 12px 8px; text-align: center; cursor: default; }
+.phase-thumb:hover { border-color: rgba(13,148,136,0.4); }
+.phase-thumb-num { font-size: 20px; font-weight: 800; color: var(--accent2); }
+.phase-thumb-weeks { font-size: 10px; color: var(--muted); margin: 2px 0; }
+.phase-thumb-name { font-size: 11px; font-weight: 600; color: var(--text); line-height: 1.3; }
+/* TIMELINE */
+.timeline { position: relative; }
+.timeline::before { content: ''; position: absolute; left: 23px; top: 0; bottom: 0; width: 2px; background: var(--border); }
+.phase { position: relative; padding-left: 60px; margin-bottom: 20px; }
+.phase-dot { position: absolute; left: 0; top: 0; width: 48px; height: 48px; background: var(--card2); border: 2px solid var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; color: var(--accent2); z-index: 1; flex-shrink: 0; }
+.phase-dot.milestone { border-color: var(--gold); color: var(--gold); background: rgba(245,158,11,0.08); }
+.phase-body { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px 24px; }
+.phase-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 14px; }
+.phase-title-block { flex: 1; }
+.phase-weeks-badge { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: var(--accent2); margin-bottom: 4px; }
+.phase-title { font-size: 17px; font-weight: 700; margin-bottom: 4px; }
+.phase-subtitle { font-size: 13px; color: var(--muted); }
+.phase-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-left: 16px; flex-shrink: 0; }
+.tag { font-size: 11px; padding: 3px 9px; border-radius: 100px; font-weight: 600; }
+.tag-teal { background: rgba(13,148,136,0.1); border: 1px solid rgba(13,148,136,0.3); color: var(--accent2); }
+.tag-gold { background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.3); color: var(--gold); }
+.tag-green { background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3); color: var(--green); }
+.tag-muted { background: rgba(255,255,255,0.04); border: 1px solid var(--border); color: var(--muted); }
+.task-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px; }
+.task-group { }
+.task-group-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); margin-bottom: 8px; }
+.task-list { list-style: none; }
+.task-list li { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--muted); padding: 3px 0; line-height: 1.4; }
+.task-list li::before { content: '□'; color: var(--accent2); flex-shrink: 0; margin-top: 1px; font-size: 12px; }
+.task-list li strong { color: var(--text); font-weight: 600; }
+.milestone-banner { background: rgba(245,158,11,0.06); border: 1px solid rgba(245,158,11,0.2); border-radius: 10px; padding: 12px 16px; margin-top: 14px; display: flex; align-items: center; gap: 10px; }
+.milestone-banner-icon { font-size: 16px; }
+.milestone-banner-text { font-size: 13px; color: var(--gold); font-weight: 600; }
+.section-divider { display: flex; align-items: center; gap: 16px; margin: 32px 0 28px; position: relative; padding-left: 60px; }
+.section-divider-line { flex: 1; border-top: 2px dashed var(--border); }
+.section-divider-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); background: var(--darker); padding: 0 12px; white-space: nowrap; }
+/* SUMMARY */
+.summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.summary-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+.summary-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); margin-bottom: 8px; }
+.summary-value { font-size: 22px; font-weight: 800; color: var(--accent2); }
+.summary-sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
+.footer { border-top: 1px solid var(--border); padding: 24px 40px; display: flex; align-items: center; justify-content: space-between; color: var(--muted); font-size: 13px; }
+.footer strong { color: var(--text); }
+.footer-nav { display: flex; gap: 16px; }
+.footer-nav a { text-decoration: none; color: var(--muted); font-size: 13px; }
+.footer-nav a:hover { color: var(--accent2); }
+@media (max-width: 900px) {
+  .phase-overview { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 768px) {
+  .page-hdr, .container, .footer { padding-left: 20px; padding-right: 20px; }
+  .nav-inner { padding: 0 16px; }
+  .phase-overview { grid-template-columns: repeat(2, 1fr); }
+  .task-grid { grid-template-columns: 1fr; }
+  .phase-tags { margin-left: 0; margin-top: 8px; }
+  .phase-header { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <div class="nav-brand-dot"></div>
+      <span class="nav-brand-text">D2C Summit</span>
+    </a>
+    <span class="nav-sep">|</span>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Übersicht</a>
+      <a href="konzept.html" class="nav-link">Konzept</a>
+      <a href="module.html" class="nav-link">Module</a>
+      <a href="phasen.html" class="nav-link active">Phasen</a>
+      <a href="integrationen.html" class="nav-link">Integrationen</a>
+      <a href="offene-fragen.html" class="nav-link">Offene Fragen</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hdr">
+  <div class="page-hdr-inner">
+    <div class="page-bc"><a href="index.html">D2C Summit</a> / Umsetzungsplan</div>
+    <div class="page-title">Umsetzungsplan — <span>8 Phasen / 16 Wochen</span></div>
+    <div class="page-sub">Was wird wann gebaut — strukturierter Fahrplan für das Projektteam und den CTO</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">◆</div>
+      <h2 class="section-title">Übersicht</h2>
+    </div>
+    <div class="summary-grid">
+      <div class="summary-card"><div class="summary-label">Gesamtdauer</div><div class="summary-value">16</div><div class="summary-sub">Wochen Phase I</div></div>
+      <div class="summary-card"><div class="summary-label">Phasen</div><div class="summary-value">8</div><div class="summary-sub">strukturierte Abschnitte</div></div>
+      <div class="summary-card"><div class="summary-label">Module</div><div class="summary-value">14</div><div class="summary-sub">vollständig in Phase I</div></div>
+      <div class="summary-card"><div class="summary-label">Meilensteine</div><div class="summary-value">4</div><div class="summary-sub">Abnahme-Punkte</div></div>
+    </div>
+
+    <div class="phase-overview" style="margin-top:20px">
+      <div class="phase-thumb"><div class="phase-thumb-num">1</div><div class="phase-thumb-weeks">Wo. 1–2</div><div class="phase-thumb-name">Foundation</div></div>
+      <div class="phase-thumb"><div class="phase-thumb-num">2</div><div class="phase-thumb-weeks">Wo. 3–4</div><div class="phase-thumb-name">Event & Programm</div></div>
+      <div class="phase-thumb"><div class="phase-thumb-num">3</div><div class="phase-thumb-weeks">Wo. 5–6</div><div class="phase-thumb-name">Ticket-System</div></div>
+      <div class="phase-thumb"><div class="phase-thumb-num">4</div><div class="phase-thumb-weeks">Wo. 7–8</div><div class="phase-thumb-name">My Summit</div></div>
+      <div class="phase-thumb"><div class="phase-thumb-num">5</div><div class="phase-thumb-weeks">Wo. 9–10</div><div class="phase-thumb-name">Sponsor-Portal</div></div>
+      <div class="phase-thumb"><div class="phase-thumb-num">6</div><div class="phase-thumb-weeks">Wo. 11–12</div><div class="phase-thumb-name">Marketing Engine</div></div>
+      <div class="phase-thumb"><div class="phase-thumb-num">7</div><div class="phase-thumb-weeks">Wo. 13–14</div><div class="phase-thumb-name">Stats & Tools</div></div>
+      <div class="phase-thumb"><div class="phase-thumb-num">8</div><div class="phase-thumb-weeks">Wo. 15–16</div><div class="phase-thumb-name">QA & Deploy</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <h2 class="section-title">Phasenplan im Detail</h2>
+    </div>
+
+    <div class="timeline">
+
+      <!-- PHASE 1 -->
+      <div class="phase">
+        <div class="phase-dot">1</div>
+        <div class="phase-body">
+          <div class="phase-header">
+            <div class="phase-title-block">
+              <div class="phase-weeks-badge">Woche 1–2</div>
+              <div class="phase-title">Foundation</div>
+              <div class="phase-subtitle">Technisches Fundament — alles was nachfolgende Phasen brauchen</div>
+            </div>
+            <div class="phase-tags">
+              <span class="tag tag-teal">Setup</span>
+              <span class="tag tag-muted">Infrastruktur</span>
+            </div>
+          </div>
+          <div class="task-grid">
+            <div class="task-group">
+              <div class="task-group-label">Backend</div>
+              <ul class="task-list">
+                <li>Laravel-Projekt aufsetzen (LTS)</li>
+                <li><strong>Auth & Sanctum</strong> konfigurieren</li>
+                <li>Rollen-System (7 Rollen, per Event)</li>
+                <li>Vollständiges MySQL-Schema (alle Migrations)</li>
+                <li>Domain-Struktur & API-Routing (v1)</li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-group-label">Frontend</div>
+              <ul class="task-list">
+                <li>Nuxt 4 Projekt aufsetzen</li>
+                <li>Tailwind CSS + Design-System</li>
+                <li>Pinia + API-Layer-Grundstruktur</li>
+                <li><strong>Auth-Store</strong> (Login, Logout, Token)</li>
+                <li>Base-Layouts: Public, My Summit, Admin</li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-group-label">DevOps</div>
+              <ul class="task-list">
+                <li>GitHub Repo + Branch-Strategie</li>
+                <li><strong>CI/CD Pipeline</strong> (GitHub Actions)</li>
+                <li>Staging-Umgebung aufsetzen</li>
+                <li>Environment-Variablen strukturieren</li>
+              </ul>
+            </div>
+          </div>
+          <div class="milestone-banner">
+            <div class="milestone-banner-icon">🏁</div>
+            <div class="milestone-banner-text">Meilenstein: Projekt-Setup komplett — Dev-Team kann parallel arbeiten</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 2 -->
+      <div class="phase">
+        <div class="phase-dot">2</div>
+        <div class="phase-body">
+          <div class="phase-header">
+            <div class="phase-title-block">
+              <div class="phase-weeks-badge">Woche 3–4</div>
+              <div class="phase-title">Event Engine + Programm + Public Website</div>
+              <div class="phase-subtitle">Das Herzstück — Events, Programm und erste öffentliche Seite</div>
+            </div>
+            <div class="phase-tags">
+              <span class="tag tag-teal">Module 01–03</span>
+              <span class="tag tag-teal">Modul 11</span>
+            </div>
+          </div>
+          <div class="task-grid">
+            <div class="task-group">
+              <div class="task-group-label">Admin Backend</div>
+              <ul class="task-list">
+                <li><strong>Event CRUD</strong> (erstellen, bearbeiten, archivieren, klonen)</li>
+                <li>Venue + Stages verwalten</li>
+                <li>Branding-Config pro Event</li>
+                <li>Sessions CRUD + Drag & Drop Reihenfolge</li>
+                <li><strong>Speaker CRUD</strong> (Admin-seitig)</li>
+                <li>Speaker ↔ Session verknüpfen</li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-group-label">Public Website (SSR)</div>
+              <ul class="task-list">
+                <li>Home-Seite (Hero, Event-Info, Highlights)</li>
+                <li><strong>Programm-Seite</strong> (Tagesplan, Filter)</li>
+                <li>Speaker-Übersicht + Detailseite</li>
+                <li>SEO: Schema.org Event, OG-Tags</li>
+                <li>FAQ-Seite (via Admin pflegbar)</li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-group-label">Speaker-Portal</div>
+              <ul class="task-list">
+                <li>Speaker-Login (über bestehendes Auth)</li>
+                <li>Eigenes Profil bearbeiten</li>
+                <li>Präsentationen hochladen</li>
+              </ul>
+            </div>
+          </div>
+          <div class="milestone-banner">
+            <div class="milestone-banner-icon">🌐</div>
+            <div class="milestone-banner-text">Meilenstein: Public Website ist live — Event, Programm und Speaker sichtbar</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 3 -->
+      <div class="phase">
+        <div class="phase-dot">3</div>
+        <div class="phase-body">
+          <div class="phase-header">
+            <div class="phase-title-block">
+              <div class="phase-weeks-badge">Woche 5–6</div>
+              <div class="phase-title">Ticket-System & Zahlungsintegration</div>
+              <div class="phase-subtitle">Tickets kaufen, Payrexx-Integration, Voucher-System, erste E-Mails</div>
+            </div>
+            <div class="phase-tags">
+              <span class="tag tag-teal">Modul 04</span>
+              <span class="tag tag-gold">Payrexx</span>
+              <span class="tag tag-gold">Mailtrap</span>
+            </div>
+          </div>
+          <div class="task-grid">
+            <div class="task-group">
+              <div class="task-group-label">Ticketing</div>
+              <ul class="task-list">
+                <li>Ticket-Kategorien CRUD (Admin)</li>
+                <li><strong>Checkout-Flow:</strong> Kategorie → Daten → Payrexx → Bestätigung</li>
+                <li>QR-Code-Generierung (unique, fälschungssicher)</li>
+                <li><strong>Ticket-PDF</strong> generieren (Browsershot)</li>
+                <li>Order-Management im Admin</li>
+                <li>Stornierung + Rückerstattungs-Workflow (Admin)</li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-group-label">Voucher-System</div>
+              <ul class="task-list">
+                <li>Voucher CRUD (Admin)</li>
+                <li>Validierung via API</li>
+                <li><strong>Direktlink-Funktion</strong> (<code style="font-size:11px">?voucher=CODE</code>)</li>
+                <li>Preis-Anpassung im Checkout</li>
+                <li>Voucher-Statistiken im Admin</li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-group-label">E-Mail (Mailtrap)</div>
+              <ul class="task-list">
+                <li>Mailtrap-Anbindung (transaktional)</li>
+                <li><strong>Ticket-Bestätigung</strong> (mit PDF-Anhang)</li>
+                <li>Rechnung als PDF</li>
+                <li>Passwort-Reset-Mail</li>
+              </ul>
+            </div>
+          </div>
+          <div class="milestone-banner">
+            <div class="milestone-banner-icon">💳</div>
+            <div class="milestone-banner-text">Meilenstein: Erster echter Ticketkauf möglich — Payrexx → Bestätigung → PDF per Mail</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 4 -->
+      <div class="phase">
+        <div class="phase-dot milestone">4</div>
+        <div class="phase-body">
+          <div class="phase-header">
+            <div class="phase-title-block">
+              <div class="phase-weeks-badge">Woche 7–8</div>
+              <div class="phase-title">My Summit — Mitgliederbereich</div>
+              <div class="phase-subtitle">Persönlicher Bereich für Attendees — Ticket, Programm, Badge, Social Cards</div>
+            </div>
+            <div class="phase-tags">
+              <span class="tag tag-teal">Modul 05</span>
+              <span class="tag tag-teal">Modul 12</span>
+              <span class="tag tag-teal">Modul 13</span>
+              <span class="tag tag-gold">Abnahme I</span>
+            </div>
+          </div>
+          <div class="task-grid">
+            <div class="task-group">
+              <div class="task-group-label">My Summit Core</div>
+              <ul class="task-list">
+                <li>Registrierung + Login (Auth-Flow)</li>
+                <li><strong>Dashboard:</strong> Ticket, Tagesplan, Materialien</li>
+                <li>Ticket-Ansicht mit QR-Code + PDF-Download</li>
+                <li>Rechnungsdownload</li>
+                <li>Profil bearbeiten</li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-group-label">Session-Buchung</div>
+              <ul class="task-list">
+                <li>Vollständiges Programm im My Summit</li>
+                <li><strong>Masterclass buchen</strong> (mit Platz-Anzeige)</li>
+                <li>Session stornieren</li>
+                <li><strong>Warteliste</strong> bei voller Session</li>
+                <li>Automatische Benachrichtigung bei freiem Platz</li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-group-label">Generierte Inhalte</div>
+              <ul class="task-list">
+                <li><strong>Badge-Generator</strong> (PDF A6 + PNG)</li>
+                <li><strong>Social Share Card</strong> (LinkedIn + Instagram)</li>
+                <li>Share-Button beim Ticketkauf</li>
+                <li>Materialien-Bereich (Präsentationen)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="milestone-banner" style="background:rgba(245,158,11,0.08);border-color:rgba(245,158,11,0.3)">
+            <div class="milestone-banner-icon">⭐</div>
+            <div class="milestone-banner-text">Abnahme I — Ticket-Kauf bis My Summit ist vollständig: Käufer kann sein Ticket sehen, buchen, Badge generieren</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 5 -->
+      <div class="phase">
+        <div class="phase-dot">5</div>
+        <div class="phase-body">
+          <div class="phase-header">
+            <div class="phase-title-block">
+              <div class="phase-weeks-badge">Woche 9–10</div>
+              <div class="phase-title">Sponsor-Portal</div>
+              <div class="phase-subtitle">Self-Service für Sponsoren + öffentliche Sponsoren-Seite</div>
+            </div>
+            <div class="phase-tags">
+              <span class="tag tag-teal">Modul 07</span>
+            </div>
+          </div>
+          <div class="task-grid">
+            <div class="task-group">
+              <div class="task-group-label">Admin-seitig</div>
+              <ul class="task-list">
+                <li>Sponsor-Pakete definieren (Platin–Partner)</li>
+                <li>Leistungen pro Paket (JSON konfigurierbar)</li>
+                <li>Sponsor einer Firma zuweisen + Paket zuordnen</li>
+                <li><strong>Sponsor-Materialien</strong> hinterlegen (Toolkit, Guidelines)</li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-group-label">Sponsor Self-Service</div>
+              <ul class="task-list">
+                <li>Sponsor-Login (über bestehendes Auth)</li>
+                <li><strong>Logo hochladen</strong> (PNG + SVG)</li>
+                <li>Firmenbeschreibung, Website-URL, Kontakt pflegen</li>
+                <li>Materialien downloaden</li>
+                <li>Statistiken: Logo-Impressions, Link-Klicks</li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-group-label">Public Website</div>
+              <ul class="task-list">
+                <li>Sponsoren-Seite (Logo + Link + Beschreibung)</li>
+                <li><strong>Automatische Rang-Sortierung</strong> (Platin oben)</li>
+                <li>Logo-Impression-Tracking</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 6 -->
+      <div class="phase">
+        <div class="phase-dot">6</div>
+        <div class="phase-body">
+          <div class="phase-header">
+            <div class="phase-title-block">
+              <div class="phase-weeks-badge">Woche 11–12</div>
+              <div class="phase-title">Marketing Engine</div>
+              <div class="phase-subtitle">Kontakt-Management, Kampagnen, Automationen, UTM-Tracking</div>
+            </div>
+            <div class="phase-tags">
+              <span class="tag tag-teal">Modul 08</span>
+              <span class="tag tag-gold">Mailtrap</span>
+            </div>
+          </div>
+          <div class="task-grid">
+            <div class="task-group">
+              <div class="task-group-label">Kontakt-Management</div>
+              <ul class="task-list">
+                <li><strong>CSV-Import</strong> (Kontakte aus Event 2025)</li>
+                <li>Auto-Import aus Ticket-Käufen</li>
+                <li>Tags + Segmentierung</li>
+                <li>Kontaktlisten / Segments erstellen</li>
+                <li>DSGVO: Unsubscribe-Link, Consent-Flag</li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-group-label">Kampagnen</div>
+              <ul class="task-list">
+                <li>E-Mail Template-Editor (HTML + Variablen)</li>
+                <li>Kampagne erstellen + Ziel-Liste zuweisen</li>
+                <li><strong>Mailtrap Marketing API</strong> anbinden</li>
+                <li>Test-Mail senden, Vorschau</li>
+                <li>Versand sofort oder geplant (scheduled)</li>
+                <li>Stats: Sent / Opened / Clicked / Bounced</li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-group-label">Automationen & UTM</div>
+              <ul class="task-list">
+                <li><strong>Automatisierte Sequenzen</strong> (7 Trigger)</li>
+                <li>Pre-Event 7d + 1d Reminder</li>
+                <li>Post-Event: Danke + Materialien</li>
+                <li><strong>UTM-Link Generator</strong> pro Kampagne</li>
+                <li>Shortlinks + Klick-Tracking</li>
+                <li>Konversions-Tracking: Kampagne → Ticketkauf</li>
+              </ul>
+            </div>
+          </div>
+          <div class="milestone-banner">
+            <div class="milestone-banner-icon">📧</div>
+            <div class="milestone-banner-text">Meilenstein: Erste Marketing-Kampagne kann versendet werden — Import + Segmentierung + Versand</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 7 -->
+      <div class="phase">
+        <div class="phase-dot milestone">7</div>
+        <div class="phase-body">
+          <div class="phase-header">
+            <div class="phase-title-block">
+              <div class="phase-weeks-badge">Woche 13–14</div>
+              <div class="phase-title">Statistics, Check-in & Finalisierung</div>
+              <div class="phase-subtitle">Alle verbleibenden Module — Statistiken, Check-in App, Zertifikat, Feedback</div>
+            </div>
+            <div class="phase-tags">
+              <span class="tag tag-teal">Modul 09</span>
+              <span class="tag tag-teal">Modul 10</span>
+              <span class="tag tag-teal">Modul 14</span>
+              <span class="tag tag-gold">Abnahme II</span>
+            </div>
+          </div>
+          <div class="task-grid">
+            <div class="task-group">
+              <div class="task-group-label">Statistics Dashboard</div>
+              <ul class="task-list">
+                <li><strong>Admin Dashboard</strong> mit Live-Daten</li>
+                <li>Ticket-Verkaufs-Charts (nach Kategorie)</li>
+                <li>Session-Auslastung</li>
+                <li>Marketing-Stats (Kampagnen-Rückholung von Mailtrap)</li>
+                <li>Check-in Rate + Vorjahresvergleich</li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-group-label">Check-in Web-App</div>
+              <ul class="task-list">
+                <li><strong>QR-Scanner</strong> via Browser-Kamera</li>
+                <li>Ticket validieren + bestätigen</li>
+                <li>Fehlerzustände (ungültig, bereits eingecheckt)</li>
+                <li><strong>Offline-Fallback</strong> (lokaler Cache)</li>
+                <li>Live Check-in Stats für Einlass-Team</li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-group-label">Finalisierung</div>
+              <ul class="task-list">
+                <li><strong>Certificate of Attendance</strong> (PDF-Generierung)</li>
+                <li>Zertifikat in My Summit verfügbar</li>
+                <li>Session-Feedback System (Post-Event Trigger)</li>
+                <li>Feedback aggregiert in Statistics</li>
+                <li>Badge-Vorlagen im Admin konfigurierbar</li>
+              </ul>
+            </div>
+          </div>
+          <div class="milestone-banner" style="background:rgba(245,158,11,0.08);border-color:rgba(245,158,11,0.3)">
+            <div class="milestone-banner-icon">✅</div>
+            <div class="milestone-banner-text">Abnahme II — Feature Complete: alle 14 Module fertig, Platform vollständig nutzbar</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 8 -->
+      <div class="phase">
+        <div class="phase-dot milestone">8</div>
+        <div class="phase-body">
+          <div class="phase-header">
+            <div class="phase-title-block">
+              <div class="phase-weeks-badge">Woche 15–16</div>
+              <div class="phase-title">QA, Security & Produktion</div>
+              <div class="phase-subtitle">Tests, Security-Review, Performance-Optimierung, Staging-Abnahme und Go-Live</div>
+            </div>
+            <div class="phase-tags">
+              <span class="tag tag-green">QA</span>
+              <span class="tag tag-green">Go-Live</span>
+            </div>
+          </div>
+          <div class="task-grid">
+            <div class="task-group">
+              <div class="task-group-label">Testing</div>
+              <ul class="task-list">
+                <li><strong>Pest Feature-Tests</strong> (alle kritischen Flows)</li>
+                <li>Vitest für Nuxt Services + Composables</li>
+                <li>End-to-End: Ticketkauf → Bestätigung → Check-in</li>
+                <li>Payrexx Webhook-Tests (Staging)</li>
+                <li>E-Mail-Delivery Tests (Mailtrap Staging)</li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-group-label">Security & Performance</div>
+              <ul class="task-list">
+                <li>Security-Review: Auth, Validation, API-Schutz</li>
+                <li>QR-Code-Fälschungssicherheit prüfen</li>
+                <li>DB-Indizes optimieren</li>
+                <li>Caching-Strategie (Public Website)</li>
+                <li>Rate-Limiting auf kritischen Endpoints</li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-group-label">Deployment</div>
+              <ul class="task-list">
+                <li>Staging-Deployment + vollständige Abnahme</li>
+                <li>DNS + Domain-Setup (alle 4 Subdomains)</li>
+                <li>SSL-Zertifikate</li>
+                <li><strong>Produktions-Deployment</strong></li>
+                <li>Monitoring + Error-Tracking einrichten</li>
+                <li>Übergabe-Dokumentation + Betriebshandbuch</li>
+              </ul>
+            </div>
+          </div>
+          <div class="milestone-banner" style="background:rgba(16,185,129,0.06);border-color:rgba(16,185,129,0.3)">
+            <div class="milestone-banner-icon">🚀</div>
+            <div class="milestone-banner-text" style="color:var(--green)">Go-Live — D2C Summit Platform ist in Produktion</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end timeline -->
+  </div>
+
+</div>
+
+<div class="footer">
+  <strong>D2C Summit — Umsetzungsplan</strong>
+  <div class="footer-nav">
+    <a href="module.html">← Module</a>
+    <a href="integrationen.html">Integrationen →</a>
+  </div>
+</div>
+
+</body>
+</html>
