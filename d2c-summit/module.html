@@ -81,7 +81,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; back
 .mvp-bar-label { font-size: 11px; color: var(--muted); font-weight: 500; }
 .mvp-bar-sep { width: 1px; height: 32px; background: var(--border); }
 .mvp-bar-note { font-size: 13px; color: var(--muted); margin-left: auto; }
-.new-tag { display: inline-flex; align-items: center; padding: 1px 7px; border-radius: 100px; font-size: 10px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; background: rgba(245,158,11,0.12); border: 1px solid rgba(245,158,11,0.3); color: var(--gold); margin-left: 6px; }
+.ver-tag { font-size: 10px; font-weight: 600; color: rgba(100,116,139,0.6); font-family: 'Monaco', monospace; letter-spacing: 0.02em; }
 /* ===== Light Mode ===== */
 body.light { --darker: #f8fafc; --dark: #f1f5f9; --card: #ffffff; --card2: #f8fafc; --text: #0f172a; --muted: #64748b; --border: #e2e8f0; --accent2: #0f766e; --gold: #d97706; --green: #059669; --red: #dc2626; }
 body.light .nav { background: rgba(255,255,255,0.95); border-bottom-color: #e2e8f0; }
@@ -233,7 +233,7 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
         <div class="module-header">
           <div class="module-icon">🏢</div>
           <div class="module-meta">
-            <div class="module-num-row"><span class="module-num">Modul 04</span><span class="badge badge-mvp">MVP</span></div>
+            <div class="module-num-row"><span class="module-num">Modul 04</span><div style="display:flex;align-items:center;gap:6px"><span class="badge badge-mvp">MVP</span><span class="ver-tag">v1.2</span></div></div>
             <div class="module-name">Unternehmens-Profile</div>
             <div class="module-desc">Unternehmen als eigene Entität — Tickets zuordnen, Logo, Website-Sichtbarkeit steuern</div>
           </div>
@@ -253,7 +253,7 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
         <div class="module-header">
           <div class="module-icon">👥</div>
           <div class="module-meta">
-            <div class="module-num-row"><span class="module-num">Modul 05</span><span class="badge badge-mvp">MVP</span></div>
+            <div class="module-num-row"><span class="module-num">Modul 05</span><div style="display:flex;align-items:center;gap:6px"><span class="badge badge-mvp">MVP</span><span class="ver-tag">v1.2</span></div></div>
             <div class="module-name">Teilnehmer-Verwaltung</div>
             <div class="module-desc">Alle Attendees im Überblick — mit Unternehmens-Verknüpfung und Kommunikations-Status</div>
           </div>
@@ -440,7 +440,7 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
         <div class="module-header">
           <div class="module-icon">📱</div>
           <div class="module-meta">
-            <div class="module-num-row"><span class="module-num">Modul 13</span><span class="badge badge-mvp">MVP</span></div>
+            <div class="module-num-row"><span class="module-num">Modul 13</span><div style="display:flex;align-items:center;gap:6px"><span class="badge badge-mvp">MVP</span><span class="ver-tag">v1.3</span></div></div>
             <div class="module-name">Check-in & Badge-Druck</div>
             <div class="module-desc">Zwei Einlass-Spuren + automatischer Etikettendruck via Brother QL-820NWB — kein App-Download, kein Vordrucken</div>
           </div>
@@ -533,7 +533,7 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
         <div class="module-header">
           <div class="module-icon">📧</div>
           <div class="module-meta">
-            <div class="module-num-row"><span class="module-num">Modul 10+</span><span class="badge badge-postmvp">Post-MVP</span></div>
+            <div class="module-num-row"><span class="module-num">Modul 10+</span><div style="display:flex;align-items:center;gap:6px"><span class="badge badge-postmvp">Post-MVP</span><span class="ver-tag">v1.4</span></div></div>
             <div class="module-name">Marketing Engine & Kampagnen-Planer</div>
             <div class="module-desc">Kampagnenplanung im Admin — wann wird was über welchen Kanal kommuniziert, plus Versand und Statistiken</div>
           </div>
@@ -595,7 +595,7 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
         <div class="module-header">
           <div class="module-icon">📰</div>
           <div class="module-meta">
-            <div class="module-num-row"><span class="module-num">Modul 14</span><span class="badge badge-postmvp">Post-MVP</span></div>
+            <div class="module-num-row"><span class="module-num">Modul 14</span><div style="display:flex;align-items:center;gap:6px"><span class="badge badge-postmvp">Post-MVP</span><span class="ver-tag">v1.3</span></div></div>
             <div class="module-name">Blog / News</div>
             <div class="module-desc">Redaktioneller Content-Bereich — Insights, Rückblicke, Speaker-Interviews</div>
           </div>
@@ -614,7 +614,7 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
         <div class="module-header">
           <div class="module-icon">📢</div>
           <div class="module-meta">
-            <div class="module-num-row"><span class="module-num">Modul 15</span><span class="badge badge-postmvp">Post-MVP</span></div>
+            <div class="module-num-row"><span class="module-num">Modul 15</span><div style="display:flex;align-items:center;gap:6px"><span class="badge badge-postmvp">Post-MVP</span><span class="ver-tag">v1.3</span></div></div>
             <div class="module-name">Presse-Bereich</div>
             <div class="module-desc">Alles für Journalisten und Medienvertreter an einem Ort</div>
           </div>
@@ -633,7 +633,7 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
         <div class="module-header">
           <div class="module-icon">🏛️</div>
           <div class="module-meta">
-            <div class="module-num-row"><span class="module-num">Modul 16</span><span class="badge badge-postmvp">Post-MVP</span></div>
+            <div class="module-num-row"><span class="module-num">Modul 16</span><div style="display:flex;align-items:center;gap:6px"><span class="badge badge-postmvp">Post-MVP</span><span class="ver-tag">v1.3</span></div></div>
             <div class="module-name">Location — KKL Luzern</div>
             <div class="module-desc">Dedizierte Location-Seite mit Anreise, Räumen und praktischen Infos</div>
           </div>
@@ -652,7 +652,7 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
         <div class="module-header">
           <div class="module-icon">📬</div>
           <div class="module-meta">
-            <div class="module-num-row"><span class="module-num">Modul 17</span><span class="badge badge-postmvp">Post-MVP</span></div>
+            <div class="module-num-row"><span class="module-num">Modul 17</span><div style="display:flex;align-items:center;gap:6px"><span class="badge badge-postmvp">Post-MVP</span><span class="ver-tag">v1.3</span></div></div>
             <div class="module-name">Kontakt & Formulare</div>
             <div class="module-desc">Zentrale Anlaufstelle für Anfragen aller Art — mit Routing per Kategorie</div>
           </div>
@@ -671,7 +671,7 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
         <div class="module-header">
           <div class="module-icon">📸</div>
           <div class="module-meta">
-            <div class="module-num-row"><span class="module-num">Modul 18</span><span class="badge badge-postmvp">Post-MVP</span></div>
+            <div class="module-num-row"><span class="module-num">Modul 18</span><div style="display:flex;align-items:center;gap:6px"><span class="badge badge-postmvp">Post-MVP</span><span class="ver-tag">v1.3</span></div></div>
             <div class="module-name">Foto-Galerie / Media-Archiv</div>
             <div class="module-desc">Event-Rückblick in Bildern — kuratiert, durchsuchbar, downloadbar</div>
           </div>
@@ -690,7 +690,7 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
         <div class="module-header">
           <div class="module-icon">🌍</div>
           <div class="module-meta">
-            <div class="module-num-row"><span class="module-num">Modul 19</span><span class="badge badge-postmvp">Post-MVP</span></div>
+            <div class="module-num-row"><span class="module-num">Modul 19</span><div style="display:flex;align-items:center;gap:6px"><span class="badge badge-postmvp">Post-MVP</span><span class="ver-tag">v1.3</span></div></div>
             <div class="module-name">Mehrsprachigkeit DE / EN</div>
             <div class="module-desc">Internationalisierung der öffentlichen Website — Deutsch und Englisch</div>
           </div>
