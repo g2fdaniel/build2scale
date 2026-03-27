@@ -13,7 +13,7 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--darker); color: var(--text); line-height: 1.6; }
 .nav { background: rgba(8,10,15,0.95); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); }
-.nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; gap: 8px; height: 52px; }
+.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; gap: 8px; height: 52px; }
 .nav-brand { text-decoration: none; display: flex; align-items: center; gap: 8px; margin-right: 12px; flex-shrink: 0; }
 .nav-brand-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent2); }
 .nav-brand-text { font-size: 13px; font-weight: 700; color: var(--text); }
@@ -23,98 +23,142 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; back
 .nav-link:hover { color: var(--text); background: rgba(255,255,255,0.05); }
 .nav-link.active { color: var(--accent2); background: rgba(13,148,136,0.12); font-weight: 600; }
 .page-hdr { background: linear-gradient(135deg, #0f1117 0%, #0d2420 50%, #0f1117 100%); border-bottom: 1px solid var(--border); padding: 36px 40px 28px; }
-.page-hdr-inner { max-width: 1100px; margin: 0 auto; }
+.page-hdr-inner { max-width: 1200px; margin: 0 auto; }
 .page-bc { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
 .page-bc a { color: var(--muted); text-decoration: none; }
-.page-bc a:hover { color: var(--text); }
 .page-title { font-size: clamp(22px, 3vw, 34px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px; }
 .page-title span { color: var(--accent2); }
 .page-sub { color: var(--muted); font-size: 14px; }
-.container { max-width: 1100px; margin: 0 auto; padding: 48px 40px; }
-.section { margin-bottom: 56px; }
-.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
-.section-num { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: rgba(13,148,136,0.15); border: 1px solid rgba(13,148,136,0.3); border-radius: 8px; font-size: 13px; font-weight: 700; color: var(--accent2); flex-shrink: 0; }
-.section-title { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; }
-/* PHASE OVERVIEW */
-.phase-overview { display: grid; grid-template-columns: repeat(8, 1fr); gap: 8px; margin-bottom: 40px; }
-.phase-thumb { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 12px 8px; text-align: center; cursor: default; }
-.phase-thumb:hover { border-color: rgba(13,148,136,0.4); }
-.phase-thumb-num { font-size: 20px; font-weight: 800; color: var(--accent2); }
-.phase-thumb-weeks { font-size: 10px; color: var(--muted); margin: 2px 0; }
-.phase-thumb-name { font-size: 11px; font-weight: 600; color: var(--text); line-height: 1.3; }
-/* TIMELINE */
-.timeline { position: relative; }
-.timeline::before { content: ''; position: absolute; left: 23px; top: 0; bottom: 0; width: 2px; background: var(--border); }
-.phase { position: relative; padding-left: 60px; margin-bottom: 20px; }
-.phase-dot { position: absolute; left: 0; top: 0; width: 48px; height: 48px; background: var(--card2); border: 2px solid var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; color: var(--accent2); z-index: 1; flex-shrink: 0; }
-.phase-dot.milestone { border-color: var(--gold); color: var(--gold); background: rgba(245,158,11,0.08); }
-.phase-body { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px 24px; }
-.phase-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 14px; }
-.phase-title-block { flex: 1; }
-.phase-weeks-badge { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: var(--accent2); margin-bottom: 4px; }
-.phase-title { font-size: 17px; font-weight: 700; margin-bottom: 4px; }
-.phase-subtitle { font-size: 13px; color: var(--muted); }
-.phase-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-left: 16px; flex-shrink: 0; }
-.tag { font-size: 11px; padding: 3px 9px; border-radius: 100px; font-weight: 600; }
-.tag-teal { background: rgba(13,148,136,0.1); border: 1px solid rgba(13,148,136,0.3); color: var(--accent2); }
-.tag-gold { background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.3); color: var(--gold); }
-.tag-green { background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3); color: var(--green); }
-.tag-muted { background: rgba(255,255,255,0.04); border: 1px solid var(--border); color: var(--muted); }
-.task-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px; }
-.task-group { }
-.task-group-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); margin-bottom: 8px; }
-.task-list { list-style: none; }
-.task-list li { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--muted); padding: 3px 0; line-height: 1.4; }
-.task-list li::before { content: '□'; color: var(--accent2); flex-shrink: 0; margin-top: 1px; font-size: 12px; }
-.task-list li strong { color: var(--text); font-weight: 600; }
-.milestone-banner { background: rgba(245,158,11,0.06); border: 1px solid rgba(245,158,11,0.2); border-radius: 10px; padding: 12px 16px; margin-top: 14px; display: flex; align-items: center; gap: 10px; }
-.milestone-banner-icon { font-size: 16px; }
-.milestone-banner-text { font-size: 13px; color: var(--gold); font-weight: 600; }
-.section-divider { display: flex; align-items: center; gap: 16px; margin: 32px 0 28px; position: relative; padding-left: 60px; }
-.section-divider-line { flex: 1; border-top: 2px dashed var(--border); }
-.section-divider-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); background: var(--darker); padding: 0 12px; white-space: nowrap; }
-/* SUMMARY */
-.summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
-.summary-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
-.summary-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); margin-bottom: 8px; }
-.summary-value { font-size: 22px; font-weight: 800; color: var(--accent2); }
-.summary-sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
+.container { max-width: 1200px; margin: 0 auto; padding: 48px 40px; }
+
+/* Phase Overview Grid */
+.phase-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin-bottom: 48px; }
+.pg-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 10px; text-align: center; border-top: 3px solid; }
+.pg-card.c1 { border-top-color: #6366f1; }
+.pg-card.c2 { border-top-color: #0d9488; }
+.pg-card.c3 { border-top-color: #10b981; }
+.pg-card.c4 { border-top-color: #f59e0b; }
+.pg-card.c5 { border-top-color: #f97316; }
+.pg-card.c6 { border-top-color: #8b5cf6; }
+.pg-num { font-size: 22px; font-weight: 800; margin-bottom: 2px; }
+.c1 .pg-num { color: #a5b4fc; }
+.c2 .pg-num { color: var(--accent2); }
+.c3 .pg-num { color: #6ee7b7; }
+.c4 .pg-num { color: var(--gold); }
+.c5 .pg-num { color: #fdba74; }
+.c6 .pg-num { color: #c4b5fd; }
+.pg-weeks { font-size: 10px; color: var(--muted); margin-bottom: 4px; }
+.pg-name { font-size: 11px; font-weight: 600; color: var(--text); line-height: 1.3; }
+.pg-count { font-size: 10px; color: var(--muted); margin-top: 4px; }
+
+/* Summary Bar */
+.summary-bar { display: flex; align-items: center; gap: 20px; background: rgba(13,148,136,0.06); border: 1px solid rgba(13,148,136,0.2); border-radius: 12px; padding: 14px 20px; margin-bottom: 40px; flex-wrap: wrap; }
+.sb-stat { display: flex; flex-direction: column; gap: 2px; }
+.sb-num { font-size: 22px; font-weight: 800; color: var(--accent2); line-height: 1; }
+.sb-label { font-size: 11px; color: var(--muted); font-weight: 500; }
+.sb-sep { width: 1px; height: 32px; background: var(--border); }
+
+/* Phase Section */
+.phase-section { margin-bottom: 40px; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+.phase-hdr { padding: 18px 24px; display: flex; align-items: center; gap: 16px; border-bottom: 1px solid var(--border); }
+.phase-hdr.c1 { background: rgba(99,102,241,0.07); border-left: 4px solid #6366f1; }
+.phase-hdr.c2 { background: rgba(13,148,136,0.07); border-left: 4px solid #0d9488; }
+.phase-hdr.c3 { background: rgba(16,185,129,0.07); border-left: 4px solid #10b981; }
+.phase-hdr.c4 { background: rgba(245,158,11,0.07); border-left: 4px solid #f59e0b; }
+.phase-hdr.c5 { background: rgba(249,115,22,0.07); border-left: 4px solid #f97316; }
+.phase-hdr.c6 { background: rgba(139,92,246,0.07); border-left: 4px solid #8b5cf6; }
+.ph-badge { font-size: 18px; font-weight: 800; min-width: 28px; }
+.c1 .ph-badge { color: #a5b4fc; }
+.c2 .ph-badge { color: var(--accent2); }
+.c3 .ph-badge { color: #6ee7b7; }
+.c4 .ph-badge { color: var(--gold); }
+.c5 .ph-badge { color: #fdba74; }
+.c6 .ph-badge { color: #c4b5fd; }
+.ph-info { flex: 1; }
+.ph-title { font-size: 16px; font-weight: 700; margin-bottom: 2px; }
+.ph-goal { font-size: 13px; color: var(--muted); }
+.ph-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 3px; flex-shrink: 0; }
+.ph-weeks { font-size: 12px; font-weight: 600; color: var(--text); }
+.ph-stories { font-size: 11px; color: var(--muted); }
+
+/* Story Groups within Phase */
+.phase-body { padding: 0; }
+.mod-block { border-bottom: 1px solid rgba(30,42,58,0.5); }
+.mod-block:last-child { border-bottom: none; }
+.mod-block-hdr { display: flex; align-items: center; gap: 10px; padding: 10px 24px; background: rgba(255,255,255,0.015); }
+.mb-icon { font-size: 14px; }
+.mb-id { font-size: 10px; font-weight: 700; font-family: 'Monaco', monospace; color: var(--muted); }
+.mb-name { font-size: 13px; font-weight: 600; color: var(--text); }
+.story-rows { display: flex; flex-direction: column; }
+.sr { display: grid; grid-template-columns: 72px 1fr auto; gap: 12px; align-items: center; padding: 9px 24px 9px 36px; transition: background 0.1s; }
+.sr:hover { background: rgba(255,255,255,0.02); }
+.sr + .sr { border-top: 1px solid rgba(30,42,58,0.4); }
+.sr-id { font-size: 10px; font-weight: 700; font-family: 'Monaco', monospace; color: var(--muted); white-space: nowrap; }
+.sr-text { font-size: 13px; color: var(--text); }
+.sr-text strong { color: var(--accent2); font-weight: 600; }
+.sr-text em { font-style: normal; color: var(--muted); font-size: 12px; }
+.sr-tags { display: flex; gap: 4px; flex-shrink: 0; }
+
+/* Milestone Box */
+.milestone-box { margin: 0; padding: 14px 24px; background: rgba(245,158,11,0.05); border-top: 1px solid rgba(245,158,11,0.15); display: flex; align-items: center; gap: 10px; }
+.milestone-box.final { background: rgba(16,185,129,0.05); border-top-color: rgba(16,185,129,0.2); }
+.ms-icon { font-size: 16px; flex-shrink: 0; }
+.ms-text { font-size: 13px; font-weight: 600; color: var(--gold); }
+.milestone-box.final .ms-text { color: var(--green); }
+
+/* Badges */
+.b { display: inline-flex; align-items: center; padding: 2px 7px; border-radius: 100px; font-size: 10px; font-weight: 700; white-space: nowrap; }
+.b-mvp  { background: rgba(13,148,136,0.12); border: 1px solid rgba(13,148,136,0.3); color: var(--accent2); }
+.b-xs   { background: transparent; border: 1px solid var(--border); color: var(--muted); }
+.b-s    { background: transparent; border: 1px solid var(--border); color: var(--muted); }
+.b-m    { background: rgba(13,148,136,0.05); border: 1px solid rgba(13,148,136,0.15); color: var(--muted); }
+.b-l    { background: rgba(245,158,11,0.06); border: 1px solid rgba(245,158,11,0.2);  color: rgba(245,158,11,0.8); }
+
+/* Post-MVP Section */
+.divider-post { display: flex; align-items: center; gap: 16px; margin: 52px 0 28px; }
+.divider-post-line { flex: 1; height: 1px; background: var(--border); }
+.divider-post-label { font-size: 11px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); padding: 5px 16px; border: 1px solid var(--border); border-radius: 100px; }
+.post-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; }
+.post-card { background: var(--card); border: 1px dashed rgba(100,116,139,0.25); border-radius: 12px; padding: 18px 20px; }
+.pc-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.pc-icon { font-size: 16px; }
+.pc-id { font-size: 10px; font-weight: 700; font-family: 'Monaco', monospace; color: var(--muted); }
+.pc-name { font-size: 14px; font-weight: 700; color: var(--muted); }
+.pc-stories { display: flex; flex-direction: column; gap: 4px; }
+.pc-story { font-size: 12px; color: var(--muted); padding-left: 14px; position: relative; }
+.pc-story::before { content: '·'; position: absolute; left: 4px; color: rgba(100,116,139,0.4); font-weight: 700; }
+.pc-story strong { color: rgba(148,163,184,0.7); font-weight: 600; font-family: 'Monaco', monospace; font-size: 10px; }
+
+/* Footer */
 .footer { border-top: 1px solid var(--border); padding: 24px 40px; display: flex; align-items: center; justify-content: space-between; color: var(--muted); font-size: 13px; }
 .footer strong { color: var(--text); }
 .footer-nav { display: flex; gap: 16px; }
 .footer-nav a { text-decoration: none; color: var(--muted); font-size: 13px; }
 .footer-nav a:hover { color: var(--accent2); }
-@media (max-width: 900px) {
-  .phase-overview { grid-template-columns: repeat(4, 1fr); }
-}
+
 @media (max-width: 768px) {
   .page-hdr, .container, .footer { padding-left: 20px; padding-right: 20px; }
   .nav-inner { padding: 0 16px; }
-  .phase-overview { grid-template-columns: repeat(2, 1fr); }
-  .task-grid { grid-template-columns: 1fr; }
-  .phase-tags { margin-left: 0; margin-top: 8px; }
-  .phase-header { flex-direction: column; }
+  .phase-grid { grid-template-columns: repeat(3, 1fr); }
+  .sr { grid-template-columns: 1fr auto; }
+  .sr-id { display: none; }
 }
-/* ===== Light Mode ===== */
-body.light { --darker: #f8fafc; --dark: #f1f5f9; --card: #ffffff; --card2: #f8fafc; --text: #0f172a; --muted: #64748b; --border: #e2e8f0; --accent2: #0f766e; --gold: #d97706; --green: #059669; --red: #dc2626; }
+
+/* Light Mode */
+body.light { --darker: #f8fafc; --dark: #f1f5f9; --card: #ffffff; --card2: #f8fafc; --text: #0f172a; --muted: #64748b; --border: #e2e8f0; --accent2: #0f766e; --gold: #d97706; --green: #059669; }
 body.light .nav { background: rgba(255,255,255,0.95); border-bottom-color: #e2e8f0; }
 body.light .page-hdr { background: linear-gradient(135deg, #f0fdf9 0%, #ccfbf1 50%, #f0fdf9 100%); border-bottom-color: #e2e8f0; }
-body.light .hero { background: linear-gradient(135deg, #f0fdf9 0%, #ccfbf1 50%, #f0fdf9 100%); border-bottom-color: #e2e8f0; }
 body.light .nav-link { color: #64748b; }
 body.light .nav-link:hover { color: #0f172a; background: rgba(0,0,0,0.05); }
 body.light .nav-link.active { color: #0f766e; background: rgba(13,148,136,0.1); }
 body.light .nav-sep { color: #cbd5e1; }
 body.light .nav-brand-text { color: #0f172a; }
 body.light .nav-brand-dot { background: #0f766e; }
-body.light .vision-card { background: rgba(13,148,136,0.04); }
-body.light .section-num { background: rgba(13,148,136,0.08); border-color: rgba(13,148,136,0.2); }
-body.light th { background: #f1f5f9; color: #64748b; }
-body.light tr:hover td { background: rgba(0,0,0,0.015); }
-body.light .pill { background: rgba(0,0,0,0.04); border-color: #e2e8f0; color: #64748b; }
 body.light .footer { border-top-color: #e2e8f0; }
-body.light .phase-hdr { background: rgba(13,148,136,0.06); border-color: rgba(13,148,136,0.2); }
-body.light .flow-step { background: #f1f5f9; border-color: #e2e8f0; }
-body.light .flow-arrow { color: #94a3b8; }
+body.light .phase-section { border-color: #e2e8f0; }
+body.light .mod-block { border-bottom-color: #e2e8f0; }
+body.light .sr + .sr { border-top-color: #e2e8f0; }
+body.light .b-xs, body.light .b-s { border-color: #e2e8f0; }
 .theme-toggle { margin-left: auto; background: none; border: 1px solid var(--border); border-radius: 8px; width: 32px; height: 32px; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: background 0.15s; flex-shrink: 0; line-height: 1; }
 .theme-toggle:hover { background: rgba(255,255,255,0.08); }
 body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
@@ -125,15 +169,12 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
 
 <nav class="nav">
   <div class="nav-inner">
-    <a href="index.html" class="nav-brand">
-      <div class="nav-brand-dot"></div>
-      <span class="nav-brand-text">D2C Summit</span>
-    </a>
+    <a href="index.html" class="nav-brand"><div class="nav-brand-dot"></div><span class="nav-brand-text">D2C Summit</span></a>
     <span class="nav-sep">|</span>
     <div class="nav-links">
       <a href="index.html" class="nav-link">Übersicht</a>
       <a href="konzept.html" class="nav-link">Konzept</a>
-      <a href="module.html" class="nav-link">Module</a>
+      <a href="module.html" class="nav-link">Backlog</a>
       <a href="phasen.html" class="nav-link active">Phasen</a>
       <a href="integrationen.html" class="nav-link">Integrationen</a>
       <a href="offene-fragen.html" class="nav-link">Offene Fragen</a>
@@ -145,396 +186,607 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
 <div class="page-hdr">
   <div class="page-hdr-inner">
     <div class="page-bc"><a href="index.html">D2C Summit</a> / Umsetzungsplan</div>
-    <div class="page-title">MVP — <span>6 Phasen / 12 Wochen</span></div>
-    <div class="page-ver" style="font-size:11px;color:var(--muted);margin-bottom:8px;font-family:Monaco,monospace">v1.4 — 27.03.2026</div>
-    <div class="page-sub">Was wann gebaut wird — klare Trennung zwischen MVP (Wochen 1–12) und Post-MVP Phase II</div>
+    <div class="page-title">Umsetzungsplan — <span>6 Phasen</span></div>
+    <div class="page-ver" style="font-size:11px;color:var(--muted);margin-bottom:8px;font-family:Monaco,monospace">v1.5 — 27.03.2026</div>
+    <div class="page-sub">Welche User Stories werden in welcher Phase umgesetzt — mit Meilensteinen und Abnahmen.</div>
   </div>
 </div>
 
 <div class="container">
 
-  <div class="section">
-    <div class="section-header">
-      <div class="section-num">◆</div>
-      <h2 class="section-title">MVP-Übersicht</h2>
+  <!-- Overview Grid -->
+  <div class="phase-grid">
+    <div class="pg-card c1">
+      <div class="pg-num">P1</div>
+      <div class="pg-weeks">Wo. 1–2</div>
+      <div class="pg-name">Foundation & Rollen</div>
+      <div class="pg-count">4 Stories</div>
     </div>
-    <div class="summary-grid">
-      <div class="summary-card"><div class="summary-label">MVP-Dauer</div><div class="summary-value">12</div><div class="summary-sub">Wochen bis Go-Live</div></div>
-      <div class="summary-card"><div class="summary-label">Phasen</div><div class="summary-value">6</div><div class="summary-sub">strukturierte Abschnitte</div></div>
-      <div class="summary-card"><div class="summary-label">MVP-Module</div><div class="summary-value">10</div><div class="summary-sub">vollständig im MVP</div></div>
-      <div class="summary-card"><div class="summary-label">Abnahmen</div><div class="summary-value">2</div><div class="summary-sub">Meilenstein-Reviews</div></div>
+    <div class="pg-card c2">
+      <div class="pg-num">P2</div>
+      <div class="pg-weeks">Wo. 3–4</div>
+      <div class="pg-name">Programm & Public Website</div>
+      <div class="pg-count">12 Stories</div>
     </div>
-
-    <div class="phase-overview" style="margin-top:20px;grid-template-columns:repeat(6,1fr)">
-      <div class="phase-thumb"><div class="phase-thumb-num">1</div><div class="phase-thumb-weeks">Wo. 1–2</div><div class="phase-thumb-name">Foundation</div></div>
-      <div class="phase-thumb"><div class="phase-thumb-num">2</div><div class="phase-thumb-weeks">Wo. 3–4</div><div class="phase-thumb-name">Event & Website</div></div>
-      <div class="phase-thumb"><div class="phase-thumb-num">3</div><div class="phase-thumb-weeks">Wo. 5–6</div><div class="phase-thumb-name">Unternehmen & Tickets</div></div>
-      <div class="phase-thumb"><div class="phase-thumb-num">4</div><div class="phase-thumb-weeks">Wo. 7–8</div><div class="phase-thumb-name">Sponsoren & Komm.</div></div>
-      <div class="phase-thumb"><div class="phase-thumb-num">5</div><div class="phase-thumb-weeks">Wo. 9–10</div><div class="phase-thumb-name">My Summit & Check-in</div></div>
-      <div class="phase-thumb" style="border-color:rgba(245,158,11,0.4)"><div class="phase-thumb-num" style="color:var(--gold)">6</div><div class="phase-thumb-weeks">Wo. 11–12</div><div class="phase-thumb-name">QA & Go-Live</div></div>
+    <div class="pg-card c3">
+      <div class="pg-num">P3</div>
+      <div class="pg-weeks">Wo. 5–6</div>
+      <div class="pg-name">Unternehmen, Teilnehmer & Tickets</div>
+      <div class="pg-count">13 Stories</div>
+    </div>
+    <div class="pg-card c4">
+      <div class="pg-num">P4</div>
+      <div class="pg-weeks">Wo. 7–8</div>
+      <div class="pg-name">Sponsoren & Kommunikation</div>
+      <div class="pg-count">6 Stories · Abnahme I</div>
+    </div>
+    <div class="pg-card c5">
+      <div class="pg-num">P5</div>
+      <div class="pg-weeks">Wo. 9–10</div>
+      <div class="pg-name">My Summit & Check-in</div>
+      <div class="pg-count">11 Stories</div>
+    </div>
+    <div class="pg-card c6">
+      <div class="pg-num">P6</div>
+      <div class="pg-weeks">Wo. 11–12</div>
+      <div class="pg-name">QA, Security & Go-Live</div>
+      <div class="pg-count">Abnahme II</div>
     </div>
   </div>
 
-  <div class="section">
-    <div class="section-header">
-      <div class="section-num">01</div>
-      <h2 class="section-title">Phasenplan im Detail</h2>
-    </div>
-
-    <div class="timeline">
-
-      <!-- PHASE 1 -->
-      <div class="phase">
-        <div class="phase-dot">1</div>
-        <div class="phase-body">
-          <div class="phase-header">
-            <div class="phase-title-block">
-              <div class="phase-weeks-badge">Woche 1–2</div>
-              <div class="phase-title">Foundation</div>
-              <div class="phase-subtitle">Technisches Fundament + vollständige Rollen-Architektur von Tag 1</div>
-            </div>
-            <div class="phase-tags">
-              <span class="tag tag-teal">Setup</span>
-              <span class="tag tag-muted">M07 Rollen</span>
-            </div>
-          </div>
-          <div class="task-grid">
-            <div class="task-group">
-              <div class="task-group-label">Backend</div>
-              <ul class="task-list">
-                <li>Backend-Projekt aufsetzen</li>
-                <li><strong>Authentication & Autorisierung</strong> konfigurieren</li>
-                <li><strong>Rollen-System:</strong> 7 Rollen, pro Event vergeben</li>
-                <li>Vollständiges Datenbankschema (alle MVP-Module)</li>
-                <li>Domain-Struktur & API-Routing (4 Domains)</li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-group-label">Frontend</div>
-              <ul class="task-list">
-                <li>Frontend-Projekt aufsetzen</li>
-                <li>Design-System & Komponenten-Basis</li>
-                <li>State Management + API-Anbindung</li>
-                <li><strong>Auth-State</strong> (Login, Logout, Session)</li>
-                <li>Base-Layouts: Public / My Summit / Admin</li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-group-label">DevOps</div>
-              <ul class="task-list">
-                <li>Code-Repository + Branch-Strategie</li>
-                <li><strong>CI/CD Pipeline</strong> einrichten</li>
-                <li>Staging-Umgebung aufsetzen</li>
-                <li>Hosting & Deployment konfigurieren</li>
-              </ul>
-            </div>
-          </div>
-          <div class="milestone-banner" style="background:rgba(13,148,136,0.06);border-color:rgba(13,148,136,0.25)">
-            <div class="milestone-banner-icon">🏁</div>
-            <div class="milestone-banner-text" style="color:var(--accent2)">Setup komplett — Team kann parallel arbeiten, Rollen-Architektur steht</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- PHASE 2 -->
-      <div class="phase">
-        <div class="phase-dot">2</div>
-        <div class="phase-body">
-          <div class="phase-header">
-            <div class="phase-title-block">
-              <div class="phase-weeks-badge">Woche 3–4</div>
-              <div class="phase-title">Event Engine + Programm + Public Website</div>
-              <div class="phase-subtitle">Herzstück der Plattform — Events, Programm und erste öffentliche Seiten</div>
-            </div>
-            <div class="phase-tags">
-              <span class="tag tag-teal">M01 Event</span>
-              <span class="tag tag-teal">M02 Programm</span>
-              <span class="tag tag-teal">M03 Speaker</span>
-              <span class="tag tag-teal">M12 Website</span>
-            </div>
-          </div>
-          <div class="task-grid">
-            <div class="task-group">
-              <div class="task-group-label">Admin Backend</div>
-              <ul class="task-list">
-                <li><strong>Event CRUD</strong> (erstellen, bearbeiten, archivieren)</li>
-                <li>Venue + Stages / Räume verwalten</li>
-                <li>Branding-Config pro Event (Logo, Farbe)</li>
-                <li>Sessions CRUD (Typ, Stage, Zeit, Kapazität)</li>
-                <li><strong>Speaker CRUD</strong> (Admin-seitig — kein Speaker-Login)</li>
-                <li>Speaker ↔ Session verknüpfen</li>
-                <li>FAQ-Verwaltung im Admin</li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-group-label">Public Website</div>
-              <ul class="task-list">
-                <li><strong>Home-Seite</strong> (Hero, Event-Info, Highlights)</li>
-                <li><strong>/programm</strong> — Tagesplan mit Filter (Stage/Typ)</li>
-                <li><strong>/speaker</strong> — Grid + Detailseiten</li>
-                <li><strong>/faq</strong> — aus Admin gespeist</li>
-                <li>SEO: Schema.org Event-Markup, OG-Tags</li>
-              </ul>
-            </div>
-          </div>
-          <div class="milestone-banner" style="background:rgba(13,148,136,0.06);border-color:rgba(13,148,136,0.25)">
-            <div class="milestone-banner-icon">🌐</div>
-            <div class="milestone-banner-text" style="color:var(--accent2)">Public Website mit Event, Programm und Speakern ist live</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- PHASE 3 -->
-      <div class="phase">
-        <div class="phase-dot">3</div>
-        <div class="phase-body">
-          <div class="phase-header">
-            <div class="phase-title-block">
-              <div class="phase-weeks-badge">Woche 5–6</div>
-              <div class="phase-title">Unternehmens-Profile + Teilnehmer + Ticket-System</div>
-              <div class="phase-subtitle">Neues Kernmodul: Unternehmen als Entität — plus Ticketkauf via Payrexx</div>
-            </div>
-            <div class="phase-tags">
-              <span class="tag tag-gold">M04 Unternehmen ★ Neu</span>
-              <span class="tag tag-teal">M05 Teilnehmer</span>
-              <span class="tag tag-teal">M06 Tickets</span>
-            </div>
-          </div>
-          <div class="task-grid">
-            <div class="task-group">
-              <div class="task-group-label">Unternehmens-Profile (Neu)</div>
-              <ul class="task-list">
-                <li><strong>Unternehmen anlegen:</strong> Name, Logo, Website, Typ</li>
-                <li>Sichtbarkeit auf Website steuern</li>
-                <li>Tickets einem Unternehmen zuordnen</li>
-                <li>Admin-Übersicht: Filter nach Typ, Paket, Sichtbarkeit</li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-group-label">Ticket-System & Payrexx</div>
-              <ul class="task-list">
-                <li>Ticket-Kategorien CRUD (Admin)</li>
-                <li><strong>Payrexx-Integration:</strong> Checkout → Bestätigung</li>
-                <li>QR-Code-Generierung (unique, fälschungssicher)</li>
-                <li><strong>Ticket-PDF</strong> + Bestätigungsmail (Mailtrap)</li>
-                <li>Order-Management: Status, Rechnungsdownload</li>
-                <li>Stornierung + Rückerstattungs-Workflow</li>
-                <li>Public Website: /tickets Seite live</li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-group-label">Teilnehmer-Verwaltung</div>
-              <ul class="task-list">
-                <li>Teilnehmer-Übersicht im Admin</li>
-                <li><strong>Unternehmens-Zuordnung</strong> (Teilnehmer ↔ Unternehmen)</li>
-                <li>Filter + Export (CSV)</li>
-              </ul>
-            </div>
-          </div>
-          <div class="milestone-banner">
-            <div class="milestone-banner-icon">💳</div>
-            <div class="milestone-banner-text">Erster echter Ticketkauf möglich — Payrexx → QR → PDF → Bestätigungsmail</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- PHASE 4 — ABNAHME I -->
-      <div class="phase">
-        <div class="phase-dot milestone">4</div>
-        <div class="phase-body">
-          <div class="phase-header">
-            <div class="phase-title-block">
-              <div class="phase-weeks-badge">Woche 7–8</div>
-              <div class="phase-title">Sponsor-Verwaltung + Kommunikations-Basis + Website komplett</div>
-              <div class="phase-subtitle">Website vollständig, erste Kommunikation mit Teilnehmern möglich</div>
-            </div>
-            <div class="phase-tags">
-              <span class="tag tag-teal">M09 Sponsoren</span>
-              <span class="tag tag-teal">M10 Kommunikation</span>
-              <span class="tag tag-gold">Abnahme I</span>
-            </div>
-          </div>
-          <div class="task-grid">
-            <div class="task-group">
-              <div class="task-group-label">Sponsor-Verwaltung</div>
-              <ul class="task-list">
-                <li>Sponsor-Pakete definieren (Platin/Gold/Silver/Bronze)</li>
-                <li>Unternehmen als Sponsor markieren + Paket zuweisen</li>
-                <li>Logo-Upload direkt im Admin</li>
-                <li><strong>/sponsoren Seite:</strong> Logos nach Paket-Rang</li>
-                <li>Voucher-System (% + Gratis + Direktlink)</li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-group-label">Kommunikations-Basis</div>
-              <ul class="task-list">
-                <li>E-Mail Templates im Admin pflegbar</li>
-                <li><strong>Gezielte Updates</strong> an Teilnehmer-Gruppen senden</li>
-                <li>Filter: alle / nach Ticket-Kategorie / nach Unternehmen</li>
-                <li>Versand-Übersicht: wer hat was erhalten</li>
-              </ul>
-            </div>
-          </div>
-          <div class="milestone-banner" style="background:rgba(245,158,11,0.08);border-color:rgba(245,158,11,0.3)">
-            <div class="milestone-banner-icon">⭐</div>
-            <div class="milestone-banner-text">Abnahme I — Website komplett live · Ticketkauf funktioniert · Sponsoren sichtbar · Kommunikation möglich</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- PHASE 5 -->
-      <div class="phase">
-        <div class="phase-dot">5</div>
-        <div class="phase-body">
-          <div class="phase-header">
-            <div class="phase-title-block">
-              <div class="phase-weeks-badge">Woche 9–10</div>
-              <div class="phase-title">My Summit Basis + Check-in App + Statistiken</div>
-              <div class="phase-subtitle">Teilnehmer-Portal (Fundament) und Einlass-Tool für den Eventtag</div>
-            </div>
-            <div class="phase-tags">
-              <span class="tag tag-teal">M08 My Summit</span>
-              <span class="tag tag-teal">M13 Check-in</span>
-              <span class="tag tag-teal">M11 Stats</span>
-            </div>
-          </div>
-          <div class="task-grid">
-            <div class="task-group">
-              <div class="task-group-label">My Summit — Basis</div>
-              <ul class="task-list">
-                <li>Login / Registrierung (verknüpft mit Ticketkauf)</li>
-                <li><strong>Ticket-Ansicht:</strong> QR-Code, Daten, PDF-Download</li>
-                <li>Profil bearbeiten (Name, Firma, Funktion)</li>
-                <li>Programm-Übersicht (Lese-Ansicht)</li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-group-label">Check-in App</div>
-              <ul class="task-list">
-                <li><strong>QR-Code Scanner</strong> (Browser-Kamera)</li>
-                <li>Ticket validieren: Name, Firma, Kategorie</li>
-                <li>Fehlermeldungen (ungültig / bereits eingecheckt)</li>
-                <li>Live-Einlass-Zähler</li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-group-label">Admin — Basis-Statistiken</div>
-              <ul class="task-list">
-                <li>Ticket-Verkäufe gesamt + nach Kategorie</li>
-                <li>Umsatz + Voucher-Einlösungen</li>
-                <li>Check-in Rate (live am Eventtag)</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- PHASE 6 — ABNAHME II / GO-LIVE -->
-      <div class="phase">
-        <div class="phase-dot milestone">6</div>
-        <div class="phase-body">
-          <div class="phase-header">
-            <div class="phase-title-block">
-              <div class="phase-weeks-badge">Woche 11–12</div>
-              <div class="phase-title">QA, Security & Go-Live</div>
-              <div class="phase-subtitle">End-to-End Testing aller MVP-Flows — dann Produktion</div>
-            </div>
-            <div class="phase-tags">
-              <span class="tag tag-green">Testing</span>
-              <span class="tag tag-green">Security</span>
-              <span class="tag tag-gold">Abnahme II</span>
-            </div>
-          </div>
-          <div class="task-grid">
-            <div class="task-group">
-              <div class="task-group-label">End-to-End Testing</div>
-              <ul class="task-list">
-                <li><strong>Ticket-Flow:</strong> Kauf → QR → Check-in</li>
-                <li><strong>Admin-Flow:</strong> Event anlegen → Website live</li>
-                <li><strong>Kommunikations-Flow:</strong> Mail versenden → Anzeige</li>
-                <li>My Summit: Login → Ticket anzeigen</li>
-                <li>Cross-Browser & Mobile-Tests</li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-group-label">Security & Performance</div>
-              <ul class="task-list">
-                <li><strong>Auth-Schutz</strong> auf allen geschützten Routen</li>
-                <li>Payrexx-Webhook-Validierung prüfen</li>
-                <li>Rollen-Zugriff: alle 7 Rollen durchgetestet</li>
-                <li>Performance-Optimierung (Ladezeiten, Images)</li>
-                <li>DSGVO-Check (Daten, Mails, Consent)</li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-group-label">Go-Live</div>
-              <ul class="task-list">
-                <li>DNS-Konfiguration (4 Domains)</li>
-                <li>Staging → Production Deployment</li>
-                <li>SSL, Monitoring, Backups</li>
-                <li>Team-Einführung + Admin-Schulung</li>
-              </ul>
-            </div>
-          </div>
-          <div class="milestone-banner" style="background:rgba(16,185,129,0.07);border-color:rgba(16,185,129,0.3)">
-            <div class="milestone-banner-icon">🚀</div>
-            <div class="milestone-banner-text" style="color:var(--green)">Abnahme II — MVP live. Erster D2C Summit kann auf der Platform stattfinden.</div>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- end timeline -->
+  <div class="summary-bar">
+    <div class="sb-stat"><div class="sb-num">12</div><div class="sb-label">Wochen MVP</div></div>
+    <div class="sb-sep"></div>
+    <div class="sb-stat"><div class="sb-num">6</div><div class="sb-label">Phasen</div></div>
+    <div class="sb-sep"></div>
+    <div class="sb-stat"><div class="sb-num">40</div><div class="sb-label">MVP Stories</div></div>
+    <div class="sb-sep"></div>
+    <div class="sb-stat"><div class="sb-num">2</div><div class="sb-label">Abnahmen</div></div>
+    <div class="sb-sep"></div>
+    <div class="sb-stat"><div class="sb-num" style="color:var(--gold)">P4</div><div class="sb-label">Abnahme I — Wo. 8</div></div>
+    <div class="sb-sep"></div>
+    <div class="sb-stat"><div class="sb-num" style="color:var(--green)">P6</div><div class="sb-label">Go-Live — Wo. 12</div></div>
   </div>
 
-  <!-- POST-MVP SECTION -->
-  <div class="section">
-    <div class="section-header" style="border-bottom-color:rgba(100,116,139,0.2)">
-      <div class="section-num" style="background:rgba(100,116,139,0.07);border-color:rgba(100,116,139,0.2);color:var(--muted)">II</div>
-      <h2 class="section-title" style="color:var(--muted)">Post-MVP — Phase II nach Go-Live</h2>
+  <!-- ══════════════════════════════════════
+       PHASE 1 — Wo. 1–2
+  ══════════════════════════════════════ -->
+  <div class="phase-section">
+    <div class="phase-hdr c1">
+      <div class="ph-badge">P1</div>
+      <div class="ph-info">
+        <div class="ph-title">Foundation & Rollen-Architektur</div>
+        <div class="ph-goal">Projekt-Setup, Datenbankschema, alle 4 Domains aufgesetzt, Rollen-Middleware, Event-Grundgerüst</div>
+      </div>
+      <div class="ph-meta">
+        <div class="ph-weeks">Woche 1–2</div>
+        <div class="ph-stories">4 Stories</div>
+      </div>
     </div>
-    <div style="font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.7">
-      Diese Module sind <strong style="color:var(--text)">nicht blockierend</strong> für den ersten Summit. Sie werden nach dem Go-Live in der Reihenfolge priorisiert die den grössten Wert bringt — typischerweise My Summit voll ausgebaut als erstes, da Masterclass-Buchungen dann möglich werden müssen.
+    <div class="phase-body">
+      <div class="mod-block">
+        <div class="mod-block-hdr"><span class="mb-icon">🔐</span><span class="mb-id">M07</span><span class="mb-name">Rollen & Rechte</span></div>
+        <div class="story-rows">
+          <div class="sr">
+            <div class="sr-id">US-07-1</div>
+            <div class="sr-text">Als <strong>Super Admin</strong> möchte ich Benutzer anlegen und Rollen pro Event vergeben (7 Rollen), <em>damit jeder nur auf seinen Bereich zugreifen kann.</em></div>
+            <div class="sr-tags"><span class="b b-m">M</span></div>
+          </div>
+          <div class="sr">
+            <div class="sr-id">US-07-2</div>
+            <div class="sr-text">Als <strong>System</strong> müssen alle 4 Domains rollenbasiert durch Middleware geschützt sein.</div>
+            <div class="sr-tags"><span class="b b-l">L</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="mod-block">
+        <div class="mod-block-hdr"><span class="mb-icon">🔁</span><span class="mb-id">M01</span><span class="mb-name">Event Engine</span></div>
+        <div class="story-rows">
+          <div class="sr">
+            <div class="sr-id">US-01-1</div>
+            <div class="sr-text">Als <strong>Organizer</strong> möchte ich ein Event anlegen (Titel, Datum, Venue, Status), <em>damit alle Inhalte einem Event zugeordnet werden können.</em></div>
+            <div class="sr-tags"><span class="b b-m">M</span></div>
+          </div>
+          <div class="sr">
+            <div class="sr-id">US-01-2</div>
+            <div class="sr-text">Als <strong>Organizer</strong> möchte ich Stages und Räume definieren (Name, Kapazität), <em>damit Sessions konkret verortet werden können.</em></div>
+            <div class="sr-tags"><span class="b b-s">S</span></div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px">
-      <div style="background:var(--card);border:1px dashed rgba(100,116,139,0.25);border-radius:12px;padding:16px">
-        <div style="font-size:16px;margin-bottom:8px">🪪</div>
-        <div style="font-weight:700;font-size:14px;margin-bottom:4px">My Summit — Vollausbau</div>
-        <div style="font-size:12px;color:var(--muted)">Session-Buchung, Warteliste, Materialien, Badge, Social Share Cards, Zertifikat</div>
-        <div style="margin-top:10px"><span style="font-size:11px;font-weight:700;color:var(--accent2)">→ Priorität 1</span></div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       PHASE 2 — Wo. 3–4
+  ══════════════════════════════════════ -->
+  <div class="phase-section">
+    <div class="phase-hdr c2">
+      <div class="ph-badge">P2</div>
+      <div class="ph-info">
+        <div class="ph-title">Event-Branding, Programm, Speaker & Public Website</div>
+        <div class="ph-goal">Erste sichtbare Oberfläche — Website steht, Programm und Speaker sind pflegbar und öffentlich sichtbar</div>
       </div>
-      <div style="background:var(--card);border:1px dashed rgba(100,116,139,0.25);border-radius:12px;padding:16px">
-        <div style="font-size:16px;margin-bottom:8px">🎤</div>
-        <div style="font-weight:700;font-size:14px;margin-bottom:4px">Speaker Self-Service Portal</div>
-        <div style="font-size:12px;color:var(--muted)">Speaker-Login, Profil bearbeiten, Präsentationen hochladen, Feedback einsehen</div>
+      <div class="ph-meta">
+        <div class="ph-weeks">Woche 3–4</div>
+        <div class="ph-stories">12 Stories</div>
       </div>
-      <div style="background:var(--card);border:1px dashed rgba(100,116,139,0.25);border-radius:12px;padding:16px">
-        <div style="font-size:16px;margin-bottom:8px">⭐</div>
-        <div style="font-weight:700;font-size:14px;margin-bottom:4px">Sponsor Self-Service Portal</div>
-        <div style="font-size:12px;color:var(--muted)">Sponsor-Login, Logo + Profil selbst pflegen, Impressions-Statistiken</div>
+    </div>
+    <div class="phase-body">
+      <div class="mod-block">
+        <div class="mod-block-hdr"><span class="mb-icon">🔁</span><span class="mb-id">M01</span><span class="mb-name">Event Engine — Branding</span></div>
+        <div class="story-rows">
+          <div class="sr">
+            <div class="sr-id">US-01-3</div>
+            <div class="sr-text">Als <strong>Organizer</strong> möchte ich Event-Branding konfigurieren (Logo, Primärfarbe, Hero-Bild), <em>damit die Website das Erscheinungsbild widerspiegelt.</em></div>
+            <div class="sr-tags"><span class="b b-s">S</span></div>
+          </div>
+        </div>
       </div>
-      <div style="background:var(--card);border:1px dashed rgba(100,116,139,0.25);border-radius:12px;padding:16px">
-        <div style="font-size:16px;margin-bottom:8px">📧</div>
-        <div style="font-weight:700;font-size:14px;margin-bottom:4px">Marketing Engine</div>
-        <div style="font-size:12px;color:var(--muted)">Kampagnen, automatisierte Sequenzen (Trigger), UTM-Tracking, Segment-Mails</div>
+      <div class="mod-block">
+        <div class="mod-block-hdr"><span class="mb-icon">🗓️</span><span class="mb-id">M02</span><span class="mb-name">Programm-Manager</span></div>
+        <div class="story-rows">
+          <div class="sr">
+            <div class="sr-id">US-02-1</div>
+            <div class="sr-text">Als <strong>Organizer</strong> möchte ich Sessions anlegen (Typ, Stage, Zeit, Kapazität, buchbar ja/nein), <em>damit der Tagesplan strukturiert ist.</em></div>
+            <div class="sr-tags"><span class="b b-m">M</span></div>
+          </div>
+          <div class="sr">
+            <div class="sr-id">US-02-2</div>
+            <div class="sr-text">Als <strong>Organizer</strong> möchte ich Speaker einer Session zuweisen (mehrere möglich).</div>
+            <div class="sr-tags"><span class="b b-s">S</span></div>
+          </div>
+          <div class="sr">
+            <div class="sr-id">US-02-3</div>
+            <div class="sr-text">Als <strong>Besucher</strong> möchte ich das Tagesprogramm nach Stage und Typ filtern, <em>damit ich relevante Sessions schnell finde.</em></div>
+            <div class="sr-tags"><span class="b b-s">S</span></div>
+          </div>
+        </div>
       </div>
-      <div style="background:var(--card);border:1px dashed rgba(100,116,139,0.25);border-radius:12px;padding:16px">
-        <div style="font-size:16px;margin-bottom:8px">📊</div>
-        <div style="font-weight:700;font-size:14px;margin-bottom:4px">Statistics Dashboard</div>
-        <div style="font-size:12px;color:var(--muted)">Session-Auslastung, Feedback-Ratings, Marketing-Stats, Vorjahresvergleich</div>
+      <div class="mod-block">
+        <div class="mod-block-hdr"><span class="mb-icon">🎤</span><span class="mb-id">M03</span><span class="mb-name">Speaker-Management</span></div>
+        <div class="story-rows">
+          <div class="sr">
+            <div class="sr-id">US-03-1</div>
+            <div class="sr-text">Als <strong>Organizer</strong> möchte ich Speaker-Profile anlegen (Name, Titel, Firma, Bio, Foto, LinkedIn).</div>
+            <div class="sr-tags"><span class="b b-s">S</span></div>
+          </div>
+          <div class="sr">
+            <div class="sr-id">US-03-2</div>
+            <div class="sr-text">Als <strong>Organizer</strong> möchte ich Speaker einem Event zuweisen.</div>
+            <div class="sr-tags"><span class="b b-xs">XS</span></div>
+          </div>
+        </div>
       </div>
-      <div style="background:var(--card);border:1px dashed rgba(100,116,139,0.25);border-radius:12px;padding:16px">
-        <div style="font-size:16px;margin-bottom:8px">🔁</div>
-        <div style="font-weight:700;font-size:14px;margin-bottom:4px">Event-Klon & Multi-Year</div>
-        <div style="font-size:12px;color:var(--muted)">Event klonen für Folgejahre, Inhalte + Branding übernehmen, Archiv</div>
+      <div class="mod-block">
+        <div class="mod-block-hdr"><span class="mb-icon">🌐</span><span class="mb-id">M12</span><span class="mb-name">Public Website</span></div>
+        <div class="story-rows">
+          <div class="sr">
+            <div class="sr-id">US-12-1</div>
+            <div class="sr-text">Als <strong>Besucher</strong> möchte ich auf der Startseite alle Event-Infos auf einen Blick haben (Hero, Datum, Ort, Highlights, Speaker-Teaser, Sponsoren-Logos).</div>
+            <div class="sr-tags"><span class="b b-l">L</span></div>
+          </div>
+          <div class="sr">
+            <div class="sr-id">US-12-2</div>
+            <div class="sr-text">Als <strong>Besucher</strong> möchte ich das Tagesprogramm mit Stage-Filter und Parallel-Sessions sehen.</div>
+            <div class="sr-tags"><span class="b b-m">M</span></div>
+          </div>
+          <div class="sr">
+            <div class="sr-id">US-12-3</div>
+            <div class="sr-text">Als <strong>Besucher</strong> möchte ich Speaker mit Detailseiten (Bio, Firma, Sessions) sehen.</div>
+            <div class="sr-tags"><span class="b b-s">S</span></div>
+          </div>
+          <div class="sr">
+            <div class="sr-id">US-12-4</div>
+            <div class="sr-text">Als <strong>Besucher</strong> möchte ich eine FAQ-Seite finden (pflegbar im Admin).</div>
+            <div class="sr-tags"><span class="b b-s">S</span></div>
+          </div>
+          <div class="sr">
+            <div class="sr-id">US-12-5</div>
+            <div class="sr-text">Als <strong>System</strong> soll die Website SSR, Schema.org Event-Markup und OG-Tags haben.</div>
+            <div class="sr-tags"><span class="b b-m">M</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       PHASE 3 — Wo. 5–6
+  ══════════════════════════════════════ -->
+  <div class="phase-section">
+    <div class="phase-hdr c3">
+      <div class="ph-badge">P3</div>
+      <div class="ph-info">
+        <div class="ph-title">Unternehmen, Teilnehmer & Ticket-System</div>
+        <div class="ph-goal">Unternehmens-Profile als neue Entität, Teilnehmerverwaltung, vollständiger Payrexx-Checkout, Voucher</div>
+      </div>
+      <div class="ph-meta">
+        <div class="ph-weeks">Woche 5–6</div>
+        <div class="ph-stories">13 Stories</div>
+      </div>
+    </div>
+    <div class="phase-body">
+      <div class="mod-block">
+        <div class="mod-block-hdr"><span class="mb-icon">🏢</span><span class="mb-id">M04</span><span class="mb-name">Unternehmens-Profile</span></div>
+        <div class="story-rows">
+          <div class="sr">
+            <div class="sr-id">US-04-1</div>
+            <div class="sr-text">Als <strong>Organizer</strong> möchte ich Unternehmen anlegen (Name, Logo, Website, Typ: Sponsor / Attendee-Firma).</div>
+            <div class="sr-tags"><span class="b b-m">M</span></div>
+          </div>
+          <div class="sr">
+            <div class="sr-id">US-04-2</div>
+            <div class="sr-text">Als <strong>Organizer</strong> möchte ich die Website-Sichtbarkeit pro Unternehmen steuern (Sponsor-Seite / Partner / unsichtbar).</div>
+            <div class="sr-tags"><span class="b b-s">S</span></div>
+          </div>
+          <div class="sr">
+            <div class="sr-id">US-04-3</div>
+            <div class="sr-text">Als <strong>Organizer</strong> möchte ich mehrere Tickets einem Unternehmen zuordnen.</div>
+            <div class="sr-tags"><span class="b b-s">S</span></div>
+          </div>
+          <div class="sr">
+            <div class="sr-id">US-04-4</div>
+            <div class="sr-text">Als <strong>Organizer</strong> möchte ich im Admin nach Unternehmenstyp und Paket filtern.</div>
+            <div class="sr-tags"><span class="b b-xs">XS</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="mod-block">
+        <div class="mod-block-hdr"><span class="mb-icon">👥</span><span class="mb-id">M05</span><span class="mb-name">Teilnehmer-Verwaltung</span></div>
+        <div class="story-rows">
+          <div class="sr">
+            <div class="sr-id">US-05-1</div>
+            <div class="sr-text">Als <strong>Organizer</strong> möchte ich alle Teilnehmer in einer Übersicht sehen (Name, Firma, Ticket, Check-in-Status).</div>
+            <div class="sr-tags"><span class="b b-s">S</span></div>
+          </div>
+          <div class="sr">
+            <div class="sr-id">US-05-2</div>
+            <div class="sr-text">Als <strong>Organizer</strong> möchte ich Teilnehmer einem Unternehmen zuordnen.</div>
+            <div class="sr-tags"><span class="b b-s">S</span></div>
+          </div>
+          <div class="sr">
+            <div class="sr-id">US-05-3</div>
+            <div class="sr-text">Als <strong>Organizer</strong> möchte ich die Teilnehmerliste nach Firma, Kategorie und Check-in-Status filtern.</div>
+            <div class="sr-tags"><span class="b b-s">S</span></div>
+          </div>
+          <div class="sr">
+            <div class="sr-id">US-05-4</div>
+            <div class="sr-text">Als <strong>Organizer</strong> möchte ich die Teilnehmerliste als CSV exportieren.</div>
+            <div class="sr-tags"><span class="b b-xs">XS</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="mod-block">
+        <div class="mod-block-hdr"><span class="mb-icon">💳</span><span class="mb-id">M06</span><span class="mb-name">Ticket-System via Payrexx</span></div>
+        <div class="story-rows">
+          <div class="sr">
+            <div class="sr-id">US-06-1</div>
+            <div class="sr-text">Als <strong>Organizer</strong> möchte ich Ticket-Kategorien konfigurieren (Name, Preis, Kapazität, Verkaufszeitraum).</div>
+            <div class="sr-tags"><span class="b b-m">M</span></div>
+          </div>
+          <div class="sr">
+            <div class="sr-id">US-06-2</div>
+            <div class="sr-text">Als <strong>Besucher</strong> möchte ich ein Ticket kaufen (Kategorie → Daten → Payrexx → Bestätigung).</div>
+            <div class="sr-tags"><span class="b b-l">L</span></div>
+          </div>
+          <div class="sr">
+            <div class="sr-id">US-06-3</div>
+            <div class="sr-text">Als <strong>Besucher</strong> möchte ich nach dem Kauf sofort eine Bestätigungsmail mit Ticket-PDF und QR-Code erhalten.</div>
+            <div class="sr-tags"><span class="b b-m">M</span></div>
+          </div>
+          <div class="sr">
+            <div class="sr-id">US-06-4</div>
+            <div class="sr-text">Als <strong>Organizer</strong> möchte ich Voucher-Codes erstellen (%-Rabatt, Gratis, Direktlink).</div>
+            <div class="sr-tags"><span class="b b-m">M</span></div>
+          </div>
+          <div class="sr">
+            <div class="sr-id">US-06-5</div>
+            <div class="sr-text">Als <strong>Organizer</strong> möchte ich Bestellungen einsehen und Stornierungen verwalten.</div>
+            <div class="sr-tags"><span class="b b-s">S</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       PHASE 4 — Wo. 7–8 + Abnahme I
+  ══════════════════════════════════════ -->
+  <div class="phase-section">
+    <div class="phase-hdr c4">
+      <div class="ph-badge">P4</div>
+      <div class="ph-info">
+        <div class="ph-title">Sponsoren, Kommunikation & Website vollständig</div>
+        <div class="ph-goal">Sponsor-Pakete, E-Mail-Kommunikation, Trigger-Automationen — danach: Abnahme I mit dem Kunden</div>
+      </div>
+      <div class="ph-meta">
+        <div class="ph-weeks">Woche 7–8</div>
+        <div class="ph-stories">6 Stories · ⭐ Abnahme I</div>
+      </div>
+    </div>
+    <div class="phase-body">
+      <div class="mod-block">
+        <div class="mod-block-hdr"><span class="mb-icon">⭐</span><span class="mb-id">M09</span><span class="mb-name">Sponsor-Verwaltung</span></div>
+        <div class="story-rows">
+          <div class="sr">
+            <div class="sr-id">US-09-1</div>
+            <div class="sr-text">Als <strong>Organizer</strong> möchte ich Sponsor-Pakete definieren (Platin / Gold / Silver / Bronze / Partner) mit Rang.</div>
+            <div class="sr-tags"><span class="b b-s">S</span></div>
+          </div>
+          <div class="sr">
+            <div class="sr-id">US-09-2</div>
+            <div class="sr-text">Als <strong>Organizer</strong> möchte ich Unternehmen als Sponsor markieren und ein Paket zuweisen.</div>
+            <div class="sr-tags"><span class="b b-s">S</span></div>
+          </div>
+          <div class="sr">
+            <div class="sr-id">US-09-3</div>
+            <div class="sr-text">Als <strong>Besucher</strong> möchte ich Sponsoren nach Paket-Rang sortiert auf der Website sehen.</div>
+            <div class="sr-tags"><span class="b b-xs">XS</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="mod-block">
+        <div class="mod-block-hdr"><span class="mb-icon">📧</span><span class="mb-id">M10</span><span class="mb-name">Kommunikations-Basis</span></div>
+        <div class="story-rows">
+          <div class="sr">
+            <div class="sr-id">US-10-1</div>
+            <div class="sr-text">Als <strong>Organizer</strong> möchte ich E-Mails an Teilnehmer-Gruppen senden (alle / Ticket-Kategorie / Unternehmen).</div>
+            <div class="sr-tags"><span class="b b-m">M</span></div>
+          </div>
+          <div class="sr">
+            <div class="sr-id">US-10-2</div>
+            <div class="sr-text">Als <strong>Organizer</strong> möchte ich E-Mail-Templates anpassen (Variablen: Name, Ticket, Datum).</div>
+            <div class="sr-tags"><span class="b b-s">S</span></div>
+          </div>
+          <div class="sr">
+            <div class="sr-id">US-10-3</div>
+            <div class="sr-text">Als <strong>System</strong> sollen Trigger-Mails automatisch versendet werden (Ticket-Bestätigung, Reminder T-7/T-1, Post-Event).</div>
+            <div class="sr-tags"><span class="b b-m">M</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="milestone-box">
+        <div class="ms-icon">⭐</div>
+        <div class="ms-text">Abnahme I — Ende Woche 8: Website vollständig, Tickets kaufbar, Sponsoren sichtbar, E-Mail-Kommunikation aktiv</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       PHASE 5 — Wo. 9–10
+  ══════════════════════════════════════ -->
+  <div class="phase-section">
+    <div class="phase-hdr c5">
+      <div class="ph-badge">P5</div>
+      <div class="ph-info">
+        <div class="ph-title">My Summit, Statistiken & Check-in</div>
+        <div class="ph-goal">Teilnehmer-Portal (Basis), Dashboard für den Organizer, zweispuriger Check-in mit Etikettendruck</div>
+      </div>
+      <div class="ph-meta">
+        <div class="ph-weeks">Woche 9–10</div>
+        <div class="ph-stories">11 Stories</div>
+      </div>
+    </div>
+    <div class="phase-body">
+      <div class="mod-block">
+        <div class="mod-block-hdr"><span class="mb-icon">🪪</span><span class="mb-id">M08</span><span class="mb-name">My Summit — Basis</span></div>
+        <div class="story-rows">
+          <div class="sr">
+            <div class="sr-id">US-08-1</div>
+            <div class="sr-text">Als <strong>Teilnehmer</strong> möchte ich mich auf my.d2c-summit.ch registrieren und einloggen.</div>
+            <div class="sr-tags"><span class="b b-m">M</span></div>
+          </div>
+          <div class="sr">
+            <div class="sr-id">US-08-2</div>
+            <div class="sr-text">Als <strong>Teilnehmer</strong> möchte ich mein Ticket mit QR-Code anzeigen und die Rechnung herunterladen.</div>
+            <div class="sr-tags"><span class="b b-s">S</span></div>
+          </div>
+          <div class="sr">
+            <div class="sr-id">US-08-3</div>
+            <div class="sr-text">Als <strong>Teilnehmer</strong> möchte ich mein Profil bearbeiten (Name, Firma, Funktion).</div>
+            <div class="sr-tags"><span class="b b-s">S</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="mod-block">
+        <div class="mod-block-hdr"><span class="mb-icon">📊</span><span class="mb-id">M11</span><span class="mb-name">Statistiken</span></div>
+        <div class="story-rows">
+          <div class="sr">
+            <div class="sr-id">US-11-1</div>
+            <div class="sr-text">Als <strong>Organizer</strong> möchte ich Ticket-Verkäufe in Echtzeit sehen (Anzahl, Umsatz, nach Kategorie).</div>
+            <div class="sr-tags"><span class="b b-s">S</span></div>
+          </div>
+          <div class="sr">
+            <div class="sr-id">US-11-2</div>
+            <div class="sr-text">Als <strong>Organizer</strong> möchte ich am Eventtag die Check-in-Rate live sehen.</div>
+            <div class="sr-tags"><span class="b b-s">S</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="mod-block">
+        <div class="mod-block-hdr"><span class="mb-icon">📱</span><span class="mb-id">M13</span><span class="mb-name">Check-in & Badge-Druck</span></div>
+        <div class="story-rows">
+          <div class="sr">
+            <div class="sr-id">US-13-1</div>
+            <div class="sr-text">Als <strong>Check-in-Personal</strong> möchte ich QR-Codes am Registrationstisch mit einem Hand-Scanner einlesen.</div>
+            <div class="sr-tags"><span class="b b-m">M</span></div>
+          </div>
+          <div class="sr">
+            <div class="sr-id">US-13-2</div>
+            <div class="sr-text">Als <strong>Teilnehmer</strong> möchte ich mich am Self Check-in Kiosk selbst einchecken.</div>
+            <div class="sr-tags"><span class="b b-m">M</span></div>
+          </div>
+          <div class="sr">
+            <div class="sr-id">US-13-3</div>
+            <div class="sr-text">Als <strong>System</strong> soll nach Check-in automatisch ein Etikett auf dem Brother QL-820NWB via WiFi gedruckt werden.</div>
+            <div class="sr-tags"><span class="b b-m">M</span></div>
+          </div>
+          <div class="sr">
+            <div class="sr-id">US-13-4</div>
+            <div class="sr-text">Als <strong>Check-in-Personal</strong> möchte ich bei ungültigen Tickets eine klare Fehlermeldung sehen.</div>
+            <div class="sr-tags"><span class="b b-s">S</span></div>
+          </div>
+          <div class="sr">
+            <div class="sr-id">US-13-5</div>
+            <div class="sr-text">Als <strong>Organizer</strong> möchte ich die Live-Einlass-Rate sehen (eingecheckt / gesamt).</div>
+            <div class="sr-tags"><span class="b b-xs">XS</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       PHASE 6 — Wo. 11–12 + Go-Live
+  ══════════════════════════════════════ -->
+  <div class="phase-section">
+    <div class="phase-hdr c6">
+      <div class="ph-badge">P6</div>
+      <div class="ph-info">
+        <div class="ph-title">QA, Security-Hardening & Go-Live</div>
+        <div class="ph-goal">End-to-End-Tests aller Flows, Security-Review, Performance-Optimierung, Staging → Production, Abnahme II</div>
+      </div>
+      <div class="ph-meta">
+        <div class="ph-weeks">Woche 11–12</div>
+        <div class="ph-stories">✅ Abnahme II</div>
+      </div>
+    </div>
+    <div class="phase-body">
+      <div class="mod-block">
+        <div class="mod-block-hdr"><span class="mb-icon">🔍</span><span class="mb-id">QA</span><span class="mb-name">Qualitätssicherung</span></div>
+        <div class="story-rows">
+          <div class="sr">
+            <div class="sr-id">—</div>
+            <div class="sr-text">End-to-End Tests aller kritischen Flows: Ticket kaufen → QR scannen → Etikett drucken</div>
+            <div class="sr-tags"><span class="b b-l">L</span></div>
+          </div>
+          <div class="sr">
+            <div class="sr-id">—</div>
+            <div class="sr-text">Lasttest: parallele Ticket-Käufe und Check-in-Szenarien</div>
+            <div class="sr-tags"><span class="b b-m">M</span></div>
+          </div>
+          <div class="sr">
+            <div class="sr-id">—</div>
+            <div class="sr-text">Security-Review: Authentifizierung, Rollen-Middleware, Payment-Webhooks, DSGVO</div>
+            <div class="sr-tags"><span class="b b-m">M</span></div>
+          </div>
+          <div class="sr">
+            <div class="sr-id">—</div>
+            <div class="sr-text">Performance: Core Web Vitals Public Website, Image-Optimierung, Caching</div>
+            <div class="sr-tags"><span class="b b-m">M</span></div>
+          </div>
+          <div class="sr">
+            <div class="sr-id">—</div>
+            <div class="sr-text">Deployment auf Production-Server, DNS-Setup, SSL, Monitoring einrichten</div>
+            <div class="sr-tags"><span class="b b-m">M</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="milestone-box final">
+        <div class="ms-icon">🚀</div>
+        <div class="ms-text">Abnahme II & Go-Live — Ende Woche 12: vollständiger MVP live, alle Flows getestet und abgenommen</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ POST-MVP ══ -->
+  <div class="divider-post">
+    <div class="divider-post-line"></div>
+    <div class="divider-post-label">↓ Post-MVP — Phase II nach Go-Live</div>
+    <div class="divider-post-line"></div>
+  </div>
+
+  <p style="font-size:13px;color:var(--muted);margin-bottom:24px">Priorisierung nach Go-Live basierend auf Nutzerfeedback und Geschäftsbedarf. Reihenfolge vorläufig.</p>
+
+  <div class="post-grid">
+    <div class="post-card">
+      <div class="pc-header"><span class="pc-icon">🪪</span><span class="pc-id">M08+</span><span class="pc-name">My Summit — Vollausbau</span></div>
+      <div class="pc-stories">
+        <div class="pc-story"><strong>US-08-4</strong> Masterclass-Buchung + Warteliste</div>
+        <div class="pc-story"><strong>US-08-5</strong> Badge, Social Cards, Zertifikat Download</div>
+      </div>
+    </div>
+    <div class="post-card">
+      <div class="pc-header"><span class="pc-icon">🎤</span><span class="pc-id">M03+</span><span class="pc-name">Speaker Self-Service Portal</span></div>
+      <div class="pc-stories">
+        <div class="pc-story"><strong>US-03-3</strong> Speaker-Login, Profil + Materialien selbst pflegen</div>
+      </div>
+    </div>
+    <div class="post-card">
+      <div class="pc-header"><span class="pc-icon">⭐</span><span class="pc-id">M09+</span><span class="pc-name">Sponsor Self-Service</span></div>
+      <div class="pc-stories">
+        <div class="pc-story"><strong>US-09-4</strong> Sponsor-Login, Logo-Upload, Klick-Statistiken</div>
+      </div>
+    </div>
+    <div class="post-card">
+      <div class="pc-header"><span class="pc-icon">📧</span><span class="pc-id">M10+</span><span class="pc-name">Marketing Engine</span></div>
+      <div class="pc-stories">
+        <div class="pc-story"><strong>US-10-4</strong> Kampagnen-Planer (Timeline, Kanäle)</div>
+        <div class="pc-story"><strong>US-10-5</strong> Newsletter-Builder + Versand-Statistiken</div>
+      </div>
+    </div>
+    <div class="post-card">
+      <div class="pc-header"><span class="pc-icon">📊</span><span class="pc-id">M11+</span><span class="pc-name">Statistics Dashboard</span></div>
+      <div class="pc-stories">
+        <div class="pc-story"><strong>US-11-3</strong> Session-Auslastung, Feedback, Vorjahresvergleich</div>
+      </div>
+    </div>
+    <div class="post-card">
+      <div class="pc-header"><span class="pc-icon">🔁</span><span class="pc-id">M01+</span><span class="pc-name">Event-Klon & Multi-Year</span></div>
+      <div class="pc-stories">
+        <div class="pc-story"><strong>US-01-4</strong> Event klonen für Folgejahre</div>
+      </div>
+    </div>
+    <div class="post-card">
+      <div class="pc-header"><span class="pc-icon">📰</span><span class="pc-id">M14</span><span class="pc-name">Blog / News</span></div>
+      <div class="pc-stories">
+        <div class="pc-story"><strong>US-14-1</strong> Artikel erstellen und publizieren</div>
+        <div class="pc-story"><strong>US-14-2</strong> Artikel filtern und lesen</div>
+      </div>
+    </div>
+    <div class="post-card">
+      <div class="pc-header"><span class="pc-icon">📢</span><span class="pc-id">M15</span><span class="pc-name">Presse-Bereich</span></div>
+      <div class="pc-stories">
+        <div class="pc-story"><strong>US-15-1</strong> Press Kit hochladen (Logos, Fact Sheet)</div>
+        <div class="pc-story"><strong>US-15-2</strong> Presse-Akkreditierung beantragen</div>
+      </div>
+    </div>
+    <div class="post-card">
+      <div class="pc-header"><span class="pc-icon">🏛️</span><span class="pc-id">M16</span><span class="pc-name">Location — KKL Luzern</span></div>
+      <div class="pc-stories">
+        <div class="pc-story"><strong>US-16-1</strong> Anreise, Hotels, KKL-Fotos, Google Maps</div>
+      </div>
+    </div>
+    <div class="post-card">
+      <div class="pc-header"><span class="pc-icon">📬</span><span class="pc-id">M17</span><span class="pc-name">Kontakt & Formulare</span></div>
+      <div class="pc-stories">
+        <div class="pc-story"><strong>US-17-1</strong> Kontaktformular mit Routing nach Kategorie</div>
+        <div class="pc-story"><strong>US-17-2</strong> Anfragen im Admin verwalten</div>
+      </div>
+    </div>
+    <div class="post-card">
+      <div class="pc-header"><span class="pc-icon">📸</span><span class="pc-id">M18</span><span class="pc-name">Foto-Galerie</span></div>
+      <div class="pc-stories">
+        <div class="pc-story"><strong>US-18-1</strong> Fotos in Kategorien hochladen</div>
+        <div class="pc-story"><strong>US-18-2</strong> Lightbox-Ansicht + Download</div>
+      </div>
+    </div>
+    <div class="post-card">
+      <div class="pc-header"><span class="pc-icon">🌍</span><span class="pc-id">M19</span><span class="pc-name">Mehrsprachigkeit DE/EN</span></div>
+      <div class="pc-stories">
+        <div class="pc-story"><strong>US-19-1</strong> Website in DE und EN lesen</div>
+        <div class="pc-story"><strong>US-19-2</strong> Inhalte pro Sprache im Admin pflegen</div>
       </div>
     </div>
   </div>
 
 </div>
+
 <div class="footer">
   <strong>D2C Summit — Umsetzungsplan</strong>
   <div class="footer-nav">
-    <a href="module.html">← Module</a>
+    <a href="module.html">← Backlog</a>
     <a href="integrationen.html">Integrationen →</a>
   </div>
 </div>

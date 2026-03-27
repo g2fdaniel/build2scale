@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Module Phase I — D2C Summit Platform</title>
+<title>Backlog & User Stories — D2C Summit Platform</title>
 <style>
 :root {
   --dark: #0f1117; --darker: #080a0f; --card: #161b27; --card2: #1c2333;
@@ -13,7 +13,7 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--darker); color: var(--text); line-height: 1.6; }
 .nav { background: rgba(8,10,15,0.95); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); }
-.nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; gap: 8px; height: 52px; }
+.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; gap: 8px; height: 52px; }
 .nav-brand { text-decoration: none; display: flex; align-items: center; gap: 8px; margin-right: 12px; flex-shrink: 0; }
 .nav-brand-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent2); }
 .nav-brand-text { font-size: 13px; font-weight: 700; color: var(--text); }
@@ -23,85 +23,99 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; back
 .nav-link:hover { color: var(--text); background: rgba(255,255,255,0.05); }
 .nav-link.active { color: var(--accent2); background: rgba(13,148,136,0.12); font-weight: 600; }
 .page-hdr { background: linear-gradient(135deg, #0f1117 0%, #0d2420 50%, #0f1117 100%); border-bottom: 1px solid var(--border); padding: 36px 40px 28px; }
-.page-hdr-inner { max-width: 1100px; margin: 0 auto; }
+.page-hdr-inner { max-width: 1200px; margin: 0 auto; }
 .page-bc { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
 .page-bc a { color: var(--muted); text-decoration: none; }
-.page-bc a:hover { color: var(--text); }
 .page-title { font-size: clamp(22px, 3vw, 34px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px; }
 .page-title span { color: var(--accent2); }
 .page-sub { color: var(--muted); font-size: 14px; }
-.container { max-width: 1100px; margin: 0 auto; padding: 48px 40px; }
-.section { margin-bottom: 56px; }
-.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
-.section-num { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: rgba(13,148,136,0.15); border: 1px solid rgba(13,148,136,0.3); border-radius: 8px; font-size: 13px; font-weight: 700; color: var(--accent2); flex-shrink: 0; }
-.section-title { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; }
-.module-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px; }
-.module-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 22px 24px; }
-.module-header { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px; }
-.module-icon { font-size: 22px; width: 44px; height: 44px; background: rgba(13,148,136,0.1); border: 1px solid rgba(13,148,136,0.2); border-radius: 11px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.module-meta { flex: 1; }
-.module-num { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent2); margin-bottom: 3px; }
-.module-name { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
-.module-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
-.module-features { list-style: none; display: flex; flex-direction: column; gap: 5px; margin-top: 4px; }
-.module-features li { font-size: 13px; color: var(--muted); padding-left: 16px; position: relative; line-height: 1.4; }
-.module-features li::before { content: '·'; position: absolute; left: 4px; color: var(--accent2); font-weight: 700; }
-.module-features li strong { color: var(--text); font-weight: 600; }
-.group-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 16px; padding: 6px 12px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 8px; display: inline-block; }
-.badge { display: inline-flex; align-items: center; padding: 2px 8px; border-radius: 100px; font-size: 11px; font-weight: 600; }
-.badge-teal { background: rgba(13,148,136,0.1); border: 1px solid rgba(13,148,136,0.3); color: var(--accent2); }
-.badge-gold { background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.3); color: var(--gold); }
-.divider { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+.container { max-width: 1200px; margin: 0 auto; padding: 48px 40px; }
+
+/* Summary Bar */
+.summary-bar { display: flex; align-items: center; gap: 20px; background: rgba(13,148,136,0.06); border: 1px solid rgba(13,148,136,0.2); border-radius: 12px; padding: 14px 20px; margin-bottom: 40px; flex-wrap: wrap; }
+.sb-stat { display: flex; flex-direction: column; gap: 2px; }
+.sb-num { font-size: 22px; font-weight: 800; color: var(--accent2); line-height: 1; }
+.sb-label { font-size: 11px; color: var(--muted); font-weight: 500; }
+.sb-sep { width: 1px; height: 32px; background: var(--border); flex-shrink: 0; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-left: auto; }
+.legend-lbl { font-size: 11px; color: var(--muted); font-weight: 600; }
+
+/* Group Header */
+.group-hdr { display: flex; align-items: center; gap: 12px; margin: 40px 0 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+.group-hdr-num { width: 28px; height: 28px; background: rgba(13,148,136,0.12); border: 1px solid rgba(13,148,136,0.25); border-radius: 7px; font-size: 12px; font-weight: 700; color: var(--accent2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.group-hdr-title { font-size: 18px; font-weight: 700; }
+.group-hdr-count { font-size: 12px; color: var(--muted); margin-left: auto; }
+
+/* Module Section */
+.mod-section { margin-bottom: 32px; }
+.mod-header { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
+.mod-icon { font-size: 18px; width: 36px; height: 36px; background: rgba(13,148,136,0.1); border: 1px solid rgba(13,148,136,0.2); border-radius: 9px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.mod-id { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent2); font-family: 'Monaco', monospace; }
+.mod-title { font-size: 15px; font-weight: 700; }
+.mod-desc { font-size: 12px; color: var(--muted); margin: 0 0 10px 48px; }
+.ver-tag { font-size: 10px; font-weight: 600; color: rgba(100,116,139,0.5); font-family: 'Monaco', monospace; margin-left: 6px; }
+
+/* Story List */
+.story-list { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+.story-row { display: grid; grid-template-columns: 72px 1fr auto; gap: 14px; align-items: center; padding: 10px 14px; background: var(--card); transition: background 0.1s; }
+.story-row:hover { background: var(--card2); }
+.story-row + .story-row { border-top: 1px solid rgba(30,42,58,0.7); }
+.story-row.post { opacity: 0.6; }
+.story-row.post:hover { opacity: 0.9; }
+.s-id { font-size: 10px; font-weight: 700; font-family: 'Monaco', monospace; color: var(--muted); white-space: nowrap; }
+.s-text { font-size: 13px; color: var(--text); line-height: 1.45; }
+.s-text strong { color: var(--accent2); font-weight: 600; }
+.s-text em { font-style: normal; color: var(--muted); font-size: 12px; }
+.s-tags { display: flex; align-items: center; gap: 4px; flex-shrink: 0; }
+
+/* Badges */
+.b { display: inline-flex; align-items: center; padding: 2px 7px; border-radius: 100px; font-size: 10px; font-weight: 700; white-space: nowrap; }
+.b-mvp  { background: rgba(13,148,136,0.12); border: 1px solid rgba(13,148,136,0.3); color: var(--accent2); }
+.b-post { background: rgba(100,116,139,0.08); border: 1px solid rgba(100,116,139,0.2); color: var(--muted); }
+.b-p1   { background: rgba(99,102,241,0.12);  border: 1px solid rgba(99,102,241,0.3);  color: #a5b4fc; }
+.b-p2   { background: rgba(13,148,136,0.12);  border: 1px solid rgba(13,148,136,0.3);  color: var(--accent2); }
+.b-p3   { background: rgba(16,185,129,0.12);  border: 1px solid rgba(16,185,129,0.3);  color: #6ee7b7; }
+.b-p4   { background: rgba(245,158,11,0.12);  border: 1px solid rgba(245,158,11,0.3);  color: var(--gold); }
+.b-p5   { background: rgba(249,115,22,0.12);  border: 1px solid rgba(249,115,22,0.3);  color: #fdba74; }
+.b-p6   { background: rgba(139,92,246,0.12);  border: 1px solid rgba(139,92,246,0.3);  color: #c4b5fd; }
+.b-xs   { background: transparent; border: 1px solid var(--border); color: var(--muted); }
+.b-s    { background: transparent; border: 1px solid var(--border); color: var(--muted); }
+.b-m    { background: rgba(13,148,136,0.05); border: 1px solid rgba(13,148,136,0.15); color: var(--muted); }
+.b-l    { background: rgba(245,158,11,0.06); border: 1px solid rgba(245,158,11,0.2);  color: rgba(245,158,11,0.8); }
+
+/* Post-MVP Divider */
+.divider-post { display: flex; align-items: center; gap: 16px; margin: 52px 0 28px; }
+.divider-post-line { flex: 1; height: 1px; background: var(--border); }
+.divider-post-label { font-size: 11px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); padding: 5px 16px; border: 1px solid var(--border); border-radius: 100px; white-space: nowrap; }
+
+/* Footer */
 .footer { border-top: 1px solid var(--border); padding: 24px 40px; display: flex; align-items: center; justify-content: space-between; color: var(--muted); font-size: 13px; }
 .footer strong { color: var(--text); }
 .footer-nav { display: flex; gap: 16px; }
 .footer-nav a { text-decoration: none; color: var(--muted); font-size: 13px; }
 .footer-nav a:hover { color: var(--accent2); }
+
 @media (max-width: 768px) {
   .page-hdr, .container, .footer { padding-left: 20px; padding-right: 20px; }
   .nav-inner { padding: 0 16px; }
-  .module-grid { grid-template-columns: 1fr; }
+  .story-row { grid-template-columns: 1fr auto; }
+  .s-id { display: none; }
+  .legend { margin-left: 0; }
 }
-.badge-postmvp { background: rgba(100,116,139,0.08); border: 1px solid rgba(100,116,139,0.25); color: var(--muted); }
-.badge-mvp { background: rgba(13,148,136,0.1); border: 1px solid rgba(13,148,136,0.3); color: var(--accent2); }
-.module-num-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 3px; }
-.module-card.post-mvp { border-style: dashed; border-color: rgba(100,116,139,0.2); }
-.module-card.post-mvp .module-icon { background: rgba(100,116,139,0.07); border-color: rgba(100,116,139,0.15); }
-.module-card.post-mvp .module-num { color: var(--muted); }
-.deferred-feat { font-size: 12px !important; color: rgba(100,116,139,0.7) !important; font-style: italic; }
-.deferred-feat::before { content: none !important; }
-.deferred-feat::after { content: ' — Post-MVP'; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: rgba(100,116,139,0.5); }
-.module-features li.deferred-feat::before { content: '·'; color: rgba(100,116,139,0.3) !important; }
-.divider-postmvp { display: flex; align-items: center; gap: 16px; margin: 48px 0 36px; }
-.divider-postmvp-line { flex: 1; height: 1px; background: var(--border); }
-.divider-postmvp-label { font-size: 11px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); padding: 5px 16px; border: 1px solid var(--border); border-radius: 100px; white-space: nowrap; }
-.mvp-bar { display: flex; align-items: center; gap: 24px; background: rgba(13,148,136,0.06); border: 1px solid rgba(13,148,136,0.2); border-radius: 12px; padding: 14px 20px; margin-bottom: 40px; flex-wrap: wrap; }
-.mvp-bar-stat { display: flex; flex-direction: column; gap: 2px; }
-.mvp-bar-num { font-size: 22px; font-weight: 800; color: var(--accent2); line-height: 1; }
-.mvp-bar-label { font-size: 11px; color: var(--muted); font-weight: 500; }
-.mvp-bar-sep { width: 1px; height: 32px; background: var(--border); }
-.mvp-bar-note { font-size: 13px; color: var(--muted); margin-left: auto; }
-.ver-tag { font-size: 10px; font-weight: 600; color: rgba(100,116,139,0.6); font-family: 'Monaco', monospace; letter-spacing: 0.02em; }
-/* ===== Light Mode ===== */
-body.light { --darker: #f8fafc; --dark: #f1f5f9; --card: #ffffff; --card2: #f8fafc; --text: #0f172a; --muted: #64748b; --border: #e2e8f0; --accent2: #0f766e; --gold: #d97706; --green: #059669; --red: #dc2626; }
+
+/* Light Mode */
+body.light { --darker: #f8fafc; --dark: #f1f5f9; --card: #ffffff; --card2: #f8fafc; --text: #0f172a; --muted: #64748b; --border: #e2e8f0; --accent2: #0f766e; --gold: #d97706; }
 body.light .nav { background: rgba(255,255,255,0.95); border-bottom-color: #e2e8f0; }
 body.light .page-hdr { background: linear-gradient(135deg, #f0fdf9 0%, #ccfbf1 50%, #f0fdf9 100%); border-bottom-color: #e2e8f0; }
-body.light .hero { background: linear-gradient(135deg, #f0fdf9 0%, #ccfbf1 50%, #f0fdf9 100%); border-bottom-color: #e2e8f0; }
 body.light .nav-link { color: #64748b; }
 body.light .nav-link:hover { color: #0f172a; background: rgba(0,0,0,0.05); }
 body.light .nav-link.active { color: #0f766e; background: rgba(13,148,136,0.1); }
 body.light .nav-sep { color: #cbd5e1; }
 body.light .nav-brand-text { color: #0f172a; }
 body.light .nav-brand-dot { background: #0f766e; }
-body.light .vision-card { background: rgba(13,148,136,0.04); }
-body.light .section-num { background: rgba(13,148,136,0.08); border-color: rgba(13,148,136,0.2); }
-body.light th { background: #f1f5f9; color: #64748b; }
-body.light tr:hover td { background: rgba(0,0,0,0.015); }
-body.light .pill { background: rgba(0,0,0,0.04); border-color: #e2e8f0; color: #64748b; }
 body.light .footer { border-top-color: #e2e8f0; }
-body.light .phase-hdr { background: rgba(13,148,136,0.06); border-color: rgba(13,148,136,0.2); }
-body.light .flow-step { background: #f1f5f9; border-color: #e2e8f0; }
-body.light .flow-arrow { color: #94a3b8; }
+body.light .story-row + .story-row { border-top-color: #e2e8f0; }
+body.light .b-xs, body.light .b-s { border-color: #e2e8f0; }
 .theme-toggle { margin-left: auto; background: none; border: 1px solid var(--border); border-radius: 8px; width: 32px; height: 32px; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: background 0.15s; flex-shrink: 0; line-height: 1; }
 .theme-toggle:hover { background: rgba(255,255,255,0.08); }
 body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
@@ -112,15 +126,12 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
 
 <nav class="nav">
   <div class="nav-inner">
-    <a href="index.html" class="nav-brand">
-      <div class="nav-brand-dot"></div>
-      <span class="nav-brand-text">D2C Summit</span>
-    </a>
+    <a href="index.html" class="nav-brand"><div class="nav-brand-dot"></div><span class="nav-brand-text">D2C Summit</span></a>
     <span class="nav-sep">|</span>
     <div class="nav-links">
       <a href="index.html" class="nav-link">Übersicht</a>
       <a href="konzept.html" class="nav-link">Konzept</a>
-      <a href="module.html" class="nav-link active">Module</a>
+      <a href="module.html" class="nav-link active">Backlog</a>
       <a href="phasen.html" class="nav-link">Phasen</a>
       <a href="integrationen.html" class="nav-link">Integrationen</a>
       <a href="offene-fragen.html" class="nav-link">Offene Fragen</a>
@@ -131,587 +142,588 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
 
 <div class="page-hdr">
   <div class="page-hdr-inner">
-    <div class="page-bc"><a href="index.html">D2C Summit</a> / Module</div>
-    <div class="page-title">Module — <span>MVP vs. Post-MVP</span></div>
-    <div class="page-ver" style="font-size:11px;color:var(--muted);margin-bottom:8px;font-family:Monaco,monospace">v1.4 — 27.03.2026</div>
-    <div class="page-sub">Was in 12 Wochen gebaut wird — und was danach kommt. Grundlage für Scope, Planung und Aufwandsschätzung.</div>
+    <div class="page-bc"><a href="index.html">D2C Summit</a> / Backlog & User Stories</div>
+    <div class="page-title">Backlog &amp; <span>User Stories</span></div>
+    <div class="page-ver" style="font-size:11px;color:var(--muted);margin-bottom:8px;font-family:Monaco,monospace">v1.5 — 27.03.2026</div>
+    <div class="page-sub">Alle Anforderungen als User Stories — mit Phase, Grösse und MVP-Scope. Grundlage für Entwicklung und Sprintplanung.</div>
   </div>
 </div>
 
 <div class="container">
 
-  <div class="mvp-bar">
-    <div class="mvp-bar-stat"><div class="mvp-bar-num">10</div><div class="mvp-bar-label">MVP-Module</div></div>
-    <div class="mvp-bar-sep"></div>
-    <div class="mvp-bar-stat"><div class="mvp-bar-num">12</div><div class="mvp-bar-label">Post-MVP Module</div></div>
-    <div class="mvp-bar-sep"></div>
-    <div class="mvp-bar-stat"><div class="mvp-bar-num">12</div><div class="mvp-bar-label">Wochen MVP</div></div>
-    <div class="mvp-bar-sep"></div>
-    <div class="mvp-bar-stat"><div class="mvp-bar-num" style="color:var(--gold)">1</div><div class="mvp-bar-label">Neues Modul</div></div>
-    <div class="mvp-bar-note">Einzelne Features innerhalb von MVP-Modulen werden markiert wenn sie verschoben sind.</div>
-  </div>
-
-  <!-- ═══════════════════════════════════════════
-       MVP — WOCHE 1–12
-  ═══════════════════════════════════════════ -->
-
-  <div class="section">
-    <div class="section-header">
-      <div class="section-num">A</div>
-      <h2 class="section-title">Core Platform — Event, Programm & Speaker</h2>
-    </div>
-    <div class="module-grid">
-
-      <div class="module-card">
-        <div class="module-header">
-          <div class="module-icon">🔁</div>
-          <div class="module-meta">
-            <div class="module-num-row"><span class="module-num">Modul 01</span><span class="badge badge-mvp">MVP</span></div>
-            <div class="module-name">Event Engine</div>
-            <div class="module-desc">Events anlegen und verwalten — Single Source of Truth für alle Inhalte</div>
-          </div>
-        </div>
-        <ul class="module-features">
-          <li>Event erstellen: Name, Datum, Venue, Beschreibung, Status (draft/published/archived)</li>
-          <li><strong>Branding-Config:</strong> Logo, Primärfarbe, Hero-Image</li>
-          <li>Stages / Räume definieren (Name, Kapazität, Reihenfolge)</li>
-          <li>Vergangene Events archivieren, Daten bleiben erhalten</li>
-          <li class="deferred-feat">Event klonen für Folgejahre</li>
-        </ul>
-      </div>
-
-      <div class="module-card">
-        <div class="module-header">
-          <div class="module-icon">🗓️</div>
-          <div class="module-meta">
-            <div class="module-num-row"><span class="module-num">Modul 02</span><span class="badge badge-mvp">MVP</span></div>
-            <div class="module-name">Programm-Manager</div>
-            <div class="module-desc">Einmal erfassen → überall anzeigen (Website, My Summit, Admin)</div>
-          </div>
-        </div>
-        <ul class="module-features">
-          <li>Session-Typen: Keynote / Masterclass / Panel / Break / Networking</li>
-          <li>Session anlegen: Titel, Beschreibung, Typ, Stage, Start/End, Kapazität, buchbar</li>
-          <li>Speaker einer Session zuweisen (mehrere möglich)</li>
-          <li>Programm-Reihenfolge manuell festlegen</li>
-          <li>Parallele Sessions sichtbar im Tagesplan</li>
-          <li class="deferred-feat">Session-Materialien hochladen (Präsentationen)</li>
-          <li class="deferred-feat">Drag & Drop Reihenfolge im Admin</li>
-        </ul>
-      </div>
-
-      <div class="module-card">
-        <div class="module-header">
-          <div class="module-icon">🎤</div>
-          <div class="module-meta">
-            <div class="module-num-row"><span class="module-num">Modul 03</span><span class="badge badge-mvp">MVP</span></div>
-            <div class="module-name">Speaker-Management</div>
-            <div class="module-desc">Speaker-Verwaltung im Admin — Self-Service Portal kommt Post-MVP</div>
-          </div>
-        </div>
-        <ul class="module-features">
-          <li>Speaker-Profil: Name, Titel, Firma, Bio, Foto, LinkedIn, Website</li>
-          <li>Speaker einem Event zuweisen, Sessions verknüpfen</li>
-          <li>Automatische Anzeige auf Public Website</li>
-          <li class="deferred-feat">Speaker-Login: Profil selbst bearbeiten</li>
-          <li class="deferred-feat">Präsentationen selbst hochladen</li>
-          <li class="deferred-feat">Session-Feedback einsehen</li>
-        </ul>
-      </div>
-
+  <div class="summary-bar">
+    <div class="sb-stat"><div class="sb-num">40</div><div class="sb-label">MVP Stories</div></div>
+    <div class="sb-sep"></div>
+    <div class="sb-stat"><div class="sb-num">24</div><div class="sb-label">Post-MVP Stories</div></div>
+    <div class="sb-sep"></div>
+    <div class="sb-stat"><div class="sb-num">6</div><div class="sb-label">Phasen</div></div>
+    <div class="sb-sep"></div>
+    <div class="sb-stat"><div class="sb-num">12</div><div class="sb-label">Wochen MVP</div></div>
+    <div class="sb-sep"></div>
+    <div class="legend">
+      <span class="legend-lbl">Phase &nbsp;</span>
+      <span class="b b-p1">P1</span><span class="b b-p2">P2</span><span class="b b-p3">P3</span><span class="b b-p4">P4</span><span class="b b-p5">P5</span><span class="b b-p6">P6</span>
+      <span style="margin-left:10px" class="legend-lbl">Grösse &nbsp;</span>
+      <span class="b b-xs">XS</span><span class="b b-s">S</span><span class="b b-m">M</span><span class="b b-l">L</span>
     </div>
   </div>
 
-  <div class="section">
-    <div class="section-header">
-      <div class="section-num">B</div>
-      <h2 class="section-title">Unternehmen & Teilnehmer</h2>
+  <!-- ══ A: CORE PLATFORM ══ -->
+  <div class="group-hdr">
+    <div class="group-hdr-num">A</div>
+    <div class="group-hdr-title">Core Platform — Event, Programm & Speaker</div>
+    <div class="group-hdr-count">9 Stories</div>
+  </div>
+
+  <div class="mod-section">
+    <div class="mod-header">
+      <div class="mod-icon">🔁</div>
+      <div><div class="mod-id">M01 <span class="ver-tag">v1.0</span></div><div class="mod-title">Event Engine</div></div>
     </div>
-    <div class="module-grid">
-
-      <div class="module-card">
-        <div class="module-header">
-          <div class="module-icon">🏢</div>
-          <div class="module-meta">
-            <div class="module-num-row"><span class="module-num">Modul 04</span><div style="display:flex;align-items:center;gap:6px"><span class="badge badge-mvp">MVP</span><span class="ver-tag">v1.2</span></div></div>
-            <div class="module-name">Unternehmens-Profile</div>
-            <div class="module-desc">Unternehmen als eigene Entität — Tickets zuordnen, Logo, Website-Sichtbarkeit steuern</div>
-          </div>
-        </div>
-        <ul class="module-features">
-          <li><strong>Unternehmen anlegen:</strong> Name, Logo (PNG/SVG), Website, Beschreibung, Branche</li>
-          <li>Typ: Sponsor (mit Paket: Platin/Gold/Silver/Bronze) oder Attendee-Unternehmen</li>
-          <li><strong>Sichtbarkeit auf Website:</strong> Sponsor-Seite / Partner-Bereich / unsichtbar</li>
-          <li>Mehrere Tickets einem Unternehmen zuordnen (z.B. 2 Tickets → Brand X)</li>
-          <li>Teilnehmer-Liste pro Unternehmen einsehbar im Admin</li>
-          <li>Öffentliches Profil: Firmenlogo nach Rang sortiert auf Sponsoren-Seite</li>
-          <li>Admin-Übersicht: Filter nach Typ, Event, Sichtbarkeit, Paket</li>
-        </ul>
+    <div class="mod-desc">Kernmodul — jedes andere Modul ist einem Event zugeordnet.</div>
+    <div class="story-list">
+      <div class="story-row">
+        <div class="s-id">US-01-1</div>
+        <div class="s-text">Als <strong>Organizer</strong> möchte ich ein neues Event anlegen (Titel, Datum, Venue, Status: Entwurf/Publiziert/Archiviert), <em>damit alle weiteren Inhalte einem Event zugeordnet werden können.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p1">P1</span><span class="b b-m">M</span></div>
       </div>
-
-      <div class="module-card">
-        <div class="module-header">
-          <div class="module-icon">👥</div>
-          <div class="module-meta">
-            <div class="module-num-row"><span class="module-num">Modul 05</span><div style="display:flex;align-items:center;gap:6px"><span class="badge badge-mvp">MVP</span><span class="ver-tag">v1.2</span></div></div>
-            <div class="module-name">Teilnehmer-Verwaltung</div>
-            <div class="module-desc">Alle Attendees im Überblick — mit Unternehmens-Verknüpfung und Kommunikations-Status</div>
-          </div>
-        </div>
-        <ul class="module-features">
-          <li>Teilnehmer-Übersicht: Name, Firma, Ticket-Kategorie, Check-in-Status</li>
-          <li><strong>Unternehmens-Zuordnung:</strong> Teilnehmer ↔ Unternehmen verknüpfen</li>
-          <li>Filter: nach Unternehmen, Ticket-Kategorie, Check-in-Status</li>
-          <li><strong>Kommunikations-Status:</strong> Wer hat welche Mail erhalten / geöffnet</li>
-          <li>Teilnehmer-Export (CSV) für externe Tools</li>
-          <li>Manuelles Hinzufügen / Bearbeiten von Teilnehmer-Daten</li>
-        </ul>
+      <div class="story-row">
+        <div class="s-id">US-01-2</div>
+        <div class="s-text">Als <strong>Organizer</strong> möchte ich Stages und Räume definieren (Name, Kapazität, Reihenfolge), <em>damit Sessions konkret verortet werden können.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p1">P1</span><span class="b b-s">S</span></div>
       </div>
-
-      <div class="module-card">
-        <div class="module-header">
-          <div class="module-icon">💳</div>
-          <div class="module-meta">
-            <div class="module-num-row"><span class="module-num">Modul 06</span><span class="badge badge-mvp">MVP</span></div>
-            <div class="module-name">Ticket-System via Payrexx</div>
-            <div class="module-desc">Vollständiger Ticket-Kauf via Payrexx — mit QR-Code und Bestätigungsmail</div>
-          </div>
-        </div>
-        <ul class="module-features">
-          <li>Ticket-Kategorien: Name, Preis, Kapazität, Verkaufszeitraum</li>
-          <li>Checkout: Kategorie → Persönliche Daten → Payrexx → Bestätigung</li>
-          <li><strong>QR-Code</strong> pro Ticket (unique, fälschungssicher)</li>
-          <li>Ticket-PDF + Bestätigungsmail mit Anhang</li>
-          <li>Order-Management: Status, Rechnungsdownload</li>
-          <li>Stornierung + Rückerstattungs-Workflow (manuell via Admin)</li>
-          <li><strong>Voucher-System:</strong> %-Rabatt, Gratis-Tickets, Direktlink (<code style="font-size:11px;background:rgba(13,148,136,0.1);color:var(--accent2);padding:1px 5px;border-radius:3px">?voucher=CODE</code>)</li>
-        </ul>
+      <div class="story-row">
+        <div class="s-id">US-01-3</div>
+        <div class="s-text">Als <strong>Organizer</strong> möchte ich Event-Branding konfigurieren (Logo, Primärfarbe, Hero-Bild), <em>damit die öffentliche Website das Erscheinungsbild des Events widerspiegelt.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p2">P2</span><span class="b b-s">S</span></div>
       </div>
-
+      <div class="story-row post">
+        <div class="s-id">US-01-4</div>
+        <div class="s-text">Als <strong>Organizer</strong> möchte ich ein vergangenes Event klonen, <em>damit ich für das Folgejahr nicht alles neu aufbauen muss.</em></div>
+        <div class="s-tags"><span class="b b-post">Post-MVP</span><span class="b b-m">M</span></div>
+      </div>
     </div>
   </div>
 
-  <div class="section">
-    <div class="section-header">
-      <div class="section-num">C</div>
-      <h2 class="section-title">Rollen, Admin & Portale</h2>
+  <div class="mod-section">
+    <div class="mod-header">
+      <div class="mod-icon">🗓️</div>
+      <div><div class="mod-id">M02 <span class="ver-tag">v1.0</span></div><div class="mod-title">Programm-Manager</div></div>
     </div>
-    <div class="module-grid">
-
-      <div class="module-card">
-        <div class="module-header">
-          <div class="module-icon">🔐</div>
-          <div class="module-meta">
-            <div class="module-num-row"><span class="module-num">Modul 07</span><span class="badge badge-mvp">MVP</span></div>
-            <div class="module-name">Rollen & Rechte</div>
-            <div class="module-desc">Vollständige Berechtigungs-Architektur von Tag 1 — pro Event vergeben</div>
-          </div>
-        </div>
-        <ul class="module-features">
-          <li><strong>7 Rollen:</strong> super_admin / organizer / sponsor_manager / attendee / speaker / sponsor / checkin</li>
-          <li>Rollen sind pro Event vergeben (nicht global — gleiche Person, verschiedene Rollen)</li>
-          <li>Rollenbasierter Zugriffsschutz auf allen 4 Domains</li>
-          <li>Rollen-Vergabe durch super_admin im Backend</li>
-          <li>Erweiterbar: neue Rollen ohne Architektur-Änderung</li>
-        </ul>
+    <div class="mod-desc">Tagesplan — einmal erfassen, überall anzeigen (Website, My Summit, Admin).</div>
+    <div class="story-list">
+      <div class="story-row">
+        <div class="s-id">US-02-1</div>
+        <div class="s-text">Als <strong>Organizer</strong> möchte ich Sessions anlegen (Typ, Stage, Start/End, Kapazität, buchbar ja/nein), <em>damit der Tagesplan vollständig strukturiert ist.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p2">P2</span><span class="b b-m">M</span></div>
       </div>
-
-      <div class="module-card">
-        <div class="module-header">
-          <div class="module-icon">🪪</div>
-          <div class="module-meta">
-            <div class="module-num-row"><span class="module-num">Modul 08</span><span class="badge badge-mvp">MVP — Basis</span></div>
-            <div class="module-name">My Summit</div>
-            <div class="module-desc">Fundament des Teilnehmer-Portals — vollständiger Ausbau Post-MVP</div>
-          </div>
-        </div>
-        <ul class="module-features">
-          <li><strong>Login / Registrierung</strong> (verknüpft mit Ticketkauf)</li>
-          <li>Ticket anzeigen: QR-Code, Daten, Kategorie, Rechnung-Download</li>
-          <li>Persönliches Profil bearbeiten (Name, Firma, Funktion)</li>
-          <li>Programm-Übersicht (nur Lese-Ansicht im MVP)</li>
-          <li class="deferred-feat">Session-Buchung & Warteliste</li>
-          <li class="deferred-feat">Materialien & Präsentationen</li>
-          <li class="deferred-feat">Badge-Download, Social Share Cards, Zertifikat</li>
-        </ul>
+      <div class="story-row">
+        <div class="s-id">US-02-2</div>
+        <div class="s-text">Als <strong>Organizer</strong> möchte ich Speaker einer Session zuweisen (mehrere möglich), <em>damit die Verknüpfung auf Website und Admin korrekt dargestellt wird.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p2">P2</span><span class="b b-s">S</span></div>
       </div>
-
-      <div class="module-card">
-        <div class="module-header">
-          <div class="module-icon">⭐</div>
-          <div class="module-meta">
-            <div class="module-num-row"><span class="module-num">Modul 09</span><span class="badge badge-mvp">MVP</span></div>
-            <div class="module-name">Sponsor-Verwaltung</div>
-            <div class="module-desc">Sponsoren anlegen und auf Website steuern — über Unternehmens-Profil (Modul 04)</div>
-          </div>
-        </div>
-        <ul class="module-features">
-          <li>Sponsor-Pakete definieren: Platin / Gold / Silver / Bronze / Partner</li>
-          <li>Unternehmen als Sponsor markieren + Paket zuweisen</li>
-          <li>Logo-Upload direkt im Admin (kein Sponsor-Login nötig)</li>
-          <li><strong>Website-Anzeige:</strong> automatisch nach Paket-Rang sortiert</li>
-          <li>Sichtbarkeit pro Sponsor steuerbar (öffentlich / versteckt)</li>
-          <li class="deferred-feat">Sponsor Self-Service Portal (eigenes Login)</li>
-          <li class="deferred-feat">Logo-Impressions & Klick-Statistiken</li>
-        </ul>
+      <div class="story-row">
+        <div class="s-id">US-02-3</div>
+        <div class="s-text">Als <strong>Besucher</strong> möchte ich das Tagesprogramm nach Stage und Typ filtern, <em>damit ich schnell die für mich relevanten Sessions finde.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p2">P2</span><span class="b b-s">S</span></div>
       </div>
-
+      <div class="story-row post">
+        <div class="s-id">US-02-4</div>
+        <div class="s-text">Als <strong>Organizer</strong> möchte ich Session-Materialien hochladen, <em>damit Teilnehmer nach dem Event darauf zugreifen können.</em></div>
+        <div class="s-tags"><span class="b b-post">Post-MVP</span><span class="b b-s">S</span></div>
+      </div>
     </div>
   </div>
 
-  <div class="section">
-    <div class="section-header">
-      <div class="section-num">D</div>
-      <h2 class="section-title">Kommunikation & Statistiken</h2>
+  <div class="mod-section">
+    <div class="mod-header">
+      <div class="mod-icon">🎤</div>
+      <div><div class="mod-id">M03 <span class="ver-tag">v1.0</span></div><div class="mod-title">Speaker-Management</div></div>
     </div>
-    <div class="module-grid">
-
-      <div class="module-card">
-        <div class="module-header">
-          <div class="module-icon">📧</div>
-          <div class="module-meta">
-            <div class="module-num-row"><span class="module-num">Modul 10</span><span class="badge badge-mvp">MVP</span></div>
-            <div class="module-name">Kommunikations-Basis</div>
-            <div class="module-desc">Transaktionale Mails + gezielte Teilnehmer-Updates — via Mailtrap</div>
-          </div>
-        </div>
-        <ul class="module-features">
-          <li><strong>Transaktionale Mails:</strong> Ticket-Bestätigung (mit PDF), Passwort-Reset, Systembenachrichtigungen</li>
-          <li><strong>Gezielte Updates:</strong> Admin kann Mails an Teilnehmer-Gruppen senden (z.B. "Masterclasses jetzt buchbar")</li>
-          <li>Empfänger-Filter: alle Attendees / nach Ticket-Kategorie / nach Unternehmen</li>
-          <li>E-Mail Templates im Admin pflegbar (Variablen: Name, Ticket, etc.)</li>
-          <li>Versand-Übersicht: wer hat was erhalten</li>
-          <li class="deferred-feat">Automatisierte Sequenzen (Trigger-basiert)</li>
-          <li class="deferred-feat">Kampagnen-Manager + UTM-Tracking</li>
-        </ul>
+    <div class="mod-desc">Speaker-Verwaltung im Admin — Self-Service Portal folgt Post-MVP.</div>
+    <div class="story-list">
+      <div class="story-row">
+        <div class="s-id">US-03-1</div>
+        <div class="s-text">Als <strong>Organizer</strong> möchte ich Speaker-Profile anlegen (Name, Titel, Firma, Bio, Foto, LinkedIn), <em>damit sie korrekt auf der Website erscheinen.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p2">P2</span><span class="b b-s">S</span></div>
       </div>
-
-      <div class="module-card">
-        <div class="module-header">
-          <div class="module-icon">📊</div>
-          <div class="module-meta">
-            <div class="module-num-row"><span class="module-num">Modul 11</span><span class="badge badge-mvp">MVP — Basis</span></div>
-            <div class="module-name">Statistiken</div>
-            <div class="module-desc">Echtzeit-Überblick für den Organizer — Ticket-Sales und Check-in</div>
-          </div>
-        </div>
-        <ul class="module-features">
-          <li>Ticket-Verkäufe: Anzahl gesamt + nach Kategorie</li>
-          <li>Umsatz gesamt + Voucher-Einlösungen</li>
-          <li><strong>Check-in Rate</strong> am Eventtag (live)</li>
-          <li>Teilnehmer-Liste mit Unternehmens-Zuordnung</li>
-          <li class="deferred-feat">Session-Auslastung & Feedback-Ratings</li>
-          <li class="deferred-feat">Marketing-Stats & UTM-Conversions</li>
-          <li class="deferred-feat">Vorjahresvergleich</li>
-        </ul>
+      <div class="story-row">
+        <div class="s-id">US-03-2</div>
+        <div class="s-text">Als <strong>Organizer</strong> möchte ich Speaker einem Event zuweisen, <em>damit nur aktuelle Speaker des jeweiligen Events angezeigt werden.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p2">P2</span><span class="b b-xs">XS</span></div>
       </div>
-
+      <div class="story-row post">
+        <div class="s-id">US-03-3</div>
+        <div class="s-text">Als <strong>Speaker</strong> möchte ich mich einloggen und Profil sowie Präsentationen selbst pflegen, <em>damit der Organizer entlastet wird.</em></div>
+        <div class="s-tags"><span class="b b-post">Post-MVP</span><span class="b b-m">M</span></div>
+      </div>
     </div>
   </div>
 
-  <div class="section">
-    <div class="section-header">
-      <div class="section-num">E</div>
-      <h2 class="section-title">Frontends & Event-Tools</h2>
+  <!-- ══ B: UNTERNEHMEN & TEILNEHMER ══ -->
+  <div class="group-hdr">
+    <div class="group-hdr-num">B</div>
+    <div class="group-hdr-title">Unternehmen & Teilnehmer</div>
+    <div class="group-hdr-count">12 Stories</div>
+  </div>
+
+  <div class="mod-section">
+    <div class="mod-header">
+      <div class="mod-icon">🏢</div>
+      <div><div class="mod-id">M04 <span class="ver-tag">v1.2</span></div><div class="mod-title">Unternehmens-Profile</div></div>
     </div>
-    <div class="module-grid">
-
-      <div class="module-card">
-        <div class="module-header">
-          <div class="module-icon">🌐</div>
-          <div class="module-meta">
-            <div class="module-num-row"><span class="module-num">Modul 12</span><span class="badge badge-mvp">MVP</span></div>
-            <div class="module-name">Public Website</div>
-            <div class="module-desc">Vollständige öffentliche Eventseite — aus dem Backend gespeist, kein CMS nötig</div>
-          </div>
-        </div>
-        <ul class="module-features">
-          <li><strong>/</strong> — Hero, Event-Info, Highlights, Sponsor-Logos</li>
-          <li><strong>/programm</strong> — Tagesplan (Timeline + Filter nach Stage/Typ)</li>
-          <li><strong>/speaker</strong> — Speaker-Grid mit Detailseiten</li>
-          <li><strong>/sponsoren</strong> — Unternehmen nach Paket-Rang + Logos</li>
-          <li><strong>/tickets</strong> — Kategorien + Payrexx-Checkout + Voucher-Feld</li>
-          <li><strong>/faq</strong> — pflegbar im Admin</li>
-          <li>SEO: SSR, Schema.org Event-Markup, OG-Tags</li>
-        </ul>
+    <div class="mod-desc">Unternehmen als eigene Entität — Tickets und Teilnehmer einem Brand zuordnen, Logo und Sichtbarkeit steuern.</div>
+    <div class="story-list">
+      <div class="story-row">
+        <div class="s-id">US-04-1</div>
+        <div class="s-text">Als <strong>Organizer</strong> möchte ich Unternehmen anlegen (Name, Logo, Website, Typ: Sponsor / Attendee-Firma), <em>damit Teilnehmer und Sponsoren einer Firma zugeordnet werden können.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p3">P3</span><span class="b b-m">M</span></div>
       </div>
-
-      <div class="module-card">
-        <div class="module-header">
-          <div class="module-icon">📱</div>
-          <div class="module-meta">
-            <div class="module-num-row"><span class="module-num">Modul 13</span><div style="display:flex;align-items:center;gap:6px"><span class="badge badge-mvp">MVP</span><span class="ver-tag">v1.3</span></div></div>
-            <div class="module-name">Check-in & Badge-Druck</div>
-            <div class="module-desc">Zwei Einlass-Spuren + automatischer Etikettendruck via Brother QL-820NWB — kein App-Download, kein Vordrucken</div>
-          </div>
-        </div>
-        <ul class="module-features">
-          <li><strong>Spur A — Registration Desk:</strong> Personal scannt Ticket via Hand-Scanner (USB/Bluetooth) oder Tablet-Kamera</li>
-          <li><strong>Spur B — Self Check-in:</strong> Teilnehmer scannt selbst an fixem Tablet-Kiosk (Browser-Kamera)</li>
-          <li>Nach Scan: Name, Firma, Ticket-Kategorie sofort angezeigt — Check-in mit einem Klick/Tap bestätigen</li>
-          <li><strong>Etikettendruck:</strong> automatisch an Brother QL-820NWB via WiFi (lokales Event-Netzwerk) — Name, Firma, Kategorie</li>
-          <li>Etikett direkt auf leeren Badge kleben — kein Vordrucken nötig</li>
-          <li><strong>Last-Minute Käufer:</strong> Ticket per Mail → QR scannen → Etikett drucken → fertig</li>
-          <li>Fehlerzustände: ungültiger QR / bereits eingecheckt / storniert → klare Meldung</li>
-          <li>Live-Einlass-Zähler für das gesamte Team</li>
-          <li>Zugang nur mit Rolle <code style="font-size:11px;background:rgba(13,148,136,0.1);color:var(--accent2);padding:1px 5px;border-radius:3px">checkin</code></li>
-          <li class="deferred-feat">Offline-Fallback (lokaler Cache)</li>
-        </ul>
+      <div class="story-row">
+        <div class="s-id">US-04-2</div>
+        <div class="s-text">Als <strong>Organizer</strong> möchte ich die Website-Sichtbarkeit pro Unternehmen steuern (Sponsor-Seite / Partner / unsichtbar), <em>damit ich kontrolliere was auf der öffentlichen Website erscheint.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p3">P3</span><span class="b b-s">S</span></div>
       </div>
-
+      <div class="story-row">
+        <div class="s-id">US-04-3</div>
+        <div class="s-text">Als <strong>Organizer</strong> möchte ich mehrere Tickets einem Unternehmen zuordnen, <em>damit Firmen-Gruppen (z.B. Brand bucht 2 Tickets) sauber abgebildet werden.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p3">P3</span><span class="b b-s">S</span></div>
+      </div>
+      <div class="story-row">
+        <div class="s-id">US-04-4</div>
+        <div class="s-text">Als <strong>Organizer</strong> möchte ich im Admin nach Unternehmenstyp, Sichtbarkeit und Paket filtern, <em>damit ich schnell den richtigen Datensatz finde.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p3">P3</span><span class="b b-xs">XS</span></div>
+      </div>
     </div>
   </div>
 
-  <!-- POST-MVP DIVIDER -->
-  <div class="divider-postmvp">
-    <div class="divider-postmvp-line"></div>
-    <div class="divider-postmvp-label">↓ Post-MVP — Phase II nach Go-Live</div>
-    <div class="divider-postmvp-line"></div>
-  </div>
-
-  <div class="section">
-    <div class="section-header">
-      <div class="section-num" style="background:rgba(100,116,139,0.08);border-color:rgba(100,116,139,0.2);color:var(--muted)">II</div>
-      <h2 class="section-title" style="color:var(--muted)">Post-MVP — Phase II</h2>
+  <div class="mod-section">
+    <div class="mod-header">
+      <div class="mod-icon">👥</div>
+      <div><div class="mod-id">M05 <span class="ver-tag">v1.2</span></div><div class="mod-title">Teilnehmer-Verwaltung</div></div>
     </div>
-    <div class="module-grid">
-
-      <div class="module-card post-mvp">
-        <div class="module-header">
-          <div class="module-icon">🪪</div>
-          <div class="module-meta">
-            <div class="module-num-row"><span class="module-num">Modul 08+</span><span class="badge badge-postmvp">Post-MVP</span></div>
-            <div class="module-name">My Summit — Vollausbau</div>
-            <div class="module-desc">Alles was nach dem ersten Event gebraucht wird</div>
-          </div>
-        </div>
-        <ul class="module-features">
-          <li>Masterclass-Buchung mit Platz-Anzeige + Warteliste</li>
-          <li>Automatische Benachrichtigung bei freiem Platz</li>
-          <li>Materialien & Präsentationen nach dem Event</li>
-          <li>Badge-Download (PDF + PNG)</li>
-          <li>Social Share Cards (LinkedIn + Instagram)</li>
-          <li>Certificate of Attendance (PDF)</li>
-        </ul>
+    <div class="mod-desc">Alle Attendees im Überblick — mit Unternehmens-Verknüpfung und Kommunikations-Status.</div>
+    <div class="story-list">
+      <div class="story-row">
+        <div class="s-id">US-05-1</div>
+        <div class="s-text">Als <strong>Organizer</strong> möchte ich alle Teilnehmer in einer Übersicht sehen (Name, Firma, Ticket-Kategorie, Check-in-Status), <em>damit ich jederzeit den Gesamtüberblick habe.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p3">P3</span><span class="b b-s">S</span></div>
       </div>
-
-      <div class="module-card post-mvp">
-        <div class="module-header">
-          <div class="module-icon">🎤</div>
-          <div class="module-meta">
-            <div class="module-num-row"><span class="module-num">Modul 03+</span><span class="badge badge-postmvp">Post-MVP</span></div>
-            <div class="module-name">Speaker Self-Service Portal</div>
-            <div class="module-desc">Speaker können ihr Profil und Materialien selbst pflegen</div>
-          </div>
-        </div>
-        <ul class="module-features">
-          <li>Speaker-Login (eigenes Portal unter my.d2c-summit.ch)</li>
-          <li>Profil selbst bearbeiten (Bio, Foto, Social Links)</li>
-          <li>Präsentationen hochladen</li>
-          <li>Session-Feedback einsehen (nach Event)</li>
-        </ul>
+      <div class="story-row">
+        <div class="s-id">US-05-2</div>
+        <div class="s-text">Als <strong>Organizer</strong> möchte ich Teilnehmer einem Unternehmen zuordnen, <em>damit ich sehe welche Firma wie viele Personen schickt.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p3">P3</span><span class="b b-s">S</span></div>
       </div>
-
-      <div class="module-card post-mvp">
-        <div class="module-header">
-          <div class="module-icon">⭐</div>
-          <div class="module-meta">
-            <div class="module-num-row"><span class="module-num">Modul 09+</span><span class="badge badge-postmvp">Post-MVP</span></div>
-            <div class="module-name">Sponsor Self-Service Portal</div>
-            <div class="module-desc">Sponsoren pflegen ihr Profil selbst — inkl. Statistiken</div>
-          </div>
-        </div>
-        <ul class="module-features">
-          <li>Sponsor-Login (eigenes Portal unter my.d2c-summit.ch)</li>
-          <li>Logo selbst hochladen + Firmenprofil bearbeiten</li>
-          <li>Sponsor-Materialien downloaden (vom Admin hinterlegt)</li>
-          <li>Logo-Impressions & Klick-Statistiken einsehen</li>
-        </ul>
+      <div class="story-row">
+        <div class="s-id">US-05-3</div>
+        <div class="s-text">Als <strong>Organizer</strong> möchte ich Teilnehmer nach Unternehmen, Ticket-Kategorie und Check-in-Status filtern, <em>damit ich gezielt suchen und auswerten kann.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p3">P3</span><span class="b b-s">S</span></div>
       </div>
-
-      <div class="module-card post-mvp">
-        <div class="module-header">
-          <div class="module-icon">📧</div>
-          <div class="module-meta">
-            <div class="module-num-row"><span class="module-num">Modul 10+</span><div style="display:flex;align-items:center;gap:6px"><span class="badge badge-postmvp">Post-MVP</span><span class="ver-tag">v1.4</span></div></div>
-            <div class="module-name">Marketing Engine & Kampagnen-Planer</div>
-            <div class="module-desc">Kampagnenplanung im Admin — wann wird was über welchen Kanal kommuniziert, plus Versand und Statistiken</div>
-          </div>
-        </div>
-        <ul class="module-features">
-          <li><strong>Kampagnen-Planer:</strong> alle Massnahmen auf einer Timeline (T-6 Monate bis Post-Event) — Kanal, Datum, Status, interne Notizen</li>
-          <li>Kontakt-Segmentierung nach Tags, Ticket-Kategorie, Unternehmen</li>
-          <li>E-Mail-Builder für Newsletter, Kampagne direkt aus Admin versenden</li>
-          <li>Automatisierte Sequenzen (Ticket gekauft → Pre-Event → Post-Event)</li>
-          <li>UTM-Tracking + Klick → Konversion</li>
-          <li>Versand-Statistiken: Sent / Opened / Clicked / Bounced</li>
-        </ul>
+      <div class="story-row">
+        <div class="s-id">US-05-4</div>
+        <div class="s-text">Als <strong>Organizer</strong> möchte ich die Teilnehmerliste als CSV exportieren, <em>damit ich externe Tools wie Excel oder CRM nutzen kann.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p3">P3</span><span class="b b-xs">XS</span></div>
       </div>
-
-      <div class="module-card post-mvp">
-        <div class="module-header">
-          <div class="module-icon">📊</div>
-          <div class="module-meta">
-            <div class="module-num-row"><span class="module-num">Modul 11+</span><span class="badge badge-postmvp">Post-MVP</span></div>
-            <div class="module-name">Statistics Dashboard — Voll</div>
-            <div class="module-desc">Vollständige Analytics — Marketing, Sessions, Vorjahresvergleich</div>
-          </div>
-        </div>
-        <ul class="module-features">
-          <li>Session-Auslastung (welche Masterclasses voll/leer)</li>
-          <li>Session-Feedback aggregiert</li>
-          <li>Marketing-Stats: Kampagnen-Performance, UTM-Conversions</li>
-          <li>Vorjahresvergleich (ab Event 2)</li>
-        </ul>
-      </div>
-
-      <div class="module-card post-mvp">
-        <div class="module-header">
-          <div class="module-icon">🔁</div>
-          <div class="module-meta">
-            <div class="module-num-row"><span class="module-num">Modul 01+</span><span class="badge badge-postmvp">Post-MVP</span></div>
-            <div class="module-name">Event-Klon & Multi-Year</div>
-            <div class="module-desc">Für Folgejahre — Event klonen, Inhalte übernehmen, neu starten</div>
-          </div>
-        </div>
-        <ul class="module-features">
-          <li>Event klonen als Ausgangspunkt für nächstes Jahr</li>
-          <li>Vergangene Events archivieren (Statistiken bleiben)</li>
-          <li>Branding + Programm aus Vorjahr als Template</li>
-        </ul>
-      </div>
-
     </div>
   </div>
 
-  <div class="section">
-    <div class="section-header">
-      <div class="section-num" style="background:rgba(100,116,139,0.08);border-color:rgba(100,116,139,0.2);color:var(--muted)">III</div>
-      <h2 class="section-title" style="color:var(--muted)">Post-MVP — Website, Content & Services</h2>
+  <div class="mod-section">
+    <div class="mod-header">
+      <div class="mod-icon">💳</div>
+      <div><div class="mod-id">M06 <span class="ver-tag">v1.0</span></div><div class="mod-title">Ticket-System via Payrexx</div></div>
     </div>
-    <div class="module-grid">
-
-      <div class="module-card post-mvp">
-        <div class="module-header">
-          <div class="module-icon">📰</div>
-          <div class="module-meta">
-            <div class="module-num-row"><span class="module-num">Modul 14</span><div style="display:flex;align-items:center;gap:6px"><span class="badge badge-postmvp">Post-MVP</span><span class="ver-tag">v1.3</span></div></div>
-            <div class="module-name">Blog / News</div>
-            <div class="module-desc">Redaktioneller Content-Bereich — Insights, Rückblicke, Speaker-Interviews</div>
-          </div>
-        </div>
-        <ul class="module-features">
-          <li>Artikel-Verwaltung im Admin: Titel, Inhalt (Rich Text), Autor, Kategorie, Publish-Datum</li>
-          <li>Kategorien: News, Rückblick, Speaker-Interview, D2C-Insights</li>
-          <li>Vorschaubild + Meta-Beschreibung für SEO</li>
-          <li>Öffentliche Artikel-Übersicht + Detailseite unter <code style="font-size:11px;background:rgba(100,116,139,0.1);color:var(--muted);padding:1px 5px;border-radius:3px">/blog</code></li>
-          <li>Related Articles + Tag-System</li>
-          <li>RSS-Feed + Social Share Buttons</li>
-        </ul>
+    <div class="mod-desc">Vollständiger Ticketkauf — Payrexx Checkout, QR-Code, Bestätigungsmail, Voucher.</div>
+    <div class="story-list">
+      <div class="story-row">
+        <div class="s-id">US-06-1</div>
+        <div class="s-text">Als <strong>Organizer</strong> möchte ich Ticket-Kategorien konfigurieren (Name, Preis, Kapazität, Verkaufszeitraum), <em>damit ich Early Bird, Standard und VIP anbieten kann.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p3">P3</span><span class="b b-m">M</span></div>
       </div>
-
-      <div class="module-card post-mvp">
-        <div class="module-header">
-          <div class="module-icon">📢</div>
-          <div class="module-meta">
-            <div class="module-num-row"><span class="module-num">Modul 15</span><div style="display:flex;align-items:center;gap:6px"><span class="badge badge-postmvp">Post-MVP</span><span class="ver-tag">v1.3</span></div></div>
-            <div class="module-name">Presse-Bereich</div>
-            <div class="module-desc">Alles für Journalisten und Medienvertreter an einem Ort</div>
-          </div>
-        </div>
-        <ul class="module-features">
-          <li>Öffentliche Presse-Seite unter <code style="font-size:11px;background:rgba(100,116,139,0.1);color:var(--muted);padding:1px 5px;border-radius:3px">/presse</code></li>
-          <li><strong>Press Kit Download:</strong> Logos (PNG/SVG/EPS), Marken-Guidelines, Fact Sheet, Pressemitteilungen</li>
-          <li>Event-Statistiken & Kennzahlen (Teilnehmerzahl, Reichweite, Sponsoren-Anzahl)</li>
-          <li>Mediathek: kuratierte Fotos für Presse-Nutzung (mit Lizenz-Hinweis)</li>
-          <li>Presse-Akkreditierung: Formular für Medienvertreter → Admin-Genehmigung</li>
-          <li>Vergangene Pressemitteilungen archiviert und durchsuchbar</li>
-        </ul>
+      <div class="story-row">
+        <div class="s-id">US-06-2</div>
+        <div class="s-text">Als <strong>Besucher</strong> möchte ich ein Ticket kaufen (Kategorie wählen → Daten eingeben → Payrexx → Bestätigungsseite), <em>damit ich am Event teilnehmen kann.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p3">P3</span><span class="b b-l">L</span></div>
       </div>
-
-      <div class="module-card post-mvp">
-        <div class="module-header">
-          <div class="module-icon">🏛️</div>
-          <div class="module-meta">
-            <div class="module-num-row"><span class="module-num">Modul 16</span><div style="display:flex;align-items:center;gap:6px"><span class="badge badge-postmvp">Post-MVP</span><span class="ver-tag">v1.3</span></div></div>
-            <div class="module-name">Location — KKL Luzern</div>
-            <div class="module-desc">Dedizierte Location-Seite mit Anreise, Räumen und praktischen Infos</div>
-          </div>
-        </div>
-        <ul class="module-features">
-          <li>Location-Seite unter <code style="font-size:11px;background:rgba(100,116,139,0.1);color:var(--muted);padding:1px 5px;border-radius:3px">/location</code></li>
-          <li>KKL-Beschreibung, Fotos, Grundriss-Übersicht der genutzten Räume</li>
-          <li>Anreise-Infos: ÖV (Bahnhof Luzern 3 min), Auto, Parkhaus-Empfehlungen</li>
-          <li>Hotel-Empfehlungen in der Nähe (kuratierte Liste, keine Buchungsfunktion)</li>
-          <li>Google Maps Embed + Adresse</li>
-          <li>Barrierefreiheit + praktische Hinweise für den Eventtag</li>
-        </ul>
+      <div class="story-row">
+        <div class="s-id">US-06-3</div>
+        <div class="s-text">Als <strong>Besucher</strong> möchte ich nach dem Kauf sofort eine Bestätigungsmail mit Ticket-PDF und eindeutigem QR-Code erhalten, <em>damit ich am Eventtag einchecken kann.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p3">P3</span><span class="b b-m">M</span></div>
       </div>
-
-      <div class="module-card post-mvp">
-        <div class="module-header">
-          <div class="module-icon">📬</div>
-          <div class="module-meta">
-            <div class="module-num-row"><span class="module-num">Modul 17</span><div style="display:flex;align-items:center;gap:6px"><span class="badge badge-postmvp">Post-MVP</span><span class="ver-tag">v1.3</span></div></div>
-            <div class="module-name">Kontakt & Formulare</div>
-            <div class="module-desc">Zentrale Anlaufstelle für Anfragen aller Art — mit Routing per Kategorie</div>
-          </div>
-        </div>
-        <ul class="module-features">
-          <li>Kontaktseite unter <code style="font-size:11px;background:rgba(100,116,139,0.1);color:var(--muted);padding:1px 5px;border-radius:3px">/kontakt</code></li>
-          <li>Formular-Typen: Allgemeine Anfrage / Speaker-Bewerbung / Sponsoring-Interesse / Presse-Akkreditierung</li>
-          <li>Routing: Formular-Typ → automatisch an richtigen Ansprechpartner</li>
-          <li>DSGVO-konform: Einwilligung, Double-Opt-in für Newsletter-Eintrag</li>
-          <li>Eingehende Anfragen im Admin-Backend verwalten + Status setzen</li>
-          <li>Auto-Reply an Absender nach Formular-Absenden</li>
-        </ul>
+      <div class="story-row">
+        <div class="s-id">US-06-4</div>
+        <div class="s-text">Als <strong>Organizer</strong> möchte ich Voucher-Codes erstellen (%-Rabatt, Gratis-Tickets, Direktlink), <em>damit Partner und VIP-Einladungen ohne manuelle Arbeit abgewickelt werden.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p3">P3</span><span class="b b-m">M</span></div>
       </div>
-
-      <div class="module-card post-mvp">
-        <div class="module-header">
-          <div class="module-icon">📸</div>
-          <div class="module-meta">
-            <div class="module-num-row"><span class="module-num">Modul 18</span><div style="display:flex;align-items:center;gap:6px"><span class="badge badge-postmvp">Post-MVP</span><span class="ver-tag">v1.3</span></div></div>
-            <div class="module-name">Foto-Galerie / Media-Archiv</div>
-            <div class="module-desc">Event-Rückblick in Bildern — kuratiert, durchsuchbar, downloadbar</div>
-          </div>
-        </div>
-        <ul class="module-features">
-          <li>Galerie-Seite unter <code style="font-size:11px;background:rgba(100,116,139,0.1);color:var(--muted);padding:1px 5px;border-radius:3px">/galerie</code> oder direkt auf Event-Übersichtsseite</li>
-          <li>Admin: Fotos hochladen (Bulk), Kategorien zuweisen (Keynotes, Networking, Location)</li>
-          <li>Lightbox-Ansicht + Photographer-Credit</li>
-          <li>Download für Teilnehmer: Einzelbild oder ZIP nach Kategorie</li>
-          <li>Archiv: Galerien vergangener Events durchsuchbar</li>
-          <li>Foto-Highlights als Widget einbettbar in andere Seiten (z.B. Home)</li>
-        </ul>
+      <div class="story-row">
+        <div class="s-id">US-06-5</div>
+        <div class="s-text">Als <strong>Organizer</strong> möchte ich Bestellungen einsehen und Stornierungen manuell verwalten, <em>damit ich auf Kundenwünsche reagieren kann.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p3">P3</span><span class="b b-s">S</span></div>
       </div>
+    </div>
+  </div>
 
-      <div class="module-card post-mvp">
-        <div class="module-header">
-          <div class="module-icon">🌍</div>
-          <div class="module-meta">
-            <div class="module-num-row"><span class="module-num">Modul 19</span><div style="display:flex;align-items:center;gap:6px"><span class="badge badge-postmvp">Post-MVP</span><span class="ver-tag">v1.3</span></div></div>
-            <div class="module-name">Mehrsprachigkeit DE / EN</div>
-            <div class="module-desc">Internationalisierung der öffentlichen Website — Deutsch und Englisch</div>
-          </div>
-        </div>
-        <ul class="module-features">
-          <li>Language-Toggle auf Public Website (DE / EN)</li>
-          <li>Alle statischen Texte übersetzt (i18n via nuxt-i18n)</li>
-          <li>CMS-Inhalte mehrsprachig pflegbar im Admin (Titel, Beschreibung, Bio per Sprache)</li>
-          <li>Automatische Spracherkennung via Browser-Setting + manuelle Auswahl</li>
-          <li>Hreflang-Tags für SEO (DE / EN Versionen)</li>
-          <li>My Summit + Admin bleiben Deutsch (Phase II: bei Bedarf erweiterbar)</li>
-        </ul>
+  <!-- ══ C: ROLLEN, ADMIN & PORTALE ══ -->
+  <div class="group-hdr">
+    <div class="group-hdr-num">C</div>
+    <div class="group-hdr-title">Rollen, Admin & Portale</div>
+    <div class="group-hdr-count">10 Stories</div>
+  </div>
+
+  <div class="mod-section">
+    <div class="mod-header">
+      <div class="mod-icon">🔐</div>
+      <div><div class="mod-id">M07 <span class="ver-tag">v1.0</span></div><div class="mod-title">Rollen & Rechte</div></div>
+    </div>
+    <div class="mod-desc">Vollständige Berechtigungs-Architektur von Tag 1 — 7 Rollen, pro Event vergeben.</div>
+    <div class="story-list">
+      <div class="story-row">
+        <div class="s-id">US-07-1</div>
+        <div class="s-text">Als <strong>Super Admin</strong> möchte ich Benutzer anlegen und ihnen Rollen pro Event vergeben (super_admin / organizer / sponsor_manager / attendee / speaker / sponsor / checkin), <em>damit jeder nur auf seinen Bereich zugreifen kann.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p1">P1</span><span class="b b-m">M</span></div>
       </div>
+      <div class="story-row">
+        <div class="s-id">US-07-2</div>
+        <div class="s-text">Als <strong>System</strong> müssen alle 4 Domains (public, my, admin, checkin) durch Middleware rollenbasiert geschützt sein, <em>damit kein unbefugter Zugriff möglich ist.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p1">P1</span><span class="b b-l">L</span></div>
+      </div>
+    </div>
+  </div>
 
+  <div class="mod-section">
+    <div class="mod-header">
+      <div class="mod-icon">🪪</div>
+      <div><div class="mod-id">M08 <span class="ver-tag">v1.0</span></div><div class="mod-title">My Summit — Basis</div></div>
+    </div>
+    <div class="mod-desc">Fundament des Teilnehmer-Portals — vollständiger Ausbau Post-MVP.</div>
+    <div class="story-list">
+      <div class="story-row">
+        <div class="s-id">US-08-1</div>
+        <div class="s-text">Als <strong>Teilnehmer</strong> möchte ich mich nach dem Ticketkauf auf my.d2c-summit.ch registrieren und einloggen, <em>damit ich Zugang zu meinem persönlichen Bereich erhalte.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p5">P5</span><span class="b b-m">M</span></div>
+      </div>
+      <div class="story-row">
+        <div class="s-id">US-08-2</div>
+        <div class="s-text">Als <strong>Teilnehmer</strong> möchte ich mein Ticket mit QR-Code anzeigen und die Rechnung herunterladen, <em>damit ich am Eventtag einchecken und die Buchhaltung bedienen kann.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p5">P5</span><span class="b b-s">S</span></div>
+      </div>
+      <div class="story-row">
+        <div class="s-id">US-08-3</div>
+        <div class="s-text">Als <strong>Teilnehmer</strong> möchte ich mein Profil bearbeiten (Name, Firma, Funktion), <em>damit meine Daten auf Badge-Etikett und in der Teilnehmerliste korrekt sind.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p5">P5</span><span class="b b-s">S</span></div>
+      </div>
+      <div class="story-row post">
+        <div class="s-id">US-08-4</div>
+        <div class="s-text">Als <strong>Teilnehmer</strong> möchte ich Masterclasses buchen und mich auf Wartelisten setzen, <em>damit ich meinen Tagesplan selbst zusammenstellen kann.</em></div>
+        <div class="s-tags"><span class="b b-post">Post-MVP</span><span class="b b-l">L</span></div>
+      </div>
+      <div class="story-row post">
+        <div class="s-id">US-08-5</div>
+        <div class="s-text">Als <strong>Teilnehmer</strong> möchte ich nach dem Event Badge, Social Cards und Teilnahmezertifikat herunterladen, <em>damit ich den Event auf LinkedIn teilen kann.</em></div>
+        <div class="s-tags"><span class="b b-post">Post-MVP</span><span class="b b-m">M</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-section">
+    <div class="mod-header">
+      <div class="mod-icon">⭐</div>
+      <div><div class="mod-id">M09 <span class="ver-tag">v1.0</span></div><div class="mod-title">Sponsor-Verwaltung</div></div>
+    </div>
+    <div class="mod-desc">Sponsor-Pakete, Zuweisung und Website-Darstellung — über Unternehmens-Profile (M04).</div>
+    <div class="story-list">
+      <div class="story-row">
+        <div class="s-id">US-09-1</div>
+        <div class="s-text">Als <strong>Organizer</strong> möchte ich Sponsor-Pakete definieren (Platin / Gold / Silver / Bronze / Partner) mit Rang, <em>damit die Wertigkeit für Sponsoren klar kommuniziert wird.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p4">P4</span><span class="b b-s">S</span></div>
+      </div>
+      <div class="story-row">
+        <div class="s-id">US-09-2</div>
+        <div class="s-text">Als <strong>Organizer</strong> möchte ich ein Unternehmen als Sponsor markieren und ein Paket zuweisen, <em>damit Logo und Name automatisch auf der Sponsoren-Seite erscheinen.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p4">P4</span><span class="b b-s">S</span></div>
+      </div>
+      <div class="story-row">
+        <div class="s-id">US-09-3</div>
+        <div class="s-text">Als <strong>Besucher</strong> möchte ich Sponsoren nach Paket-Rang sortiert sehen, <em>damit die Wertigkeit der Sponsoring-Stufen sichtbar ist.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p4">P4</span><span class="b b-xs">XS</span></div>
+      </div>
+      <div class="story-row post">
+        <div class="s-id">US-09-4</div>
+        <div class="s-text">Als <strong>Sponsor</strong> möchte ich mich einloggen, Logo hochladen und Statistiken (Impressionen, Klicks) einsehen, <em>damit ich meinen ROI aus dem Sponsoring messen kann.</em></div>
+        <div class="s-tags"><span class="b b-post">Post-MVP</span><span class="b b-m">M</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ D: KOMMUNIKATION & STATISTIKEN ══ -->
+  <div class="group-hdr">
+    <div class="group-hdr-num">D</div>
+    <div class="group-hdr-title">Kommunikation & Statistiken</div>
+    <div class="group-hdr-count">8 Stories</div>
+  </div>
+
+  <div class="mod-section">
+    <div class="mod-header">
+      <div class="mod-icon">📧</div>
+      <div><div class="mod-id">M10 <span class="ver-tag">v1.0</span></div><div class="mod-title">Kommunikations-Basis</div></div>
+    </div>
+    <div class="mod-desc">Transaktionale Mails + gezielte Teilnehmer-Updates via Mailtrap.</div>
+    <div class="story-list">
+      <div class="story-row">
+        <div class="s-id">US-10-1</div>
+        <div class="s-text">Als <strong>Organizer</strong> möchte ich E-Mails an Teilnehmer-Gruppen senden (alle / nach Ticket-Kategorie / nach Unternehmen), <em>damit ich Updates gezielt kommunizieren kann.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p4">P4</span><span class="b b-m">M</span></div>
+      </div>
+      <div class="story-row">
+        <div class="s-id">US-10-2</div>
+        <div class="s-text">Als <strong>Organizer</strong> möchte ich E-Mail-Templates anpassen (Variablen: Name, Ticket, Event-Datum), <em>damit alle System-Mails professionell und personalisiert wirken.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p4">P4</span><span class="b b-s">S</span></div>
+      </div>
+      <div class="story-row">
+        <div class="s-id">US-10-3</div>
+        <div class="s-text">Als <strong>System</strong> sollen Trigger-Mails automatisch versendet werden (Ticket-Bestätigung sofort, Reminder T-7 und T-1, Post-Event-Danke), <em>damit keine manuelle Nacharbeit nötig ist.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p4">P4</span><span class="b b-m">M</span></div>
+      </div>
+      <div class="story-row post">
+        <div class="s-id">US-10-4</div>
+        <div class="s-text">Als <strong>Organizer</strong> möchte ich alle Marketing-Massnahmen auf einer Timeline planen (Kanal, Datum, Status, Notizen), <em>damit das gesamte Team weiss wann was kommuniziert wird.</em></div>
+        <div class="s-tags"><span class="b b-post">Post-MVP</span><span class="b b-m">M</span></div>
+      </div>
+      <div class="story-row post">
+        <div class="s-id">US-10-5</div>
+        <div class="s-text">Als <strong>Organizer</strong> möchte ich Newsletter mit Segmentierung, E-Mail-Builder und Versand-Statistiken direkt aus dem Admin versenden.</div>
+        <div class="s-tags"><span class="b b-post">Post-MVP</span><span class="b b-l">L</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-section">
+    <div class="mod-header">
+      <div class="mod-icon">📊</div>
+      <div><div class="mod-id">M11 <span class="ver-tag">v1.0</span></div><div class="mod-title">Statistiken</div></div>
+    </div>
+    <div class="mod-desc">Echtzeit-Überblick für den Organizer — Ticket-Sales und Check-in im MVP.</div>
+    <div class="story-list">
+      <div class="story-row">
+        <div class="s-id">US-11-1</div>
+        <div class="s-text">Als <strong>Organizer</strong> möchte ich Ticket-Verkäufe in Echtzeit sehen (Anzahl + Umsatz gesamt und nach Kategorie), <em>damit ich den Verkaufsstand jederzeit kenne.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p5">P5</span><span class="b b-s">S</span></div>
+      </div>
+      <div class="story-row">
+        <div class="s-id">US-11-2</div>
+        <div class="s-text">Als <strong>Organizer</strong> möchte ich am Eventtag die Check-in-Rate live sehen, <em>damit ich den Einlass steuern und Personal richtig einteilen kann.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p5">P5</span><span class="b b-s">S</span></div>
+      </div>
+      <div class="story-row post">
+        <div class="s-id">US-11-3</div>
+        <div class="s-text">Als <strong>Organizer</strong> möchte ich Session-Auslastung, Feedback-Ratings und einen Vorjahresvergleich sehen.</div>
+        <div class="s-tags"><span class="b b-post">Post-MVP</span><span class="b b-m">M</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ E: FRONTENDS & EVENT-TOOLS ══ -->
+  <div class="group-hdr">
+    <div class="group-hdr-num">E</div>
+    <div class="group-hdr-title">Frontends & Event-Tools</div>
+    <div class="group-hdr-count">11 Stories</div>
+  </div>
+
+  <div class="mod-section">
+    <div class="mod-header">
+      <div class="mod-icon">🌐</div>
+      <div><div class="mod-id">M12 <span class="ver-tag">v1.0</span></div><div class="mod-title">Public Website</div></div>
+    </div>
+    <div class="mod-desc">Vollständige öffentliche Eventseite — aus dem Backend gespeist, SSR, SEO-optimiert.</div>
+    <div class="story-list">
+      <div class="story-row">
+        <div class="s-id">US-12-1</div>
+        <div class="s-text">Als <strong>Besucher</strong> möchte ich auf der Startseite alle wichtigen Event-Informationen auf einen Blick haben (Hero, Datum, Ort, Highlights, Speaker-Teaser, Sponsor-Logos), <em>damit ich schnell entscheide ob ich teilnehme.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p2">P2</span><span class="b b-l">L</span></div>
+      </div>
+      <div class="story-row">
+        <div class="s-id">US-12-2</div>
+        <div class="s-text">Als <strong>Besucher</strong> möchte ich das Tagesprogramm mit Stage-Filter und Parallel-Sessions sehen, <em>damit ich meinen Tag planen kann.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p2">P2</span><span class="b b-m">M</span></div>
+      </div>
+      <div class="story-row">
+        <div class="s-id">US-12-3</div>
+        <div class="s-text">Als <strong>Besucher</strong> möchte ich Speaker mit Detailseiten (Bio, Firma, Sessions, Social Links) sehen, <em>damit ich weiss wer spricht.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p2">P2</span><span class="b b-s">S</span></div>
+      </div>
+      <div class="story-row">
+        <div class="s-id">US-12-4</div>
+        <div class="s-text">Als <strong>Besucher</strong> möchte ich eine FAQ-Seite finden (pflegbar im Admin), <em>damit ich häufige Fragen selbst beantworten kann.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p2">P2</span><span class="b b-s">S</span></div>
+      </div>
+      <div class="story-row">
+        <div class="s-id">US-12-5</div>
+        <div class="s-text">Als <strong>System</strong> soll die Website SSR, Schema.org Event-Markup und OG-Tags haben, <em>damit der Event bei Google und Social Media korrekt dargestellt wird.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p2">P2</span><span class="b b-m">M</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-section">
+    <div class="mod-header">
+      <div class="mod-icon">📱</div>
+      <div><div class="mod-id">M13 <span class="ver-tag">v1.3</span></div><div class="mod-title">Check-in & Badge-Druck</div></div>
+    </div>
+    <div class="mod-desc">Zwei Einlass-Spuren + automatischer Etikettendruck via Brother QL-820NWB.</div>
+    <div class="story-list">
+      <div class="story-row">
+        <div class="s-id">US-13-1</div>
+        <div class="s-text">Als <strong>Check-in-Personal</strong> möchte ich am Registrationstisch QR-Codes mit einem Hand-Scanner einlesen, <em>damit der Einlass schnell und ohne Warteschlangen funktioniert.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p5">P5</span><span class="b b-m">M</span></div>
+      </div>
+      <div class="story-row">
+        <div class="s-id">US-13-2</div>
+        <div class="s-text">Als <strong>Teilnehmer</strong> möchte ich mich an einem Self Check-in Kiosk (Tablet) selbst einchecken, <em>damit ich nicht warten muss.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p5">P5</span><span class="b b-m">M</span></div>
+      </div>
+      <div class="story-row">
+        <div class="s-id">US-13-3</div>
+        <div class="s-text">Als <strong>System</strong> soll nach erfolgreichem Check-in automatisch ein Etikett auf dem Brother QL-820NWB via WiFi gedruckt werden (Name, Firma, Kategorie), <em>damit der Teilnehmer sofort seinen Badge hat.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p5">P5</span><span class="b b-m">M</span></div>
+      </div>
+      <div class="story-row">
+        <div class="s-id">US-13-4</div>
+        <div class="s-text">Als <strong>Check-in-Personal</strong> möchte ich bei ungültigen Tickets eine klare Fehlermeldung sehen (bereits eingecheckt / storniert / unbekannt), <em>damit ich korrekt reagieren kann.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p5">P5</span><span class="b b-s">S</span></div>
+      </div>
+      <div class="story-row">
+        <div class="s-id">US-13-5</div>
+        <div class="s-text">Als <strong>Organizer</strong> möchte ich am Eventtag die Live-Einlass-Rate sehen (eingecheckt / gesamt), <em>damit ich den Betrieb steuern kann.</em></div>
+        <div class="s-tags"><span class="b b-mvp">MVP</span><span class="b b-p5">P5</span><span class="b b-xs">XS</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ POST-MVP ══ -->
+  <div class="divider-post">
+    <div class="divider-post-line"></div>
+    <div class="divider-post-label">↓ Post-MVP — Platform-Erweiterungen Phase II</div>
+    <div class="divider-post-line"></div>
+  </div>
+
+  <div class="group-hdr" style="border-bottom-color:rgba(100,116,139,0.2)">
+    <div class="group-hdr-num" style="background:rgba(100,116,139,0.08);border-color:rgba(100,116,139,0.2);color:var(--muted)">F</div>
+    <div class="group-hdr-title" style="color:var(--muted)">Website, Content & Services</div>
+    <div class="group-hdr-count">14 Stories</div>
+  </div>
+
+  <div class="mod-section">
+    <div class="mod-header">
+      <div class="mod-icon" style="background:rgba(100,116,139,0.07);border-color:rgba(100,116,139,0.15)">📰</div>
+      <div><div class="mod-id" style="color:var(--muted)">M14 <span class="ver-tag">v1.3</span></div><div class="mod-title" style="color:var(--muted)">Blog / News</div></div>
+    </div>
+    <div class="story-list">
+      <div class="story-row post">
+        <div class="s-id">US-14-1</div>
+        <div class="s-text">Als <strong>Organizer</strong> möchte ich Artikel erstellen (Titel, Rich-Text, Kategorie, Bild, SEO-Meta, Publish-Datum), <em>damit Content vor und nach dem Event publiziert wird.</em></div>
+        <div class="s-tags"><span class="b b-post">Post-MVP</span><span class="b b-m">M</span></div>
+      </div>
+      <div class="story-row post">
+        <div class="s-id">US-14-2</div>
+        <div class="s-text">Als <strong>Besucher</strong> möchte ich Artikel nach Kategorie filtern und lesen, <em>damit ich relevante Inhalte schnell finde.</em></div>
+        <div class="s-tags"><span class="b b-post">Post-MVP</span><span class="b b-s">S</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-section">
+    <div class="mod-header">
+      <div class="mod-icon" style="background:rgba(100,116,139,0.07);border-color:rgba(100,116,139,0.15)">📢</div>
+      <div><div class="mod-id" style="color:var(--muted)">M15 <span class="ver-tag">v1.3</span></div><div class="mod-title" style="color:var(--muted)">Presse-Bereich</div></div>
+    </div>
+    <div class="story-list">
+      <div class="story-row post">
+        <div class="s-id">US-15-1</div>
+        <div class="s-text">Als <strong>Organizer</strong> möchte ich Press Kit Materialien hochladen (Logos, Fact Sheet, Pressemitteilungen), <em>damit Journalisten alles auf einen Klick herunterladen können.</em></div>
+        <div class="s-tags"><span class="b b-post">Post-MVP</span><span class="b b-m">M</span></div>
+      </div>
+      <div class="story-row post">
+        <div class="s-id">US-15-2</div>
+        <div class="s-text">Als <strong>Journalist</strong> möchte ich eine Presse-Akkreditierung beantragen, <em>damit ich den Event als Medienvertreter besuchen kann.</em></div>
+        <div class="s-tags"><span class="b b-post">Post-MVP</span><span class="b b-s">S</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-section">
+    <div class="mod-header">
+      <div class="mod-icon" style="background:rgba(100,116,139,0.07);border-color:rgba(100,116,139,0.15)">🏛️</div>
+      <div><div class="mod-id" style="color:var(--muted)">M16 <span class="ver-tag">v1.3</span></div><div class="mod-title" style="color:var(--muted)">Location — KKL Luzern</div></div>
+    </div>
+    <div class="story-list">
+      <div class="story-row post">
+        <div class="s-id">US-16-1</div>
+        <div class="s-text">Als <strong>Teilnehmer</strong> möchte ich eine Location-Seite mit Anreise-Infos (ÖV, Auto, Parkhaus), Hotel-Empfehlungen und KKL-Fotos finden, <em>damit ich den Eventtag gut planen kann.</em></div>
+        <div class="s-tags"><span class="b b-post">Post-MVP</span><span class="b b-s">S</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-section">
+    <div class="mod-header">
+      <div class="mod-icon" style="background:rgba(100,116,139,0.07);border-color:rgba(100,116,139,0.15)">📬</div>
+      <div><div class="mod-id" style="color:var(--muted)">M17 <span class="ver-tag">v1.3</span></div><div class="mod-title" style="color:var(--muted)">Kontakt & Formulare</div></div>
+    </div>
+    <div class="story-list">
+      <div class="story-row post">
+        <div class="s-id">US-17-1</div>
+        <div class="s-text">Als <strong>Besucher</strong> möchte ich über ein Kontaktformular (Kategorien: Allgemein / Speaker / Sponsoring / Presse) eine Anfrage stellen, <em>damit ich den richtigen Ansprechpartner erreiche.</em></div>
+        <div class="s-tags"><span class="b b-post">Post-MVP</span><span class="b b-m">M</span></div>
+      </div>
+      <div class="story-row post">
+        <div class="s-id">US-17-2</div>
+        <div class="s-text">Als <strong>Organizer</strong> möchte ich eingehende Anfragen im Admin verwalten und den Status setzen, <em>damit keine Anfrage verloren geht.</em></div>
+        <div class="s-tags"><span class="b b-post">Post-MVP</span><span class="b b-s">S</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-section">
+    <div class="mod-header">
+      <div class="mod-icon" style="background:rgba(100,116,139,0.07);border-color:rgba(100,116,139,0.15)">📸</div>
+      <div><div class="mod-id" style="color:var(--muted)">M18 <span class="ver-tag">v1.3</span></div><div class="mod-title" style="color:var(--muted)">Foto-Galerie / Media-Archiv</div></div>
+    </div>
+    <div class="story-list">
+      <div class="story-row post">
+        <div class="s-id">US-18-1</div>
+        <div class="s-text">Als <strong>Organizer</strong> möchte ich Fotos in Kategorien hochladen (Keynotes, Networking, Location), <em>damit der Event-Rückblick professionell präsentiert wird.</em></div>
+        <div class="s-tags"><span class="b b-post">Post-MVP</span><span class="b b-m">M</span></div>
+      </div>
+      <div class="story-row post">
+        <div class="s-id">US-18-2</div>
+        <div class="s-text">Als <strong>Teilnehmer</strong> möchte ich Fotos in einer Lightbox ansehen und herunterladen, <em>damit ich Erinnerungen teilen kann.</em></div>
+        <div class="s-tags"><span class="b b-post">Post-MVP</span><span class="b b-s">S</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-section">
+    <div class="mod-header">
+      <div class="mod-icon" style="background:rgba(100,116,139,0.07);border-color:rgba(100,116,139,0.15)">🌍</div>
+      <div><div class="mod-id" style="color:var(--muted)">M19 <span class="ver-tag">v1.3</span></div><div class="mod-title" style="color:var(--muted)">Mehrsprachigkeit DE / EN</div></div>
+    </div>
+    <div class="story-list">
+      <div class="story-row post">
+        <div class="s-id">US-19-1</div>
+        <div class="s-text">Als <strong>Besucher</strong> möchte ich die Website in Deutsch oder Englisch lesen, <em>damit auch internationale Teilnehmer den Event verstehen.</em></div>
+        <div class="s-tags"><span class="b b-post">Post-MVP</span><span class="b b-l">L</span></div>
+      </div>
+      <div class="story-row post">
+        <div class="s-id">US-19-2</div>
+        <div class="s-text">Als <strong>Organizer</strong> möchte ich Inhalte (Titel, Bio, Beschreibungen) pro Sprache im Admin pflegen, <em>damit Übersetzungen direkt im System verwaltet werden.</em></div>
+        <div class="s-tags"><span class="b b-post">Post-MVP</span><span class="b b-m">M</span></div>
+      </div>
     </div>
   </div>
 
 </div>
 
 <div class="footer">
-  <strong>D2C Summit — Module Phase I</strong>
+  <strong>D2C Summit — Backlog & User Stories</strong>
   <div class="footer-nav">
     <a href="konzept.html">← Konzept</a>
     <a href="phasen.html">Phasen →</a>
