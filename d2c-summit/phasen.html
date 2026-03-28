@@ -162,6 +162,9 @@ body.light .b-xs, body.light .b-s { border-color: #e2e8f0; }
 .theme-toggle { margin-left: auto; background: none; border: 1px solid var(--border); border-radius: 8px; width: 32px; height: 32px; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: background 0.15s; flex-shrink: 0; line-height: 1; }
 .theme-toggle:hover { background: rgba(255,255,255,0.08); }
 body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
+.sr-id a { color: var(--muted); text-decoration: none; font-family: Monaco,monospace; font-size: 10px; font-weight: 700; }
+.sr-id a:hover { color: var(--accent2); }
+.sr { cursor: default; }
 </style>
 </head>
 <body>
@@ -268,12 +271,12 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
         <div class="mod-block-hdr"><span class="mb-icon">🔐</span><span class="mb-id">M07</span><span class="mb-name">Rollen & Rechte</span></div>
         <div class="story-rows">
           <div class="sr">
-            <div class="sr-id">US-07-1</div>
+            <div class="sr-id"><a href="module.html#US-07-1" target="_self">US-07-1</a></div>
             <div class="sr-text">Als <strong>Super Admin</strong> möchte ich Benutzer anlegen und Rollen pro Event vergeben (7 Rollen), <em>damit jeder nur auf seinen Bereich zugreifen kann.</em></div>
             <div class="sr-tags"><span class="b b-m">M</span></div>
           </div>
           <div class="sr">
-            <div class="sr-id">US-07-2</div>
+            <div class="sr-id"><a href="module.html#US-07-2" target="_self">US-07-2</a></div>
             <div class="sr-text">Als <strong>System</strong> müssen alle 4 Domains rollenbasiert durch Middleware geschützt sein.</div>
             <div class="sr-tags"><span class="b b-l">L</span></div>
           </div>
@@ -283,12 +286,12 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
         <div class="mod-block-hdr"><span class="mb-icon">🔁</span><span class="mb-id">M01</span><span class="mb-name">Event Engine</span></div>
         <div class="story-rows">
           <div class="sr">
-            <div class="sr-id">US-01-1</div>
+            <div class="sr-id"><a href="module.html#US-01-1" target="_self">US-01-1</a></div>
             <div class="sr-text">Als <strong>Organizer</strong> möchte ich ein Event anlegen (Titel, Datum, Venue, Status), <em>damit alle Inhalte einem Event zugeordnet werden können.</em></div>
             <div class="sr-tags"><span class="b b-m">M</span></div>
           </div>
           <div class="sr">
-            <div class="sr-id">US-01-2</div>
+            <div class="sr-id"><a href="module.html#US-01-2" target="_self">US-01-2</a></div>
             <div class="sr-text">Als <strong>Organizer</strong> möchte ich Stages und Räume definieren (Name, Kapazität), <em>damit Sessions konkret verortet werden können.</em></div>
             <div class="sr-tags"><span class="b b-s">S</span></div>
           </div>
@@ -317,7 +320,7 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
         <div class="mod-block-hdr"><span class="mb-icon">🔁</span><span class="mb-id">M01</span><span class="mb-name">Event Engine — Branding</span></div>
         <div class="story-rows">
           <div class="sr">
-            <div class="sr-id">US-01-3</div>
+            <div class="sr-id"><a href="module.html#US-01-3" target="_self">US-01-3</a></div>
             <div class="sr-text">Als <strong>Organizer</strong> möchte ich Event-Branding konfigurieren (Logo, Primärfarbe, Hero-Bild), <em>damit die Website das Erscheinungsbild widerspiegelt.</em></div>
             <div class="sr-tags"><span class="b b-s">S</span></div>
           </div>
@@ -327,17 +330,17 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
         <div class="mod-block-hdr"><span class="mb-icon">🗓️</span><span class="mb-id">M02</span><span class="mb-name">Programm-Manager</span></div>
         <div class="story-rows">
           <div class="sr">
-            <div class="sr-id">US-02-1</div>
+            <div class="sr-id"><a href="module.html#US-02-1" target="_self">US-02-1</a></div>
             <div class="sr-text">Als <strong>Organizer</strong> möchte ich Sessions anlegen (Typ, Stage, Zeit, Kapazität, buchbar ja/nein), <em>damit der Tagesplan strukturiert ist.</em></div>
             <div class="sr-tags"><span class="b b-m">M</span></div>
           </div>
           <div class="sr">
-            <div class="sr-id">US-02-2</div>
+            <div class="sr-id"><a href="module.html#US-02-2" target="_self">US-02-2</a></div>
             <div class="sr-text">Als <strong>Organizer</strong> möchte ich Speaker einer Session zuweisen (mehrere möglich).</div>
             <div class="sr-tags"><span class="b b-s">S</span></div>
           </div>
           <div class="sr">
-            <div class="sr-id">US-02-3</div>
+            <div class="sr-id"><a href="module.html#US-02-3" target="_self">US-02-3</a></div>
             <div class="sr-text">Als <strong>Besucher</strong> möchte ich das Tagesprogramm nach Stage und Typ filtern, <em>damit ich relevante Sessions schnell finde.</em></div>
             <div class="sr-tags"><span class="b b-s">S</span></div>
           </div>
@@ -347,12 +350,12 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
         <div class="mod-block-hdr"><span class="mb-icon">🎤</span><span class="mb-id">M03</span><span class="mb-name">Speaker-Management</span></div>
         <div class="story-rows">
           <div class="sr">
-            <div class="sr-id">US-03-1</div>
+            <div class="sr-id"><a href="module.html#US-03-1" target="_self">US-03-1</a></div>
             <div class="sr-text">Als <strong>Organizer</strong> möchte ich Speaker-Profile anlegen (Name, Titel, Firma, Bio, Foto, LinkedIn).</div>
             <div class="sr-tags"><span class="b b-s">S</span></div>
           </div>
           <div class="sr">
-            <div class="sr-id">US-03-2</div>
+            <div class="sr-id"><a href="module.html#US-03-2" target="_self">US-03-2</a></div>
             <div class="sr-text">Als <strong>Organizer</strong> möchte ich Speaker einem Event zuweisen.</div>
             <div class="sr-tags"><span class="b b-xs">XS</span></div>
           </div>
@@ -362,27 +365,27 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
         <div class="mod-block-hdr"><span class="mb-icon">🌐</span><span class="mb-id">M12</span><span class="mb-name">Public Website</span></div>
         <div class="story-rows">
           <div class="sr">
-            <div class="sr-id">US-12-1</div>
+            <div class="sr-id"><a href="module.html#US-12-1" target="_self">US-12-1</a></div>
             <div class="sr-text">Als <strong>Besucher</strong> möchte ich auf der Startseite alle Event-Infos auf einen Blick haben (Hero, Datum, Ort, Highlights, Speaker-Teaser, Sponsoren-Logos).</div>
             <div class="sr-tags"><span class="b b-l">L</span></div>
           </div>
           <div class="sr">
-            <div class="sr-id">US-12-2</div>
+            <div class="sr-id"><a href="module.html#US-12-2" target="_self">US-12-2</a></div>
             <div class="sr-text">Als <strong>Besucher</strong> möchte ich das Tagesprogramm mit Stage-Filter und Parallel-Sessions sehen.</div>
             <div class="sr-tags"><span class="b b-m">M</span></div>
           </div>
           <div class="sr">
-            <div class="sr-id">US-12-3</div>
+            <div class="sr-id"><a href="module.html#US-12-3" target="_self">US-12-3</a></div>
             <div class="sr-text">Als <strong>Besucher</strong> möchte ich Speaker mit Detailseiten (Bio, Firma, Sessions) sehen.</div>
             <div class="sr-tags"><span class="b b-s">S</span></div>
           </div>
           <div class="sr">
-            <div class="sr-id">US-12-4</div>
+            <div class="sr-id"><a href="module.html#US-12-4" target="_self">US-12-4</a></div>
             <div class="sr-text">Als <strong>Besucher</strong> möchte ich eine FAQ-Seite finden (pflegbar im Admin).</div>
             <div class="sr-tags"><span class="b b-s">S</span></div>
           </div>
           <div class="sr">
-            <div class="sr-id">US-12-5</div>
+            <div class="sr-id"><a href="module.html#US-12-5" target="_self">US-12-5</a></div>
             <div class="sr-text">Als <strong>System</strong> soll die Website SSR, Schema.org Event-Markup und OG-Tags haben.</div>
             <div class="sr-tags"><span class="b b-m">M</span></div>
           </div>
@@ -411,22 +414,22 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
         <div class="mod-block-hdr"><span class="mb-icon">🏢</span><span class="mb-id">M04</span><span class="mb-name">Unternehmens-Profile</span></div>
         <div class="story-rows">
           <div class="sr">
-            <div class="sr-id">US-04-1</div>
+            <div class="sr-id"><a href="module.html#US-04-1" target="_self">US-04-1</a></div>
             <div class="sr-text">Als <strong>Organizer</strong> möchte ich Unternehmen anlegen (Name, Logo, Website, Typ: Sponsor / Attendee-Firma).</div>
             <div class="sr-tags"><span class="b b-m">M</span></div>
           </div>
           <div class="sr">
-            <div class="sr-id">US-04-2</div>
+            <div class="sr-id"><a href="module.html#US-04-2" target="_self">US-04-2</a></div>
             <div class="sr-text">Als <strong>Organizer</strong> möchte ich die Website-Sichtbarkeit pro Unternehmen steuern (Sponsor-Seite / Partner / unsichtbar).</div>
             <div class="sr-tags"><span class="b b-s">S</span></div>
           </div>
           <div class="sr">
-            <div class="sr-id">US-04-3</div>
+            <div class="sr-id"><a href="module.html#US-04-3" target="_self">US-04-3</a></div>
             <div class="sr-text">Als <strong>Organizer</strong> möchte ich mehrere Tickets einem Unternehmen zuordnen.</div>
             <div class="sr-tags"><span class="b b-s">S</span></div>
           </div>
           <div class="sr">
-            <div class="sr-id">US-04-4</div>
+            <div class="sr-id"><a href="module.html#US-04-4" target="_self">US-04-4</a></div>
             <div class="sr-text">Als <strong>Organizer</strong> möchte ich im Admin nach Unternehmenstyp und Paket filtern.</div>
             <div class="sr-tags"><span class="b b-xs">XS</span></div>
           </div>
@@ -436,22 +439,22 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
         <div class="mod-block-hdr"><span class="mb-icon">👥</span><span class="mb-id">M05</span><span class="mb-name">Teilnehmer-Verwaltung</span></div>
         <div class="story-rows">
           <div class="sr">
-            <div class="sr-id">US-05-1</div>
+            <div class="sr-id"><a href="module.html#US-05-1" target="_self">US-05-1</a></div>
             <div class="sr-text">Als <strong>Organizer</strong> möchte ich alle Teilnehmer in einer Übersicht sehen (Name, Firma, Ticket, Check-in-Status).</div>
             <div class="sr-tags"><span class="b b-s">S</span></div>
           </div>
           <div class="sr">
-            <div class="sr-id">US-05-2</div>
+            <div class="sr-id"><a href="module.html#US-05-2" target="_self">US-05-2</a></div>
             <div class="sr-text">Als <strong>Organizer</strong> möchte ich Teilnehmer einem Unternehmen zuordnen.</div>
             <div class="sr-tags"><span class="b b-s">S</span></div>
           </div>
           <div class="sr">
-            <div class="sr-id">US-05-3</div>
+            <div class="sr-id"><a href="module.html#US-05-3" target="_self">US-05-3</a></div>
             <div class="sr-text">Als <strong>Organizer</strong> möchte ich die Teilnehmerliste nach Firma, Kategorie und Check-in-Status filtern.</div>
             <div class="sr-tags"><span class="b b-s">S</span></div>
           </div>
           <div class="sr">
-            <div class="sr-id">US-05-4</div>
+            <div class="sr-id"><a href="module.html#US-05-4" target="_self">US-05-4</a></div>
             <div class="sr-text">Als <strong>Organizer</strong> möchte ich die Teilnehmerliste als CSV exportieren.</div>
             <div class="sr-tags"><span class="b b-xs">XS</span></div>
           </div>
@@ -461,27 +464,27 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
         <div class="mod-block-hdr"><span class="mb-icon">💳</span><span class="mb-id">M06</span><span class="mb-name">Ticket-System via Payrexx</span></div>
         <div class="story-rows">
           <div class="sr">
-            <div class="sr-id">US-06-1</div>
+            <div class="sr-id"><a href="module.html#US-06-1" target="_self">US-06-1</a></div>
             <div class="sr-text">Als <strong>Organizer</strong> möchte ich Ticket-Kategorien konfigurieren (Name, Preis, Kapazität, Verkaufszeitraum).</div>
             <div class="sr-tags"><span class="b b-m">M</span></div>
           </div>
           <div class="sr">
-            <div class="sr-id">US-06-2</div>
+            <div class="sr-id"><a href="module.html#US-06-2" target="_self">US-06-2</a></div>
             <div class="sr-text">Als <strong>Besucher</strong> möchte ich ein Ticket kaufen (Kategorie → Daten → Payrexx → Bestätigung).</div>
             <div class="sr-tags"><span class="b b-l">L</span></div>
           </div>
           <div class="sr">
-            <div class="sr-id">US-06-3</div>
+            <div class="sr-id"><a href="module.html#US-06-3" target="_self">US-06-3</a></div>
             <div class="sr-text">Als <strong>Besucher</strong> möchte ich nach dem Kauf sofort eine Bestätigungsmail mit Ticket-PDF und QR-Code erhalten.</div>
             <div class="sr-tags"><span class="b b-m">M</span></div>
           </div>
           <div class="sr">
-            <div class="sr-id">US-06-4</div>
+            <div class="sr-id"><a href="module.html#US-06-4" target="_self">US-06-4</a></div>
             <div class="sr-text">Als <strong>Organizer</strong> möchte ich Voucher-Codes erstellen (%-Rabatt, Gratis, Direktlink).</div>
             <div class="sr-tags"><span class="b b-m">M</span></div>
           </div>
           <div class="sr">
-            <div class="sr-id">US-06-5</div>
+            <div class="sr-id"><a href="module.html#US-06-5" target="_self">US-06-5</a></div>
             <div class="sr-text">Als <strong>Organizer</strong> möchte ich Bestellungen einsehen und Stornierungen verwalten.</div>
             <div class="sr-tags"><span class="b b-s">S</span></div>
           </div>
@@ -510,17 +513,17 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
         <div class="mod-block-hdr"><span class="mb-icon">⭐</span><span class="mb-id">M09</span><span class="mb-name">Sponsor-Verwaltung</span></div>
         <div class="story-rows">
           <div class="sr">
-            <div class="sr-id">US-09-1</div>
+            <div class="sr-id"><a href="module.html#US-09-1" target="_self">US-09-1</a></div>
             <div class="sr-text">Als <strong>Organizer</strong> möchte ich Sponsor-Pakete definieren (Platin / Gold / Silver / Bronze / Partner) mit Rang.</div>
             <div class="sr-tags"><span class="b b-s">S</span></div>
           </div>
           <div class="sr">
-            <div class="sr-id">US-09-2</div>
+            <div class="sr-id"><a href="module.html#US-09-2" target="_self">US-09-2</a></div>
             <div class="sr-text">Als <strong>Organizer</strong> möchte ich Unternehmen als Sponsor markieren und ein Paket zuweisen.</div>
             <div class="sr-tags"><span class="b b-s">S</span></div>
           </div>
           <div class="sr">
-            <div class="sr-id">US-09-3</div>
+            <div class="sr-id"><a href="module.html#US-09-3" target="_self">US-09-3</a></div>
             <div class="sr-text">Als <strong>Besucher</strong> möchte ich Sponsoren nach Paket-Rang sortiert auf der Website sehen.</div>
             <div class="sr-tags"><span class="b b-xs">XS</span></div>
           </div>
@@ -530,17 +533,17 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
         <div class="mod-block-hdr"><span class="mb-icon">📧</span><span class="mb-id">M10</span><span class="mb-name">Kommunikations-Basis</span></div>
         <div class="story-rows">
           <div class="sr">
-            <div class="sr-id">US-10-1</div>
+            <div class="sr-id"><a href="module.html#US-10-1" target="_self">US-10-1</a></div>
             <div class="sr-text">Als <strong>Organizer</strong> möchte ich E-Mails an Teilnehmer-Gruppen senden (alle / Ticket-Kategorie / Unternehmen).</div>
             <div class="sr-tags"><span class="b b-m">M</span></div>
           </div>
           <div class="sr">
-            <div class="sr-id">US-10-2</div>
+            <div class="sr-id"><a href="module.html#US-10-2" target="_self">US-10-2</a></div>
             <div class="sr-text">Als <strong>Organizer</strong> möchte ich E-Mail-Templates anpassen (Variablen: Name, Ticket, Datum).</div>
             <div class="sr-tags"><span class="b b-s">S</span></div>
           </div>
           <div class="sr">
-            <div class="sr-id">US-10-3</div>
+            <div class="sr-id"><a href="module.html#US-10-3" target="_self">US-10-3</a></div>
             <div class="sr-text">Als <strong>System</strong> sollen Trigger-Mails automatisch versendet werden (Ticket-Bestätigung, Reminder T-7/T-1, Post-Event).</div>
             <div class="sr-tags"><span class="b b-m">M</span></div>
           </div>
@@ -573,17 +576,17 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
         <div class="mod-block-hdr"><span class="mb-icon">🪪</span><span class="mb-id">M08</span><span class="mb-name">My Summit — Basis</span></div>
         <div class="story-rows">
           <div class="sr">
-            <div class="sr-id">US-08-1</div>
+            <div class="sr-id"><a href="module.html#US-08-1" target="_self">US-08-1</a></div>
             <div class="sr-text">Als <strong>Teilnehmer</strong> möchte ich mich auf my.d2c-summit.ch registrieren und einloggen.</div>
             <div class="sr-tags"><span class="b b-m">M</span></div>
           </div>
           <div class="sr">
-            <div class="sr-id">US-08-2</div>
+            <div class="sr-id"><a href="module.html#US-08-2" target="_self">US-08-2</a></div>
             <div class="sr-text">Als <strong>Teilnehmer</strong> möchte ich mein Ticket mit QR-Code anzeigen und die Rechnung herunterladen.</div>
             <div class="sr-tags"><span class="b b-s">S</span></div>
           </div>
           <div class="sr">
-            <div class="sr-id">US-08-3</div>
+            <div class="sr-id"><a href="module.html#US-08-3" target="_self">US-08-3</a></div>
             <div class="sr-text">Als <strong>Teilnehmer</strong> möchte ich mein Profil bearbeiten (Name, Firma, Funktion).</div>
             <div class="sr-tags"><span class="b b-s">S</span></div>
           </div>
@@ -593,12 +596,12 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
         <div class="mod-block-hdr"><span class="mb-icon">📊</span><span class="mb-id">M11</span><span class="mb-name">Statistiken</span></div>
         <div class="story-rows">
           <div class="sr">
-            <div class="sr-id">US-11-1</div>
+            <div class="sr-id"><a href="module.html#US-11-1" target="_self">US-11-1</a></div>
             <div class="sr-text">Als <strong>Organizer</strong> möchte ich Ticket-Verkäufe in Echtzeit sehen (Anzahl, Umsatz, nach Kategorie).</div>
             <div class="sr-tags"><span class="b b-s">S</span></div>
           </div>
           <div class="sr">
-            <div class="sr-id">US-11-2</div>
+            <div class="sr-id"><a href="module.html#US-11-2" target="_self">US-11-2</a></div>
             <div class="sr-text">Als <strong>Organizer</strong> möchte ich am Eventtag die Check-in-Rate live sehen.</div>
             <div class="sr-tags"><span class="b b-s">S</span></div>
           </div>
@@ -608,27 +611,27 @@ body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
         <div class="mod-block-hdr"><span class="mb-icon">📱</span><span class="mb-id">M13</span><span class="mb-name">Check-in & Badge-Druck</span></div>
         <div class="story-rows">
           <div class="sr">
-            <div class="sr-id">US-13-1</div>
+            <div class="sr-id"><a href="module.html#US-13-1" target="_self">US-13-1</a></div>
             <div class="sr-text">Als <strong>Check-in-Personal</strong> möchte ich QR-Codes am Registrationstisch mit einem Hand-Scanner einlesen.</div>
             <div class="sr-tags"><span class="b b-m">M</span></div>
           </div>
           <div class="sr">
-            <div class="sr-id">US-13-2</div>
+            <div class="sr-id"><a href="module.html#US-13-2" target="_self">US-13-2</a></div>
             <div class="sr-text">Als <strong>Teilnehmer</strong> möchte ich mich am Self Check-in Kiosk selbst einchecken.</div>
             <div class="sr-tags"><span class="b b-m">M</span></div>
           </div>
           <div class="sr">
-            <div class="sr-id">US-13-3</div>
+            <div class="sr-id"><a href="module.html#US-13-3" target="_self">US-13-3</a></div>
             <div class="sr-text">Als <strong>System</strong> soll nach Check-in automatisch ein Etikett auf dem Brother QL-820NWB via WiFi gedruckt werden.</div>
             <div class="sr-tags"><span class="b b-m">M</span></div>
           </div>
           <div class="sr">
-            <div class="sr-id">US-13-4</div>
+            <div class="sr-id"><a href="module.html#US-13-4" target="_self">US-13-4</a></div>
             <div class="sr-text">Als <strong>Check-in-Personal</strong> möchte ich bei ungültigen Tickets eine klare Fehlermeldung sehen.</div>
             <div class="sr-tags"><span class="b b-s">S</span></div>
           </div>
           <div class="sr">
-            <div class="sr-id">US-13-5</div>
+            <div class="sr-id"><a href="module.html#US-13-5" target="_self">US-13-5</a></div>
             <div class="sr-text">Als <strong>Organizer</strong> möchte ich die Live-Einlass-Rate sehen (eingecheckt / gesamt).</div>
             <div class="sr-tags"><span class="b b-xs">XS</span></div>
           </div>
