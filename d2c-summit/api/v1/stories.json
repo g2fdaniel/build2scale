@@ -1,0 +1,1099 @@
+{
+  "meta": {
+    "count": 64,
+    "mvp_count": 44,
+    "post_mvp_count": 20,
+    "generated_at": "2026-03-30T17:22:11.831Z"
+  },
+  "stories": [
+    {
+      "id": "US-01-1",
+      "title": "Event erstellen",
+      "module_id": "M01",
+      "module_label": "M01 · Event Engine",
+      "scope": "MVP",
+      "phase": "P1",
+      "size": "M",
+      "story_html": "Als <strong>Organizer</strong> möchte ich ein neues Event anlegen (Titel, Datum, Venue, Status), damit alle weiteren Inhalte einem Event zugeordnet werden können.",
+      "story_text": "Als Organizer möchte ich ein neues Event anlegen (Titel, Datum, Venue, Status), damit alle weiteren Inhalte einem Event zugeordnet werden können.",
+      "acceptance_criteria": [
+        "Formular erfasst: Titel, Beschreibung, Datum/Zeit, Venue-Name, Status",
+        "Status-Workflow: Entwurf → Publiziert → Archiviert mit entsprechender Website-Sichtbarkeit",
+        "Alle Datensätze (Sessions, Tickets, Speaker) sind via FK mit dem Event verknüpft"
+      ],
+      "note": "Fundamentales Kernmodul — ohne Event kann kein anderes Modul betrieben werden."
+    },
+    {
+      "id": "US-01-2",
+      "title": "Stages & Räume definieren",
+      "module_id": "M01",
+      "module_label": "M01 · Event Engine",
+      "scope": "MVP",
+      "phase": "P1",
+      "size": "S",
+      "story_html": "Als <strong>Organizer</strong> möchte ich Stages und Räume definieren (Name, Kapazität, Reihenfolge), damit Sessions konkret verortet werden können.",
+      "story_text": "Als Organizer möchte ich Stages und Räume definieren (Name, Kapazität, Reihenfolge), damit Sessions konkret verortet werden können.",
+      "acceptance_criteria": [
+        "Stage mit Name, Kapazität und Reihenfolge-Nummer anlegen",
+        "Mehrere Stages pro Event möglich",
+        "Stage-Auswahl erscheint im Session-Formular"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-01-3",
+      "title": "Event Branding konfigurieren",
+      "module_id": "M01",
+      "module_label": "M01 · Event Engine",
+      "scope": "MVP",
+      "phase": "P2",
+      "size": "S",
+      "story_html": "Als <strong>Organizer</strong> möchte ich Event-Branding konfigurieren (Logo, Primärfarbe, Hero-Bild), damit die öffentliche Website das Erscheinungsbild des Events widerspiegelt.",
+      "story_text": "Als Organizer möchte ich Event-Branding konfigurieren (Logo, Primärfarbe, Hero-Bild), damit die öffentliche Website das Erscheinungsbild des Events widerspiegelt.",
+      "acceptance_criteria": [
+        "Logo, Primärfarbe und Hero-Bild uploadbar",
+        "Vorschau in Admin sichtbar",
+        "Werte werden via API an alle Frontends geliefert"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-01-4",
+      "title": "Event klonen",
+      "module_id": "M01",
+      "module_label": "M01 · Event Engine",
+      "scope": "Post-MVP",
+      "phase": null,
+      "size": "M",
+      "story_html": "Als <strong>Organizer</strong> möchte ich ein vergangenes Event klonen, damit ich für das Folgejahr nicht alles neu aufbauen muss.",
+      "story_text": "Als Organizer möchte ich ein vergangenes Event klonen, damit ich für das Folgejahr nicht alles neu aufbauen muss.",
+      "acceptance_criteria": [
+        "Alle Stammdaten werden kopiert, Datum zurückgesetzt",
+        "Sessions und Tickets geklont ohne bestehende Buchungen",
+        "Neues Event startet im Status Entwurf"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-02-1",
+      "title": "Session anlegen",
+      "module_id": "M02",
+      "module_label": "M02 · Programm-Manager",
+      "scope": "MVP",
+      "phase": "P2",
+      "size": "M",
+      "story_html": "Als <strong>Organizer</strong> möchte ich Sessions anlegen (Typ, Stage, Start/End, Kapazität, buchbar), damit der Tagesplan vollständig strukturiert ist.",
+      "story_text": "Als Organizer möchte ich Sessions anlegen (Typ, Stage, Start/End, Kapazität, buchbar), damit der Tagesplan vollständig strukturiert ist.",
+      "acceptance_criteria": [
+        "Felder: Typ, Stage, Start/End, Kapazität, buchbar ja/nein",
+        "Zeitkonflikte innerhalb der Stage werden gewarnt",
+        "Session erscheint korrekt positioniert im Tagesplan"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-02-2",
+      "title": "Speaker einer Session zuweisen",
+      "module_id": "M02",
+      "module_label": "M02 · Programm-Manager",
+      "scope": "MVP",
+      "phase": "P2",
+      "size": "S",
+      "story_html": "Als <strong>Organizer</strong> möchte ich Speaker einer Session zuweisen (mehrere möglich), damit die Verknüpfung auf Website und Admin korrekt dargestellt wird.",
+      "story_text": "Als Organizer möchte ich Speaker einer Session zuweisen (mehrere möglich), damit die Verknüpfung auf Website und Admin korrekt dargestellt wird.",
+      "acceptance_criteria": [
+        "Mehrere Speaker pro Session möglich",
+        "Zuweisung erscheint auf Website und im Admin",
+        "Speaker-Bild und Titel in Session-Detailansicht"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-02-3",
+      "title": "Programm nach Stage filtern",
+      "module_id": "M02",
+      "module_label": "M02 · Programm-Manager",
+      "scope": "MVP",
+      "phase": "P2",
+      "size": "S",
+      "story_html": "Als <strong>Besucher</strong> möchte ich das Tagesprogramm nach Stage und Typ filtern, damit ich schnell relevante Sessions finde.",
+      "story_text": "Als Besucher möchte ich das Tagesprogramm nach Stage und Typ filtern, damit ich schnell relevante Sessions finde.",
+      "acceptance_criteria": [
+        "Filter nach Stage und Session-Typ",
+        "Parallele Sessions nebeneinander sichtbar",
+        "Mobil-optimierte Darstellung"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-02-4",
+      "title": "Session-Materialien hochladen",
+      "module_id": "M02",
+      "module_label": "M02 · Programm-Manager",
+      "scope": "Post-MVP",
+      "phase": null,
+      "size": "S",
+      "story_html": "Als <strong>Organizer</strong> möchte ich Session-Materialien hochladen, damit Teilnehmer nach dem Event darauf zugreifen können.",
+      "story_text": "Als Organizer möchte ich Session-Materialien hochladen, damit Teilnehmer nach dem Event darauf zugreifen können.",
+      "acceptance_criteria": [
+        "PDF/PPTX upload pro Session",
+        "Download nur für eingeloggte Teilnehmer",
+        "Optionaler E-Mail-Versand nach Event"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-03-1",
+      "title": "Speaker-Profil anlegen",
+      "module_id": "M03",
+      "module_label": "M03 · Speaker-Management",
+      "scope": "MVP",
+      "phase": "P2",
+      "size": "S",
+      "story_html": "Als <strong>Organizer</strong> möchte ich Speaker-Profile anlegen (Name, Titel, Firma, Bio, Foto, LinkedIn), damit sie korrekt auf der Website erscheinen.",
+      "story_text": "Als Organizer möchte ich Speaker-Profile anlegen (Name, Titel, Firma, Bio, Foto, LinkedIn), damit sie korrekt auf der Website erscheinen.",
+      "acceptance_criteria": [
+        "Felder: Name, Titel, Firma, Bio, Foto, LinkedIn",
+        "Foto-Upload mit Größenbeschränkung (max. 2 MB)",
+        "Profil erscheint nach Event-Zuweisung auf Website"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-03-2",
+      "title": "Speaker einem Event zuweisen",
+      "module_id": "M03",
+      "module_label": "M03 · Speaker-Management",
+      "scope": "MVP",
+      "phase": "P2",
+      "size": "XS",
+      "story_html": "Als <strong>Organizer</strong> möchte ich Speaker einem Event zuweisen, damit nur aktuelle Speaker des jeweiligen Events angezeigt werden.",
+      "story_text": "Als Organizer möchte ich Speaker einem Event zuweisen, damit nur aktuelle Speaker des jeweiligen Events angezeigt werden.",
+      "acceptance_criteria": [
+        "Speaker-Auswahl beim Event",
+        "Nur zugewiesene Speaker auf Website sichtbar",
+        "Entfernen vom Event versteckt das Profil"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-03-3",
+      "title": "Speaker Self-Service Portal",
+      "module_id": "M03",
+      "module_label": "M03 · Speaker-Management",
+      "scope": "Post-MVP",
+      "phase": null,
+      "size": "M",
+      "story_html": "Als <strong>Speaker</strong> möchte ich mich einloggen und Profil sowie Präsentationen selbst pflegen, damit der Organizer entlastet wird.",
+      "story_text": "Als Speaker möchte ich mich einloggen und Profil sowie Präsentationen selbst pflegen, damit der Organizer entlastet wird.",
+      "acceptance_criteria": [
+        "Speaker-Login über My Summit",
+        "Profil und Präsentationen selbst pflegbar",
+        "Organizer erhält Benachrichtigung bei Änderungen"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-04-1",
+      "title": "Unternehmen anlegen",
+      "module_id": "M04",
+      "module_label": "M04 · Unternehmens-Profile",
+      "scope": "MVP",
+      "phase": "P3",
+      "size": "M",
+      "story_html": "Als <strong>Organizer</strong> möchte ich Unternehmen anlegen (Name, Logo, Website, Typ: Sponsor / Attendee-Firma), damit Teilnehmer und Sponsoren einer Firma zugeordnet werden können.",
+      "story_text": "Als Organizer möchte ich Unternehmen anlegen (Name, Logo, Website, Typ: Sponsor / Attendee-Firma), damit Teilnehmer und Sponsoren einer Firma zugeordnet werden können.",
+      "acceptance_criteria": [
+        "Felder: Name, Logo, Website, Typ (Sponsor/Attendee-Firma)",
+        "Logo-Upload mit Vorschau",
+        "Basis für Ticket-Zuordnung und Sponsoring"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-04-2",
+      "title": "Website-Sichtbarkeit steuern",
+      "module_id": "M04",
+      "module_label": "M04 · Unternehmens-Profile",
+      "scope": "MVP",
+      "phase": "P3",
+      "size": "S",
+      "story_html": "Als <strong>Organizer</strong> möchte ich die Website-Sichtbarkeit pro Unternehmen steuern (Sponsor-Seite / Partner / unsichtbar), damit ich kontrolliere was auf der Website erscheint.",
+      "story_text": "Als Organizer möchte ich die Website-Sichtbarkeit pro Unternehmen steuern (Sponsor-Seite / Partner / unsichtbar), damit ich kontrolliere was auf der Website erscheint.",
+      "acceptance_criteria": [
+        "Drei Optionen: Sponsor-Seite / Partner / unsichtbar",
+        "Änderung sofort auf Website wirksam",
+        "Standardwert ist unsichtbar"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-04-3",
+      "title": "Gruppen-Tickets zuordnen",
+      "module_id": "M04",
+      "module_label": "M04 · Unternehmens-Profile",
+      "scope": "MVP",
+      "phase": "P3",
+      "size": "S",
+      "story_html": "Als <strong>Organizer</strong> möchte ich mehrere Tickets einem Unternehmen zuordnen, damit Firmen-Gruppen sauber abgebildet werden.",
+      "story_text": "Als Organizer möchte ich mehrere Tickets einem Unternehmen zuordnen, damit Firmen-Gruppen sauber abgebildet werden.",
+      "acceptance_criteria": [
+        "Mehrere Tickets einer Firma zuweisen",
+        "Teilnehmer-Liste pro Firma im Admin",
+        "Buchungs-Bestätigung geht an Firmen-E-Mail"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-04-4",
+      "title": "Unternehmen filtern & suchen",
+      "module_id": "M04",
+      "module_label": "M04 · Unternehmens-Profile",
+      "scope": "MVP",
+      "phase": "P3",
+      "size": "XS",
+      "story_html": "Als <strong>Organizer</strong> möchte ich im Admin nach Unternehmenstyp, Sichtbarkeit und Paket filtern, damit ich schnell den richtigen Datensatz finde.",
+      "story_text": "Als Organizer möchte ich im Admin nach Unternehmenstyp, Sichtbarkeit und Paket filtern, damit ich schnell den richtigen Datensatz finde.",
+      "acceptance_criteria": [
+        "Filter nach Typ, Sichtbarkeit, Sponsor-Paket",
+        "Sucheingabe nach Unternehmensname",
+        "CSV-Export der gefilterten Liste"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-05-1",
+      "title": "Teilnehmer-Übersicht",
+      "module_id": "M05",
+      "module_label": "M05 · Teilnehmer-Verwaltung",
+      "scope": "MVP",
+      "phase": "P3",
+      "size": "S",
+      "story_html": "Als <strong>Organizer</strong> möchte ich alle Teilnehmer in einer Übersicht sehen (Name, Firma, Ticket-Kategorie, Check-in-Status), damit ich jederzeit den Gesamtüberblick habe.",
+      "story_text": "Als Organizer möchte ich alle Teilnehmer in einer Übersicht sehen (Name, Firma, Ticket-Kategorie, Check-in-Status), damit ich jederzeit den Gesamtüberblick habe.",
+      "acceptance_criteria": [
+        "Tabelle mit Name, Firma, Ticket, Check-in-Status",
+        "Sortierung nach allen Spalten",
+        "Pagination bei mehr als 100 Einträgen"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-05-2",
+      "title": "Teilnehmer einer Firma zuordnen",
+      "module_id": "M05",
+      "module_label": "M05 · Teilnehmer-Verwaltung",
+      "scope": "MVP",
+      "phase": "P3",
+      "size": "S",
+      "story_html": "Als <strong>Organizer</strong> möchte ich Teilnehmer einem Unternehmen zuordnen, damit ich sehe welche Firma wie viele Personen schickt.",
+      "story_text": "Als Organizer möchte ich Teilnehmer einem Unternehmen zuordnen, damit ich sehe welche Firma wie viele Personen schickt.",
+      "acceptance_criteria": [
+        "Zuweisung im Teilnehmer-Detailformular",
+        "Firma in der Teilnehmer-Liste angezeigt",
+        "Firmen-Übersicht zeigt alle zugeordneten Teilnehmer"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-05-3",
+      "title": "Teilnehmer filtern",
+      "module_id": "M05",
+      "module_label": "M05 · Teilnehmer-Verwaltung",
+      "scope": "MVP",
+      "phase": "P3",
+      "size": "S",
+      "story_html": "Als <strong>Organizer</strong> möchte ich Teilnehmer nach Unternehmen, Ticket-Kategorie und Check-in-Status filtern, damit ich gezielt suchen und auswerten kann.",
+      "story_text": "Als Organizer möchte ich Teilnehmer nach Unternehmen, Ticket-Kategorie und Check-in-Status filtern, damit ich gezielt suchen und auswerten kann.",
+      "acceptance_criteria": [
+        "Filter nach Firma, Ticket-Kategorie, Check-in-Status",
+        "Kombination mehrerer Filter möglich",
+        "Anzahl Treffer wird angezeigt"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-05-4",
+      "title": "CSV-Export",
+      "module_id": "M05",
+      "module_label": "M05 · Teilnehmer-Verwaltung",
+      "scope": "MVP",
+      "phase": "P3",
+      "size": "XS",
+      "story_html": "Als <strong>Organizer</strong> möchte ich die Teilnehmerliste als CSV exportieren, damit ich externe Tools wie Excel oder CRM nutzen kann.",
+      "story_text": "Als Organizer möchte ich die Teilnehmerliste als CSV exportieren, damit ich externe Tools wie Excel oder CRM nutzen kann.",
+      "acceptance_criteria": [
+        "Export enthält: Name, E-Mail, Firma, Ticket-Kategorie, Check-in-Status",
+        "Aktiver Filter wird auf Export angewendet",
+        "Dateiname enthält Event-Name und Datum"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-06-1",
+      "title": "Ticket-Kategorien konfigurieren",
+      "module_id": "M06",
+      "module_label": "M06 · Ticket-System via Payrexx",
+      "scope": "MVP",
+      "phase": "P3",
+      "size": "M",
+      "story_html": "Als <strong>Organizer</strong> möchte ich Ticket-Kategorien konfigurieren (Name, Preis, Kapazität, Verkaufszeitraum), damit ich Early Bird, Standard und VIP anbieten kann.",
+      "story_text": "Als Organizer möchte ich Ticket-Kategorien konfigurieren (Name, Preis, Kapazität, Verkaufszeitraum), damit ich Early Bird, Standard und VIP anbieten kann.",
+      "acceptance_criteria": [
+        "Felder: Name, Preis, Kapazität, Verkaufszeitraum",
+        "Mehrere Kategorien pro Event (Early Bird / Standard / VIP)",
+        "Ausverkauft-Status automatisch bei Kapazitätsende"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-06-2",
+      "title": "Ticketkauf Checkout",
+      "module_id": "M06",
+      "module_label": "M06 · Ticket-System via Payrexx",
+      "scope": "MVP",
+      "phase": "P3",
+      "size": "L",
+      "story_html": "Als <strong>Besucher</strong> möchte ich ein Ticket kaufen (Kategorie → Daten → Payrexx → Bestätigung), damit ich am Event teilnehmen kann.",
+      "story_text": "Als Besucher möchte ich ein Ticket kaufen (Kategorie → Daten → Payrexx → Bestätigung), damit ich am Event teilnehmen kann.",
+      "acceptance_criteria": [
+        "Flow: Kategorie wählen → Daten eingeben → Payrexx → Bestätigungsseite",
+        "Payrexx Webhook bestätigt Zahlung asynchron",
+        "Ticket wird nur bei erfolgreicher Zahlung erstellt"
+      ],
+      "note": "Herzstück des Conversion-Funnels — Fehler hier = kein Umsatz."
+    },
+    {
+      "id": "US-06-3",
+      "title": "Bestätigungsmail & QR-Code",
+      "module_id": "M06",
+      "module_label": "M06 · Ticket-System via Payrexx",
+      "scope": "MVP",
+      "phase": "P3",
+      "size": "M",
+      "story_html": "Als <strong>Besucher</strong> möchte ich nach dem Kauf sofort eine Bestätigungsmail mit Ticket-PDF und QR-Code erhalten, damit ich am Eventtag einchecken kann.",
+      "story_text": "Als Besucher möchte ich nach dem Kauf sofort eine Bestätigungsmail mit Ticket-PDF und QR-Code erhalten, damit ich am Eventtag einchecken kann.",
+      "acceptance_criteria": [
+        "Mail direkt nach Zahlungsbestätigung durch Payrexx",
+        "Ticket-PDF mit eindeutigem QR-Code (UUID) angehängt",
+        "QR-Code im My Summit jederzeit erneut abrufbar"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-06-4",
+      "title": "Voucher-Codes erstellen",
+      "module_id": "M06",
+      "module_label": "M06 · Ticket-System via Payrexx",
+      "scope": "MVP",
+      "phase": "P3",
+      "size": "M",
+      "story_html": "Als <strong>Organizer</strong> möchte ich Voucher-Codes erstellen (%-Rabatt, Gratis-Tickets, Direktlink), damit Partner und VIP-Einladungen ohne manuelle Arbeit abgewickelt werden.",
+      "story_text": "Als Organizer möchte ich Voucher-Codes erstellen (%-Rabatt, Gratis-Tickets, Direktlink), damit Partner und VIP-Einladungen ohne manuelle Arbeit abgewickelt werden.",
+      "acceptance_criteria": [
+        "Voucher als %-Rabatt oder 100% Gratis konfigurierbar",
+        "Einmalig oder mehrfach nutzbar",
+        "Direktlink (URL mit vorausgefülltem Code) generierbar"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-06-5",
+      "title": "Bestellverwaltung & Stornierung",
+      "module_id": "M06",
+      "module_label": "M06 · Ticket-System via Payrexx",
+      "scope": "MVP",
+      "phase": "P3",
+      "size": "S",
+      "story_html": "Als <strong>Organizer</strong> möchte ich Bestellungen einsehen und Stornierungen manuell verwalten, damit ich auf Kundenwünsche reagieren kann.",
+      "story_text": "Als Organizer möchte ich Bestellungen einsehen und Stornierungen manuell verwalten, damit ich auf Kundenwünsche reagieren kann.",
+      "acceptance_criteria": [
+        "Bestellübersicht mit Status (bezahlt / storniert / ausstehend)",
+        "Manuelle Stornierung durch Organizer möglich",
+        "Stornierung sendet automatisch Bestätigungs-Mail"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-07-1",
+      "title": "Benutzer & Rollen verwalten",
+      "module_id": "M07",
+      "module_label": "M07 · Rollen & Rechte",
+      "scope": "MVP",
+      "phase": "P1",
+      "size": "M",
+      "story_html": "Als <strong>Super Admin</strong> möchte ich Benutzer anlegen und ihnen Rollen pro Event vergeben (7 Rollen), damit jeder nur auf seinen Bereich zugreifen kann.",
+      "story_text": "Als Super Admin möchte ich Benutzer anlegen und ihnen Rollen pro Event vergeben (7 Rollen), damit jeder nur auf seinen Bereich zugreifen kann.",
+      "acceptance_criteria": [
+        "7 Rollen: super_admin / organizer / sponsor_manager / attendee / speaker / sponsor / checkin",
+        "Rollen werden pro Event vergeben (nicht global)",
+        "Benutzer per E-Mail einladen"
+      ],
+      "note": "Muss in P1 sein — alle anderen Module bauen auf Rollen auf."
+    },
+    {
+      "id": "US-07-2",
+      "title": "Domain-Schutz & Middleware",
+      "module_id": "M07",
+      "module_label": "M07 · Rollen & Rechte",
+      "scope": "MVP",
+      "phase": "P1",
+      "size": "L",
+      "story_html": "Als <strong>System</strong> müssen alle 4 Domains durch Middleware rollenbasiert geschützt sein, damit kein unbefugter Zugriff möglich ist.",
+      "story_text": "Als System müssen alle 4 Domains durch Middleware rollenbasiert geschützt sein, damit kein unbefugter Zugriff möglich ist.",
+      "acceptance_criteria": [
+        "Public: kein Auth nötig",
+        "My Summit: attendee / speaker / sponsor",
+        "Admin: organizer / super_admin",
+        "Check-in: checkin-Rolle — unberechtigte Zugriffe → 403"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-08-1",
+      "title": "My Summit Login & Registrierung",
+      "module_id": "M08",
+      "module_label": "M08 · My Summit — Basis",
+      "scope": "MVP",
+      "phase": "P5",
+      "size": "M",
+      "story_html": "Als <strong>Teilnehmer</strong> möchte ich mich nach dem Ticketkauf auf my.d2c-summit.ch registrieren und einloggen, damit ich Zugang zu meinem persönlichen Bereich erhalte.",
+      "story_text": "Als Teilnehmer möchte ich mich nach dem Ticketkauf auf my.d2c-summit.ch registrieren und einloggen, damit ich Zugang zu meinem persönlichen Bereich erhalte.",
+      "acceptance_criteria": [
+        "Registrierung via E-Mail-Link nach Ticketkauf",
+        "Login via E-Mail + Passwort",
+        "Passwort vergessen / zurücksetzen Flow"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-08-2",
+      "title": "Ticket & Rechnung ansehen",
+      "module_id": "M08",
+      "module_label": "M08 · My Summit — Basis",
+      "scope": "MVP",
+      "phase": "P5",
+      "size": "S",
+      "story_html": "Als <strong>Teilnehmer</strong> möchte ich mein Ticket mit QR-Code anzeigen und die Rechnung herunterladen, damit ich am Eventtag einchecken und die Buchhaltung bedienen kann.",
+      "story_text": "Als Teilnehmer möchte ich mein Ticket mit QR-Code anzeigen und die Rechnung herunterladen, damit ich am Eventtag einchecken und die Buchhaltung bedienen kann.",
+      "acceptance_criteria": [
+        "QR-Code als Bild in voller Größe angezeigt",
+        "Ticket-PDF downloadbar",
+        "Rechnung als PDF downloadbar (falls Zahlung erfolgt)"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-08-3",
+      "title": "Profil bearbeiten",
+      "module_id": "M08",
+      "module_label": "M08 · My Summit — Basis",
+      "scope": "MVP",
+      "phase": "P5",
+      "size": "S",
+      "story_html": "Als <strong>Teilnehmer</strong> möchte ich mein Profil bearbeiten (Name, Firma, Funktion), damit meine Daten auf Badge-Etikett und in der Teilnehmerliste korrekt sind.",
+      "story_text": "Als Teilnehmer möchte ich mein Profil bearbeiten (Name, Firma, Funktion), damit meine Daten auf Badge-Etikett und in der Teilnehmerliste korrekt sind.",
+      "acceptance_criteria": [
+        "Felder: Name, Firma, Funktion, Profilbild",
+        "Änderungen sofort auf Badge-Druck und Teilnehmerliste wirksam",
+        "E-Mail-Adresse nur durch Admin änderbar"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-08-4",
+      "title": "Masterclass buchen",
+      "module_id": "M08",
+      "module_label": "M08 · My Summit — Basis",
+      "scope": "Post-MVP",
+      "phase": null,
+      "size": "L",
+      "story_html": "Als <strong>Teilnehmer</strong> möchte ich Masterclasses buchen und mich auf Wartelisten setzen, damit ich meinen Tagesplan selbst zusammenstellen kann.",
+      "story_text": "Als Teilnehmer möchte ich Masterclasses buchen und mich auf Wartelisten setzen, damit ich meinen Tagesplan selbst zusammenstellen kann.",
+      "acceptance_criteria": [
+        "Verfügbare Sessions mit Kapazitätsanzeige",
+        "Buchungsbestätigung per E-Mail",
+        "Warteliste bei ausgebuchten Sessions"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-08-5",
+      "title": "Zertifikat & Social Cards",
+      "module_id": "M08",
+      "module_label": "M08 · My Summit — Basis",
+      "scope": "Post-MVP",
+      "phase": null,
+      "size": "M",
+      "story_html": "Als <strong>Teilnehmer</strong> möchte ich nach dem Event Badge, Social Cards und Teilnahmezertifikat herunterladen, damit ich den Event auf LinkedIn teilen kann.",
+      "story_text": "Als Teilnehmer möchte ich nach dem Event Badge, Social Cards und Teilnahmezertifikat herunterladen, damit ich den Event auf LinkedIn teilen kann.",
+      "acceptance_criteria": [
+        "Teilnahmezertifikat als PDF generierbar",
+        "Social Card für LinkedIn (1200×630 px)",
+        "Beide Downloads im My Summit verfügbar"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-09-1",
+      "title": "Sponsor-Pakete definieren",
+      "module_id": "M09",
+      "module_label": "M09 · Sponsor-Verwaltung",
+      "scope": "MVP",
+      "phase": "P4",
+      "size": "S",
+      "story_html": "Als <strong>Organizer</strong> möchte ich Sponsor-Pakete definieren (Platin / Gold / Silver / Bronze / Partner) mit Rang, damit die Wertigkeit für Sponsoren klar kommuniziert wird.",
+      "story_text": "Als Organizer möchte ich Sponsor-Pakete definieren (Platin / Gold / Silver / Bronze / Partner) mit Rang, damit die Wertigkeit für Sponsoren klar kommuniziert wird.",
+      "acceptance_criteria": [
+        "Pakete mit Name, Rang und optionaler Beschreibung",
+        "Rang bestimmt Anzeigereihenfolge auf Website",
+        "Mehrere Sponsoren pro Paket möglich"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-09-2",
+      "title": "Sponsor zuweisen & aktivieren",
+      "module_id": "M09",
+      "module_label": "M09 · Sponsor-Verwaltung",
+      "scope": "MVP",
+      "phase": "P4",
+      "size": "S",
+      "story_html": "Als <strong>Organizer</strong> möchte ich ein Unternehmen als Sponsor markieren und ein Paket zuweisen, damit Logo und Name automatisch auf der Sponsoren-Seite erscheinen.",
+      "story_text": "Als Organizer möchte ich ein Unternehmen als Sponsor markieren und ein Paket zuweisen, damit Logo und Name automatisch auf der Sponsoren-Seite erscheinen.",
+      "acceptance_criteria": [
+        "Sponsor-Flag + Paket-Auswahl im Unternehmens-Formular",
+        "Logo erscheint automatisch auf Sponsor-Seite",
+        "Sichtbarkeit über M04-Einstellung gesteuert"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-09-3",
+      "title": "Sponsoren-Seite nach Rang",
+      "module_id": "M09",
+      "module_label": "M09 · Sponsor-Verwaltung",
+      "scope": "MVP",
+      "phase": "P4",
+      "size": "XS",
+      "story_html": "Als <strong>Besucher</strong> möchte ich Sponsoren nach Paket-Rang sortiert sehen, damit die Wertigkeit der Sponsoring-Stufen sichtbar ist.",
+      "story_text": "Als Besucher möchte ich Sponsoren nach Paket-Rang sortiert sehen, damit die Wertigkeit der Sponsoring-Stufen sichtbar ist.",
+      "acceptance_criteria": [
+        "Sortierung nach Paket-Rang (Platin oben)",
+        "Logo-Größe je nach Rang (Platin > Gold > Silver…)",
+        "Klick auf Logo öffnet Sponsor-Website"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-09-4",
+      "title": "Sponsor Self-Service Portal",
+      "module_id": "M09",
+      "module_label": "M09 · Sponsor-Verwaltung",
+      "scope": "Post-MVP",
+      "phase": null,
+      "size": "M",
+      "story_html": "Als <strong>Sponsor</strong> möchte ich mich einloggen, Logo hochladen und Statistiken einsehen, damit ich meinen ROI aus dem Sponsoring messen kann.",
+      "story_text": "Als Sponsor möchte ich mich einloggen, Logo hochladen und Statistiken einsehen, damit ich meinen ROI aus dem Sponsoring messen kann.",
+      "acceptance_criteria": [
+        "Login mit Sponsor-Rolle über My Summit",
+        "Logo hochladen und Website-Link pflegen",
+        "Statistiken: Seiten-Impressionen und Klicks"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-10-1",
+      "title": "Gruppen-E-Mail senden",
+      "module_id": "M10",
+      "module_label": "M10 · Kommunikations-Basis",
+      "scope": "MVP",
+      "phase": "P4",
+      "size": "M",
+      "story_html": "Als <strong>Organizer</strong> möchte ich E-Mails an Teilnehmer-Gruppen senden (alle / Ticket-Kategorie / Unternehmen), damit ich Updates gezielt kommunizieren kann.",
+      "story_text": "Als Organizer möchte ich E-Mails an Teilnehmer-Gruppen senden (alle / Ticket-Kategorie / Unternehmen), damit ich Updates gezielt kommunizieren kann.",
+      "acceptance_criteria": [
+        "Empfängergruppe auswählbar: alle / Ticket-Kategorie / Unternehmen",
+        "Betreff und Rich-Text-Body",
+        "Vorschau mit Empfänger-Anzahl vor Versand"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-10-2",
+      "title": "E-Mail-Templates anpassen",
+      "module_id": "M10",
+      "module_label": "M10 · Kommunikations-Basis",
+      "scope": "MVP",
+      "phase": "P4",
+      "size": "S",
+      "story_html": "Als <strong>Organizer</strong> möchte ich E-Mail-Templates anpassen (Variablen: Name, Ticket, Event-Datum), damit alle System-Mails professionell wirken.",
+      "story_text": "Als Organizer möchte ich E-Mail-Templates anpassen (Variablen: Name, Ticket, Event-Datum), damit alle System-Mails professionell wirken.",
+      "acceptance_criteria": [
+        "Template-Editor für Bestätigung, Reminder und Post-Event-Mail",
+        "Variablen: {{name}}, {{ticket}}, {{event_date}}",
+        "Vorschau mit Testdaten"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-10-3",
+      "title": "Trigger-Mail-Automationen",
+      "module_id": "M10",
+      "module_label": "M10 · Kommunikations-Basis",
+      "scope": "MVP",
+      "phase": "P4",
+      "size": "M",
+      "story_html": "Als <strong>System</strong> sollen Trigger-Mails automatisch versendet werden (Bestätigung sofort, Reminder T-7 / T-1, Post-Event-Danke), damit keine manuelle Nacharbeit nötig ist.",
+      "story_text": "Als System sollen Trigger-Mails automatisch versendet werden (Bestätigung sofort, Reminder T-7 / T-1, Post-Event-Danke), damit keine manuelle Nacharbeit nötig ist.",
+      "acceptance_criteria": [
+        "Ticket-Bestätigung sofort nach Zahlung",
+        "Reminder T-7 und T-1 vor Event",
+        "Post-Event-Danke T+1 — alle Trigger einzeln an/aus schaltbar"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-10-4",
+      "title": "Kampagnen-Planer",
+      "module_id": "M10",
+      "module_label": "M10 · Kommunikations-Basis",
+      "scope": "Post-MVP",
+      "phase": null,
+      "size": "M",
+      "story_html": "Als <strong>Organizer</strong> möchte ich alle Marketing-Massnahmen auf einer Timeline planen (Kanal, Datum, Status, Notizen), damit das gesamte Team weiss wann was kommuniziert wird.",
+      "story_text": "Als Organizer möchte ich alle Marketing-Massnahmen auf einer Timeline planen (Kanal, Datum, Status, Notizen), damit das gesamte Team weiss wann was kommuniziert wird.",
+      "acceptance_criteria": [
+        "Timeline-Ansicht aller geplanten Massnahmen",
+        "Felder: Kanal, Datum, Status (Idee/Geplant/Gesendet), Notizen",
+        "Filter nach Kanal und Status"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-10-5",
+      "title": "Newsletter-Versand",
+      "module_id": "M10",
+      "module_label": "M10 · Kommunikations-Basis",
+      "scope": "Post-MVP",
+      "phase": null,
+      "size": "L",
+      "story_html": "Als <strong>Organizer</strong> möchte ich Newsletter mit Segmentierung, E-Mail-Builder und Versand-Statistiken direkt aus dem Admin versenden.",
+      "story_text": "Als Organizer möchte ich Newsletter mit Segmentierung, E-Mail-Builder und Versand-Statistiken direkt aus dem Admin versenden.",
+      "acceptance_criteria": [
+        "Segmentierung nach Teilnehmer-Attributen",
+        "Drag-and-Drop E-Mail-Builder",
+        "Statistiken: Öffnungsrate, Klicks, Bounces"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-11-1",
+      "title": "Ticket-Verkaufs-Dashboard",
+      "module_id": "M11",
+      "module_label": "M11 · Statistiken",
+      "scope": "MVP",
+      "phase": "P5",
+      "size": "S",
+      "story_html": "Als <strong>Organizer</strong> möchte ich Ticket-Verkäufe in Echtzeit sehen (Anzahl + Umsatz gesamt und nach Kategorie), damit ich den Verkaufsstand jederzeit kenne.",
+      "story_text": "Als Organizer möchte ich Ticket-Verkäufe in Echtzeit sehen (Anzahl + Umsatz gesamt und nach Kategorie), damit ich den Verkaufsstand jederzeit kenne.",
+      "acceptance_criteria": [
+        "Echtzeit-Counter: Gesamtverkäufe + Umsatz",
+        "Aufschlüsselung nach Ticket-Kategorie",
+        "Zeitreihen-Grafik (Verkäufe über Zeit)"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-11-2",
+      "title": "Live Check-in Rate",
+      "module_id": "M11",
+      "module_label": "M11 · Statistiken",
+      "scope": "MVP",
+      "phase": "P5",
+      "size": "S",
+      "story_html": "Als <strong>Organizer</strong> möchte ich am Eventtag die Check-in-Rate live sehen, damit ich den Einlass steuern und Personal richtig einteilen kann.",
+      "story_text": "Als Organizer möchte ich am Eventtag die Check-in-Rate live sehen, damit ich den Einlass steuern und Personal richtig einteilen kann.",
+      "acceptance_criteria": [
+        "Zähler: X von Y Tickets eingecheckt (%)",
+        "Auto-Refresh alle 30 Sekunden",
+        "Aufschlüsselung nach Ticket-Kategorie"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-11-3",
+      "title": "Erweiterte Auswertungen",
+      "module_id": "M11",
+      "module_label": "M11 · Statistiken",
+      "scope": "Post-MVP",
+      "phase": null,
+      "size": "M",
+      "story_html": "Als <strong>Organizer</strong> möchte ich Session-Auslastung, Feedback-Ratings und einen Vorjahresvergleich sehen.",
+      "story_text": "Als Organizer möchte ich Session-Auslastung, Feedback-Ratings und einen Vorjahresvergleich sehen.",
+      "acceptance_criteria": [
+        "Session-Auslastung pro Stage anzeigen",
+        "Feedback-Ratings nach Session",
+        "Vergleich: aktuelles Jahr vs. Vorjahr"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-12-1",
+      "title": "Event-Homepage",
+      "module_id": "M12",
+      "module_label": "M12 · Public Website",
+      "scope": "MVP",
+      "phase": "P2",
+      "size": "L",
+      "story_html": "Als <strong>Besucher</strong> möchte ich auf der Startseite alle wichtigen Infos haben (Hero, Datum, Ort, Highlights, Speaker-Teaser, Sponsor-Logos), damit ich schnell entscheide ob ich teilnehme.",
+      "story_text": "Als Besucher möchte ich auf der Startseite alle wichtigen Infos haben (Hero, Datum, Ort, Highlights, Speaker-Teaser, Sponsor-Logos), damit ich schnell entscheide ob ich teilnehme.",
+      "acceptance_criteria": [
+        "Hero mit Event-Datum, Location und CTA-Button",
+        "Speaker-Teaser (3–6 Top-Speaker) und Sponsor-Logos",
+        "Alle Inhalte via API aus Backend — kein hardcodierter Content"
+      ],
+      "note": "Wichtigste Seite für Conversion. Alle Sections müssen mobil perfekt sein."
+    },
+    {
+      "id": "US-12-2",
+      "title": "Programm-Seite mit Stage-Filter",
+      "module_id": "M12",
+      "module_label": "M12 · Public Website",
+      "scope": "MVP",
+      "phase": "P2",
+      "size": "M",
+      "story_html": "Als <strong>Besucher</strong> möchte ich das Tagesprogramm mit Stage-Filter und Parallel-Sessions sehen, damit ich meinen Tag planen kann.",
+      "story_text": "Als Besucher möchte ich das Tagesprogramm mit Stage-Filter und Parallel-Sessions sehen, damit ich meinen Tag planen kann.",
+      "acceptance_criteria": [
+        "Stage-Tabs für parallele Tracks",
+        "Session-Detail-Drawer/Modal mit Speaker-Info",
+        "Mobil-optimierter Tagesplan"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-12-3",
+      "title": "Speaker-Seiten",
+      "module_id": "M12",
+      "module_label": "M12 · Public Website",
+      "scope": "MVP",
+      "phase": "P2",
+      "size": "S",
+      "story_html": "Als <strong>Besucher</strong> möchte ich Speaker mit Detailseiten (Bio, Firma, Sessions, Social Links) sehen, damit ich weiss wer spricht.",
+      "story_text": "Als Besucher möchte ich Speaker mit Detailseiten (Bio, Firma, Sessions, Social Links) sehen, damit ich weiss wer spricht.",
+      "acceptance_criteria": [
+        "Speaker-Grid mit Foto auf Übersichtsseite",
+        "Einzelseite: Bio, Firma, LinkedIn, zugewiesene Sessions",
+        "SEO-optimierte URLs: /speaker/vorname-nachname"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-12-4",
+      "title": "FAQ-Seite",
+      "module_id": "M12",
+      "module_label": "M12 · Public Website",
+      "scope": "MVP",
+      "phase": "P2",
+      "size": "S",
+      "story_html": "Als <strong>Besucher</strong> möchte ich eine FAQ-Seite finden (pflegbar im Admin), damit ich häufige Fragen selbst beantworten kann.",
+      "story_text": "Als Besucher möchte ich eine FAQ-Seite finden (pflegbar im Admin), damit ich häufige Fragen selbst beantworten kann.",
+      "acceptance_criteria": [
+        "FAQ-Einträge im Admin pflegbar (Frage + Antwort + Kategorie)",
+        "Accordion-UI auf Website",
+        "Kategorie-Filter und Suchfeld"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-12-5",
+      "title": "SEO & Meta-Tags",
+      "module_id": "M12",
+      "module_label": "M12 · Public Website",
+      "scope": "MVP",
+      "phase": "P2",
+      "size": "M",
+      "story_html": "Als <strong>System</strong> soll die Website SSR, Schema.org Event-Markup und OG-Tags haben, damit der Event bei Google und Social Media korrekt dargestellt wird.",
+      "story_text": "Als System soll die Website SSR, Schema.org Event-Markup und OG-Tags haben, damit der Event bei Google und Social Media korrekt dargestellt wird.",
+      "acceptance_criteria": [
+        "Schema.org Event-Markup auf Homepage",
+        "Open Graph Tags (Bild, Titel, Beschreibung) pro Seite",
+        "sitemap.xml automatisch generiert"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-13-1",
+      "title": "Hand-Scanner am Registration Desk",
+      "module_id": "M13",
+      "module_label": "M13 · Check-in & Badge-Druck",
+      "scope": "MVP",
+      "phase": "P5",
+      "size": "M",
+      "story_html": "Als <strong>Check-in-Personal</strong> möchte ich am Registrationstisch QR-Codes mit einem Hand-Scanner einlesen, damit der Einlass schnell ohne Warteschlangen funktioniert.",
+      "story_text": "Als Check-in-Personal möchte ich am Registrationstisch QR-Codes mit einem Hand-Scanner einlesen, damit der Einlass schnell ohne Warteschlangen funktioniert.",
+      "acceptance_criteria": [
+        "USB/Bluetooth-Scanner liest QR-Code im Browser",
+        "Sofortige Validierung: Grün (OK) / Gelb (bereits eingecheckt) / Rot (ungültig)",
+        "Kein App-Download nötig — läuft im Browser"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-13-2",
+      "title": "Self Check-in Kiosk",
+      "module_id": "M13",
+      "module_label": "M13 · Check-in & Badge-Druck",
+      "scope": "MVP",
+      "phase": "P5",
+      "size": "M",
+      "story_html": "Als <strong>Teilnehmer</strong> möchte ich mich an einem Self Check-in Kiosk (Tablet) selbst einchecken, damit ich nicht warten muss.",
+      "story_text": "Als Teilnehmer möchte ich mich an einem Self Check-in Kiosk (Tablet) selbst einchecken, damit ich nicht warten muss.",
+      "acceptance_criteria": [
+        "Tablet-optimiertes UI mit Kamera-Scan",
+        "Gleiche Validierungslogik wie Registration Desk",
+        "Bestätigung mit Name und Ticket-Kategorie angezeigt"
+      ],
+      "note": "Wichtig für Last-Minute-Käufer: Ticket morgens kaufen, sofort einchecken."
+    },
+    {
+      "id": "US-13-3",
+      "title": "Automatischer Badge-Druck",
+      "module_id": "M13",
+      "module_label": "M13 · Check-in & Badge-Druck",
+      "scope": "MVP",
+      "phase": "P5",
+      "size": "M",
+      "story_html": "Als <strong>System</strong> soll nach erfolgreichem Check-in automatisch ein Etikett auf dem Brother QL-820NWB via WiFi gedruckt werden, damit der Teilnehmer sofort seinen Badge hat.",
+      "story_text": "Als System soll nach erfolgreichem Check-in automatisch ein Etikett auf dem Brother QL-820NWB via WiFi gedruckt werden, damit der Teilnehmer sofort seinen Badge hat.",
+      "acceptance_criteria": [
+        "PNG-Label generiert nach Check-in (Name, Firma, Kategorie, QR)",
+        "Versand via IPP an Brother QL-820NWB über WiFi",
+        "Drucker-IP und Etikettenformat in Admin konfigurierbar"
+      ],
+      "note": "Druckerformat: DK-11201 / DK-N55224. Backend generiert PNG, sendet via IPP."
+    },
+    {
+      "id": "US-13-4",
+      "title": "Ticket-Fehlerbehandlung",
+      "module_id": "M13",
+      "module_label": "M13 · Check-in & Badge-Druck",
+      "scope": "MVP",
+      "phase": "P5",
+      "size": "S",
+      "story_html": "Als <strong>Check-in-Personal</strong> möchte ich bei ungültigen Tickets eine klare Fehlermeldung sehen (bereits eingecheckt / storniert / unbekannt), damit ich korrekt reagieren kann.",
+      "story_text": "Als Check-in-Personal möchte ich bei ungültigen Tickets eine klare Fehlermeldung sehen (bereits eingecheckt / storniert / unbekannt), damit ich korrekt reagieren kann.",
+      "acceptance_criteria": [
+        "Klare Fehlermeldungen: Bereits eingecheckt / Ticket storniert / Ticket unbekannt",
+        "Timestamp des ersten Check-ins wird angezeigt",
+        "Organizer kann Check-in manuell zurücksetzen"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-13-5",
+      "title": "Live Einlass-Rate",
+      "module_id": "M13",
+      "module_label": "M13 · Check-in & Badge-Druck",
+      "scope": "MVP",
+      "phase": "P5",
+      "size": "XS",
+      "story_html": "Als <strong>Organizer</strong> möchte ich am Eventtag die Live-Einlass-Rate sehen (eingecheckt / gesamt), damit ich den Betrieb steuern kann.",
+      "story_text": "Als Organizer möchte ich am Eventtag die Live-Einlass-Rate sehen (eingecheckt / gesamt), damit ich den Betrieb steuern kann.",
+      "acceptance_criteria": [
+        "Counter: X von Y Tickets eingecheckt",
+        "Auto-Refresh",
+        "Aufschlüsselung nach Ticket-Kategorie"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-14-1",
+      "title": "Blog-Artikel erstellen",
+      "module_id": "M14",
+      "module_label": "M14 · Blog / News",
+      "scope": "Post-MVP",
+      "phase": null,
+      "size": "M",
+      "story_html": "Als <strong>Organizer</strong> möchte ich Artikel erstellen (Titel, Rich-Text, Kategorie, Bild, SEO-Meta, Publish-Datum), damit Content vor und nach dem Event publiziert wird.",
+      "story_text": "Als Organizer möchte ich Artikel erstellen (Titel, Rich-Text, Kategorie, Bild, SEO-Meta, Publish-Datum), damit Content vor und nach dem Event publiziert wird.",
+      "acceptance_criteria": [
+        "Rich-Text-Editor, Kategorie, Titelbild, SEO-Meta, Publish-Datum",
+        "Entwurf / Publiziert Status",
+        "URL-Slug aus Titel automatisch generiert"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-14-2",
+      "title": "Artikel filtern & lesen",
+      "module_id": "M14",
+      "module_label": "M14 · Blog / News",
+      "scope": "Post-MVP",
+      "phase": null,
+      "size": "S",
+      "story_html": "Als <strong>Besucher</strong> möchte ich Artikel nach Kategorie filtern und lesen, damit ich relevante Inhalte schnell finde.",
+      "story_text": "Als Besucher möchte ich Artikel nach Kategorie filtern und lesen, damit ich relevante Inhalte schnell finde.",
+      "acceptance_criteria": [
+        "Kategorie-Filter als Pills/Tags",
+        "Sucheingabe nach Titel",
+        "Artikel-Liste mit Pagination"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-15-1",
+      "title": "Press Kit hochladen",
+      "module_id": "M15",
+      "module_label": "M15 · Presse-Bereich",
+      "scope": "Post-MVP",
+      "phase": null,
+      "size": "M",
+      "story_html": "Als <strong>Organizer</strong> möchte ich Press Kit Materialien hochladen (Logos, Fact Sheet, Pressemitteilungen), damit Journalisten alles auf einen Klick herunterladen können.",
+      "story_text": "Als Organizer möchte ich Press Kit Materialien hochladen (Logos, Fact Sheet, Pressemitteilungen), damit Journalisten alles auf einen Klick herunterladen können.",
+      "acceptance_criteria": [
+        "Upload: Logos (PNG/SVG), Fact Sheet (PDF), Pressemitteilungen",
+        "Download-Bundle als ZIP",
+        "Öffentlich zugänglich ohne Login"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-15-2",
+      "title": "Presse-Akkreditierung beantragen",
+      "module_id": "M15",
+      "module_label": "M15 · Presse-Bereich",
+      "scope": "Post-MVP",
+      "phase": null,
+      "size": "S",
+      "story_html": "Als <strong>Journalist</strong> möchte ich eine Presse-Akkreditierung beantragen, damit ich den Event als Medienvertreter besuchen kann.",
+      "story_text": "Als Journalist möchte ich eine Presse-Akkreditierung beantragen, damit ich den Event als Medienvertreter besuchen kann.",
+      "acceptance_criteria": [
+        "Formular: Name, Medium, Art der Berichterstattung",
+        "Organizer genehmigt oder lehnt ab im Admin",
+        "Genehmigte Journalisten erhalten automatisch Ticket-Code"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-16-1",
+      "title": "Location-Seite KKL Luzern",
+      "module_id": "M16",
+      "module_label": "M16 · Location — KKL Luzern",
+      "scope": "Post-MVP",
+      "phase": null,
+      "size": "S",
+      "story_html": "Als <strong>Teilnehmer</strong> möchte ich eine Location-Seite mit Anreise-Infos, Hotel-Empfehlungen und KKL-Fotos finden, damit ich den Eventtag gut planen kann.",
+      "story_text": "Als Teilnehmer möchte ich eine Location-Seite mit Anreise-Infos, Hotel-Empfehlungen und KKL-Fotos finden, damit ich den Eventtag gut planen kann.",
+      "acceptance_criteria": [
+        "Adresse mit Google Maps Einbettung",
+        "Anreise-Abschnitte: ÖV / Auto / Parkhaus",
+        "Hotel-Empfehlungen als Karten + KKL-Fotos"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-17-1",
+      "title": "Kontaktformular mit Kategorien",
+      "module_id": "M17",
+      "module_label": "M17 · Kontakt & Formulare",
+      "scope": "Post-MVP",
+      "phase": null,
+      "size": "M",
+      "story_html": "Als <strong>Besucher</strong> möchte ich über ein Kontaktformular (Allgemein / Speaker / Sponsoring / Presse) eine Anfrage stellen, damit ich den richtigen Ansprechpartner erreiche.",
+      "story_text": "Als Besucher möchte ich über ein Kontaktformular (Allgemein / Speaker / Sponsoring / Presse) eine Anfrage stellen, damit ich den richtigen Ansprechpartner erreiche.",
+      "acceptance_criteria": [
+        "Kategorien: Allgemein / Speaker / Sponsoring / Presse",
+        "Spam-Schutz via reCAPTCHA",
+        "Auto-Antwort-Mail an Absender"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-17-2",
+      "title": "Anfragen im Admin verwalten",
+      "module_id": "M17",
+      "module_label": "M17 · Kontakt & Formulare",
+      "scope": "Post-MVP",
+      "phase": null,
+      "size": "S",
+      "story_html": "Als <strong>Organizer</strong> möchte ich eingehende Anfragen im Admin verwalten und den Status setzen, damit keine Anfrage verloren geht.",
+      "story_text": "Als Organizer möchte ich eingehende Anfragen im Admin verwalten und den Status setzen, damit keine Anfrage verloren geht.",
+      "acceptance_criteria": [
+        "Inbox mit Status: Neu / In Bearbeitung / Erledigt",
+        "Interne Notizen pro Anfrage",
+        "Filter nach Kategorie und Status"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-18-1",
+      "title": "Fotos hochladen & kategorisieren",
+      "module_id": "M18",
+      "module_label": "M18 · Foto-Galerie / Media-Archiv",
+      "scope": "Post-MVP",
+      "phase": null,
+      "size": "M",
+      "story_html": "Als <strong>Organizer</strong> möchte ich Fotos in Kategorien hochladen (Keynotes, Networking, Location), damit der Event-Rückblick professionell präsentiert wird.",
+      "story_text": "Als Organizer möchte ich Fotos in Kategorien hochladen (Keynotes, Networking, Location), damit der Event-Rückblick professionell präsentiert wird.",
+      "acceptance_criteria": [
+        "Multi-Upload mit Drag & Drop",
+        "Kategorien: Keynotes / Networking / Location / Allgemein",
+        "Alt-Text für SEO pflegbar"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-18-2",
+      "title": "Galerie & Lightbox",
+      "module_id": "M18",
+      "module_label": "M18 · Foto-Galerie / Media-Archiv",
+      "scope": "Post-MVP",
+      "phase": null,
+      "size": "S",
+      "story_html": "Als <strong>Teilnehmer</strong> möchte ich Fotos in einer Lightbox ansehen und herunterladen, damit ich Erinnerungen teilen kann.",
+      "story_text": "Als Teilnehmer möchte ich Fotos in einer Lightbox ansehen und herunterladen, damit ich Erinnerungen teilen kann.",
+      "acceptance_criteria": [
+        "Masonry-Grid auf Website",
+        "Lightbox mit Navigation vor/zurück",
+        "Download-Button für Einzelfotos"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-19-1",
+      "title": "Sprachauswahl DE / EN",
+      "module_id": "M19",
+      "module_label": "M19 · Mehrsprachigkeit DE / EN",
+      "scope": "Post-MVP",
+      "phase": null,
+      "size": "L",
+      "story_html": "Als <strong>Besucher</strong> möchte ich die Website in Deutsch oder Englisch lesen, damit auch internationale Teilnehmer den Event verstehen.",
+      "story_text": "Als Besucher möchte ich die Website in Deutsch oder Englisch lesen, damit auch internationale Teilnehmer den Event verstehen.",
+      "acceptance_criteria": [
+        "Sprach-Toggle in Navigation",
+        "URL-Struktur: /de/ und /en/",
+        "Browser-Sprache wird als Standard erkannt"
+      ],
+      "note": null
+    },
+    {
+      "id": "US-19-2",
+      "title": "Inhalte pro Sprache pflegen",
+      "module_id": "M19",
+      "module_label": "M19 · Mehrsprachigkeit DE / EN",
+      "scope": "Post-MVP",
+      "phase": null,
+      "size": "M",
+      "story_html": "Als <strong>Organizer</strong> möchte ich Inhalte (Titel, Bio, Beschreibungen) pro Sprache im Admin pflegen, damit Übersetzungen direkt im System verwaltet werden.",
+      "story_text": "Als Organizer möchte ich Inhalte (Titel, Bio, Beschreibungen) pro Sprache im Admin pflegen, damit Übersetzungen direkt im System verwaltet werden.",
+      "acceptance_criteria": [
+        "Admin-Formular mit Tabs DE / EN",
+        "Felder: Titel, Bio, Beschreibungen pflegbar",
+        "Fallback auf DE wenn EN-Übersetzung fehlt"
+      ],
+      "note": null
+    }
+  ]
+}

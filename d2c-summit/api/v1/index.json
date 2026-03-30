@@ -1,0 +1,24 @@
+{
+  "api": "D2C Summit Platform Blueprint API",
+  "version": "1.0.0",
+  "blueprint_version": "1.6",
+  "generated_at": "2026-03-30T17:22:11.831Z",
+  "base_url": "https://courzly.github.io/build2scale/api/v1",
+  "description": "Statische Blueprint-API für die D2C Summit Platform. Alle Planungsdaten maschinenlesbar. Externes Design kann frei aufgelegt werden.",
+  "endpoints": {
+    "stories": "https://courzly.github.io/build2scale/api/v1/stories.json",
+    "modules": "https://courzly.github.io/build2scale/api/v1/modules.json",
+    "phases": "https://courzly.github.io/build2scale/api/v1/phases.json",
+    "roles": "https://courzly.github.io/build2scale/api/v1/roles.json",
+    "domains": "https://courzly.github.io/build2scale/api/v1/domains.json"
+  },
+  "stats": {
+    "total_stories": 64,
+    "mvp_stories": 44,
+    "post_mvp_stories": 20,
+    "modules": 19,
+    "phases": 6,
+    "roles": 7,
+    "domains": 4
+  }
+}

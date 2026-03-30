@@ -1,0 +1,123 @@
+{
+  "meta": {
+    "count": 7,
+    "generated_at": "2026-03-30T17:22:11.831Z"
+  },
+  "roles": [
+    {
+      "id": "super_admin",
+      "label": "Super Admin",
+      "description": "Vollzugriff auf alle Events und Systemkonfiguration. Legt andere Benutzer und Rollen an.",
+      "domain_access": [
+        "admin"
+      ],
+      "story_ids": [
+        "US-07-1",
+        "US-07-2"
+      ]
+    },
+    {
+      "id": "organizer",
+      "label": "Organizer",
+      "description": "Verwaltet ein konkretes Event vollständig: Programm, Speaker, Teilnehmer, Tickets, E-Mails, Statistiken.",
+      "domain_access": [
+        "admin"
+      ],
+      "story_ids": [
+        "US-01-1",
+        "US-01-2",
+        "US-01-3",
+        "US-02-1",
+        "US-02-2",
+        "US-03-1",
+        "US-03-2",
+        "US-04-1",
+        "US-04-2",
+        "US-04-3",
+        "US-04-4",
+        "US-05-1",
+        "US-05-2",
+        "US-05-3",
+        "US-05-4",
+        "US-06-1",
+        "US-06-4",
+        "US-06-5",
+        "US-09-1",
+        "US-09-2",
+        "US-10-1",
+        "US-10-2",
+        "US-10-3",
+        "US-11-1",
+        "US-11-2",
+        "US-13-4",
+        "US-13-5"
+      ]
+    },
+    {
+      "id": "sponsor_manager",
+      "label": "Sponsor Manager",
+      "description": "Verwaltet Sponsor-Pakete und Sponsor-Zuweisungen. Eingeschränkter Admin-Zugang.",
+      "domain_access": [
+        "admin"
+      ],
+      "story_ids": [
+        "US-09-1",
+        "US-09-2",
+        "US-09-3"
+      ]
+    },
+    {
+      "id": "attendee",
+      "label": "Attendee",
+      "description": "Registrierter Teilnehmer mit Zugang zum My Summit Portal.",
+      "domain_access": [
+        "my"
+      ],
+      "story_ids": [
+        "US-08-1",
+        "US-08-2",
+        "US-08-3",
+        "US-06-2",
+        "US-06-3"
+      ]
+    },
+    {
+      "id": "speaker",
+      "label": "Speaker",
+      "description": "Referent mit Zugang zum My Summit Portal für Profilpflege.",
+      "domain_access": [
+        "my"
+      ],
+      "story_ids": [
+        "US-03-3",
+        "US-08-1"
+      ]
+    },
+    {
+      "id": "sponsor",
+      "label": "Sponsor",
+      "description": "Sponsor-Kontakt mit Zugang zum Sponsor-Portal im My Summit (Post-MVP).",
+      "domain_access": [
+        "my"
+      ],
+      "story_ids": [
+        "US-09-4"
+      ]
+    },
+    {
+      "id": "checkin",
+      "label": "Check-in",
+      "description": "Check-in-Personal am Registrationstisch. Zugriff ausschliesslich auf die Check-in Domain.",
+      "domain_access": [
+        "checkin"
+      ],
+      "story_ids": [
+        "US-13-1",
+        "US-13-2",
+        "US-13-3",
+        "US-13-4",
+        "US-13-5"
+      ]
+    }
+  ]
+}

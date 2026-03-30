@@ -1,0 +1,106 @@
+{
+  "meta": {
+    "count": 4,
+    "generated_at": "2026-03-30T17:22:11.831Z"
+  },
+  "domains": [
+    {
+      "id": "public",
+      "label": "Public Website",
+      "url": "https://d2c-summit.ch",
+      "auth_required": false,
+      "allowed_roles": [],
+      "description": "Öffentliche Event-Website ohne Authentifizierung. Homepage, Programm, Speaker, Sponsoren, FAQ, Ticketkauf.",
+      "story_ids": [
+        "US-12-1",
+        "US-12-2",
+        "US-12-3",
+        "US-12-4",
+        "US-12-5",
+        "US-06-2",
+        "US-09-3"
+      ]
+    },
+    {
+      "id": "my",
+      "label": "My Summit",
+      "url": "https://my.d2c-summit.ch",
+      "auth_required": true,
+      "allowed_roles": [
+        "attendee",
+        "speaker",
+        "sponsor"
+      ],
+      "description": "Persönliches Portal für Teilnehmer, Speaker und Sponsoren. Login erforderlich, rollenbasierte Ansicht.",
+      "story_ids": [
+        "US-08-1",
+        "US-08-2",
+        "US-08-3",
+        "US-08-4",
+        "US-08-5",
+        "US-03-3",
+        "US-09-4"
+      ]
+    },
+    {
+      "id": "admin",
+      "label": "Admin Portal",
+      "url": "https://admin.d2c-summit.ch",
+      "auth_required": true,
+      "allowed_roles": [
+        "super_admin",
+        "organizer",
+        "sponsor_manager"
+      ],
+      "description": "Vollständiges Admin-Backend. Event-Management, Teilnehmerverwaltung, Ticket-System, Kommunikation, Statistiken.",
+      "story_ids": [
+        "US-01-1",
+        "US-01-2",
+        "US-01-3",
+        "US-02-1",
+        "US-02-2",
+        "US-03-1",
+        "US-03-2",
+        "US-04-1",
+        "US-04-2",
+        "US-04-3",
+        "US-04-4",
+        "US-05-1",
+        "US-05-2",
+        "US-05-3",
+        "US-05-4",
+        "US-06-1",
+        "US-06-4",
+        "US-06-5",
+        "US-07-1",
+        "US-07-2",
+        "US-09-1",
+        "US-09-2",
+        "US-10-1",
+        "US-10-2",
+        "US-10-3",
+        "US-11-1",
+        "US-11-2",
+        "US-13-4",
+        "US-13-5"
+      ]
+    },
+    {
+      "id": "checkin",
+      "label": "Check-in Terminal",
+      "url": "https://checkin.d2c-summit.ch",
+      "auth_required": true,
+      "allowed_roles": [
+        "checkin"
+      ],
+      "description": "Dedizierte Check-in-Oberfläche für Scanner und Self-Service-Kiosk. Minimales UI, optimiert für Tablet und USB-Scanner.",
+      "story_ids": [
+        "US-13-1",
+        "US-13-2",
+        "US-13-3",
+        "US-13-4",
+        "US-13-5"
+      ]
+    }
+  ]
+}

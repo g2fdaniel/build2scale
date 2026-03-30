@@ -1,0 +1,182 @@
+{
+  "meta": {
+    "count": 6,
+    "total_weeks": 12,
+    "mvp_stories": 44,
+    "generated_at": "2026-03-30T17:22:11.831Z"
+  },
+  "phases": [
+    {
+      "id": "P1",
+      "name": "Foundation & Rollen-Architektur",
+      "goal": "Projekt-Setup, Datenbankschema, alle 4 Domains aufgesetzt, Rollen-Middleware, Event-Grundgerüst",
+      "weeks": "1–2",
+      "week_start": 1,
+      "week_end": 2,
+      "story_ids": [
+        "US-07-1",
+        "US-07-2",
+        "US-01-1",
+        "US-01-2"
+      ],
+      "modules_involved": [
+        "M07",
+        "M01"
+      ],
+      "milestones": [
+        {
+          "label": "Alle 4 Domains erreichbar, Rollen-Auth funktioniert, Event-Grundstruktur in DB",
+          "type": "checkpoint"
+        }
+      ],
+      "story_count": 4
+    },
+    {
+      "id": "P2",
+      "name": "Event-Branding, Programm, Speaker & Public Website",
+      "goal": "Erste sichtbare Oberfläche — Website steht, Programm und Speaker öffentlich pflegbar",
+      "weeks": "3–4",
+      "week_start": 3,
+      "week_end": 4,
+      "story_ids": [
+        "US-01-3",
+        "US-02-1",
+        "US-02-2",
+        "US-02-3",
+        "US-03-1",
+        "US-03-2",
+        "US-12-1",
+        "US-12-2",
+        "US-12-3",
+        "US-12-4",
+        "US-12-5"
+      ],
+      "modules_involved": [
+        "M01",
+        "M02",
+        "M03",
+        "M12"
+      ],
+      "milestones": [
+        {
+          "label": "Öffentliche Website live, Programm und Speaker sichtbar",
+          "type": "checkpoint"
+        }
+      ],
+      "story_count": 11
+    },
+    {
+      "id": "P3",
+      "name": "Unternehmen, Teilnehmer & Ticket-System",
+      "goal": "Unternehmens-Profile, Teilnehmerverwaltung, vollständiger Payrexx-Checkout, Voucher",
+      "weeks": "5–6",
+      "week_start": 5,
+      "week_end": 6,
+      "story_ids": [
+        "US-04-1",
+        "US-04-2",
+        "US-04-3",
+        "US-04-4",
+        "US-05-1",
+        "US-05-2",
+        "US-05-3",
+        "US-05-4",
+        "US-06-1",
+        "US-06-2",
+        "US-06-3",
+        "US-06-4",
+        "US-06-5"
+      ],
+      "modules_involved": [
+        "M04",
+        "M05",
+        "M06"
+      ],
+      "milestones": [
+        {
+          "label": "Ticket-Checkout vollständig, Payrexx aktiv, QR-Code-Mail läuft",
+          "type": "checkpoint"
+        }
+      ],
+      "story_count": 13
+    },
+    {
+      "id": "P4",
+      "name": "Sponsoren & Kommunikation",
+      "goal": "Sponsor-Pakete, E-Mail-Automationen, Trigger-Mails",
+      "weeks": "7–8",
+      "week_start": 7,
+      "week_end": 8,
+      "story_ids": [
+        "US-09-1",
+        "US-09-2",
+        "US-09-3",
+        "US-10-1",
+        "US-10-2",
+        "US-10-3"
+      ],
+      "modules_involved": [
+        "M09",
+        "M10"
+      ],
+      "milestones": [
+        {
+          "label": "Abnahme I — Plattform bis P4 abgenommen",
+          "type": "acceptance",
+          "acceptance_number": 1
+        }
+      ],
+      "story_count": 6
+    },
+    {
+      "id": "P5",
+      "name": "My Summit, Statistiken & Check-in",
+      "goal": "My Summit Portal, QR-Check-in, automatischer Badge-Druck, Live-Statistiken",
+      "weeks": "9–10",
+      "week_start": 9,
+      "week_end": 10,
+      "story_ids": [
+        "US-08-1",
+        "US-08-2",
+        "US-08-3",
+        "US-11-1",
+        "US-11-2",
+        "US-13-1",
+        "US-13-2",
+        "US-13-3",
+        "US-13-4",
+        "US-13-5"
+      ],
+      "modules_involved": [
+        "M08",
+        "M11",
+        "M13"
+      ],
+      "milestones": [
+        {
+          "label": "My Summit live, Check-in und Badge-Druck produktiv getestet",
+          "type": "checkpoint"
+        }
+      ],
+      "story_count": 10
+    },
+    {
+      "id": "P6",
+      "name": "QA, Security-Hardening & Go-Live",
+      "goal": "End-to-End-Tests, Security-Audit, Performance-Optimierung, finales Deployment auf Production",
+      "weeks": "11–12",
+      "week_start": 11,
+      "week_end": 12,
+      "story_ids": [],
+      "modules_involved": [],
+      "milestones": [
+        {
+          "label": "Abnahme II — Go-Live",
+          "type": "acceptance",
+          "acceptance_number": 2
+        }
+      ],
+      "story_count": 0
+    }
+  ]
+}

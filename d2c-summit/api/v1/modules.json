@@ -1,0 +1,485 @@
+{
+  "meta": {
+    "count": 19,
+    "generated_at": "2026-03-30T17:22:11.831Z"
+  },
+  "groups": [
+    {
+      "id": "A",
+      "label": "Core Platform — Event, Programm & Speaker",
+      "modules": [
+        "M01",
+        "M02",
+        "M03"
+      ]
+    },
+    {
+      "id": "B",
+      "label": "Unternehmen & Teilnehmer",
+      "modules": [
+        "M04",
+        "M05",
+        "M06"
+      ]
+    },
+    {
+      "id": "C",
+      "label": "Rollen, Admin & Portale",
+      "modules": [
+        "M07",
+        "M08",
+        "M09"
+      ]
+    },
+    {
+      "id": "D",
+      "label": "Kommunikation & Statistiken",
+      "modules": [
+        "M10",
+        "M11"
+      ]
+    },
+    {
+      "id": "E",
+      "label": "Frontends & Event-Tools",
+      "modules": [
+        "M12",
+        "M13"
+      ]
+    },
+    {
+      "id": "F",
+      "label": "Post-MVP — Website, Content & Services",
+      "modules": [
+        "M14",
+        "M15",
+        "M16",
+        "M17",
+        "M18",
+        "M19"
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "M01",
+      "label": "M01 · Event Engine",
+      "name": "Event Engine",
+      "group_id": "A",
+      "icon": "🔁",
+      "description": "Kernmodul — jedes andere Modul ist einem Event zugeordnet.",
+      "version": "v1.0",
+      "scope": "MVP",
+      "story_ids": [
+        "US-01-1",
+        "US-01-2",
+        "US-01-3",
+        "US-01-4"
+      ],
+      "mvp_story_ids": [
+        "US-01-1",
+        "US-01-2",
+        "US-01-3"
+      ],
+      "post_mvp_story_ids": [
+        "US-01-4"
+      ]
+    },
+    {
+      "id": "M02",
+      "label": "M02 · Programm-Manager",
+      "name": "Programm-Manager",
+      "group_id": "A",
+      "icon": "🗓️",
+      "description": "Tagesplan — einmal erfassen, überall anzeigen (Website, My Summit, Admin).",
+      "version": "v1.0",
+      "scope": "MVP",
+      "story_ids": [
+        "US-02-1",
+        "US-02-2",
+        "US-02-3",
+        "US-02-4"
+      ],
+      "mvp_story_ids": [
+        "US-02-1",
+        "US-02-2",
+        "US-02-3"
+      ],
+      "post_mvp_story_ids": [
+        "US-02-4"
+      ]
+    },
+    {
+      "id": "M03",
+      "label": "M03 · Speaker-Management",
+      "name": "Speaker-Management",
+      "group_id": "A",
+      "icon": "🎤",
+      "description": "Speaker-Verwaltung im Admin — Self-Service Portal folgt Post-MVP.",
+      "version": "v1.0",
+      "scope": "MVP",
+      "story_ids": [
+        "US-03-1",
+        "US-03-2",
+        "US-03-3"
+      ],
+      "mvp_story_ids": [
+        "US-03-1",
+        "US-03-2"
+      ],
+      "post_mvp_story_ids": [
+        "US-03-3"
+      ]
+    },
+    {
+      "id": "M04",
+      "label": "M04 · Unternehmens-Profile",
+      "name": "Unternehmens-Profile",
+      "group_id": "B",
+      "icon": "🏢",
+      "description": "Unternehmen als eigene Entität — Tickets und Teilnehmer einem Brand zuordnen.",
+      "version": "v1.2",
+      "scope": "MVP",
+      "story_ids": [
+        "US-04-1",
+        "US-04-2",
+        "US-04-3",
+        "US-04-4"
+      ],
+      "mvp_story_ids": [
+        "US-04-1",
+        "US-04-2",
+        "US-04-3",
+        "US-04-4"
+      ],
+      "post_mvp_story_ids": []
+    },
+    {
+      "id": "M05",
+      "label": "M05 · Teilnehmer-Verwaltung",
+      "name": "Teilnehmer-Verwaltung",
+      "group_id": "B",
+      "icon": "👥",
+      "description": "Alle Attendees im Überblick — mit Unternehmens-Verknüpfung und Kommunikations-Status.",
+      "version": "v1.2",
+      "scope": "MVP",
+      "story_ids": [
+        "US-05-1",
+        "US-05-2",
+        "US-05-3",
+        "US-05-4"
+      ],
+      "mvp_story_ids": [
+        "US-05-1",
+        "US-05-2",
+        "US-05-3",
+        "US-05-4"
+      ],
+      "post_mvp_story_ids": []
+    },
+    {
+      "id": "M06",
+      "label": "M06 · Ticket-System via Payrexx",
+      "name": "Ticket-System via Payrexx",
+      "group_id": "B",
+      "icon": "💳",
+      "description": "Vollständiger Ticketkauf — Payrexx Checkout, QR-Code, Bestätigungsmail, Voucher.",
+      "version": "v1.0",
+      "scope": "MVP",
+      "story_ids": [
+        "US-06-1",
+        "US-06-2",
+        "US-06-3",
+        "US-06-4",
+        "US-06-5"
+      ],
+      "mvp_story_ids": [
+        "US-06-1",
+        "US-06-2",
+        "US-06-3",
+        "US-06-4",
+        "US-06-5"
+      ],
+      "post_mvp_story_ids": []
+    },
+    {
+      "id": "M07",
+      "label": "M07 · Rollen & Rechte",
+      "name": "Rollen & Rechte",
+      "group_id": "C",
+      "icon": "🔐",
+      "description": "Vollständige Berechtigungs-Architektur von Tag 1 — 7 Rollen, pro Event vergeben.",
+      "version": "v1.0",
+      "scope": "MVP",
+      "story_ids": [
+        "US-07-1",
+        "US-07-2"
+      ],
+      "mvp_story_ids": [
+        "US-07-1",
+        "US-07-2"
+      ],
+      "post_mvp_story_ids": []
+    },
+    {
+      "id": "M08",
+      "label": "M08 · My Summit — Basis",
+      "name": "My Summit — Basis",
+      "group_id": "C",
+      "icon": "🪪",
+      "description": "Fundament des Teilnehmer-Portals — vollständiger Ausbau Post-MVP.",
+      "version": "v1.0",
+      "scope": "MVP",
+      "story_ids": [
+        "US-08-1",
+        "US-08-2",
+        "US-08-3",
+        "US-08-4",
+        "US-08-5"
+      ],
+      "mvp_story_ids": [
+        "US-08-1",
+        "US-08-2",
+        "US-08-3"
+      ],
+      "post_mvp_story_ids": [
+        "US-08-4",
+        "US-08-5"
+      ]
+    },
+    {
+      "id": "M09",
+      "label": "M09 · Sponsor-Verwaltung",
+      "name": "Sponsor-Verwaltung",
+      "group_id": "C",
+      "icon": "⭐",
+      "description": "Sponsor-Pakete, Zuweisung und Website-Darstellung — über Unternehmens-Profile (M04).",
+      "version": "v1.0",
+      "scope": "MVP",
+      "story_ids": [
+        "US-09-1",
+        "US-09-2",
+        "US-09-3",
+        "US-09-4"
+      ],
+      "mvp_story_ids": [
+        "US-09-1",
+        "US-09-2",
+        "US-09-3"
+      ],
+      "post_mvp_story_ids": [
+        "US-09-4"
+      ]
+    },
+    {
+      "id": "M10",
+      "label": "M10 · Kommunikations-Basis",
+      "name": "Kommunikations-Basis",
+      "group_id": "D",
+      "icon": "📧",
+      "description": "Transaktionale Mails + gezielte Teilnehmer-Updates via Mailtrap.",
+      "version": "v1.0",
+      "scope": "MVP",
+      "story_ids": [
+        "US-10-1",
+        "US-10-2",
+        "US-10-3",
+        "US-10-4",
+        "US-10-5"
+      ],
+      "mvp_story_ids": [
+        "US-10-1",
+        "US-10-2",
+        "US-10-3"
+      ],
+      "post_mvp_story_ids": [
+        "US-10-4",
+        "US-10-5"
+      ]
+    },
+    {
+      "id": "M11",
+      "label": "M11 · Statistiken",
+      "name": "Statistiken",
+      "group_id": "D",
+      "icon": "📊",
+      "description": "Echtzeit-Überblick für den Organizer — Ticket-Sales und Check-in im MVP.",
+      "version": "v1.0",
+      "scope": "MVP",
+      "story_ids": [
+        "US-11-1",
+        "US-11-2",
+        "US-11-3"
+      ],
+      "mvp_story_ids": [
+        "US-11-1",
+        "US-11-2"
+      ],
+      "post_mvp_story_ids": [
+        "US-11-3"
+      ]
+    },
+    {
+      "id": "M12",
+      "label": "M12 · Public Website",
+      "name": "Public Website",
+      "group_id": "E",
+      "icon": "🌐",
+      "description": "Vollständige öffentliche Eventseite — aus dem Backend gespeist, SSR, SEO-optimiert.",
+      "version": "v1.0",
+      "scope": "MVP",
+      "story_ids": [
+        "US-12-1",
+        "US-12-2",
+        "US-12-3",
+        "US-12-4",
+        "US-12-5"
+      ],
+      "mvp_story_ids": [
+        "US-12-1",
+        "US-12-2",
+        "US-12-3",
+        "US-12-4",
+        "US-12-5"
+      ],
+      "post_mvp_story_ids": []
+    },
+    {
+      "id": "M13",
+      "label": "M13 · Check-in & Badge-Druck",
+      "name": "Check-in & Badge-Druck",
+      "group_id": "E",
+      "icon": "📱",
+      "description": "Zwei Einlass-Spuren + automatischer Etikettendruck via Brother QL-820NWB.",
+      "version": "v1.3",
+      "scope": "MVP",
+      "story_ids": [
+        "US-13-1",
+        "US-13-2",
+        "US-13-3",
+        "US-13-4",
+        "US-13-5"
+      ],
+      "mvp_story_ids": [
+        "US-13-1",
+        "US-13-2",
+        "US-13-3",
+        "US-13-4",
+        "US-13-5"
+      ],
+      "post_mvp_story_ids": []
+    },
+    {
+      "id": "M14",
+      "label": "M14 · Blog / News",
+      "name": "Blog / News",
+      "group_id": "F",
+      "icon": "📰",
+      "description": "Content-Management für Artikel und Neuigkeiten rund um den Event.",
+      "version": "v1.3",
+      "scope": "Post-MVP",
+      "story_ids": [
+        "US-14-1",
+        "US-14-2"
+      ],
+      "mvp_story_ids": [],
+      "post_mvp_story_ids": [
+        "US-14-1",
+        "US-14-2"
+      ]
+    },
+    {
+      "id": "M15",
+      "label": "M15 · Presse-Bereich",
+      "name": "Presse-Bereich",
+      "group_id": "F",
+      "icon": "📢",
+      "description": "Press Kit, Pressemitteilungen und Akkreditierungs-Workflow für Journalisten.",
+      "version": "v1.3",
+      "scope": "Post-MVP",
+      "story_ids": [
+        "US-15-1",
+        "US-15-2"
+      ],
+      "mvp_story_ids": [],
+      "post_mvp_story_ids": [
+        "US-15-1",
+        "US-15-2"
+      ]
+    },
+    {
+      "id": "M16",
+      "label": "M16 · Location — KKL Luzern",
+      "name": "Location — KKL Luzern",
+      "group_id": "F",
+      "icon": "🏛️",
+      "description": "Anreise-Infos, Hotel-Empfehlungen und KKL-Fotos für Teilnehmer.",
+      "version": "v1.3",
+      "scope": "Post-MVP",
+      "story_ids": [
+        "US-16-1"
+      ],
+      "mvp_story_ids": [],
+      "post_mvp_story_ids": [
+        "US-16-1"
+      ]
+    },
+    {
+      "id": "M17",
+      "label": "M17 · Kontakt & Formulare",
+      "name": "Kontakt & Formulare",
+      "group_id": "F",
+      "icon": "📬",
+      "description": "Kategorisiertes Kontaktformular + Anfragen-Verwaltung im Admin.",
+      "version": "v1.3",
+      "scope": "Post-MVP",
+      "story_ids": [
+        "US-17-1",
+        "US-17-2"
+      ],
+      "mvp_story_ids": [],
+      "post_mvp_story_ids": [
+        "US-17-1",
+        "US-17-2"
+      ]
+    },
+    {
+      "id": "M18",
+      "label": "M18 · Foto-Galerie / Media-Archiv",
+      "name": "Foto-Galerie / Media-Archiv",
+      "group_id": "F",
+      "icon": "📸",
+      "description": "Event-Fotogalerie mit Lightbox und Download für Teilnehmer.",
+      "version": "v1.3",
+      "scope": "Post-MVP",
+      "story_ids": [
+        "US-18-1",
+        "US-18-2"
+      ],
+      "mvp_story_ids": [],
+      "post_mvp_story_ids": [
+        "US-18-1",
+        "US-18-2"
+      ]
+    },
+    {
+      "id": "M19",
+      "label": "M19 · Mehrsprachigkeit DE / EN",
+      "name": "Mehrsprachigkeit DE / EN",
+      "group_id": "F",
+      "icon": "🌍",
+      "description": "Zweisprachige Website — Inhalte pro Sprache im Admin pflegbar.",
+      "version": "v1.3",
+      "scope": "Post-MVP",
+      "story_ids": [
+        "US-19-1",
+        "US-19-2"
+      ],
+      "mvp_story_ids": [],
+      "post_mvp_story_ids": [
+        "US-19-1",
+        "US-19-2"
+      ]
+    }
+  ]
+}
