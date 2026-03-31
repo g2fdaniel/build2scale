@@ -17,6 +17,15 @@
 const fs = require('fs');
 const path = require('path');
 
+// .env laden (falls vorhanden)
+const envPath = path.join(__dirname, '.env');
+if (fs.existsSync(envPath)) {
+  fs.readFileSync(envPath, 'utf8').split('\n').forEach(line => {
+    const [key, ...rest] = line.split('=');
+    if (key && rest.length) process.env[key.trim()] ??= rest.join('=').trim();
+  });
+}
+
 // ---------------------------------------------------------------------------
 // Config
 // ---------------------------------------------------------------------------
