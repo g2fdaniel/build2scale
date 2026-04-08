@@ -14,7 +14,7 @@
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--darker); color: var(--text); line-height: 1.6; }
-/* ===== Nav ===== */
+/* Nav */
 .nav { background: rgba(8,10,15,0.95); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); }
 .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; gap: 8px; height: 52px; }
 .nav-brand { text-decoration: none; display: flex; align-items: center; gap: 8px; margin-right: 12px; flex-shrink: 0; }
@@ -26,7 +26,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; back
 .nav-link:hover { color: var(--text); background: rgba(255,255,255,0.05); }
 .nav-link.active { color: var(--accent2); background: rgba(13,148,136,0.12); font-weight: 600; }
 .theme-toggle { margin-left: auto; background: none; border: 1px solid var(--border); border-radius: 8px; width: 32px; height: 32px; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-/* ===== Page Header ===== */
+/* Page Header */
 .page-hdr { background: linear-gradient(135deg, #0f1117 0%, #0d2420 50%, #0f1117 100%); border-bottom: 1px solid var(--border); padding: 36px 40px 28px; }
 .page-hdr-inner { max-width: 1100px; margin: 0 auto; }
 .page-bc { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
@@ -34,75 +34,87 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; back
 .page-title { font-size: clamp(22px, 3vw, 34px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px; }
 .page-title span { color: var(--accent2); }
 .page-sub { color: var(--muted); font-size: 14px; }
-/* ===== Container ===== */
+/* Container & Sections */
 .container { max-width: 1100px; margin: 0 auto; padding: 48px 40px; }
 .section { margin-bottom: 48px; }
 .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
 .section-num { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: rgba(13,148,136,0.15); border: 1px solid rgba(13,148,136,0.3); border-radius: 8px; font-size: 13px; font-weight: 700; color: var(--accent2); flex-shrink: 0; }
 .section-title { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; }
-/* ===== Vision ===== */
-.vision-card { background: rgba(13,148,136,0.06); border: 1px solid rgba(13,148,136,0.25); border-radius: 14px; padding: 28px 32px; margin-bottom: 12px; }
-.vision-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent2); margin-bottom: 10px; }
+/* Vision */
+.vision-card { background: rgba(13,148,136,0.06); border: 1px solid rgba(13,148,136,0.25); border-radius: 14px; padding: 24px 28px; margin-bottom: 12px; }
+.vision-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent2); margin-bottom: 8px; }
 .vision-text { font-size: 15px; color: var(--text); line-height: 1.75; }
-.goal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
-.goal-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; display: flex; gap: 12px; align-items: flex-start; }
-.goal-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
-.goal-title { font-size: 14px; font-weight: 700; margin-bottom: 3px; }
+.goal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
+.goal-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; display: flex; gap: 12px; align-items: flex-start; }
+.goal-icon { font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+.goal-title { font-size: 13px; font-weight: 700; margin-bottom: 2px; }
 .goal-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
-/* ===== Accordion ===== */
-.accordion { display: flex; flex-direction: column; gap: 8px; }
+/* Domain Accordion (Level 1) */
+.accordion { display: flex; flex-direction: column; gap: 10px; }
 .acc-item { background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: border-color 0.2s; }
 .acc-item.open { border-color: rgba(13,148,136,0.35); }
-.acc-trigger { display: flex; align-items: center; gap: 16px; padding: 20px 24px; cursor: pointer; user-select: none; width: 100%; background: none; border: none; color: var(--text); text-align: left; }
+.acc-trigger { display: flex; align-items: center; gap: 16px; padding: 18px 22px; cursor: pointer; user-select: none; width: 100%; background: none; border: none; color: var(--text); text-align: left; }
 .acc-trigger:hover { background: rgba(255,255,255,0.02); }
-.acc-domain-icon { font-size: 22px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: rgba(13,148,136,0.08); border: 1px solid rgba(13,148,136,0.2); border-radius: 10px; flex-shrink: 0; }
+.acc-domain-icon { font-size: 20px; width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; background: rgba(13,148,136,0.08); border: 1px solid rgba(13,148,136,0.2); border-radius: 10px; flex-shrink: 0; }
 .acc-domain-body { flex: 1; min-width: 0; }
-.acc-domain-name { font-size: 16px; font-weight: 700; margin-bottom: 2px; }
+.acc-domain-name { font-size: 15px; font-weight: 700; margin-bottom: 2px; }
 .acc-domain-url { font-size: 11px; color: var(--accent2); font-family: 'Monaco', monospace; }
 .acc-meta { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
-.acc-count { font-size: 12px; color: var(--muted); font-weight: 500; }
-.acc-chevron { color: var(--muted); font-size: 14px; transition: transform 0.25s; flex-shrink: 0; }
+.acc-count { font-size: 12px; color: var(--muted); }
+.acc-chevron { color: var(--muted); font-size: 13px; transition: transform 0.25s; flex-shrink: 0; }
 .acc-item.open .acc-chevron { transform: rotate(180deg); }
-.acc-body { display: none; padding: 0 24px 24px; }
+.acc-body { display: none; padding: 0 22px 22px; }
 .acc-item.open .acc-body { display: block; }
-/* Feature groups */
-.feat-group { margin-bottom: 20px; }
+/* Feature Groups (Level 2) */
+.feat-group { margin-bottom: 18px; }
 .feat-group:last-child { margin-bottom: 0; }
-.feat-group-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent2); margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid rgba(13,148,136,0.15); }
-.feat-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 6px; }
-.feat-item { display: flex; align-items: flex-start; gap: 8px; padding: 8px 10px; border-radius: 8px; background: var(--card2); border: 1px solid rgba(255,255,255,0.03); }
-.feat-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent2); flex-shrink: 0; margin-top: 5px; }
-.feat-content { flex: 1; min-width: 0; }
-.feat-name { font-size: 13px; font-weight: 600; color: var(--text); }
-.feat-note { font-size: 11px; color: var(--muted); margin-top: 1px; }
-/* Domain color variants */
-.acc-item[data-domain="website"] .acc-domain-icon { background: rgba(99,102,241,0.1); border-color: rgba(99,102,241,0.25); }
-.acc-item[data-domain="mysummit"] .acc-domain-icon { background: rgba(13,148,136,0.1); border-color: rgba(13,148,136,0.25); }
-.acc-item[data-domain="admin"] .acc-domain-icon { background: rgba(245,158,11,0.1); border-color: rgba(245,158,11,0.25); }
-.acc-item[data-domain="checkin"] .acc-domain-icon { background: rgba(16,185,129,0.1); border-color: rgba(16,185,129,0.25); }
-/* ===== Roles Table ===== */
+.feat-group-title { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; color: var(--accent2); margin-bottom: 8px; padding-bottom: 5px; border-bottom: 1px solid rgba(13,148,136,0.12); }
+.feat-list { display: flex; flex-direction: column; gap: 5px; }
+/* Feature Items (Level 3 — expandable) */
+.feat-item { background: var(--card2); border: 1px solid rgba(255,255,255,0.04); border-radius: 9px; padding: 10px 12px; cursor: pointer; transition: border-color 0.15s; user-select: none; }
+.feat-item:hover { border-color: rgba(13,148,136,0.25); }
+.feat-item.open { border-color: rgba(13,148,136,0.3); background: rgba(13,148,136,0.04); }
+.feat-header { display: flex; align-items: center; gap: 8px; }
+.feat-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent2); flex-shrink: 0; }
+.feat-name { font-size: 13px; font-weight: 600; color: var(--text); flex: 1; }
+.feat-note { font-size: 11px; color: var(--muted); margin-top: 2px; margin-left: 14px; }
+.feat-chevron { font-size: 11px; color: var(--muted); flex-shrink: 0; transition: transform 0.2s; }
+.feat-item.open .feat-chevron { transform: rotate(45deg); color: var(--accent2); }
+/* Feature Detail (Level 4) */
+.feat-detail { display: none; margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(13,148,136,0.12); }
+.feat-item.open .feat-detail { display: block; }
+.feat-detail-group { margin-bottom: 10px; }
+.feat-detail-group:last-child { margin-bottom: 0; }
+.feat-detail-title { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 5px; }
+.req-list { list-style: none; display: flex; flex-direction: column; gap: 3px; }
+.req-item { font-size: 12px; color: var(--muted); display: flex; gap: 6px; align-items: flex-start; line-height: 1.45; padding: 2px 0; }
+.req-item::before { content: '—'; color: rgba(13,148,136,0.5); flex-shrink: 0; }
+.req-item strong { color: var(--text); }
+.req-item.tbd { color: rgba(100,116,139,0.7); }
+.req-item.tbd::before { content: '?'; color: var(--gold); }
+/* Roles Table */
 .table-wrap { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
 table { width: 100%; border-collapse: collapse; font-size: 13px; }
-th { text-align: left; padding: 10px 16px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); background: var(--card2); border-bottom: 1px solid var(--border); }
-td { padding: 10px 16px; border-bottom: 1px solid rgba(30,42,58,0.5); vertical-align: top; }
+th { text-align: left; padding: 9px 16px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); background: var(--card2); border-bottom: 1px solid var(--border); }
+td { padding: 9px 16px; border-bottom: 1px solid rgba(30,42,58,0.5); vertical-align: top; }
 tr:last-child td { border-bottom: none; }
 tr:hover td { background: rgba(255,255,255,0.02); }
 .domain-tag { font-size: 11px; font-family: 'Monaco', monospace; color: var(--accent2); }
-/* ===== Design System ===== */
+/* Design System */
 .design-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
 .design-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; }
 .design-card-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 12px; }
-.color-swatch { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
-.swatch { width: 24px; height: 24px; border-radius: 5px; flex-shrink: 0; }
+.color-swatch { display: flex; align-items: center; gap: 10px; margin-bottom: 7px; }
+.swatch { width: 22px; height: 22px; border-radius: 5px; flex-shrink: 0; }
 .swatch-name { font-size: 12px; font-weight: 600; }
 .swatch-hex { font-size: 10px; color: var(--muted); font-family: monospace; }
-/* ===== Footer ===== */
+/* Footer */
 .footer { border-top: 1px solid var(--border); padding: 24px 40px; display: flex; align-items: center; justify-content: space-between; color: var(--muted); font-size: 13px; }
 .footer strong { color: var(--text); }
 .footer-nav { display: flex; gap: 16px; }
 .footer-nav a { text-decoration: none; color: var(--muted); font-size: 13px; }
 .footer-nav a:hover { color: var(--accent2); }
-/* ===== Light Mode ===== */
+/* Light Mode */
 body.light { --darker: #f8fafc; --dark: #f1f5f9; --card: #ffffff; --card2: #f8fafc; --text: #0f172a; --muted: #64748b; --border: #e2e8f0; --accent2: #0f766e; --gold: #d97706; --green: #059669; --red: #dc2626; }
 body.light .nav { background: rgba(255,255,255,0.95); }
 body.light .page-hdr { background: linear-gradient(135deg, #f0fdf9 0%, #ccfbf1 50%, #f0fdf9 100%); border-bottom-color: #e2e8f0; }
@@ -112,19 +124,34 @@ body.light .nav-link.active { color: #0f766e; background: rgba(13,148,136,0.1); 
 body.light .nav-sep { color: #cbd5e1; }
 body.light .nav-brand-text { color: #0f172a; }
 body.light .nav-brand-dot { background: #0f766e; }
-body.light .vision-card { background: rgba(13,148,136,0.04); }
 body.light .section-num { background: rgba(13,148,136,0.08); border-color: rgba(13,148,136,0.2); }
 body.light .acc-trigger:hover { background: rgba(0,0,0,0.02); }
 body.light .feat-item { background: #f8fafc; border-color: #e2e8f0; }
+body.light .feat-item:hover, body.light .feat-item.open { border-color: #0f766e; }
+body.light .feat-item.open { background: rgba(13,148,136,0.03); }
 body.light th { background: #f1f5f9; color: #64748b; }
 body.light tr:hover td { background: rgba(0,0,0,0.015); }
 body.light .footer { border-top-color: #e2e8f0; }
 body.light .theme-toggle { border-color: #e2e8f0; }
+body.light .vision-card { background: rgba(13,148,136,0.04); }
+body.light .acc-item[data-domain="website"] .acc-domain-icon { background: rgba(99,102,241,0.07); }
+body.light .acc-item[data-domain="admin"] .acc-domain-icon { background: rgba(245,158,11,0.07); }
+body.light .acc-item[data-domain="checkin"] .acc-domain-icon { background: rgba(16,185,129,0.07); }
+/* Domain color accents */
+.acc-item[data-domain="website"] .acc-domain-icon { background: rgba(99,102,241,0.1); border-color: rgba(99,102,241,0.25); }
+.acc-item[data-domain="mysummit"] .acc-domain-icon { background: rgba(13,148,136,0.1); border-color: rgba(13,148,136,0.25); }
+.acc-item[data-domain="admin"] .acc-domain-icon { background: rgba(245,158,11,0.1); border-color: rgba(245,158,11,0.25); }
+.acc-item[data-domain="checkin"] .acc-domain-icon { background: rgba(16,185,129,0.1); border-color: rgba(16,185,129,0.25); }
+/* Legend */
+.legend-row { display: flex; gap: 16px; margin-bottom: 12px; font-size: 12px; color: var(--muted); }
+.legend-item { display: flex; gap: 5px; align-items: center; }
+.legend-dash { color: rgba(13,148,136,0.7); font-weight: 700; }
+.legend-q { color: var(--gold); font-weight: 700; }
 @media (max-width: 768px) {
   .page-hdr, .container, .footer { padding-left: 20px; padding-right: 20px; }
   .nav-inner { padding: 0 16px; }
-  .goal-grid, .feat-list, .design-grid { grid-template-columns: 1fr; }
-  .acc-trigger { padding: 16px; }
+  .goal-grid, .design-grid { grid-template-columns: 1fr; }
+  .acc-trigger { padding: 14px 16px; }
   .acc-body { padding: 0 16px 16px; }
 }
 </style>
@@ -154,7 +181,7 @@ body.light .theme-toggle { border-color: #e2e8f0; }
   <div class="page-hdr-inner">
     <div class="page-bc"><a href="index.html">D2C Summit</a> / Konzept</div>
     <div class="page-title">Konzept &amp; <span>Funktionen</span></div>
-    <div class="page-sub">Was wir bauen, warum wir es bauen und welche Funktionen jeder Bereich hat</div>
+    <div class="page-sub">Was wir bauen — klicke auf einen Bereich, dann auf ein Feature für die Detail-Anforderungen</div>
   </div>
 </div>
 
@@ -168,37 +195,13 @@ body.light .theme-toggle { border-color: #e2e8f0; }
     </div>
     <div class="vision-card">
       <div class="vision-label">Was wir bauen</div>
-      <div class="vision-text">Eine <strong>vollständige, wiederverwendbare Event Management Platform</strong> für den D2C Summit — ein einziges Laravel-Backend als Single Source of Truth für alle Frontends. Was einmal konfiguriert ist (Programm, Speaker, Tickets, Sponsoren), erscheint automatisch auf der Website, im Teilnehmer-Portal und in der Check-in App.</div>
+      <div class="vision-text">Eine <strong>vollständige, wiederverwendbare Event Management Platform</strong> für den D2C Summit — ein einziges Laravel-Backend als Single Source of Truth für alle Frontends. Was einmal konfiguriert ist, erscheint automatisch auf der Website, im Teilnehmer-Portal und in der Check-in App.</div>
     </div>
     <div class="goal-grid">
-      <div class="goal-card">
-        <div class="goal-icon">🔁</div>
-        <div>
-          <div class="goal-title">Jährlich wiederverwendbar</div>
-          <div class="goal-desc">Kein Wegwerfprojekt. Dasselbe System läuft jedes Jahr — nur die Inhalte werden aktualisiert.</div>
-        </div>
-      </div>
-      <div class="goal-card">
-        <div class="goal-icon">🔗</div>
-        <div>
-          <div class="goal-title">Single Source of Truth</div>
-          <div class="goal-desc">Ein Backend, alle Frontends. Kein Datenchaos zwischen verschiedenen Tools.</div>
-        </div>
-      </div>
-      <div class="goal-card">
-        <div class="goal-icon">⚡</div>
-        <div>
-          <div class="goal-title">Greenfield — sauber gebaut</div>
-          <div class="goal-desc">Laravel + Nuxt 4. Kein Legacy-Code, keine Tool-Abhängigkeiten, skalierbar von Tag 1.</div>
-        </div>
-      </div>
-      <div class="goal-card">
-        <div class="goal-icon">🎯</div>
-        <div>
-          <div class="goal-title">Professionelle Teilnehmererfahrung</div>
-          <div class="goal-desc">Persönliches Portal, automatisierte Kommunikation, Self-Service für Sponsoren & Speaker.</div>
-        </div>
-      </div>
+      <div class="goal-card"><div class="goal-icon">🔁</div><div><div class="goal-title">Jährlich wiederverwendbar</div><div class="goal-desc">Dasselbe System läuft jedes Jahr — nur Inhalte aktualisieren.</div></div></div>
+      <div class="goal-card"><div class="goal-icon">🔗</div><div><div class="goal-title">Single Source of Truth</div><div class="goal-desc">Ein Backend, alle Frontends. Kein Datenchaos.</div></div></div>
+      <div class="goal-card"><div class="goal-icon">⚡</div><div><div class="goal-title">Greenfield — sauber gebaut</div><div class="goal-desc">Laravel + Nuxt 4. Skalierbar von Tag 1.</div></div></div>
+      <div class="goal-card"><div class="goal-icon">🎯</div><div><div class="goal-title">Professionelle UX</div><div class="goal-desc">Self-Service für Teilnehmer, Sponsoren & Speaker.</div></div></div>
     </div>
   </div>
 
@@ -208,11 +211,14 @@ body.light .theme-toggle { border-color: #e2e8f0; }
       <div class="section-num">02</div>
       <h2 class="section-title">Funktionen & Anforderungen</h2>
     </div>
-    <p style="font-size:14px;color:var(--muted);margin-bottom:16px">4 Bereiche — klicke auf einen Bereich um die Anforderungen aufzuklappen.</p>
+    <div class="legend-row">
+      <span class="legend-item"><span class="legend-dash">—</span> Definiert</span>
+      <span class="legend-item"><span class="legend-q">?</span> Noch offen / zu klären</span>
+    </div>
 
     <div class="accordion">
 
-      <!-- PUBLIC WEBSITE -->
+      <!-- ===== PUBLIC WEBSITE ===== -->
       <div class="acc-item" data-domain="website" id="acc-website">
         <button class="acc-trigger" onclick="toggleAcc('website')">
           <div class="acc-domain-icon">🌐</div>
@@ -220,60 +226,139 @@ body.light .theme-toggle { border-color: #e2e8f0; }
             <div class="acc-domain-name">Public Website</div>
             <div class="acc-domain-url">d2c-summit.ch · öffentlich, kein Login</div>
           </div>
-          <div class="acc-meta">
-            <span class="acc-count">6 Bereiche</span>
-            <span class="acc-chevron">▼</span>
-          </div>
+          <div class="acc-meta"><span class="acc-count">6 Features</span><span class="acc-chevron">▼</span></div>
         </button>
         <div class="acc-body">
           <div class="feat-list">
-            <div class="feat-item">
-              <div class="feat-dot"></div>
-              <div class="feat-content">
-                <div class="feat-name">Home & Event-Info</div>
-                <div class="feat-note">Highlights, Datum, Location, CTA Ticket kaufen</div>
+
+            <div class="feat-item" onclick="toggleFeat(this)">
+              <div class="feat-header"><div class="feat-dot"></div><div class="feat-name">Home & Event-Info</div><span class="feat-chevron">+</span></div>
+              <div class="feat-note">Einstiegsseite mit CTA Ticket kaufen</div>
+              <div class="feat-detail">
+                <div class="feat-detail-group">
+                  <ul class="req-list">
+                    <li class="req-item">Hero-Bereich mit Event-Titel, Datum, Location und CTA „Ticket kaufen"</li>
+                    <li class="req-item">Highlight-Zahlen (Anzahl Teilnehmer, Speaker, Sponsoren)</li>
+                    <li class="req-item">Countdown-Timer bis zum Event</li>
+                    <li class="req-item">Social Proof / Impressionen aus Vorjahren</li>
+                    <li class="req-item">Alle Inhalte aus dem Admin-Backend — kein separates CMS</li>
+                  </ul>
+                </div>
               </div>
             </div>
-            <div class="feat-item">
-              <div class="feat-dot"></div>
-              <div class="feat-content">
-                <div class="feat-name">Programm & Tagesplan</div>
-                <div class="feat-note">Sessions, Stages, Speaker-Zuordnung — aus dem Backend</div>
+
+            <div class="feat-item" onclick="toggleFeat(this)">
+              <div class="feat-header"><div class="feat-dot"></div><div class="feat-name">Programm & Tagesplan</div><span class="feat-chevron">+</span></div>
+              <div class="feat-note">Sessions, Stages, Speaker-Zuordnung — aus dem Backend</div>
+              <div class="feat-detail">
+                <div class="feat-detail-group">
+                  <ul class="req-list">
+                    <li class="req-item">Sessions nach Uhrzeit sortiert, gruppiert nach Stage/Track</li>
+                    <li class="req-item">Filter nach Stage / Kategorie</li>
+                    <li class="req-item">Speaker-Name verlinkt auf Detailseite</li>
+                    <li class="req-item">Nur vom Admin veröffentlichte Sessions sichtbar</li>
+                    <li class="req-item">Mobile-optimierte Timeline-Darstellung</li>
+                    <li class="req-item tbd">Mehrsprachigkeit (DE/EN) — noch offen</li>
+                  </ul>
+                </div>
               </div>
             </div>
-            <div class="feat-item">
-              <div class="feat-dot"></div>
-              <div class="feat-content">
-                <div class="feat-name">Speaker-Übersicht & Detailseiten</div>
-                <div class="feat-note">Bio, Sessions, Social Links — aus dem Admin gepflegt</div>
+
+            <div class="feat-item" onclick="toggleFeat(this)">
+              <div class="feat-header"><div class="feat-dot"></div><div class="feat-name">Speaker-Übersicht & Detailseiten</div><span class="feat-chevron">+</span></div>
+              <div class="feat-note">Bio, Sessions, Social Links — aus dem Admin gepflegt</div>
+              <div class="feat-detail">
+                <div class="feat-detail-group">
+                  <ul class="req-list">
+                    <li class="req-item">Kachelansicht aller Speaker mit Profilbild, Name, Titel, Unternehmen</li>
+                    <li class="req-item">Detailseite pro Speaker: Bio, Social Links (LinkedIn, Twitter/X), zugeordnete Sessions</li>
+                    <li class="req-item">Eigene URL pro Speaker (SEO: /speaker/vorname-nachname)</li>
+                    <li class="req-item">Sichtbarkeit pro Speaker steuerbar (Admin kann Speaker verstecken)</li>
+                  </ul>
+                </div>
               </div>
             </div>
-            <div class="feat-item">
-              <div class="feat-dot"></div>
-              <div class="feat-content">
-                <div class="feat-name">Sponsoren</div>
-                <div class="feat-note">Nach Paket-Rang sortiert, Logo & Verlinkung</div>
+
+            <div class="feat-item" onclick="toggleFeat(this)">
+              <div class="feat-header"><div class="feat-dot"></div><div class="feat-name">Sponsoren</div><span class="feat-chevron">+</span></div>
+              <div class="feat-note">Nach Paket-Rang sortiert, Logo & Verlinkung</div>
+              <div class="feat-detail">
+                <div class="feat-detail-group">
+                  <ul class="req-list">
+                    <li class="req-item">Anzeige nach Rang: Platin → Gold → Silber → Partner</li>
+                    <li class="req-item">Logo mit Link zur Unternehmenswebsite</li>
+                    <li class="req-item">Sichtbarkeit pro Sponsor steuerbar (Öffentlich / Nur angemeldet / Nicht sichtbar)</li>
+                    <li class="req-item tbd">Sponsor-Profilseite mit Detailbeschreibung — noch offen ob nötig</li>
+                  </ul>
+                </div>
               </div>
             </div>
-            <div class="feat-item">
-              <div class="feat-dot"></div>
-              <div class="feat-content">
-                <div class="feat-name">Tickets kaufen</div>
-                <div class="feat-note">Ticket-Kategorien, Voucher-Eingabe, Payrexx-Checkout</div>
+
+            <div class="feat-item" onclick="toggleFeat(this)">
+              <div class="feat-header"><div class="feat-dot"></div><div class="feat-name">Tickets kaufen</div><span class="feat-chevron">+</span></div>
+              <div class="feat-note">Kategorien, Checkout, Voucher, Stornierung</div>
+              <div class="feat-detail">
+                <div class="feat-detail-group">
+                  <div class="feat-detail-title">Ticket-Kategorien</div>
+                  <ul class="req-list">
+                    <li class="req-item"><strong>Early Bird</strong> — reduzierter Preis, Kontingent begrenzt, Verkauf nur bis Datum X</li>
+                    <li class="req-item"><strong>Standard</strong> — Vollpreis, nach Early Bird aktiv</li>
+                    <li class="req-item"><strong>VIP / Premium</strong> — inkl. Networking-Dinner o.ä. Zusatzleistungen</li>
+                    <li class="req-item tbd"><strong>Student</strong> — Sonderpreis, Nachweis erforderlich (Prozess noch offen)</li>
+                    <li class="req-item tbd">Weitere Kategorien (Group Tickets, Speaker-Freiticket) — noch offen</li>
+                    <li class="req-item tbd">Konkrete Preise — noch festzulegen</li>
+                  </ul>
+                </div>
+                <div class="feat-detail-group">
+                  <div class="feat-detail-title">Checkout-Prozess</div>
+                  <ul class="req-list">
+                    <li class="req-item">Voucher-Code-Eingabe vor dem Checkout (Rabatt oder Freiticket)</li>
+                    <li class="req-item">Payrexx Checkout — Kreditkarte, Twint, weitere je nach Payrexx-Konfiguration</li>
+                    <li class="req-item">Bestätigungsmail mit Ticket-PDF automatisch nach Kauf</li>
+                    <li class="req-item">QR-Code im Ticket-PDF für Check-in am Eventtag</li>
+                  </ul>
+                </div>
+                <div class="feat-detail-group">
+                  <div class="feat-detail-title">Stornierung & Refund</div>
+                  <ul class="req-list">
+                    <li class="req-item tbd">Stornierungsfristen — noch festzulegen (z.B. bis 4 Wochen: 100%, bis 1 Woche: 50%)</li>
+                    <li class="req-item tbd">Refund-Prozess via Payrexx — noch zu klären (automatisch oder manuell?)</li>
+                    <li class="req-item tbd">Ticket-Transfer auf andere Person möglich? — noch offen</li>
+                    <li class="req-item">Storno-Bestätigungsmail an Käufer</li>
+                  </ul>
+                </div>
+                <div class="feat-detail-group">
+                  <div class="feat-detail-title">Student-Validierung</div>
+                  <ul class="req-list">
+                    <li class="req-item tbd">Validierungsprozess noch zu definieren</li>
+                    <li class="req-item tbd">Option A: Upload Immatrikulationsbescheinigung (manuelle Prüfung durch Admin)</li>
+                    <li class="req-item tbd">Option B: E-Mail-Domain Whitelist (automatisch, z.B. @uni-*.ch)</li>
+                    <li class="req-item tbd">Option C: Ehrenkodex (kein Nachweis, aber AGB-Zustimmung)</li>
+                  </ul>
+                </div>
               </div>
             </div>
-            <div class="feat-item">
-              <div class="feat-dot"></div>
-              <div class="feat-content">
-                <div class="feat-name">FAQ & Infoseiten</div>
-                <div class="feat-note">Statische Seiten, aus dem Admin pflegbar</div>
+
+            <div class="feat-item" onclick="toggleFeat(this)">
+              <div class="feat-header"><div class="feat-dot"></div><div class="feat-name">FAQ & Infoseiten</div><span class="feat-chevron">+</span></div>
+              <div class="feat-note">Statische Inhalte, aus dem Admin pflegbar</div>
+              <div class="feat-detail">
+                <div class="feat-detail-group">
+                  <ul class="req-list">
+                    <li class="req-item">FAQ mit Kategorisierung (z.B. Tickets, Anreise, Programm)</li>
+                    <li class="req-item">Alle FAQs im Admin pflegbar — kein Deployment nötig</li>
+                    <li class="req-item">Weitere Infoseiten: Anreise & Location, Barrierefreiheit, Kontakt</li>
+                    <li class="req-item tbd">Suchfunktion innerhalb der FAQs — noch offen</li>
+                  </ul>
+                </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>
 
-      <!-- MY SUMMIT -->
+      <!-- ===== MY SUMMIT ===== -->
       <div class="acc-item" data-domain="mysummit" id="acc-mysummit">
         <button class="acc-trigger" onclick="toggleAcc('mysummit')">
           <div class="acc-domain-icon">🪪</div>
@@ -281,129 +366,203 @@ body.light .theme-toggle { border-color: #e2e8f0; }
             <div class="acc-domain-name">My Summit — Teilnehmer-Portal</div>
             <div class="acc-domain-url">my.d2c-summit.ch · Login erforderlich · rollenbasiert</div>
           </div>
-          <div class="acc-meta">
-            <span class="acc-count">3 Rollen · 15 Features</span>
-            <span class="acc-chevron">▼</span>
-          </div>
+          <div class="acc-meta"><span class="acc-count">3 Rollen · 14 Features</span><span class="acc-chevron">▼</span></div>
         </button>
         <div class="acc-body">
+
           <div class="feat-group">
             <div class="feat-group-title">Teilnehmer</div>
             <div class="feat-list">
-              <div class="feat-item">
-                <div class="feat-dot"></div>
-                <div class="feat-content">
-                  <div class="feat-name">Mein Ticket & QR-Code</div>
-                  <div class="feat-note">Digitales Ticket, QR für Check-in</div>
+
+              <div class="feat-item" onclick="toggleFeat(this)">
+                <div class="feat-header"><div class="feat-dot"></div><div class="feat-name">Mein Ticket & QR-Code</div><span class="feat-chevron">+</span></div>
+                <div class="feat-note">Digitales Ticket für den Check-in</div>
+                <div class="feat-detail">
+                  <ul class="req-list">
+                    <li class="req-item">QR-Code als einzigartiger Identifier für den Check-in am Einlass</li>
+                    <li class="req-item">Alle Ticket-Details: Kategorie, Datum, Location, Bestellnummer</li>
+                    <li class="req-item">Ticket-PDF downloadbar (für Ausdruck oder Wallet)</li>
+                    <li class="req-item tbd">Apple/Google Wallet-Integration — noch offen</li>
+                  </ul>
                 </div>
               </div>
-              <div class="feat-item">
-                <div class="feat-dot"></div>
-                <div class="feat-content">
-                  <div class="feat-name">Persönlicher Tagesplan</div>
-                  <div class="feat-note">Gebuchte Sessions auf einen Blick</div>
+
+              <div class="feat-item" onclick="toggleFeat(this)">
+                <div class="feat-header"><div class="feat-dot"></div><div class="feat-name">Sessions buchen & Warteliste</div><span class="feat-chevron">+</span></div>
+                <div class="feat-note">Kapazitätsbegrenzte Sessions, automatische Warteliste</div>
+                <div class="feat-detail">
+                  <ul class="req-list">
+                    <li class="req-item">Session-Auswahl aus dem Tagesplan mit Kapazitäts-Anzeige (z.B. „12 / 30 Plätze")</li>
+                    <li class="req-item">Automatische Warteliste wenn Session voll — Position angezeigt</li>
+                    <li class="req-item">Buchungsbestätigung per E-Mail</li>
+                    <li class="req-item">Nachrücken von Warteliste automatisch mit E-Mail-Benachrichtigung</li>
+                    <li class="req-item">Stornierung einer Session-Buchung möglich</li>
+                    <li class="req-item tbd">Max. Anzahl buchbarer Sessions pro Teilnehmer — noch festzulegen</li>
+                    <li class="req-item tbd">Session-Buchung nur für bestimmte Ticket-Kategorien? — noch offen</li>
+                  </ul>
                 </div>
               </div>
-              <div class="feat-item">
-                <div class="feat-dot"></div>
-                <div class="feat-content">
-                  <div class="feat-name">Sessions buchen & Warteliste</div>
-                  <div class="feat-note">Kapazitätsbegrenzte Sessions, automatische Warteliste</div>
+
+              <div class="feat-item" onclick="toggleFeat(this)">
+                <div class="feat-header"><div class="feat-dot"></div><div class="feat-name">Persönlicher Tagesplan</div><span class="feat-chevron">+</span></div>
+                <div class="feat-note">Gebuchte Sessions in der Übersicht</div>
+                <div class="feat-detail">
+                  <ul class="req-list">
+                    <li class="req-item">Nur gebuchte Sessions anzeigen — chronologisch mit Uhrzeit, Stage, Speaker</li>
+                    <li class="req-item">Ungeplante Zeitfenster sichtbar (Pausen, Networking)</li>
+                    <li class="req-item tbd">Export als .ics Kalender-Datei — noch offen</li>
+                  </ul>
                 </div>
               </div>
-              <div class="feat-item">
-                <div class="feat-dot"></div>
-                <div class="feat-content">
-                  <div class="feat-name">Badge & Zertifikat</div>
-                  <div class="feat-note">Downloadbar nach dem Event</div>
+
+              <div class="feat-item" onclick="toggleFeat(this)">
+                <div class="feat-header"><div class="feat-dot"></div><div class="feat-name">Badge & Zertifikat</div><span class="feat-chevron">+</span></div>
+                <div class="feat-note">Downloadbar nach dem Event</div>
+                <div class="feat-detail">
+                  <ul class="req-list">
+                    <li class="req-item">Personalisierter Badge mit Name, Funktion, Unternehmen, Event-Logo</li>
+                    <li class="req-item">Teilnahme-Zertifikat als PDF nach dem Event freigeschaltet</li>
+                    <li class="req-item tbd">Format: PDF oder hochauflösendes PNG — noch zu klären</li>
+                    <li class="req-item tbd">Automatisch freigeschaltet nach Check-in oder manuell durch Admin? — noch offen</li>
+                  </ul>
                 </div>
               </div>
-              <div class="feat-item">
-                <div class="feat-dot"></div>
-                <div class="feat-content">
-                  <div class="feat-name">Materialien & Präsentationen</div>
-                  <div class="feat-note">Speaker-Slides, Unterlagen nach dem Event</div>
+
+              <div class="feat-item" onclick="toggleFeat(this)">
+                <div class="feat-header"><div class="feat-dot"></div><div class="feat-name">Materialien & Präsentationen</div><span class="feat-chevron">+</span></div>
+                <div class="feat-note">Speaker-Slides nach dem Event</div>
+                <div class="feat-detail">
+                  <ul class="req-list">
+                    <li class="req-item">Speaker-Slides & Unterlagen downloadbar nach dem Event</li>
+                    <li class="req-item tbd">Nur für gebuchte Sessions sichtbar, oder alle? — noch offen</li>
+                    <li class="req-item tbd">Download als ZIP (alle auf einmal) oder einzeln — noch offen</li>
+                    <li class="req-item tbd">Zeitpunkt der Freischaltung (direkt nach Session, nach Event) — noch offen</li>
+                  </ul>
                 </div>
               </div>
-              <div class="feat-item">
-                <div class="feat-dot"></div>
-                <div class="feat-content">
-                  <div class="feat-name">Social Share Cards</div>
-                  <div class="feat-note">Personalisierte Cards für LinkedIn etc.</div>
+
+              <div class="feat-item" onclick="toggleFeat(this)">
+                <div class="feat-header"><div class="feat-dot"></div><div class="feat-name">Social Share Cards</div><span class="feat-chevron">+</span></div>
+                <div class="feat-note">Personalisierte Cards für Social Media</div>
+                <div class="feat-detail">
+                  <ul class="req-list">
+                    <li class="req-item">Personalisiertes Bild: Name, Funktion, Event-Datum</li>
+                    <li class="req-item">Format für LinkedIn (1200×628px) und Instagram (1080×1080px)</li>
+                    <li class="req-item">Direkt downloadbar, kein Account bei Drittanbieter nötig</li>
+                    <li class="req-item tbd">Vorab (Ankündigung „Ich nehme teil") und/oder danach (Danke) — noch offen</li>
+                  </ul>
                 </div>
               </div>
-              <div class="feat-item">
-                <div class="feat-dot"></div>
-                <div class="feat-content">
-                  <div class="feat-name">Profil bearbeiten</div>
-                  <div class="feat-note">Name, Foto, Unternehmen, Bio</div>
+
+              <div class="feat-item" onclick="toggleFeat(this)">
+                <div class="feat-header"><div class="feat-dot"></div><div class="feat-name">Profil bearbeiten</div><span class="feat-chevron">+</span></div>
+                <div class="feat-note">Name, Foto, Unternehmen, Bio</div>
+                <div class="feat-detail">
+                  <ul class="req-list">
+                    <li class="req-item">Name, Funktion/Titel, Unternehmen, Profilbild</li>
+                    <li class="req-item">Kurzbiografie (Zeichenlimit noch festzulegen)</li>
+                    <li class="req-item tbd">Sichtbarkeit für andere Teilnehmer (Networking-Funktion) — noch offen</li>
+                    <li class="req-item tbd">LinkedIn-Verlinkung im Profil — noch offen</li>
+                  </ul>
                 </div>
               </div>
+
             </div>
           </div>
+
           <div class="feat-group">
             <div class="feat-group-title">Sponsor</div>
             <div class="feat-list">
-              <div class="feat-item">
-                <div class="feat-dot"></div>
-                <div class="feat-content">
-                  <div class="feat-name">Firmenprofil pflegen</div>
-                  <div class="feat-note">Logo, Beschreibung, Website-Link</div>
+
+              <div class="feat-item" onclick="toggleFeat(this)">
+                <div class="feat-header"><div class="feat-dot"></div><div class="feat-name">Firmenprofil pflegen</div><span class="feat-chevron">+</span></div>
+                <div class="feat-note">Logo, Beschreibung, Sichtbarkeit auf Website</div>
+                <div class="feat-detail">
+                  <ul class="req-list">
+                    <li class="req-item">Firmenname, Website-URL, Kurzbeschreibung (max. X Zeichen)</li>
+                    <li class="req-item">Logo hochladen — erscheint nach Admin-Freigabe auf Public Website</li>
+                    <li class="req-item">Sichtbarkeit: Öffentlich / Nur für angemeldete Teilnehmer / Nicht sichtbar</li>
+                    <li class="req-item tbd">Admin-Freigabe bei jedem Update oder nur bei erstem Upload? — noch offen</li>
+                  </ul>
                 </div>
               </div>
-              <div class="feat-item">
-                <div class="feat-dot"></div>
-                <div class="feat-content">
-                  <div class="feat-name">Logo & Assets hochladen</div>
-                  <div class="feat-note">Erscheint automatisch auf der Public Website</div>
+
+              <div class="feat-item" onclick="toggleFeat(this)">
+                <div class="feat-header"><div class="feat-dot"></div><div class="feat-name">Statistiken</div><span class="feat-chevron">+</span></div>
+                <div class="feat-note">Impressions, Klicks auf Firmenprofil</div>
+                <div class="feat-detail">
+                  <ul class="req-list">
+                    <li class="req-item">Impressions des Firmenprofils (wie oft wurde es angezeigt)</li>
+                    <li class="req-item">Klicks auf Website-Link</li>
+                    <li class="req-item tbd">Zeitraum-Filter (gesamt / letzte 7 Tage) — noch offen</li>
+                    <li class="req-item tbd">Vergleich mit anderen Sponsoren desselben Pakets — noch offen</li>
+                  </ul>
                 </div>
               </div>
-              <div class="feat-item">
-                <div class="feat-dot"></div>
-                <div class="feat-content">
-                  <div class="feat-name">Materialien herunterladen</div>
-                  <div class="feat-note">Sponsor-Kit, Unterlagen</div>
+
+              <div class="feat-item" onclick="toggleFeat(this)">
+                <div class="feat-header"><div class="feat-dot"></div><div class="feat-name">Materialien herunterladen</div><span class="feat-chevron">+</span></div>
+                <div class="feat-note">Sponsor-Kit und Event-Unterlagen</div>
+                <div class="feat-detail">
+                  <ul class="req-list">
+                    <li class="req-item">Sponsor-Kit: Technische Spezifikationen, Deadlines, Logorichtlinien</li>
+                    <li class="req-item">Event-Unterlagen: Ablauf, Hallenplan, Parkplatz-Info etc.</li>
+                    <li class="req-item tbd">Pro Paket unterschiedliche Materialien? — noch offen</li>
+                  </ul>
                 </div>
               </div>
-              <div class="feat-item">
-                <div class="feat-dot"></div>
-                <div class="feat-content">
-                  <div class="feat-name">Statistiken</div>
-                  <div class="feat-note">Impressions, Klicks auf Firmenprofil</div>
-                </div>
-              </div>
+
             </div>
           </div>
+
           <div class="feat-group">
             <div class="feat-group-title">Speaker</div>
             <div class="feat-list">
-              <div class="feat-item">
-                <div class="feat-dot"></div>
-                <div class="feat-content">
-                  <div class="feat-name">Eigenes Profil bearbeiten</div>
-                  <div class="feat-note">Bio, Foto, Social Links</div>
+
+              <div class="feat-item" onclick="toggleFeat(this)">
+                <div class="feat-header"><div class="feat-dot"></div><div class="feat-name">Eigenes Profil bearbeiten</div><span class="feat-chevron">+</span></div>
+                <div class="feat-note">Bio, Foto, Social Links</div>
+                <div class="feat-detail">
+                  <ul class="req-list">
+                    <li class="req-item">Name, Titel, Unternehmen, Bio (erscheint auf Public Website)</li>
+                    <li class="req-item">Profilbild hochladen</li>
+                    <li class="req-item">Social Links: LinkedIn, Twitter/X, Website</li>
+                    <li class="req-item tbd">Profil-Änderungen direkt live oder mit Admin-Freigabe? — noch offen</li>
+                  </ul>
                 </div>
               </div>
-              <div class="feat-item">
-                <div class="feat-dot"></div>
-                <div class="feat-content">
-                  <div class="feat-name">Präsentationen hochladen</div>
-                  <div class="feat-note">Slides für Teilnehmer bereitstellen</div>
+
+              <div class="feat-item" onclick="toggleFeat(this)">
+                <div class="feat-header"><div class="feat-dot"></div><div class="feat-name">Präsentationen hochladen</div><span class="feat-chevron">+</span></div>
+                <div class="feat-note">Slides für Teilnehmer bereitstellen</div>
+                <div class="feat-detail">
+                  <ul class="req-list">
+                    <li class="req-item">Upload der Präsentation (PDF, PPTX)</li>
+                    <li class="req-item tbd">Max. Dateigrösse — noch festzulegen (z.B. 50 MB)</li>
+                    <li class="req-item tbd">Upload-Deadline (z.B. 3 Tage vor Event) mit Erinnerungsmail — noch offen</li>
+                    <li class="req-item">Präsentation erscheint nach Event im Teilnehmer-Portal</li>
+                  </ul>
                 </div>
               </div>
-              <div class="feat-item">
-                <div class="feat-dot"></div>
-                <div class="feat-content">
-                  <div class="feat-name">Session-Infos & Feedback</div>
-                  <div class="feat-note">Eigene Sessions sehen, Teilnehmer-Feedback nach Event</div>
+
+              <div class="feat-item" onclick="toggleFeat(this)">
+                <div class="feat-header"><div class="feat-dot"></div><div class="feat-name">Session-Infos & Feedback</div><span class="feat-chevron">+</span></div>
+                <div class="feat-note">Eigene Sessions, Teilnehmerzahlen, Feedback nach Event</div>
+                <div class="feat-detail">
+                  <ul class="req-list">
+                    <li class="req-item">Übersicht eigener Sessions: Zeitslot, Stage, Kapazität, Anmeldungen</li>
+                    <li class="req-item">Feedback-Ratings der Teilnehmer nach dem Event (Sterne + Kommentare)</li>
+                    <li class="req-item tbd">Teilnehmerliste pro Session für Speaker einsehbar? — noch offen (Datenschutz)</li>
+                  </ul>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
       </div>
 
-      <!-- ADMIN BACKEND -->
+      <!-- ===== ADMIN BACKEND ===== -->
       <div class="acc-item" data-domain="admin" id="acc-admin">
         <button class="acc-trigger" onclick="toggleAcc('admin')">
           <div class="acc-domain-icon">⚙️</div>
@@ -411,127 +570,230 @@ body.light .theme-toggle { border-color: #e2e8f0; }
             <div class="acc-domain-name">Admin Backend</div>
             <div class="acc-domain-url">admin.d2c-summit.ch · nur Organizer & Admins</div>
           </div>
-          <div class="acc-meta">
-            <span class="acc-count">12 Bereiche</span>
-            <span class="acc-chevron">▼</span>
-          </div>
+          <div class="acc-meta"><span class="acc-count">4 Bereiche · 12 Features</span><span class="acc-chevron">▼</span></div>
         </button>
         <div class="acc-body">
+
           <div class="feat-group">
             <div class="feat-group-title">Event & Programm</div>
             <div class="feat-list">
-              <div class="feat-item">
-                <div class="feat-dot"></div>
-                <div class="feat-content">
-                  <div class="feat-name">Events & Venues verwalten</div>
-                  <div class="feat-note">Neue Events anlegen, Location, Datum, Clonen</div>
+
+              <div class="feat-item" onclick="toggleFeat(this)">
+                <div class="feat-header"><div class="feat-dot"></div><div class="feat-name">Events & Venues verwalten</div><span class="feat-chevron">+</span></div>
+                <div class="feat-note">Events anlegen, konfigurieren, klonen</div>
+                <div class="feat-detail">
+                  <ul class="req-list">
+                    <li class="req-item">Event anlegen: Titel, Datum/Uhrzeit, Location (Adresse, Kartenlink)</li>
+                    <li class="req-item">Status pro Event: Entwurf / Veröffentlicht / Archiviert</li>
+                    <li class="req-item">Event klonen für Folgejahr — Programm-Struktur und Einstellungen übernehmen</li>
+                    <li class="req-item">Mehrere Events parallel verwaltbar (Vorjahre als Archiv)</li>
+                  </ul>
                 </div>
               </div>
-              <div class="feat-item">
-                <div class="feat-dot"></div>
-                <div class="feat-content">
-                  <div class="feat-name">Programm, Sessions & Stages</div>
-                  <div class="feat-note">Zeitplan aufbauen, Stages definieren, Sessions zuordnen</div>
+
+              <div class="feat-item" onclick="toggleFeat(this)">
+                <div class="feat-header"><div class="feat-dot"></div><div class="feat-name">Programm, Sessions & Stages</div><span class="feat-chevron">+</span></div>
+                <div class="feat-note">Zeitplan aufbauen, Stages, Sessions zuordnen</div>
+                <div class="feat-detail">
+                  <ul class="req-list">
+                    <li class="req-item">Stages/Tracks anlegen (z.B. Hauptbühne, Workshop A, Workshop B)</li>
+                    <li class="req-item">Sessions erstellen: Titel, Beschreibung, Zeitslot, Stage, Speaker zuweisen</li>
+                    <li class="req-item">Kapazität pro Session definieren (für Session-Buchung durch Teilnehmer)</li>
+                    <li class="req-item">Veröffentlichungs-Status pro Session (Entwurf / Live)</li>
+                    <li class="req-item">Drag & Drop Zeitplan-Editor — oder tabellarisch? Noch zu klären</li>
+                  </ul>
                 </div>
               </div>
-              <div class="feat-item">
-                <div class="feat-dot"></div>
-                <div class="feat-content">
-                  <div class="feat-name">Speaker-Management</div>
-                  <div class="feat-note">Speaker anlegen, Sessions zuweisen, Kommunikation</div>
+
+              <div class="feat-item" onclick="toggleFeat(this)">
+                <div class="feat-header"><div class="feat-dot"></div><div class="feat-name">Speaker-Management</div><span class="feat-chevron">+</span></div>
+                <div class="feat-note">Speaker anlegen, Sessions zuweisen, Kommunikation</div>
+                <div class="feat-detail">
+                  <ul class="req-list">
+                    <li class="req-item">Speaker-Profil anlegen: Name, Bio, Profilbild, Social Links, Unternehmen</li>
+                    <li class="req-item">Sessions zuweisen (einem Speaker können mehrere Sessions gehören)</li>
+                    <li class="req-item">Einladungs-E-Mail mit Portal-Zugang auslösen</li>
+                    <li class="req-item">Status pro Speaker: Eingeladen / Bestätigt / Unterlagen eingereicht</li>
+                    <li class="req-item">Speaker-Profil auf Public Website ein-/ausblenden</li>
+                  </ul>
                 </div>
               </div>
+
             </div>
           </div>
+
           <div class="feat-group">
-            <div class="feat-group-title">Teilnehmer & Tickets</div>
+            <div class="feat-group-title">Tickets & Teilnehmer</div>
             <div class="feat-list">
-              <div class="feat-item">
-                <div class="feat-dot"></div>
-                <div class="feat-content">
-                  <div class="feat-name">Ticket-Kategorien & Preise</div>
-                  <div class="feat-note">Early Bird, Regular, VIP — Kontingente, Laufzeiten</div>
+
+              <div class="feat-item" onclick="toggleFeat(this)">
+                <div class="feat-header"><div class="feat-dot"></div><div class="feat-name">Ticket-Kategorien & Preise</div><span class="feat-chevron">+</span></div>
+                <div class="feat-note">Kategorien definieren, Kontingente, Laufzeiten</div>
+                <div class="feat-detail">
+                  <div class="feat-detail-group">
+                    <div class="feat-detail-title">Pro Ticket-Kategorie konfigurierbar</div>
+                    <ul class="req-list">
+                      <li class="req-item">Kategorie-Name (z.B. Early Bird, Standard, VIP, Student)</li>
+                      <li class="req-item">Preis (CHF, inkl. / exkl. MwSt.)</li>
+                      <li class="req-item">Kontingent (max. Anzahl Tickets)</li>
+                      <li class="req-item">Verkaufs-Zeitraum: Startdatum und Enddatum</li>
+                      <li class="req-item">Sichtbarkeit: Öffentlich / Nur per Direktlink / Versteckt</li>
+                      <li class="req-item tbd">Beschreibung / Leistungsumfang pro Kategorie sichtbar im Checkout — noch offen</li>
+                    </ul>
+                  </div>
+                  <div class="feat-detail-group">
+                    <div class="feat-detail-title">Voucher-System</div>
+                    <ul class="req-list">
+                      <li class="req-item">Voucher-Code manuell vergeben oder automatisch generieren</li>
+                      <li class="req-item">Rabatt: Prozentsatz (%) oder Festbetrag (CHF)</li>
+                      <li class="req-item">Einmalig nutzbar oder für mehrere Personen (Max. Nutzungen)</li>
+                      <li class="req-item">Ablaufdatum für Voucher</li>
+                      <li class="req-item">Verwendungs-Tracking: wer hat wann eingelöst</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
-              <div class="feat-item">
-                <div class="feat-dot"></div>
-                <div class="feat-content">
-                  <div class="feat-name">Voucher-System</div>
-                  <div class="feat-note">Rabattcodes, Direktlinks, Einzel- oder Mehrfachnutzung</div>
+
+              <div class="feat-item" onclick="toggleFeat(this)">
+                <div class="feat-header"><div class="feat-dot"></div><div class="feat-name">Orders & Rechnungen</div><span class="feat-chevron">+</span></div>
+                <div class="feat-note">Bestellübersicht, Stornos, Buchhaltungs-Export</div>
+                <div class="feat-detail">
+                  <ul class="req-list">
+                    <li class="req-item">Bestellübersicht mit Suche und Filter (Status, Ticket-Typ, Datum, Unternehmen)</li>
+                    <li class="req-item">Rechnungs-PDF pro Bestellung downloadbar</li>
+                    <li class="req-item">Storno-Funktion mit Refund-Tracking (Betrag, Datum, Grund)</li>
+                    <li class="req-item">Manuelle Ticket-Erstellung (z.B. für Presse, Speaker-Freikarten)</li>
+                    <li class="req-item">CSV-Export aller Orders für Buchhaltung</li>
+                    <li class="req-item tbd">Automatische Rechnungs-Nummerierung (Fortlaufend / nach Muster) — noch offen</li>
+                  </ul>
                 </div>
               </div>
-              <div class="feat-item">
-                <div class="feat-dot"></div>
-                <div class="feat-content">
-                  <div class="feat-name">Orders & Rechnungen</div>
-                  <div class="feat-note">Bestellübersicht, Rechnungs-PDF, Stornos</div>
+
+              <div class="feat-item" onclick="toggleFeat(this)">
+                <div class="feat-header"><div class="feat-dot"></div><div class="feat-name">Teilnehmer-Verwaltung</div><span class="feat-chevron">+</span></div>
+                <div class="feat-note">Liste, Filter, Export, Unternehmens-Zuordnung</div>
+                <div class="feat-detail">
+                  <ul class="req-list">
+                    <li class="req-item">Gesamtliste aller Teilnehmer mit Filter: Ticket-Typ, Unternehmen, Check-in-Status, Kommunikations-Status</li>
+                    <li class="req-item">Teilnehmer manuell hinzufügen oder importieren (CSV)</li>
+                    <li class="req-item">Teilnehmer einem Unternehmen zuordnen</li>
+                    <li class="req-item">Kommunikations-Status: Eingeladen / Bestätigt / Abgesagt / Keine Antwort</li>
+                    <li class="req-item">CSV-Export (Name, E-Mail, Ticket-Typ, Unternehmen, Check-in)</li>
+                    <li class="req-item tbd">Direkt aus Admin eine E-Mail an einzelne Teilnehmer senden — noch offen</li>
+                  </ul>
                 </div>
               </div>
-              <div class="feat-item">
-                <div class="feat-dot"></div>
-                <div class="feat-content">
-                  <div class="feat-name">Teilnehmer-Verwaltung</div>
-                  <div class="feat-note">Liste, Filter, Export, Unternehmens-Zuordnung, Status</div>
+
+              <div class="feat-item" onclick="toggleFeat(this)">
+                <div class="feat-header"><div class="feat-dot"></div><div class="feat-name">Unternehmens-Profile</div><span class="feat-chevron">+</span></div>
+                <div class="feat-note">Unternehmen anlegen, Tickets zuordnen, Sponsor-Typ</div>
+                <div class="feat-detail">
+                  <ul class="req-list">
+                    <li class="req-item">Unternehmen anlegen: Name, Website, Logo, Kurzbeschreibung</li>
+                    <li class="req-item">Mehrere Tickets (= Personen) einem Unternehmen zuordnen</li>
+                    <li class="req-item">Sponsor-Typ pro Unternehmen: Platin / Gold / Silber / Partner / Nicht-sichtbar</li>
+                    <li class="req-item">Sichtbarkeit auf Public Website pro Unternehmen steuerbar</li>
+                    <li class="req-item tbd">Unternehmens-spezifische Ticket-Kontingente (z.B. Sponsor-Paket beinhaltet 5 Tickets) — noch offen</li>
+                  </ul>
                 </div>
               </div>
-              <div class="feat-item">
-                <div class="feat-dot"></div>
-                <div class="feat-content">
-                  <div class="feat-name">Unternehmens-Profile</div>
-                  <div class="feat-note">Unternehmen anlegen, Tickets zuordnen, Sponsor-Typ</div>
-                </div>
-              </div>
+
             </div>
           </div>
+
           <div class="feat-group">
             <div class="feat-group-title">Sponsoren & Kommunikation</div>
             <div class="feat-list">
-              <div class="feat-item">
-                <div class="feat-dot"></div>
-                <div class="feat-content">
-                  <div class="feat-name">Sponsor-Pakete & -Verwaltung</div>
-                  <div class="feat-note">Pakete definieren, Logos hochladen, Rang auf Website</div>
+
+              <div class="feat-item" onclick="toggleFeat(this)">
+                <div class="feat-header"><div class="feat-dot"></div><div class="feat-name">Sponsor-Pakete & -Verwaltung</div><span class="feat-chevron">+</span></div>
+                <div class="feat-note">Pakete definieren, Sponsoren zuweisen</div>
+                <div class="feat-detail">
+                  <ul class="req-list">
+                    <li class="req-item">Pakete definieren: Name, Preis, Leistungen (Freitickets, Logo-Grösse etc.)</li>
+                    <li class="req-item">Sponsor einem Paket zuweisen</li>
+                    <li class="req-item">Logo im Admin hochladen (falls Sponsor das Self-Service-Portal nicht nutzt)</li>
+                    <li class="req-item">Rang auf Public Website pro Paket festlegen (Reihenfolge der Anzeige)</li>
+                    <li class="req-item">Sponsor-Portal-Einladung direkt aus dem Admin auslösen</li>
+                  </ul>
                 </div>
               </div>
-              <div class="feat-item">
-                <div class="feat-dot"></div>
-                <div class="feat-content">
-                  <div class="feat-name">Marketing-Kampagnen & Automationen</div>
-                  <div class="feat-note">Mailtrap-Anbindung, Segmentierung, automatische E-Mails</div>
+
+              <div class="feat-item" onclick="toggleFeat(this)">
+                <div class="feat-header"><div class="feat-dot"></div><div class="feat-name">Marketing & E-Mail-Automationen</div><span class="feat-chevron">+</span></div>
+                <div class="feat-note">Mailtrap-Anbindung, Segmentierung, automatische Flows</div>
+                <div class="feat-detail">
+                  <div class="feat-detail-group">
+                    <div class="feat-detail-title">Transaktionale E-Mails (automatisch)</div>
+                    <ul class="req-list">
+                      <li class="req-item">Ticket-Kaufbestätigung mit Ticket-PDF</li>
+                      <li class="req-item">Storno-Bestätigung mit Refund-Info</li>
+                      <li class="req-item">Speaker-Einladung mit Portal-Zugang</li>
+                      <li class="req-item">Sponsor-Einladung mit Portal-Zugang</li>
+                      <li class="req-item">Wartelisten-Benachrichtigung (Platz frei geworden)</li>
+                    </ul>
+                  </div>
+                  <div class="feat-detail-group">
+                    <div class="feat-detail-title">Marketing-Kampagnen (manuell / geplant)</div>
+                    <ul class="req-list">
+                      <li class="req-item">Empfänger-Segmentierung: nach Ticket-Typ, Unternehmen, Status, Anmeldedatum</li>
+                      <li class="req-item">Geplante Versands-Zeitpunkte (z.B. 7 Tage vor Event)</li>
+                      <li class="req-item">Mailtrap als Versand-Infrastruktur (API bereits vorhanden)</li>
+                      <li class="req-item tbd">Kampagnen-Planer mit Timeline-Ansicht — noch offen</li>
+                    </ul>
+                  </div>
+                  <div class="feat-detail-group">
+                    <div class="feat-detail-title">E-Mail Templates</div>
+                    <ul class="req-list">
+                      <li class="req-item">Templates mit Variablen: {'{{name}}'}, {'{{event_date}}'}, {'{{ticket_link}}'} etc.</li>
+                      <li class="req-item">HTML + Plaintext-Version pro Template</li>
+                      <li class="req-item">Im Admin editierbar ohne Deployment</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
-              <div class="feat-item">
-                <div class="feat-dot"></div>
-                <div class="feat-content">
-                  <div class="feat-name">E-Mail Templates</div>
-                  <div class="feat-note">Transaktional & Marketing — Bestätigung, Reminder, Updates</div>
-                </div>
-              </div>
+
             </div>
           </div>
+
           <div class="feat-group">
             <div class="feat-group-title">Reporting & Verwaltung</div>
             <div class="feat-list">
-              <div class="feat-item">
-                <div class="feat-dot"></div>
-                <div class="feat-content">
-                  <div class="feat-name">Statistiken & Reporting</div>
-                  <div class="feat-note">Ticket-Verkäufe, Umsatz, Check-in Rate, Session-Auslastung</div>
+
+              <div class="feat-item" onclick="toggleFeat(this)">
+                <div class="feat-header"><div class="feat-dot"></div><div class="feat-name">Statistiken & Reporting</div><span class="feat-chevron">+</span></div>
+                <div class="feat-note">Ticket-Verkäufe, Umsatz, Check-in Rate, Sessions</div>
+                <div class="feat-detail">
+                  <ul class="req-list">
+                    <li class="req-item">Ticket-Verkäufe nach Kategorie und Zeit (Verlaufskurve)</li>
+                    <li class="req-item">Umsatz gesamt und nach Kategorie (brutto / netto)</li>
+                    <li class="req-item">Check-in Rate: eingecheckt vs. gesamt (Echtzeit am Eventtag)</li>
+                    <li class="req-item">Session-Auslastung: Anmeldungen vs. Kapazität pro Session</li>
+                    <li class="req-item tbd">Vorjahresvergleich (wenn Archiv vorhanden) — noch offen</li>
+                    <li class="req-item tbd">Feedback-Ratings aggregiert pro Session — noch offen</li>
+                  </ul>
                 </div>
               </div>
-              <div class="feat-item">
-                <div class="feat-dot"></div>
-                <div class="feat-content">
-                  <div class="feat-name">Rollen-Verwaltung</div>
-                  <div class="feat-note">7 Rollen, pro Event vergeben, vollständige Berechtigungs-Architektur</div>
+
+              <div class="feat-item" onclick="toggleFeat(this)">
+                <div class="feat-header"><div class="feat-dot"></div><div class="feat-name">Rollen-Verwaltung</div><span class="feat-chevron">+</span></div>
+                <div class="feat-note">7 Rollen, pro Event vergeben</div>
+                <div class="feat-detail">
+                  <ul class="req-list">
+                    <li class="req-item">7 Rollen: Super Admin, Organizer, Sponsor Manager, Teilnehmer, Speaker, Sponsor, Check-in</li>
+                    <li class="req-item">Rollen pro Event vergeben — dieselbe Person kann in verschiedenen Events verschiedene Rollen haben</li>
+                    <li class="req-item">Einladungs-E-Mail mit Rolle direkt aus der Verwaltung auslösen</li>
+                    <li class="req-item tbd">Audit Log (wer hat wann was geändert) — noch offen</li>
+                  </ul>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
       </div>
 
-      <!-- CHECK-IN APP -->
+      <!-- ===== CHECK-IN APP ===== -->
       <div class="acc-item" data-domain="checkin" id="acc-checkin">
         <button class="acc-trigger" onclick="toggleAcc('checkin')">
           <div class="acc-domain-icon">📱</div>
@@ -539,48 +801,88 @@ body.light .theme-toggle { border-color: #e2e8f0; }
             <div class="acc-domain-name">Check-in App</div>
             <div class="acc-domain-url">checkin.d2c-summit.ch · nur am Eventtag · mobiloptimiert</div>
           </div>
-          <div class="acc-meta">
-            <span class="acc-count">5 Funktionen</span>
-            <span class="acc-chevron">▼</span>
-          </div>
+          <div class="acc-meta"><span class="acc-count">5 Features</span><span class="acc-chevron">▼</span></div>
         </button>
         <div class="acc-body">
           <div class="feat-list">
-            <div class="feat-item">
-              <div class="feat-dot"></div>
-              <div class="feat-content">
-                <div class="feat-name">QR-Code scannen — zwei Spuren</div>
-                <div class="feat-note">Registration Desk (Staff mit Hand-Scanner) + Self Check-in Kiosk (Tablet, selbst scannen)</div>
+
+            <div class="feat-item" onclick="toggleFeat(this)">
+              <div class="feat-header"><div class="feat-dot"></div><div class="feat-name">QR-Code scannen — zwei Spuren</div><span class="feat-chevron">+</span></div>
+              <div class="feat-note">Registration Desk + Self Check-in Kiosk</div>
+              <div class="feat-detail">
+                <div class="feat-detail-group">
+                  <div class="feat-detail-title">Spur A — Registration Desk</div>
+                  <ul class="req-list">
+                    <li class="req-item">Staff scannt mit USB-/Bluetooth Hand-Scanner oder Kamera</li>
+                    <li class="req-item">Stationärer Laptop/Tablet am Einlass</li>
+                  </ul>
+                </div>
+                <div class="feat-detail-group">
+                  <div class="feat-detail-title">Spur B — Self Check-in Kiosk</div>
+                  <ul class="req-list">
+                    <li class="req-item">Teilnehmer scannt selbst auf einem aufgestellten Tablet</li>
+                    <li class="req-item">Kein App-Download nötig — läuft im Browser</li>
+                    <li class="req-item">Beide Spuren gleichzeitig betreibbar, Daten synchronisiert</li>
+                  </ul>
+                </div>
               </div>
             </div>
-            <div class="feat-item">
-              <div class="feat-dot"></div>
-              <div class="feat-content">
-                <div class="feat-name">Ticket validieren & Einlass bestätigen</div>
-                <div class="feat-note">Gültig / Ungültig / Bereits eingecheckt — sofortiges Feedback</div>
+
+            <div class="feat-item" onclick="toggleFeat(this)">
+              <div class="feat-header"><div class="feat-dot"></div><div class="feat-name">Ticket validieren & Einlass bestätigen</div><span class="feat-chevron">+</span></div>
+              <div class="feat-note">Gültig / Ungültig / Bereits eingecheckt</div>
+              <div class="feat-detail">
+                <ul class="req-list">
+                  <li class="req-item"><strong>Gültig:</strong> Grüner Screen + Name, Ticket-Kategorie, Foto (falls vorhanden)</li>
+                  <li class="req-item"><strong>Ungültig:</strong> Roter Screen + Grund (storniert, falsches Event, etc.)</li>
+                  <li class="req-item"><strong>Bereits eingecheckt:</strong> Oranger Screen + Uhrzeit des ersten Check-ins</li>
+                  <li class="req-item tbd">Staff-Überschreibung (Check-in trotz Fehler erzwingen) — noch offen</li>
+                  <li class="req-item tbd">Last-Minute-Kauf: Ticket kaufen und direkt einchecken am selben Tag — noch zu validieren</li>
+                </ul>
               </div>
             </div>
-            <div class="feat-item">
-              <div class="feat-dot"></div>
-              <div class="feat-content">
-                <div class="feat-name">Badge-Druck</div>
-                <div class="feat-note">Automatisch nach Scan: Brother QL-820NWB via WiFi — Etikett auf Badge kleben</div>
+
+            <div class="feat-item" onclick="toggleFeat(this)">
+              <div class="feat-header"><div class="feat-dot"></div><div class="feat-name">Badge-Druck</div><span class="feat-chevron">+</span></div>
+              <div class="feat-note">Automatisch nach Scan, Brother QL-820NWB via WiFi</div>
+              <div class="feat-detail">
+                <ul class="req-list">
+                  <li class="req-item">Automatischer Druck nach erfolgreichem Check-in</li>
+                  <li class="req-item">Drucker: Brother QL-820NWB via WiFi — kein USB-Kabel nötig</li>
+                  <li class="req-item">Etikett-Inhalt: Name, Ticket-Kategorie, Unternehmen (+ QR-Code optional)</li>
+                  <li class="req-item">Reprint-Funktion für Staff bei Fehldrucken</li>
+                  <li class="req-item tbd">Etikett-Format und Layout — noch final festzulegen</li>
+                  <li class="req-item tbd">Mehrere Drucker parallel (bei grossem Andrang) — noch offen</li>
+                </ul>
               </div>
             </div>
-            <div class="feat-item">
-              <div class="feat-dot"></div>
-              <div class="feat-content">
-                <div class="feat-name">Live Einlass-Statistiken</div>
-                <div class="feat-note">Echtzeit-Zähler: eingecheckt / gesamt — sichtbar für Staff</div>
+
+            <div class="feat-item" onclick="toggleFeat(this)">
+              <div class="feat-header"><div class="feat-dot"></div><div class="feat-name">Live Einlass-Statistiken</div><span class="feat-chevron">+</span></div>
+              <div class="feat-note">Echtzeit-Zähler für Staff</div>
+              <div class="feat-detail">
+                <ul class="req-list">
+                  <li class="req-item">Eingecheckt / Gesamt in Echtzeit (z.B. 312 / 450)</li>
+                  <li class="req-item">Aufschlüsselung nach Ticket-Kategorie</li>
+                  <li class="req-item tbd">Separater Stats-Screen für Event-Leitung — noch offen</li>
+                  <li class="req-item tbd">Push-Benachrichtigung wenn z.B. 90% eingecheckt — noch offen</li>
+                </ul>
               </div>
             </div>
-            <div class="feat-item">
-              <div class="feat-dot"></div>
-              <div class="feat-content">
-                <div class="feat-name">Offline-Fallback</div>
-                <div class="feat-note">Funktioniert auch bei schlechtem WLAN am Veranstaltungsort</div>
+
+            <div class="feat-item" onclick="toggleFeat(this)">
+              <div class="feat-header"><div class="feat-dot"></div><div class="feat-name">Offline-Fallback</div><span class="feat-chevron">+</span></div>
+              <div class="feat-note">Funktioniert auch bei schlechtem WLAN</div>
+              <div class="feat-detail">
+                <ul class="req-list">
+                  <li class="req-item">Ticket-Liste lokal im Browser gecacht vor dem Event</li>
+                  <li class="req-item">Check-ins werden lokal gespeichert und nach Verbindungswiederherstellung synchronisiert</li>
+                  <li class="req-item tbd">Konflikt-Handling wenn dieselbe Person an zwei Kassen gleichzeitig eingecheckt wird — noch offen</li>
+                  <li class="req-item tbd">Maximale Offline-Dauer bevor Re-Sync nötig — noch offen</li>
+                </ul>
               </div>
             </div>
+
           </div>
         </div>
       </div>
@@ -596,45 +898,15 @@ body.light .theme-toggle { border-color: #e2e8f0; }
     </div>
     <div class="table-wrap">
       <table>
-        <thead>
-          <tr><th>Rolle</th><th>Was sie sehen / tun können</th><th>Domain</th></tr>
-        </thead>
+        <thead><tr><th>Rolle</th><th>Was sie sehen / tun können</th><th>Domain</th></tr></thead>
         <tbody>
-          <tr>
-            <td><strong>Super Admin</strong></td>
-            <td>Alles — Events anlegen, Rollen vergeben, vollständiger Zugang</td>
-            <td><span class="domain-tag">admin.*</span></td>
-          </tr>
-          <tr>
-            <td><strong>Organizer</strong></td>
-            <td>Event-Inhalte, Programm, Speaker, Tickets verwalten (kein Finanz-Admin)</td>
-            <td><span class="domain-tag">admin.*</span></td>
-          </tr>
-          <tr>
-            <td><strong>Sponsor Manager</strong></td>
-            <td>Sponsor-Pakete definieren, Sponsoren zuweisen und verwalten</td>
-            <td><span class="domain-tag">admin.*</span></td>
-          </tr>
-          <tr>
-            <td><strong>Teilnehmer</strong></td>
-            <td>Ticket & QR, Tagesplan, Sessions buchen, Badge, Materialien, Zertifikat</td>
-            <td><span class="domain-tag">my.*</span></td>
-          </tr>
-          <tr>
-            <td><strong>Speaker</strong></td>
-            <td>Eigenes Profil bearbeiten, Präsentationen hochladen, Feedback einsehen</td>
-            <td><span class="domain-tag">my.*</span></td>
-          </tr>
-          <tr>
-            <td><strong>Sponsor</strong></td>
-            <td>Firmenprofil, Logo-Upload, Materialien-Download, Impression-Statistiken</td>
-            <td><span class="domain-tag">my.*</span></td>
-          </tr>
-          <tr>
-            <td><strong>Check-in</strong></td>
-            <td>Nur QR-Scanner und Einlass-Statistiken — kein sonstiger Zugang</td>
-            <td><span class="domain-tag">checkin.*</span></td>
-          </tr>
+          <tr><td><strong>Super Admin</strong></td><td>Alles — Events anlegen, Rollen vergeben, vollständiger Zugang</td><td><span class="domain-tag">admin.*</span></td></tr>
+          <tr><td><strong>Organizer</strong></td><td>Event-Inhalte, Programm, Speaker, Tickets verwalten (kein Finanz-Admin)</td><td><span class="domain-tag">admin.*</span></td></tr>
+          <tr><td><strong>Sponsor Manager</strong></td><td>Sponsor-Pakete definieren, Sponsoren zuweisen und verwalten</td><td><span class="domain-tag">admin.*</span></td></tr>
+          <tr><td><strong>Teilnehmer</strong></td><td>Ticket & QR, Tagesplan, Sessions buchen, Badge, Materialien, Zertifikat</td><td><span class="domain-tag">my.*</span></td></tr>
+          <tr><td><strong>Speaker</strong></td><td>Eigenes Profil bearbeiten, Präsentationen hochladen, Feedback einsehen</td><td><span class="domain-tag">my.*</span></td></tr>
+          <tr><td><strong>Sponsor</strong></td><td>Firmenprofil, Logo-Upload, Materialien-Download, Impression-Statistiken</td><td><span class="domain-tag">my.*</span></td></tr>
+          <tr><td><strong>Check-in</strong></td><td>Nur QR-Scanner und Einlass-Statistiken — kein sonstiger Zugang</td><td><span class="domain-tag">checkin.*</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -649,8 +921,8 @@ body.light .theme-toggle { border-color: #e2e8f0; }
       <div class="section-num">04</div>
       <h2 class="section-title">Design System</h2>
     </div>
-    <div style="margin-bottom:12px;padding:16px 20px;background:rgba(183,0,61,0.04);border:1px solid rgba(183,0,61,0.2);border-radius:12px;font-size:13px;color:var(--muted)">
-      <strong style="color:var(--text)">"The Electric Editorial"</strong> — Magazine-Ästhetik mit Luxus-Editorial-Charakter. Hoher Kontrast, asymmetrische Layouts, markante Typografie. Vorbereitet in Google Stitch.
+    <div style="margin-bottom:12px;padding:14px 18px;background:rgba(183,0,61,0.04);border:1px solid rgba(183,0,61,0.2);border-radius:10px;font-size:13px;color:var(--muted)">
+      <strong style="color:var(--text)">"The Electric Editorial"</strong> — Magazine-Ästhetik mit Luxus-Editorial-Charakter. Hoher Kontrast, asymmetrische Layouts, markante Typografie (Manrope). Vorbereitet in Google Stitch.
     </div>
     <div class="design-grid">
       <div class="design-card">
@@ -658,26 +930,26 @@ body.light .theme-toggle { border-color: #e2e8f0; }
         <div class="color-swatch"><div class="swatch" style="background:#B7003D"></div><div><div class="swatch-name">Primary</div><div class="swatch-hex">#B7003D</div></div></div>
         <div class="color-swatch"><div class="swatch" style="background:#E5004F"></div><div><div class="swatch-name">Accent</div><div class="swatch-hex">#E5004F</div></div></div>
         <div class="color-swatch"><div class="swatch" style="background:#765B00"></div><div><div class="swatch-name">Gold</div><div class="swatch-hex">#765B00</div></div></div>
-        <div class="color-swatch"><div class="swatch" style="background:#FCF9F8;border:1px solid rgba(0,0,0,0.1)"></div><div><div class="swatch-name">Surface</div><div class="swatch-hex">#FCF9F8 — Warm-Weiss</div></div></div>
+        <div class="color-swatch"><div class="swatch" style="background:#FCF9F8;border:1px solid rgba(0,0,0,0.08)"></div><div><div class="swatch-name">Surface (Warm-Weiss)</div><div class="swatch-hex">#FCF9F8</div></div></div>
         <div class="color-swatch"><div class="swatch" style="background:#313030"></div><div><div class="swatch-name">Dark</div><div class="swatch-hex">#313030</div></div></div>
       </div>
       <div class="design-card">
-        <div class="design-card-label">Typografie</div>
+        <div class="design-card-label">Typografie & Abstände</div>
         <div style="font-size:22px;font-weight:800;letter-spacing:-0.02em;color:#B7003D;margin-bottom:8px">Manrope</div>
-        <div style="font-size:13px;color:var(--muted);line-height:1.8">
-          <div><span style="color:var(--text);font-weight:600">Display:</span> Impact-Charakter, Headlines eng (0.9×)</div>
-          <div><span style="color:var(--text);font-weight:600">Body:</span> Line-height 1.6×</div>
-          <div><span style="color:var(--text);font-weight:600">Labels:</span> Uppercase, 0.05em Spacing</div>
-          <div style="margin-top:8px"><span style="color:var(--text);font-weight:600">Radius:</span> 0.375rem · <span style="color:var(--text);font-weight:600">Mode:</span> Light</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.8">
+          <div><strong style="color:var(--text)">Display:</strong> Impact-Charakter, Headlines eng (0.9×)</div>
+          <div><strong style="color:var(--text)">Body:</strong> Line-height 1.6×</div>
+          <div><strong style="color:var(--text)">Labels:</strong> Uppercase, 0.05em Spacing</div>
+          <div><strong style="color:var(--text)">Abstand:</strong> 5–6 rem zwischen Hauptsektionen</div>
+          <div><strong style="color:var(--text)">Radius:</strong> 0.375rem · Mode: Light</div>
         </div>
       </div>
       <div class="design-card">
         <div class="design-card-label">Prinzipien</div>
-        <div style="display:flex;flex-direction:column;gap:7px;font-size:13px">
-          <div style="display:flex;gap:8px"><span style="color:#10b981;flex-shrink:0">✓</span><span>Glassmorphism für schwebende Elemente</span></div>
-          <div style="display:flex;gap:8px"><span style="color:#10b981;flex-shrink:0">✓</span><span>Tonale Schichtung statt Box-Shadows</span></div>
+        <div style="display:flex;flex-direction:column;gap:6px;font-size:12px">
+          <div style="display:flex;gap:8px"><span style="color:#10b981;flex-shrink:0">✓</span><span>Glassmorphism für schwebende Elemente (80% Opacity, 12px Blur)</span></div>
+          <div style="display:flex;gap:8px"><span style="color:#10b981;flex-shrink:0">✓</span><span>Tonale Schichtung statt Box-Shadows für Tiefe</span></div>
           <div style="display:flex;gap:8px"><span style="color:#10b981;flex-shrink:0">✓</span><span>Grosse Display-Typo die an Kanten „blutet"</span></div>
-          <div style="display:flex;gap:8px"><span style="color:#10b981;flex-shrink:0">✓</span><span>5–6 rem Abstand zwischen Hauptsektionen</span></div>
           <div style="display:flex;gap:8px"><span style="color:#ef4444;flex-shrink:0">✗</span><span style="color:var(--muted)">Kein Schwarz in Schatten</span></div>
           <div style="display:flex;gap:8px"><span style="color:#ef4444;flex-shrink:0">✗</span><span style="color:var(--muted)">Primary-Farbe nicht für Fliesstext</span></div>
         </div>
@@ -705,19 +977,19 @@ function toggleTheme(){
 document.addEventListener('DOMContentLoaded',function(){
   var b=document.getElementById('theme-toggle-btn');
   if(b&&document.body.classList.contains('light'))b.textContent='🌙';
-});
-
-function toggleAcc(id) {
-  var item = document.getElementById('acc-' + id);
-  item.classList.toggle('open');
-}
-
-// Open all on load for better first impression
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.acc-item').forEach(function(el) {
+  // Open all domain accordions by default
+  document.querySelectorAll('.acc-item').forEach(function(el){
     el.classList.add('open');
   });
 });
+
+function toggleAcc(id) {
+  document.getElementById('acc-' + id).classList.toggle('open');
+}
+
+function toggleFeat(el) {
+  el.classList.toggle('open');
+}
 </script>
 </body>
 </html>
