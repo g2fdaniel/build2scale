@@ -182,7 +182,7 @@ tr:hover td { background: rgba(255,255,255,0.02); }
   <div class="page-hdr-inner">
     <div class="page-bc"><a href="index.html">Inner Circle</a> / Anforderungen</div>
     <div class="page-title">Anforderungen</div>
-    <div class="page-sub">Produktfeed, Datenbankmodell, Invitation-Flow und CI/Design</div>
+    <div class="page-sub">Produktfeed, Checkout, Datenbankmodell, Invitation-Flow, CI/Design und Abnahmekriterien</div>
   </div>
 </div>
 
@@ -343,6 +343,51 @@ tr:hover td { background: rgba(255,255,255,0.02); }
     </div>
   </div>
 
+  <!-- 5. CHECKOUT & BESTELLUNGEN -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <h2 class="section-title">Checkout &amp; Bestellungen</h2>
+    </div>
+    <div class="card" style="margin-bottom:16px">
+      <p style="font-size:13px;color:var(--muted)">Der Bestellprozess läuft vollständig über die bestehende IceHawk-Infrastruktur. go2flow baut keine eigene Zahlungslogik — Saferpay und PayPal sind bereits integriert. Die vollständigen Bestelldaten werden an FortuneGlobe übergeben, die das Order Management, Logistik und Versand übernehmen.</p>
+    </div>
+    <div class="card-grid" style="margin-bottom:16px">
+      <div class="feature-card">
+        <div class="feature-icon">💳</div>
+        <div class="feature-body">
+          <h3>Zahlungsinfrastruktur</h3>
+          <p>Saferpay und PayPal über bestehende FG-Anbindung. Keine neue Zahlungslogik — go2flow nutzt die vorhandene IceHawk-Integration.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📦</div>
+        <div class="feature-body">
+          <h3>Order-Übergabe an FG</h3>
+          <p>Vollständige Bestelldaten werden an das FortuneGlobe Order-Management-System übergeben: Kundendaten, Lieferadresse, Produkte, Varianten, Preise, Zeitstempel.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🚚</div>
+        <div class="feature-body">
+          <h3>Logistik &amp; Versand</h3>
+          <p>Verarbeitung der Bestellung im FG-System — Order Management, Logistik und Versand liegen vollständig bei FortuneGlobe.</p>
+        </div>
+      </div>
+    </div>
+    <div class="changes-table">
+      <table>
+        <tr><th>Anforderung</th><th>Verantwortung</th><th>Status</th></tr>
+        <tr><td class="td-name">Saferpay-Anbindung</td><td class="td-desc">Bestehend (IceHawk)</td><td class="td-desc" style="color:var(--green)">Vorhanden</td></tr>
+        <tr><td class="td-name">PayPal-Anbindung</td><td class="td-desc">Bestehend (IceHawk)</td><td class="td-desc" style="color:var(--green)">Vorhanden</td></tr>
+        <tr><td class="td-name">Bestellerstellung in der Plattform</td><td class="td-desc">go2flow</td><td class="td-desc" style="color:var(--gold)">MVP</td></tr>
+        <tr><td class="td-name">Order-Übergabeschnittstelle an FG</td><td class="td-desc">go2flow + FG</td><td class="td-desc" style="color:var(--gold)">Zu definieren</td></tr>
+        <tr><td class="td-name">Order Management / Logistik / Versand</td><td class="td-desc">FortuneGlobe</td><td class="td-desc" style="color:var(--green)">Vorhanden</td></tr>
+        <tr><td class="td-name">Produktives Deployment</td><td class="td-desc">FortuneGlobe / Fortune Solutions</td><td class="td-desc" style="color:var(--green)">Zugesagt</td></tr>
+      </table>
+    </div>
+  </div>
+
   <!-- 4. CI / DESIGN -->
   <div class="section">
     <div class="section-header">
@@ -403,6 +448,77 @@ tr:hover td { background: rgba(255,255,255,0.02); }
         <tr><td class="td-name">Favicon</td><td style="font-family:Monaco,monospace;font-size:12px;color:var(--gold)">ICO / PNG</td><td class="td-desc">Geliefert (C-Symbol mit Punkt)</td></tr>
         <tr><td class="td-name">Adobe XD Specs Desktop</td><td style="font-family:Monaco,monospace;font-size:12px;color:var(--gold)">XD Link</td><td class="td-desc" style="color:var(--accent2)">Verfügbar ↗</td></tr>
         <tr><td class="td-name">Adobe XD Specs Mobile</td><td style="font-family:Monaco,monospace;font-size:12px;color:var(--gold)">XD Link</td><td class="td-desc" style="color:var(--accent2)">Verfügbar ↗</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- 6. ABNAHMEKRITERIEN -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <h2 class="section-title">Abnahmekriterien</h2>
+    </div>
+    <div class="card" style="margin-bottom:16px">
+      <p style="font-size:13px;color:var(--muted)">Das MVP gilt als erfolgreich bereitgestellt, wenn alle folgenden Kriterien erfüllt sind. Grundlage: Lastenheft Fortuneglobe.</p>
+    </div>
+    <div class="changes-table">
+      <table>
+        <tr><th>#</th><th>Abnahmekriterium</th><th>Bereich</th></tr>
+        <tr>
+          <td style="font-family:Monaco,monospace;font-size:12px;color:var(--accent2);white-space:nowrap">AK-01</td>
+          <td class="td-desc">Der Inner Circle ist als geschlossene Plattform funktionsfähig</td>
+          <td class="td-desc">Plattform</td>
+        </tr>
+        <tr>
+          <td style="font-family:Monaco,monospace;font-size:12px;color:var(--accent2);white-space:nowrap">AK-02</td>
+          <td class="td-desc">Benutzer können einloggen, Produkte ansehen und den Club-Rabatt korrekt sehen</td>
+          <td class="td-desc">Auth + Katalog</td>
+        </tr>
+        <tr>
+          <td style="font-family:Monaco,monospace;font-size:12px;color:var(--accent2);white-space:nowrap">AK-03</td>
+          <td class="td-desc">Such- und Filterfunktionen funktionieren</td>
+          <td class="td-desc">Katalog</td>
+        </tr>
+        <tr>
+          <td style="font-family:Monaco,monospace;font-size:12px;color:var(--accent2);white-space:nowrap">AK-04</td>
+          <td class="td-desc">Eine Bestellung ist vollständig durchführbar (inkl. Zahlungsabwicklung)</td>
+          <td class="td-desc">Checkout</td>
+        </tr>
+        <tr>
+          <td style="font-family:Monaco,monospace;font-size:12px;color:var(--accent2);white-space:nowrap">AK-05</td>
+          <td class="td-desc">Alle Bestelldaten werden erfolgreich an FortuneGlobe übergeben</td>
+          <td class="td-desc">Schnittstelle</td>
+        </tr>
+        <tr>
+          <td style="font-family:Monaco,monospace;font-size:12px;color:var(--accent2);white-space:nowrap">AK-06</td>
+          <td class="td-desc">Nutzer können andere Nutzer einladen</td>
+          <td class="td-desc">Einladungssystem</td>
+        </tr>
+        <tr>
+          <td style="font-family:Monaco,monospace;font-size:12px;color:var(--accent2);white-space:nowrap">AK-07</td>
+          <td class="td-desc">Der Admin kann im Backend die Referral-Nachverfolgung einsehen</td>
+          <td class="td-desc">Admin</td>
+        </tr>
+        <tr>
+          <td style="font-family:Monaco,monospace;font-size:12px;color:var(--accent2);white-space:nowrap">AK-08</td>
+          <td class="td-desc">Die Anzahl der erlaubten Einladungen pro Nutzer ist im Backend anpassbar</td>
+          <td class="td-desc">Admin</td>
+        </tr>
+        <tr>
+          <td style="font-family:Monaco,monospace;font-size:12px;color:var(--accent2);white-space:nowrap">AK-09</td>
+          <td class="td-desc">Zahlungen über Saferpay und PayPal (FG-Infrastruktur) funktionieren</td>
+          <td class="td-desc">Zahlung</td>
+        </tr>
+        <tr>
+          <td style="font-family:Monaco,monospace;font-size:12px;color:var(--accent2);white-space:nowrap">AK-10</td>
+          <td class="td-desc">Die Plattform läuft stabil in der Test-/Staging-Umgebung (stage.inner-circle.com)</td>
+          <td class="td-desc">Bereitstellung</td>
+        </tr>
+        <tr>
+          <td style="font-family:Monaco,monospace;font-size:12px;color:var(--accent2);white-space:nowrap">AK-11</td>
+          <td class="td-desc">Die MVP-Version kann als Grundlage für Nutzungs- und Kaufverhaltensanalysen genutzt werden</td>
+          <td class="td-desc">Analyse</td>
+        </tr>
       </table>
     </div>
   </div>
