@@ -62,6 +62,18 @@ td { padding: 11px 18px; border-bottom: 1px solid rgba(30,42,58,0.5); vertical-a
 tr:last-child td { border-bottom: none; }
 tr:hover td { background: rgba(255,255,255,0.02); }
 td:last-child { color: var(--accent2); font-weight: 600; }
+/* MVP Frame */
+.frame-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.frame-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 22px 24px; }
+.frame-card.full { grid-column: 1 / -1; }
+.frame-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; color: var(--accent2); margin-bottom: 10px; }
+.frame-text { font-size: 14px; color: var(--text); line-height: 1.7; }
+.frame-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+.frame-list li { font-size: 13px; color: var(--muted); display: flex; gap: 8px; line-height: 1.5; }
+.frame-list li::before { content: '→'; color: var(--accent2); flex-shrink: 0; font-weight: 700; }
+.frame-list li strong { color: var(--text); }
+.frame-card.hypothesis { border-color: rgba(13,148,136,0.3); background: rgba(13,148,136,0.04); }
+body.light .frame-card.hypothesis { background: rgba(13,148,136,0.03); border-color: rgba(13,148,136,0.2); }
 .nav-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
 .nav-card { display: flex; align-items: center; gap: 18px; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 22px; text-decoration: none; color: var(--text); transition: border-color 0.15s, background 0.15s; }
 .nav-card:hover { border-color: rgba(13,148,136,0.4); background: var(--card2); }
@@ -143,10 +155,41 @@ body.light .footer { border-top-color: #e2e8f0; }
 
 <div class="container">
 
-  <!-- 01 Ausgangslage & Lösung -->
+  <!-- 01 MVP Frame -->
   <div class="section">
     <div class="section-header">
       <div class="section-num">01</div>
+      <h2 class="section-title">MVP Framing</h2>
+    </div>
+    <div class="frame-grid">
+      <div class="frame-card">
+        <div class="frame-label">Problem</div>
+        <div class="frame-text">AMAG verliert Zubehör-Umsatz, weil Kunden heute nicht wissen was sie wollen — das generische Offerte-Formular liefert unqualifizierte Anfragen, die intern teuer zu verarbeiten sind.</div>
+      </div>
+      <div class="frame-card">
+        <div class="frame-label">Zielgruppe</div>
+        <div class="frame-text">AMAG-Kunden, die ein Fahrzeug besitzen (VW, Audi, SEAT, Skoda, CUPRA) und aktiv nach passendem Original-Zubehör suchen — aber ohne Beratung aufgeben oder gar nicht erst anfragen.</div>
+      </div>
+      <div class="frame-card hypothesis full">
+        <div class="frame-label">Hypothese</div>
+        <div class="frame-text">Wenn wir dem Kunden seinen Fahrzeugtyp eingeben lassen und ihm passende Produkte vorschlagen, steigt die Anfrage-Qualität und die Stückzahl pro Bestellung — und AMAG generiert mehr Zubehör-Umsatz ohne zusätzlichen Beratungsaufwand.</div>
+      </div>
+      <div class="frame-card full">
+        <div class="frame-label">Wie wir das testen — Minimal Scope</div>
+        <ul class="frame-list">
+          <li><strong>1 Landing Page</strong> mit klarer Botschaft: „Finde das passende Zubehör für dein Fahrzeug"</li>
+          <li><strong>1 Konfigurator:</strong> Marke → Modell → passende Produkte (20–30 Produkte reichen für den Test)</li>
+          <li><strong>1 strukturiertes Formular:</strong> Fahrzeug + Produktwahl + Kontakt → Mail an AMAG</li>
+          <li><strong>Kein</strong> Shop, kein Payment, kein Backend — das ist das Wichtigste für den MVP</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 Ausgangslage & Lösung -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">02</div>
       <h2 class="section-title">Ausgangslage & Lösung</h2>
     </div>
     <div class="two-col">
@@ -173,10 +216,10 @@ body.light .footer { border-top-color: #e2e8f0; }
     </div>
   </div>
 
-  <!-- 02 Erfolgsmessung -->
+  <!-- 03 Erfolgsmessung -->
   <div class="section">
     <div class="section-header">
-      <div class="section-num">02</div>
+      <div class="section-num">03</div>
       <h2 class="section-title">Erfolgsmessung — Wann ist der MVP erfolgreich?</h2>
     </div>
     <div class="kpi-table-wrap">
@@ -195,10 +238,10 @@ body.light .footer { border-top-color: #e2e8f0; }
     </div>
   </div>
 
-  <!-- 03 Blueprint-Seiten -->
+  <!-- 04 Dokumente -->
   <div class="section">
     <div class="section-header">
-      <div class="section-num">03</div>
+      <div class="section-num">04</div>
       <h2 class="section-title">Dokumente</h2>
     </div>
     <div class="nav-cards">
