@@ -155,27 +155,27 @@ body.light .acc-item[data-domain="checkin"] .acc-domain-icon { background: rgba(
   .acc-body { padding: 0 16px 16px; }
 }
 /* Collab UI */
+.feat-dot { cursor: pointer; transition: background 0.2s, transform 0.15s; }
+.feat-dot:hover { transform: scale(1.4); }
+.feat-item.confirmed .feat-dot { background: var(--green); box-shadow: 0 0 6px rgba(16,185,129,0.5); }
+.feat-count { display: none; align-items: center; justify-content: center; min-width: 16px; height: 16px; padding: 0 4px; background: rgba(13,148,136,0.15); border: 1px solid rgba(13,148,136,0.3); border-radius: 8px; font-size: 9px; font-weight: 700; color: var(--accent2); margin-left: 2px; line-height: 1; }
+.feat-count.visible { display: inline-flex; }
 .collab-section { margin-top: 14px; padding-top: 12px; border-top: 1px dashed rgba(13,148,136,0.2); }
-.collab-status-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
-.collab-status-label { font-size: 11px; color: var(--muted); flex-shrink: 0; }
-.btn-confirm { font-size: 11px; padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(13,148,136,0.35); background: rgba(13,148,136,0.08); color: var(--accent2); cursor: pointer; font-family: inherit; transition: all 0.15s; font-weight: 500; line-height: 1.4; }
-.btn-confirm:hover { background: rgba(13,148,136,0.18); }
-.btn-confirm.confirmed { background: rgba(16,185,129,0.12); border-color: rgba(16,185,129,0.4); color: var(--green); }
-.collab-updated { font-size: 10px; color: rgba(100,116,139,0.45); }
+.collab-title { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 8px; }
 .comments-list { display: flex; flex-direction: column; gap: 5px; margin-bottom: 7px; }
 .comment-item { background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.05); border-radius: 7px; padding: 7px 10px; }
 .comment-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px; }
 .comment-author { font-size: 10px; font-weight: 700; color: var(--accent2); }
 .comment-time { font-size: 10px; color: rgba(100,116,139,0.45); }
 .comment-text { font-size: 12px; color: rgba(226,232,240,0.7); line-height: 1.45; }
+.collab-empty { font-size: 11px; color: rgba(100,116,139,0.4); font-style: italic; }
 .collab-loading { font-size: 11px; color: rgba(100,116,139,0.4); }
 .add-comment-row { display: flex; gap: 6px; }
 .comment-input { flex: 1; background: var(--card); border: 1px solid var(--border); border-radius: 7px; padding: 6px 10px; font-size: 12px; color: var(--text); font-family: inherit; resize: none; min-height: 32px; }
 .comment-input:focus { outline: none; border-color: rgba(13,148,136,0.4); }
 .btn-send { padding: 5px 12px; background: rgba(13,148,136,0.12); border: 1px solid rgba(13,148,136,0.3); border-radius: 7px; color: var(--accent2); font-size: 12px; cursor: pointer; font-family: inherit; white-space: nowrap; font-weight: 500; }
 .btn-send:hover { background: rgba(13,148,136,0.22); }
-.feat-item.confirmed .feat-dot { background: var(--green); }
-.author-bar { display: flex; align-items: center; gap: 10px; padding: 10px 16px; background: rgba(13,148,136,0.05); border: 1px solid rgba(13,148,136,0.18); border-radius: 10px; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; }
+.author-bar { display: flex; align-items: center; gap: 8px; padding: 10px 16px; background: rgba(13,148,136,0.05); border: 1px solid rgba(13,148,136,0.18); border-radius: 10px; margin-bottom: 14px; flex-wrap: wrap; }
 .author-bar-label { font-size: 12px; color: var(--muted); white-space: nowrap; }
 .author-name-input { background: var(--card); border: 1px solid var(--border); border-radius: 7px; padding: 5px 10px; font-size: 12px; color: var(--text); font-family: inherit; width: 160px; }
 .author-name-input:focus { outline: none; border-color: rgba(13,148,136,0.4); }
@@ -1025,11 +1025,11 @@ function toggleFeat(el){
 }
 
 // ─── Supabase ────────────────────────────────────────────────
-var _sb = supabase.createClient(
+var _sb=supabase.createClient(
   'https://telbxreqdvgidknelhwv.supabase.co',
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRlbGJ4cmVxZHZnaWRrbmVsaHd2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQyOTg3ODMsImV4cCI6MjA4OTg3NDc4M30.Tio8pDdDPuawqGwJtHV6234WJUYuFn2y1RVDOM0Nf64'
 );
-var PROJECT = 'd2c-summit';
+var PROJECT='d2c-summit';
 
 // ─── Author ──────────────────────────────────────────────────
 function getAuthor(){ return localStorage.getItem('collab-author')||''; }
@@ -1051,6 +1051,30 @@ function assignFids(){
   });
 }
 
+// ─── Setup clickable dots + count badges ─────────────────────
+function setupDots(){
+  document.querySelectorAll('.feat-item').forEach(function(item){
+    var dot=item.querySelector('.feat-dot');
+    if(!dot) return;
+    // Tooltip
+    dot.title='Klicken zum Bestätigen';
+    // Click handler — stops propagation so it doesn't expand the feat-item
+    dot.addEventListener('click',function(e){
+      e.stopPropagation();
+      var fid=item.dataset.fid;
+      if(!fid) return;
+      var author=getAuthor();
+      if(!author){ document.getElementById('author-input').focus(); alert('Bitte zuerst deinen Namen eingeben (oben).'); return; }
+      toggleStatus(fid,author);
+    });
+    // Inject comment count badge after dot
+    var badge=document.createElement('span');
+    badge.className='feat-count';
+    badge.id='cnt-'+item.dataset.fid;
+    dot.insertAdjacentElement('afterend',badge);
+  });
+}
+
 // ─── Status Cache & Apply ─────────────────────────────────────
 var _cache={};
 function applyStatus(fid,confirmed,updatedBy){
@@ -1058,35 +1082,48 @@ function applyStatus(fid,confirmed,updatedBy){
   var item=document.querySelector('[data-fid="'+fid+'"]');
   if(!item) return;
   item.classList.toggle('confirmed',!!confirmed);
-  var btn=item.querySelector('.btn-confirm');
-  if(btn){ btn.textContent=confirmed?'✓ Bestätigt':'Bestätigen'; btn.classList.toggle('confirmed',!!confirmed); }
-  var upd=item.querySelector('.collab-updated');
-  if(upd) upd.textContent=updatedBy?'von '+updatedBy:'';
+  var dot=item.querySelector('.feat-dot');
+  if(dot) dot.title=confirmed
+    ?('✓ Bestätigt'+(updatedBy?' von '+updatedBy:'')+' — klicken zum Zurücksetzen')
+    :'Klicken zum Bestätigen';
 }
 async function loadStatuses(){
   var res=await _sb.from('feature_status').select('feature_id,confirmed,updated_by').eq('project_id',PROJECT);
   if(res.data) res.data.forEach(function(r){ applyStatus(r.feature_id,r.confirmed,r.updated_by); });
 }
 
-// ─── Collab UI Injection ──────────────────────────────────────
+// ─── Comment Counts ───────────────────────────────────────────
+async function loadCommentCounts(){
+  var res=await _sb.from('feature_comments').select('feature_id').eq('project_id',PROJECT);
+  if(!res.data) return;
+  var counts={};
+  res.data.forEach(function(r){ counts[r.feature_id]=(counts[r.feature_id]||0)+1; });
+  Object.keys(counts).forEach(function(fid){
+    var badge=document.getElementById('cnt-'+fid);
+    if(badge){ badge.textContent=counts[fid]; badge.classList.add('visible'); }
+  });
+}
+function bumpCount(fid){
+  var badge=document.getElementById('cnt-'+fid);
+  if(!badge) return;
+  var n=(parseInt(badge.textContent)||0)+1;
+  badge.textContent=n;
+  badge.classList.add('visible');
+}
+
+// ─── Collab UI (comments only — dot handles confirmation) ─────
 function injectCollabUI(item){
   if(item.querySelector('.collab-section')) return;
   var fid=item.dataset.fid||'';
   var detail=item.querySelector('.feat-detail');
   if(!detail) return;
-  var s=_cache[fid]||{};
-  var confirmed=s.confirmed||false;
-  var updatedBy=s.updatedBy||'';
   detail.insertAdjacentHTML('beforeend',
     '<div class="collab-section" onclick="event.stopPropagation()">'+
-      '<div class="collab-status-row">'+
-        '<span class="collab-status-label">Status:</span>'+
-        '<button class="btn-confirm'+(confirmed?' confirmed':'')+'" onclick="toggleStatus(\''+fid+'\')">'+(confirmed?'✓ Bestätigt':'Bestätigen')+'</button>'+
-        '<span class="collab-updated">'+(updatedBy?'von '+updatedBy:'')+'</span>'+
-      '</div>'+
+      '<div class="collab-title">Kommentare</div>'+
       '<div class="comments-list" id="cmts-'+fid+'"><span class="collab-loading">…</span></div>'+
       '<div class="add-comment-row">'+
-        '<textarea class="comment-input" id="inp-'+fid+'" placeholder="Kommentar… (Enter zum Senden)" rows="1" onclick="event.stopPropagation()" onkeydown="handleCommentKey(event,\''+fid+'\')"></textarea>'+
+        '<textarea class="comment-input" id="inp-'+fid+'" placeholder="Feedback oder offene Frage… (Enter senden)" rows="1"'+
+          ' onclick="event.stopPropagation()" onkeydown="handleCommentKey(event,\''+fid+'\')"></textarea>'+
         '<button class="btn-send" onclick="addComment(\''+fid+'\')">Senden</button>'+
       '</div>'+
     '</div>'
@@ -1112,13 +1149,13 @@ async function loadComments(fid){
   if(!el) return;
   var res=await _sb.from('feature_comments').select('author,content,created_at')
     .eq('feature_id',fid).eq('project_id',PROJECT).order('created_at',{ascending:true});
-  el.innerHTML=(res.data&&res.data.length)?res.data.map(commentHtml).join(''):'';
+  el.innerHTML=(res.data&&res.data.length)
+    ? res.data.map(commentHtml).join('')
+    : '<span class="collab-empty">Noch keine Kommentare</span>';
 }
 
 // ─── Actions ──────────────────────────────────────────────────
-async function toggleStatus(fid){
-  var author=getAuthor();
-  if(!author){ document.getElementById('author-input').focus(); alert('Bitte zuerst deinen Namen eingeben (oben).'); return; }
+async function toggleStatus(fid,author){
   var newVal=!(_cache[fid]||{}).confirmed;
   applyStatus(fid,newVal,author);
   await _sb.from('feature_status').upsert(
@@ -1139,7 +1176,11 @@ async function addComment(fid){
     .select('author,content,created_at');
   if(res.data&&res.data[0]){
     var el=document.getElementById('cmts-'+fid);
-    if(el) el.insertAdjacentHTML('beforeend',commentHtml(res.data[0]));
+    if(el){
+      el.querySelector('.collab-empty')&&(el.innerHTML='');
+      el.insertAdjacentHTML('beforeend',commentHtml(res.data[0]));
+    }
+    bumpCount(fid);
   }
 }
 function handleCommentKey(e,fid){
@@ -1157,8 +1198,12 @@ function setupRealtime(){
     .on('postgres_changes',{event:'INSERT',schema:'public',table:'feature_comments'},function(p){
       var r=p.new||{};
       if(r.project_id!==PROJECT) return;
+      bumpCount(r.feature_id);
       var el=document.getElementById('cmts-'+r.feature_id);
-      if(el) el.insertAdjacentHTML('beforeend',commentHtml(r));
+      if(el){
+        el.querySelector('.collab-empty')&&(el.innerHTML='');
+        el.insertAdjacentHTML('beforeend',commentHtml(r));
+      }
     })
     .subscribe();
 }
@@ -1169,7 +1214,9 @@ document.addEventListener('DOMContentLoaded',function(){
   if(b&&document.body.classList.contains('light')) b.textContent='🌙';
   document.querySelectorAll('.acc-item').forEach(function(el){ el.classList.add('open'); });
   assignFids();
+  setupDots();
   loadStatuses();
+  loadCommentCounts();
   setupRealtime();
   var ai=document.getElementById('author-input');
   if(ai){
