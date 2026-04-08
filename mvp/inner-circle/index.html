@@ -93,6 +93,27 @@ body.light .flow-arrow { color: #94a3b8; }
 .theme-toggle { margin-left: auto; background: none; border: 1px solid var(--border); border-radius: 8px; width: 32px; height: 32px; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: background 0.15s; flex-shrink: 0; line-height: 1; }
 .theme-toggle:hover { background: rgba(255,255,255,0.08); }
 body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
+/* ===== MVP Sections ===== */
+.mvp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+.mvp-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 24px; }
+.mvp-card-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent2); margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+.mvp-card-text { font-size: 14px; color: var(--text); line-height: 1.65; }
+.mvp-card-text p + p { margin-top: 8px; }
+.success-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.success-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--muted); line-height: 1.5; }
+.success-list li::before { content: '○'; color: var(--accent2); font-size: 12px; flex-shrink: 0; margin-top: 2px; }
+.success-list li.filled::before { content: '●'; }
+.go-nogo { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+.go-box { border-radius: 10px; padding: 14px 16px; }
+.go-box.go { background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.2); }
+.go-box.nogo { background: rgba(239,68,68,0.07); border: 1px solid rgba(239,68,68,0.2); }
+.go-box-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+.go-box.go .go-box-label { color: var(--green); }
+.go-box.nogo .go-box-label { color: var(--red); }
+.go-box-text { font-size: 13px; color: var(--muted); line-height: 1.5; }
+body.light .mvp-card { background: #fff; border-color: #e2e8f0; }
+body.light .go-box.go { background: rgba(16,185,129,0.06); }
+body.light .go-box.nogo { background: rgba(239,68,68,0.05); }
 /* ===== Changelog ===== */
 .changelog { display: flex; flex-direction: column; gap: 0; }
 .cl-entry { display: grid; grid-template-columns: 80px 64px 1fr; gap: 0 20px; padding: 14px 0; border-bottom: 1px solid var(--border); align-items: baseline; }
@@ -146,6 +167,94 @@ body.light .cl-entry { border-bottom-color: #e2e8f0; }
 </div>
 
 <div class="container">
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">A</div>
+      <h2 class="section-title">Ausgangslage</h2>
+    </div>
+    <div class="mvp-grid">
+      <div class="mvp-card">
+        <div class="mvp-card-label">🏗️ Kontext</div>
+        <div class="mvp-card-text">
+          <p>Fortuneglobe betreibt eine bestehende B2B-E-Commerce-Infrastruktur auf Basis des IceHawk-Frameworks (PHP 8, CQRS) für zwei Modemarken (GM + CYS). Bestehende B2B-Kunden sind Einkäufer aus Unternehmen, die über den Shop Kleidung zu Konditionen beziehen.</p>
+          <p>Das Unternehmen möchte diese Kundenbindung vertiefen — mit einem exklusiven, geschlossenen Mitgliederclub, der einladungsbasiert funktioniert und Sonderpreise für Mitglieder bietet. Die neue Funktionalität wird als Erweiterung auf der bestehenden Infrastruktur gebaut, nicht als eigenständiges System.</p>
+        </div>
+      </div>
+      <div class="mvp-card">
+        <div class="mvp-card-label">🎯 Opportunity</div>
+        <div class="mvp-card-text">
+          <p>Aktuell gibt es keine differenzierte Kundenbindung — alle B2B-Kunden haben dieselbe Erfahrung. Ein exklusiver Club könnte:</p>
+          <p>• Stammkunden stärker an die Plattform binden<br>• Weiterempfehlung über Member-Referrals anschieben<br>• Zusatzumsatz durch Club-exklusive Angebote generieren<br>• Einen klaren Vorteil gegenüber dem B2C-Markt schaffen</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">F</div>
+      <h2 class="section-title">Fragestellung</h2>
+    </div>
+    <div class="mvp-card" style="background: rgba(13,148,136,0.05); border-color: rgba(13,148,136,0.25)">
+      <div class="mvp-card-label">❓ Kernhypothese die wir testen</div>
+      <div class="mvp-card-text" style="font-size:16px; font-weight:600; line-height:1.6; color:var(--text)">
+        Nehmen B2B-Kunden (Unternehmen und ihre Mitarbeiter) das Angebot eines geschlossenen Einkaufsclubs mit Einladungs-Zugang und Sonderpreisen an — und führt das zu messbarem Zusatzumsatz auf der Fortuneglobe-Plattform?
+      </div>
+    </div>
+    <div class="mvp-grid" style="margin-top:16px">
+      <div class="mvp-card">
+        <div class="mvp-card-label">📌 Teilhypothesen</div>
+        <div class="mvp-card-text">
+          <p>1. <strong>Zugang:</strong> Unternehmen nehmen Admin-Einladungen an und melden sich aktiv an.</p>
+          <p>2. <strong>Weiterempfehlung:</strong> Mitglieder laden ihrerseits Kollegen ein (Referral-Funktion wird genutzt).</p>
+          <p>3. <strong>Kaufverhalten:</strong> Club-Mitglieder kaufen häufiger oder in grösseren Mengen als reguläre B2B-Kunden.</p>
+          <p>4. <strong>Preissensitivität:</strong> Der Sonderpreis ist ein echter Kaufanreiz — nicht nur ein nettes Feature.</p>
+        </div>
+      </div>
+      <div class="mvp-card">
+        <div class="mvp-card-label">🔬 Was wir NICHT testen</div>
+        <div class="mvp-card-text">
+          <p>• Ob das Konzept auch für B2C-Kunden funktioniert</p>
+          <p>• Ob ein anderes Preismodell besser wäre</p>
+          <p>• Ob Gamification (Punkte, Levels) Mehrwert bringt</p>
+          <p>Das alles ist Post-MVP — erst wenn die Kernhypothese bestätigt ist.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">E</div>
+      <h2 class="section-title">Erfolgskriterien — Go / No-Go</h2>
+    </div>
+    <div class="mvp-grid">
+      <div class="mvp-card">
+        <div class="mvp-card-label">📊 KPIs nach 8 Wochen Live-Betrieb</div>
+        <ul class="success-list">
+          <li>X registrierte Mitglieder (Unternehmen + Mitarbeiter) — <em>Zahl noch festzulegen</em></li>
+          <li>X Bestellungen über den Inner Circle — <em>Zahl noch festzulegen</em></li>
+          <li>Conversion Rate (Einladung → Registrierung) ≥ X% — <em>Zahl noch festzulegen</em></li>
+          <li>Mindestens X% der Mitglieder haben mindestens 1 Bestellung</li>
+          <li>NPS / qualitatives Feedback: positiv genug für Weiterentwicklung</li>
+        </ul>
+      </div>
+      <div class="mvp-card">
+        <div class="mvp-card-label">✅ Entscheidungsrahmen</div>
+        <div class="go-nogo">
+          <div class="go-box go">
+            <div class="go-box-label">Go — weiter investieren</div>
+            <div class="go-box-text">KPIs erfüllt, positives Feedback, klarer Mehrwert für Fortuneglobe. Nächste Phase: Gamification, erweiterte Rabattstufen, B2C-Erweiterung prüfen.</div>
+          </div>
+          <div class="go-box nogo">
+            <div class="go-box-label">No-Go — Pivot oder Stop</div>
+            <div class="go-box-text">KPIs deutlich verfehlt, keine Nutzung trotz Einladungen. Ursache analysieren: falsches Incentive? Falsche Zielgruppe? Zu viel Reibung beim Einstieg?</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="section">
     <div class="section-header">

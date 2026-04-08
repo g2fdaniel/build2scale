@@ -93,6 +93,13 @@ body.light .flow-arrow { color: #94a3b8; }
 .theme-toggle { margin-left: auto; background: none; border: 1px solid var(--border); border-radius: 8px; width: 32px; height: 32px; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: background 0.15s; flex-shrink: 0; line-height: 1; }
 .theme-toggle:hover { background: rgba(255,255,255,0.08); }
 body.light .theme-toggle:hover { background: rgba(0,0,0,0.05); }
+/* ===== Ausgangslage Cards ===== */
+.al-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+.al-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 24px; }
+.al-card-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent2); margin-bottom: 10px; }
+.al-card-text { font-size: 14px; color: var(--text); line-height: 1.65; }
+.al-card-text p + p { margin-top: 8px; }
+body.light .al-card { background: #fff; border-color: #e2e8f0; }
 /* ===== Changelog ===== */
 .changelog { display: flex; flex-direction: column; gap: 0; }
 .cl-entry { display: grid; grid-template-columns: 80px 64px 1fr; gap: 0 20px; padding: 14px 0; border-bottom: 1px solid var(--border); align-items: baseline; }
@@ -132,7 +139,7 @@ body.light .cl-entry { border-bottom-color: #e2e8f0; }
 
 <div class="hero">
   <div style="max-width:1100px;margin:0 auto">
-    <div class="hero-badge"><span>◆</span> Umsetzungskonzept Phase I</div>
+    <div class="hero-badge"><span>◆</span> Build Blueprint</div>
     <h1>D2C Summit Platform<br><span>Event Management — vollständig neu</span></h1>
     <p class="hero-sub">Wiederverwendbare Event Management Platform für den jährlichen D2C Summit — ein Backend als Single Source of Truth für alle Frontends. Greenfield-Projekt, gebaut von Go 2 Flow.</p>
     <div class="hero-meta">
@@ -147,6 +154,38 @@ body.light .cl-entry { border-bottom-color: #e2e8f0; }
 </div>
 
 <div class="container">
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">A</div>
+      <h2 class="section-title">Ausgangslage</h2>
+    </div>
+    <div class="al-grid">
+      <div class="al-card">
+        <div class="al-card-label">🎪 Kontext</div>
+        <div class="al-card-text">
+          <p>Der D2C Summit ist eine jährliche Konferenz im D2C- und E-Commerce-Umfeld. Bisher wurde das Event-Management auf Basis von Drittanbieter-Lösungen und manuellen Prozessen abgewickelt — Ticketing, Speaker-Koordination, Teilnehmer-Verwaltung und Programmplanung liefen über verschiedene, nicht integrierte Tools.</p>
+          <p>Das führt zu hohem manuellem Aufwand, fehlender Datenkonsistenz und einer schlechten Teilnehmererfahrung (kein persönliches Portal, keine automatisierten Kommunikations-Flows).</p>
+        </div>
+      </div>
+      <div class="al-card">
+        <div class="al-card-label">🏗️ Warum jetzt bauen</div>
+        <div class="al-card-text">
+          <p>Go 2 Flow baut eine eigene Event-Management-Plattform als Greenfield-Projekt — mit einem Backend als Single Source of Truth für alle Frontends (Public Website, My Summit Portal, Admin Backend, Check-in App).</p>
+          <p>Das Ziel: eine wiederverwendbare, skalierbare Plattform die für den D2C Summit 2026 live geht und danach für weitere Events eingesetzt werden kann — ohne externe Tools, ohne Datenverlust, ohne manuelle Prozesse.</p>
+        </div>
+      </div>
+      <div class="al-card">
+        <div class="al-card-label">⚡ Technischer Stack</div>
+        <div class="al-card-text">
+          <p><strong>Backend:</strong> Laravel (PHP) — REST API, rollenbasierte Rechte, Event-Datenmodell<br>
+          <strong>Frontend:</strong> Nuxt 4 (Vue.js) — SSR, SEO-optimiert für Public Website<br>
+          <strong>Hosting:</strong> Cloud-basiert, skalierbar<br>
+          <strong>Integrationen:</strong> Payrexx (Checkout), Mailtrap (Marketing E-Mails), Brother QL-820NWB (Badge-Druck)</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="section">
     <div class="section-header">
